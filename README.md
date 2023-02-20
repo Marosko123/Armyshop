@@ -1,2 +1,4 @@
 # Traja vandraci programuju webstranku
-dobry vecer
+# dobry vecer
+
+# kontrola gitu cez vs code mikyy
