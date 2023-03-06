@@ -1,4 +1,17 @@
-# Traja vandraci programuju webstranku
-# dobry vecer
+# Armyshop
 
-# kontrola gitu cez vs code mikyy
+Armyshop is a web-application where you can buy military equipment
+
+## Installation
+
+```bash
+pip install Armyshop
+```
+
+## Usage
+
+## Contributing
+
+## License
+
+## Authors
