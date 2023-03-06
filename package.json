@@ -1,0 +1,19 @@
+{
+  "name": "armyshop",
+  "version": "1.0.0",
+  "description": "Armyshop is a web-application where you can buy military equipment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Marosko123/Armyshop.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Marosko123/Armyshop/issues"
+  },
+  "homepage": "https://github.com/Marosko123/Armyshop#readme"
+}
