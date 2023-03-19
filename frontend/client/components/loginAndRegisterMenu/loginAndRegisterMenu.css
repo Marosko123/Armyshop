@@ -1,0 +1,115 @@
+.form-controller {
+    width: 100%;
+    max-width: 320px;
+    padding: 15px;
+    margin: auto;
+    box-shadow: rgba(0, 0, 0, 0.678) 0px 0px 150px 80px;
+    border-radius: 10px;
+    scale: 1.5;
+    user-select: none;
+    background-color: #8f8f8f93;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #f5f5f5;
+    margin: 0;
+    font-family: 'Roboto Condensed', serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 0.8;
+    color: #000000;
+    background-color: #fff;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+label {
+    display: inline-block;
+}
+
+.text-center {
+    text-align: center!important;
+}
+
+html, body {
+    height: 100%;
+}
+
+.header-wrapper {
+    display:flex;
+    height: 20px;
+    
+}
+
+.header-line {
+    background-color: rgb(0, 113, 34);
+    height: 1px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.header-wrapper .header {
+    width: -webkit-fill-available;
+    font-weight: 800;
+}
+
+.header-wrapper .close-button {
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+}
+
+.header-wrapper .close-button:hover {
+    background-color: rgba(226, 226, 226, 0.8);
+}
+
+.switch-menu-wrapper .switch {
+    background-color: transparent;
+    border-color: #dcdcdc;
+    border-width: 1px;
+    height: 40px;
+    width: 100px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    transition-duration: 0.4s;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.switch-menu-wrapper .switch-selected {
+    border-color: #9a9a9a;
+    border-width: 2px;
+}
+
+.switch-menu-wrapper .switch:hover {
+    background-color: rgba(226, 226, 226, 0.8);
+}
+
+form .militray-checkbox {
+    margin: 10px;
+}
+
+form .militray-label {
+    margin: 10px;
+}
+
+.hide {
+    display: none;;
+}
+
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+}
+
+input {
+    background-color: rgba(156, 156, 156, 0.13) !important;
+}
+
