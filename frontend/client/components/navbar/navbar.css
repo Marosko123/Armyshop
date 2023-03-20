@@ -32,3 +32,56 @@
 .button:hover {
     background-color: rgb(236, 236, 236);
 }
+
+
+/* primary navbar */
+
+#primary-navbar {
+    /* https://pixabay.com/illustrations/camouflage-blue-template-urban-3525461/ */
+    /* Pixabay License */
+    background-image: url('../../resources/images/navbarImages/primary-navbar.jpg');
+    background-size: cover;
+}
+
+
+/* secondary navbar */
+
+#secondary-navbar {
+    /* https://pixabay.com/illustrations/camouflage-texture-template-1581052/ */
+    /* Pixabay License */
+    background-image: url('../../resources/images/navbarImages/secondary-navbar2.jpg');
+    background-size: cover;
+    height: 45px;
+}
+
+.dropdown:hover>.dropdown-menu {
+    display: block;
+    width: 190px;
+}
+
+.dropdown>.dropdown-toggle:active {
+/*Without this, clicking will make it sticky*/
+    pointer-events: none;
+}
+
+.dropdown {
+    border-radius: 5px;
+    background-color: rgb(149, 196, 20);
+    margin: 10px;
+    min-width: 190px;
+}
+
+.dropdown-toggle {
+    font-weight: bold;
+    width: 190px;
+}
+
+.navbar-dropdown {
+    padding: 0px !important;
+}
+
+@media screen and (max-width: 1300px) {
+    #secondary-navbar {
+        display: none;
+    }
+}
