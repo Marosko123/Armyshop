@@ -11,15 +11,18 @@
   <div class="container">
     <main>
         <section id="header">
-          <div class="d-flex align-items-center justify-content-between">
-            <h1 class="display-1">AK-47</h1>
+          <div class="d-flex align-items-center justify-content-between mb-3">
+            <div class="mx-auto">
+              <h1 class="display-1">AK-47</h1>
+              <h5>Weapons > Rifles</h5>    
+            </div>
             <img width="8%" src="../../resources/images/productDetailImages/heart4.png" alt="" class="">
           </div>
-          <h5>Weapons > Rifles</h5>
         </section>
 
-        <section id="carrousel">
-            <div id="carouselExampleIndicators" class="carousel slide mx-auto d-block" data-ride="carousel">
+        <section id="carrouselAndPricing" class="align-items-center">
+          <section id="carrousel">
+            <div id="carouselExampleIndicators" class="carousel slide mx-auto" data-ride="carousel">
                 <ol class="carousel-indicators">
                   <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                   <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -45,47 +48,44 @@
                   <span class="sr-only"></span>
                 </a>
               </div>
-        </section>
-      
-        <section id="pricing-window" class="mt-5 col-6 mx-auto">
-          <div id="description">
-            <p>The AK-47 is a selective-fire assault rifle that was designed by Mikhail Kalashnikov in the Soviet Union in 1947. It is one of the most widely used firearms in the world due to its simplicity, reliability, and durability. The AK-47 fires 7.62x39mm cartridges and can be used in a variety of combat situations.</p>
-          </div>
-          <div class="bg-light rounded mx-auto d-block">
-            <div class="row h-100 justify-content-center align-items-center">
-              <div class="col-sm-4">
-                <form>
-                  <div class="mb-4 mt-2 text-center">
-                    <h4>Price for 1: 99.99 €</h4>
-                    <label for="amount" class="form-label">Amount</label>
-                    <div class="input-group">
-                      <button class="btn btn-outline-secondary" type="button" id="minusBtn">-</button>
-                      <input type="text" class="form-control text-center" id="amount" name="amount" value="1">
-                      <button class="btn btn-outline-secondary" type="button" id="plusBtn">+</button>
+          </section>
+          <section id="pricing-window" class="">
+            <div class="bg-light rounded mx-auto d-block">
+              <div class="row justify-content-center align-items-center">
+                <div class="col-sm-6">
+                  <form>
+                    <div class="mb-4 mt-2 text-center">
+                      <h4>Price for 1: 99.99 €</h4>
+                      <label for="amount" class="form-label">Amount</label>
+                      <div class="input-group">
+                        <button class="btn btn-outline-secondary" type="button" id="minusBtn">-</button>
+                        <input type="text" class="form-control text-center" id="amount" name="amount" value="1">
+                        <button class="btn btn-outline-secondary" type="button" id="plusBtn">+</button>
+                      </div>
                     </div>
-                  </div>
-                  <div class="mb-3 text-center">
-                    <h4>Total Price</h4>
-                    <h4 class="text-center">99.99 €</h4>
-                    
-                  </div>
-                  <div class="mb-3 text-center">
-                    <img width="30%" src="https://www.seekpng.com/png/detail/365-3654139_empty-shopping-basket-shopping-basket-icon-png.png" alt="Empty Shopping Basket - Shopping Basket Icon Png@seekpng.com">
-                    <p class="small">add to basket</p>
-                    <p>or</p>
-                    <button type="submit" class="btn btn-success btn-lg">Pay Now</button>
-                  </div>
-                  
-                </form>
+                    <div class="mb-3 text-center">
+                      <h4>Total Price</h4>
+                      <h4 class="text-center">99.99 €</h4>
+                      
+                    </div>
+                    <div class="mb-3 text-center">
+                      <img width="30%" src="../../resources/images/productDetailImages/cart.png" alt="Empty Shopping Basket - Shopping Basket Icon Png@seekpng.com">
+                      <p class="small">add to basket</p>
+                      <p>or</p>
+                      <button type="submit" class="btn btn-success btn-lg">Pay Now</button>
+                    </div>
+                  </form>
+                </div>
               </div>
             </div>
-          </div>
-          
+          </section>
         </section>
+        <div id="description" class="mt-5">
+          <p>The AK-47 is a selective-fire assault rifle that was designed by Mikhail Kalashnikov in the Soviet Union in 1947. It is one of the most widely used firearms in the world due to its simplicity, reliability, and durability. The AK-47 fires 7.62x39mm cartridges and can be used in a variety of combat situations.</p>
+        </div>
+
       </main>
 
-      
-      
       <footer>
         <p>Copyright © Army Shop</p>
       </footer>

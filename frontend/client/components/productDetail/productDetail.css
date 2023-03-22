@@ -23,10 +23,10 @@
     margin-top: 1rem;
   }
   
-  /* make carousel responsive */
-  #carouselExampleIndicators {
-    width: 62%;
-    height: 30rem;
+  #carousel {
+    flex: 0 0 50%;
+    max-width: 50%;
+    height: 25rem;
     margin: 2rem auto;
   }
   
@@ -35,10 +35,14 @@
     height: 100%;
   }
   
-  /* adjust pricing window for smaller screens */
   #pricing-window {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    flex: 0 0 40%;
+    max-width: 40%;
+    margin-left: 2rem;
+  }
+
+  #carrouselAndPricing {
+    display: flex;
   }
   
   /* make form elements responsive */
@@ -60,7 +64,7 @@
   
   .btn-success {
     font-size: 1.2rem;
-    width: 100%;
+    width: 80%;
   }
   
   /* make footer responsive */
@@ -76,12 +80,21 @@
       margin: 0;
       padding: 0;
     }
+    #carrouselAndPricing {
+      display: block;
+      margin-bottom: 5rem;
+    }
     #carouselExampleIndicators {
-      height: 12rem;
+      width: 100%;
     }
     #pricing-window {
-      margin-top: 1rem;
-      margin-bottom: 1rem;
+      margin-top: 1.5rem;
+      margin: 2rem auto;
+      width: 100%;
+      max-width: 90%;
+    }
+    #description {
+      margin-top: 30rem;
     }
     .form-label {
       font-size: 1rem;
@@ -103,26 +116,33 @@
       margin: 0;
       padding: 0;
     }
+    #carrouselAndPricing {
+      display: block;
+      margin-bottom: 5rem;
+    }
     #carouselExampleIndicators {
-      width: 65%;
-      height: 15rem;
-      margin: 2rem auto;
+      width: 100%;
     }
     #pricing-window {
       margin-top: 1.5rem;
-      margin-bottom: 1.5rem;
+      margin: 2rem auto;
+      width: 100%;
+      max-width: 80%;
+    }
+    #description {
+      margin-top: 30rem;
     }
     .form-label {
-      font-size: 1.2rem;
+      font-size: 1rem;
     }
     .form-control {
-      font-size: 1.2rem;
+      font-size: 1rem;
     }
     .btn-outline-secondary {
-      font-size: 1.2rem;
+      font-size: 1rem;
     }
     .btn-success {
-      font-size: 1.2rem;
+      font-size: 1rem;
     }
   }
 
@@ -132,15 +152,20 @@
       margin: 0;
       padding: 0;
     }
+    #carrouselAndPricing {
+      display: block;
+    }
     #carouselExampleIndicators {
-      width: 60%;
+      width: 100%;
       height: 20rem;
       margin: 2rem auto;
     }
     #pricing-window {
       margin-top: 1.5rem;
-      margin-bottom: 1.5rem;
-      width: 60%;
+      margin: 2rem auto;
+      margin-top: 20rem;
+      width: 100%;
+      max-width: 60%;
     }
     .form-label {
       font-size: 1.2rem;
