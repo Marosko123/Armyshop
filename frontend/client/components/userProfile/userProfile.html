@@ -4,43 +4,60 @@
 <head>
   <title>User Profile</title>
   <link rel="stylesheet" href="userProfile.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 
 <body>
+  <h1>User Profile</h1>
   <div class="container">
-    <h1>Full Name</h1>
-    <div class="formContainer">
+    <div class="containerElement"> 
+      <h2>Billing information</h2>
+      <hr>
+      <div class="formContainer">
       <form>
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name"><br>
+        <input type="text" id="name" name="name" value="John Doe"><br>
 
         <label for="address1">Address Line 1:</label>
-        <input type="text" id="address1" name="address1"><br>
+        <input type="text" id="address1" name="address1" value="Pod Vápenicou 25"><br>
 
         <label for="address2">Address Line 2:</label>
-        <input type="text" id="address2" name="address2"><br>
+        <input type="text" id="address2" name="address2" value="028 01 Trstená"><br>
 
         <label for="email">E-mail:</label>
-        <input type="email" id="email" name="email"><br>
+        <input type="email" id="email" name="email" value="email@gmail.com"><br>
 
         <label for="phone">Phone Number:</label>
-        <input type="tel" id="phone" name="phone"><br>
+        <input type="tel" id="phone" name="phone" value="0904956723"><br>
 
-        <!-- <label for="pass">Password:</label>
-      <input type="password" id="pass" name="pass"><br>
-
-      <label for="newPass">New password:</label>
-      <input type="password" id="newPass" name="newPass"><br>
-
-      <label for="repeatNewPass">Repeat new password:</label>
-      <input type="password" id="repeatNewPass" name="repeatNewPass"><br> -->
         <button type="button" id="save-changes-btn">SAVE CHANGES</button>
-        <button type="button" id="change-password-btn">CHANGE PASSWORD</button>
       </form>
+      </div>
     </div>
-    <div>
+    <div class="verticalContainer">
+      <div class="containerElement"> 
+        <h2>Your experience</h2>
+        <hr>
+        <button type="button" id="save-changes-btn">VIEW ORDERS</button>
+        <button type="button" id="save-changes-btn">WISH LIST</button>
+      </div>
+      <div class="containerElement">
+        <h2>Change password</h2>
+        <hr>
+        <label for="passOld">Old password:</label>
+        <input type="password" id="passOld" name="passOld"><br>
+
+        <label for="passNew">New password:</label>
+        <input type="password" id="passNew" name="passNew"><br>
+
+        <label for="passNewConfirm">Confirm new password:</label>
+        <input type="password" id="passNewConfirm" name="passNewConfirm"><br>
+        
+        <button type="button" id="change-password-btn">CHANGE PASSWORD</button>
+      </div>
     </div>
-  </div>
+</div>
 </body>
 
 </html>

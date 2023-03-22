@@ -1,3 +1,4 @@
+/*general*/
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -16,8 +17,19 @@ h1 {
   text-align: center
 }
 
-.formContainer {
-  margin: 20px;
+h2{
+  margin-top: 0 !important;
+  margin-bottom: 10px !important;
+  font-size: x-large !important;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.containerElement {
+  margin-top: 20px !important;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 10px;
@@ -26,6 +38,7 @@ h1 {
   margin: auto;
 }
 
+/*labels, inputs and buttons*/
 label {
   display: block;
   margin-bottom: 10px;
@@ -34,7 +47,8 @@ label {
 
 input[type="text"],
 input[type="email"],
-input[type="tel"] {
+input[type="tel"],
+input[type="password"] {
   width: 100%;
   padding: 10px;
   font-size: 16px;
@@ -55,6 +69,8 @@ button[type="button"] {
   font-size: 16px;
   cursor: pointer;
   margin-right: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
 }
 
 button[type="submit"]:hover,
@@ -68,34 +84,8 @@ button[type="button"]:focus {
 }
 
 /* responsive styles */
-@media screen and (max-width: 800px) {
-  header h1 {
-    font-size: 24px;
-  }
-
-  label {
-    font-size: 16px;
-  }
-
-  input[type="text"],
-  input[type="email"],
-  input[type="tel"] {
-    font-size: 14px;
-  }
-
-  .formContainer {
-    margin: 20px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    width: 100%;
-    box-sizing: border-box;
-    margin: auto;
-  }
-
-  button[type="submit"],
-  button[type="button"] {
-    font-size: 14px;
-    padding: 8px 16px;
-  }
+@media screen and (max-width: 1000px) {
+    .verticalContainer{
+      margin: auto !important;
+    }
 }
