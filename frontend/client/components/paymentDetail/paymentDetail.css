@@ -1,0 +1,86 @@
+/* payment-detail */
+
+#payment-detail-wrapper {
+    max-width: 70%;
+    min-width: 300px;
+    padding: 15px;
+    background-color: gainsboro;
+}
+
+.line {
+    background-color: rgb(126, 126, 126);
+    height: 1px;
+    margin: 15px;
+}
+
+
+/* delivery */
+
+.delivery-row {
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+    width: 100%;
+    justify-content: center; /* horizontal centering */
+    align-items: center;
+}
+
+.delivery-checkbox {
+    flex-grow: 2;
+    max-width: 15px;
+    max-height: 15px;
+    margin: 10px;
+}
+
+.delivery-item-icon {
+    flex-grow: 2;
+    max-width: 60px;
+    border-radius: 50px;
+    padding: 5px;
+}
+
+.delivery-label {
+    flex-grow: 2;
+    min-width: 25vw;
+}
+
+.delivery-price {
+    flex-grow: 2;
+}
+
+.delivery-availability {
+    flex-grow: 2;
+}   
+
+
+/* order */
+
+#order-button {
+    height: 60px;
+    width: 180px;
+    font-size: 24px;
+    /* border-radius: 5px; */
+    /* background-color: rgb(149, 196, 20); */
+}
+
+#order-button:hover {
+    /* background-color: rgb(172, 232, 9); */
+}
+
+
+/* order-and-pay-wrapper */
+
+#order-and-pay-wrapper {
+    display: flex;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+
+/* summary */
+
+#summary {
+    min-width: 600px;
+    max-height: 350px;
+    border: 1px solid red;
+}

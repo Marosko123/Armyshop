@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title> Payment detail </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./paymentDetail.css">
+    <link rel="stylesheet" href="../navbar/navbar.css">
+    <script src="./paymentDetail.js"></script>
+    <script src="../navbar/navbar.js"></script>
+</head>
+<body class="text-center">
+	<!-- Navbar -->
+	<div id="navbar">
+		<nav id="primary-navbar" class="navbar navbar-expand navbar-light bg-light">
+			<div class="container-fluid">
+				<a href="https://www.google.sk" target="_blank">
+					<img class="navbar-img" 
+						src="https://upload.wikimedia.org/wikipedia/commons/2/24/Mark_of_the_United_States_Army.svg" 
+						alt="Armyshop">
+				</a>
+				<input class="form-control search-input" type="search" placeholder="Search" aria-label="Search">
+				<img class="search-img" 
+					src="https://www.freeiconspng.com/uploads/search-icon-png-5.png" 
+					alt="Responsive image">
+				<button class="button shopping-cart__button">
+					<img class="navbar-img" 
+						src="https://www.freeiconspng.com/uploads/bag-icon-6.png" 
+						alt="Responsive image">
+				</button>
+				<button class="button profile__button">
+					<img class="navbar-img" 
+						src="https://www.freeiconspng.com/uploads/msn-people-person-profile-user-icon--icon-search-engine-16.png" 
+						alt="Responsive image">
+				</button>
+			</div>
+		</nav>
+	
+		<nav id="secondary-navbar" class="navbar navbar-expand navbar-light bg-light">
+			<div class="navbar-dropdown container-fluid">
+				<div class="dropdown">
+					<button
+					  class="btn dropdown-toggle"
+					  type="button"
+					  id="dropdownMenuButton"
+					  data-mdb-toggle="dropdown"
+					  aria-expanded="false"
+					>
+					  Weapons
+					</button>
+					<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					  <li><a class="dropdown-item" href="#">Pistols</a></li>
+					  <li><a class="dropdown-item" href="#">Rifles</a></li>
+					  <li><a class="dropdown-item" href="#">Submachine guns</a></li>
+					  <li><a class="dropdown-item" href="#">Heavy</a></li>
+					  <li><a class="dropdown-item" href="#">Knives</a></li>
+					</ul>
+				  </div>
+			</div>
+			<div class="navbar-dropdown container-fluid">
+				<div class="dropdown">
+					<button
+					  class="btn dropdown-toggle"
+					  type="button"
+					  id="dropdownMenuButton"
+					  data-mdb-toggle="dropdown"
+					  aria-expanded="false"
+					>
+					  Transport
+					</button>
+					<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					  <li><a class="dropdown-item" href="#">Cars</a></li>
+					  <li><a class="dropdown-item" href="#">Motocycles</a></li>
+					  <li><a class="dropdown-item" href="#">Panzers</a></li>
+					  <li><a class="dropdown-item" href="#">Planes</a></li>
+					  <li><a class="dropdown-item" href="#">Boats</a></li>
+					</ul>
+				  </div>
+			</div>
+			<div class="navbar-dropdown container-fluid">
+				<div class="dropdown">
+					<button
+					  class="btn dropdown-toggle"
+					  type="button"
+					  id="dropdownMenuButton"
+					  data-mdb-toggle="dropdown"
+					  aria-expanded="false"
+					>
+					  Clothing
+					</button>
+					<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					  <li><a class="dropdown-item" href="#">Jackets</a></li>
+					  <li><a class="dropdown-item" href="#">Trousers</a></li>
+					  <li><a class="dropdown-item" href="#">Shoes</a></li>
+					  <li><a class="dropdown-item" href="#">Pants</a></li>
+					  <li><a class="dropdown-item" href="#">Socks</a></li>
+					</ul>
+				  </div>
+			</div>
+			<div class="navbar-dropdown container-fluid">
+				<div class="dropdown">
+					<button
+					  class="btn dropdown-toggle"
+					  type="button"
+					  id="dropdownMenuButton"
+					  data-mdb-toggle="dropdown"
+					  aria-expanded="false"
+					>
+					  Explosives
+					</button>
+					<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					  <li><a class="dropdown-item" href="#">C4s</a></li>
+					  <li><a class="dropdown-item" href="#">Nukes</a></li>
+					  <li><a class="dropdown-item" href="#">Grenades</a></li>
+					  <li><a class="dropdown-item" href="#">TNTs</a></li>
+					  <li><a class="dropdown-item" href="#">Bombs</a></li>
+					</ul>
+				  </div>
+			</div>
+			<div class="navbar-dropdown container-fluid">
+				<div class="dropdown">
+					<button
+					  class="btn dropdown-toggle"
+					  type="button"
+					  id="dropdownMenuButton"
+					  data-mdb-toggle="dropdown"
+					  aria-expanded="false"
+					>
+					  Equipment
+					</button>
+					<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					  <li><a class="dropdown-item" href="#">Backpacks</a></li>
+					  <li><a class="dropdown-item" href="#">Hunting</a></li>
+					  <li><a class="dropdown-item" href="#">Camping</a></li>
+					</ul>
+				  </div>
+			</div>
+			<div class="navbar-dropdown container-fluid">
+				<div class="dropdown">
+					<button
+					  class="btn dropdown-toggle"
+					  type="button"
+					  id="dropdownMenuButton"
+					  data-mdb-toggle="dropdown"
+					  aria-expanded="false"
+					>
+					  Accessories
+					</button>
+					<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					  <li><a class="dropdown-item" href="#">Glasses</a></li>
+					  <li><a class="dropdown-item" href="#">Face pain</a></li>
+					  <li><a class="dropdown-item" href="#">Camouflage</a></li>
+					</ul>
+				  </div>
+			</div>
+		</nav>
+	</div>
+
+	<div id="order-and-pay-wrapper">
+		<!-- Payment Detail -->
+		<div id="payment-detail-wrapper">
+			<h1> Order and pay </h1>
+
+			<h3> Personal information </h3>
+			<div class="input-group mb-3">
+				<input type="text" class="form-control" placeholder="First Name" aria-label="First Name">
+			</div>
+			<div class="input-group mb-3">
+				<input type="text" class="form-control" placeholder="Last Name" aria-label="Last Name">
+			</div>
+			<div class="input-group mb-3">
+				<input type="text" class="form-control" placeholder="Email" aria-label="Recipient's username">
+			</div>
+			<div class="line"> </div>
+
+			<h3> Address </h3>
+			<div class="input-group mb-3">
+				<input type="text" class="form-control" placeholder="Address" aria-label="Address">
+			</div>
+			<div class="input-group mb-3">
+				<input type="text" class="form-control" placeholder="Zip Code" aria-label="Zip Code">
+			</div>
+			<div class="input-group mb-3">
+				<input type="text" class="form-control" placeholder="City" aria-label="City">
+			</div>
+			<div class="input-group mb-3">
+				<input type="text" class="form-control" placeholder="Country" aria-label="Country">
+			</div>
+			<div class="input-group mb-3">
+				<input type="text" class="form-control" placeholder="Tel. Number" aria-label="Tel. Number">
+			</div>
+			<div class="line"> </div>
+
+			<h3> Delivery </h3>
+			<div class="input-group mb-3">
+				<div class="delivery-row">
+					<input class="delivery-checkbox form-check-input" type="checkbox" onchange="onDeliveryOptionChanged(this)" checked>
+					<img class="delivery-item-icon" src="https://upload.wikimedia.org/wikipedia/commons/2/24/Mark_of_the_United_States_Army.svg" alt="">
+					<div class="delivery-label"> Pick up in the store </div>
+					<span class="delivery-price"> Free </span>
+					<span class="delivery-availability"> Tomorrow 12:00 </span>
+				</div>
+				<div class="delivery-row">
+					<input class="delivery-checkbox form-check-input" type="checkbox" onchange="onDeliveryOptionChanged(this)">
+					<img class="delivery-item-icon" src="../../resources/images/paymentDetailImages/postOffice.jpg" alt="">
+					<div class="delivery-label"> Post office </div>
+					<span class="delivery-price"> 2.50 € </span>
+					<span class="delivery-availability"> Tomorrow 18:00 </span>
+				</div>
+				<div class="delivery-row">
+					<input class="delivery-checkbox form-check-input" type="checkbox" onchange="onDeliveryOptionChanged(this)">
+					<img class="delivery-item-icon" src="../../resources/images/paymentDetailImages/courier.jpg" alt="">
+					<div class="delivery-label"> DHL </div>
+					<span class="delivery-price"> 3.50 € </span>
+					<span class="delivery-availability"> Tomorrow 12:00 </span>
+				</div>
+			</div>
+			<div class="line"> </div>
+
+			<button class="btn btn-success" id="order-button"> Order </button>
+		</div>
+		<div id="summary">
+			<h3> Sum up </h3>
+			<p> kktko </p>
+		</div>
+	</div>
+
+</body>
+</html>
