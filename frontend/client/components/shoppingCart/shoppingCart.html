@@ -4,6 +4,8 @@
 <head>
   <title>Shopping Cart</title>
   <link rel="stylesheet" href="shoppingCart.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -14,18 +16,56 @@
         <ul>
           <li>
             <div class="item">
-              <img class="itemImg" src="https://www.military-army-shop.sk/wp-content/uploads/2020/12/44031.jpg" alt="">
+              <img class="img" src="https://www.military-army-shop.sk/wp-content/uploads/2020/12/44031.jpg" alt="">
               <div class="desc">
                 <h3>Pocket knife</h3>
                 <div class="prices">
-                  <p>39.90€</p>
+                  <p class="singularPrice">39.90€</p>
                   <div class="multiple">
-                    <input type="number" value="1">
-                    <p>39.90€</p>
+                    <div class="countControls">
+                      <button class="countControlButtons" id="minusButton">-</button>
+                      <input type="number" value="2">
+                      <button class="countControlButtons" id="plusButton">+</button>
+                    </div>
+                    <p class="multiplePrice">79.80€</p>
                   </div>
                 </div>
               </div>
             </div>
+            <div class="item">
+              <img class="img" src="https://www.military-army-shop.sk/wp-content/uploads/2020/12/44031.jpg" alt="">
+              <div class="desc">
+                <h3>Pocket knife - very sharp not suited for children</h3>
+                <div class="prices">
+                  <p class="singularPrice">39.90€</p>
+                  <div class="multiple">
+                    <div class="countControls">
+                      <button class="countControlButtons" id="minusButton">-</button>
+                      <input type="number" value="2">
+                      <button class="countControlButtons" id="plusButton">+</button>
+                    </div>
+                    <p class="multiplePrice">79.80€</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <img class="img" src="https://www.military-army-shop.sk/wp-content/uploads/2020/12/44031.jpg" alt="">
+              <div class="desc">
+                <h3>Pocket knife - very sharp not suited for children</h3>
+                <div class="prices">
+                  <p class="singularPrice">39.90€</p>
+                  <div class="multiple">
+                    <div class="countControls">
+                      <button class="countControlButtons" id="minusButton">-</button>
+                      <input type="number" value="2">
+                      <button class="countControlButtons" id="plusButton">+</button>
+                    </div>
+                    <p class="multiplePrice">79.80€</p>
+                  </div>
+                </div>
+              </div>
+            </div>  
           </li>
         </ul>
       </div>
