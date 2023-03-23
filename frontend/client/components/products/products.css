@@ -1,3 +1,12 @@
+body {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  url('../../resources/images/homepage/army-bg1.jpg'); /* Source: https://unsplash.com/s/photos/military */
+  background-size: cover;
+  background-position: center 40px;
+  font-family: 'Roboto serif' !important;
+
+}
+
 .card-img-top {
     height: 80%; /* set the height of the image */
     object-fit: cover; /* ensure the image covers the entire space */
@@ -35,6 +44,8 @@
 .card {
     flex-basis: 30%;
     margin: 10px;
+    box-shadow: rgba(255, 255, 255, 0.60) 0px 5px 15px !important;
+    border: none !important;
 }
 
 .card:hover {
@@ -47,7 +58,7 @@
     justify-content: center;
     align-items: center;
     margin: auto;
-    width: 90%;
+    width: 100%;
   }
 
 .description p {
@@ -55,7 +66,7 @@
 }
 
 .subcategory {
-    flex: 0 1 20%;
+    flex: 0 1 12%;
     height: 50%;
     margin: 2rem;
     padding: 2rem;
@@ -66,8 +77,13 @@
     transition: all 0.3s ease-in-out;
 }
 
+.subcategory:hover {
+  transform: translateY(-5px);
+  cursor: pointer;
+}
+
 /* For screens smaller than 576px */
-@media (max-width: 575.98px) {
+@media (max-width: 700px) {
   .card-container {
     display: flex;
     flex-wrap: wrap;
@@ -81,20 +97,30 @@
     flex-basis: 80%;
     margin: 10px;
   }
+
+  .subcategory {
+    flex: 0 1 10%;
+    margin: 0.5rem;
+  }
 }
 
-/* For screens between 576px and 991.98px */
-@media (min-width: 576px) and (max-width: 991.98px) {
+/* For screens between 576px and 1200px */
+@media (min-width: 700px) and (max-width: 1200px) {
     .card-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       margin: 0 auto;
-      max-width: 90%;
+      max-width: 100%;
     }
     
     .card {
-      flex-basis: 45%;
+      flex-basis: 40%;
       margin: 10px;
+    }
+
+    .subcategory {
+      flex: 0 1 25%;
+      margin: 1rem;
     }
   }
