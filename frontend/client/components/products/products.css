@@ -41,7 +41,7 @@
     cursor: pointer;
 }
 
-.categories {
+.subcategories {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -54,7 +54,7 @@
     font-size: 2rem;
 }
 
-.category {
+.subcategory {
     flex: 0 1 20%;
     height: 50%;
     margin: 2rem;
