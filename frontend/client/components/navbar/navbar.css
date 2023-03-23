@@ -54,11 +54,6 @@
     height: 45px;
 }
 
-.dropdown:hover>.dropdown-menu {
-    display: block;
-    width: 190px;
-}
-
 .dropdown>.dropdown-toggle:active {
 /*Without this, clicking will make it sticky*/
     pointer-events: none;
@@ -68,19 +63,25 @@
     border-radius: 5px;
     background-color: rgb(149, 196, 20);
     margin: 10px;
-    min-width: 190px;
+    width: inherit;
+}
+
+.dropdown:hover>.dropdown-menu {
+    display: block;
+    width: inherit;
 }
 
 .dropdown-toggle {
     font-weight: bold;
-    width: 190px;
+    width: inherit;
 }
 
 .navbar-dropdown {
     padding: 0px !important;
+    width: 100%;
 }
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1000px) {
     #secondary-navbar {
         display: none;
     }
