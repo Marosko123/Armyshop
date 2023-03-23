@@ -10,61 +10,60 @@
     <script src="./loginAndRegisterMenu.js"></script>
 </head>
 <body class="text-center">
-  <video autoplay muted loop id="myVideo">
-    <source src="../../resources/videos/solider-explosion.mp4" type="video/mp4">
-    Your browser does not support HTML5 video.
-  </video>
+    <video autoplay muted loop id="myVideo">
+        <source src="../../resources/videos/solider-explosion.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
 
-  <!-- https://pixabay.com/photos/man-dirty-soldier-hero-army-brave-4207514/ -->
-  <img src="../../resources/images/loginMenuImages/solider.jpg" alt="solider" id="mobile-image">
-  <div class="form-controller">
-    <div class="header-wrapper">
-      <button class="close-button"> < </button>
-      <h5 id="header-text" class="header"> Log in </h5>
+    <!-- https://pixabay.com/photos/man-dirty-soldier-hero-army-brave-4207514/ -->
+    <img src="../../resources/images/loginMenuImages/solider.jpg" alt="solider" id="mobile-image">
+    <div class="form-controller">
+        <div class="header-wrapper">
+            <button class="close-button"> < </button>
+            <h5 id="header-text" class="header"> Log in </h5>
+        </div>
+        <div class="header-line"> </div>
+
+        <div class="switch-menu-wrapper">
+            <button id="register-switch" class="switch" onclick="openRegisterMenu()"> Register </button>
+            <button id="login-switch" class="switch switch-selected" onclick="openLoginMenu()"> Log in </button>
+        </div>
+
+        <img class="logo" src="../../resources/images/logo/logoTransparent.png">
+
+        <form id="register-form" class="hide">
+            <div class="form-floating">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">Email address</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Password</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Confirm password</label>
+            </div>
+            <input class="form-check-input militray-checkbox" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label militray-label" for="flexCheckDefault">
+                I have a military passport
+            </label>
+            <button id="submit-button" class="w-100 btn btn-lg btn-success" type="submit" click="www.google.com"> Log in </button>
+            <p class="mt-5 mb-3 start-date">© 2023</p>
+        </form>
+
+        <form id="login-form">
+            <div class="form-floating">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">Email address</label>
+            </div>
+            <div class="form-floating">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">Password</label>
+            </div>
+            <button id="submit-button" class="w-100 btn btn-lg btn-success" type="submit" click="www.google.com"> Log in </button>
+            <p class="mt-5 mb-3 start-date">© 2023</p>
+        </form>
     </div>
-    <div class="header-line"> </div>
-
-    <div class="switch-menu-wrapper">
-      <button id="register-switch" class="switch" onclick="openRegisterMenu()"> Register </button>
-      <button id="login-switch" class="switch switch-selected" onclick="openLoginMenu()"> Log in </button>
-    </div>
-
-    <img class="mb-4" src="https://upload.wikimedia.org/wikipedia/commons/2/24/Mark_of_the_United_States_Army.svg" alt="" width="72" height="57">
-    
-    <form id="register-form" class="hide">
-        <div class="form-floating">
-          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-          <label for="floatingInput">Email address</label>
-        </div>
-        <div class="form-floating">
-          <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-          <label for="floatingPassword">Password</label>
-        </div>
-        <div class="form-floating">
-          <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-          <label for="floatingPassword">Confirm password</label>
-        </div>
-        <input class="form-check-input militray-checkbox" type="checkbox" value="" id="flexCheckDefault">
-        <label class="form-check-label militray-label" for="flexCheckDefault">
-          I have a military passport
-        </label>
-        <button id="submit-button" class="w-100 btn btn-lg btn-success" type="submit" click="www.google.com"> Log in </button>
-        <p class="mt-5 mb-3 start-date">© 2023</p>
-      </form>
-
-    <form id="login-form">
-      <div class="form-floating">
-        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-        <label for="floatingInput">Email address</label>
-      </div>
-      <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-        <label for="floatingPassword">Password</label>
-      </div>
-      <button id="submit-button" class="w-100 btn btn-lg btn-success" type="submit" click="www.google.com"> Log in </button>
-      <p class="mt-5 mb-3 start-date">© 2023</p>
-    </form>
-
-  </div>
 </body>
 </html>

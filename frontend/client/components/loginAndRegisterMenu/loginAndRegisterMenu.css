@@ -31,6 +31,10 @@ label {
     display: inline-block;
 }
 
+.logo {
+    height: 130px;
+}
+
 .text-center {
     text-align: center!important;
 }
@@ -74,7 +78,12 @@ html, body {
 
 #login-form .start-date {
     position: relative;
-    top: 90px;
+    top: 50px;
+}
+
+#register-form .start-date {
+    position: relative;
+    top: -40px;
 }
 
 .switch-menu-wrapper .switch {
