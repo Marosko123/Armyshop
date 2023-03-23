@@ -17,15 +17,21 @@ h1 {
   flex-wrap: wrap;
 }
 
-.containerElement {
+.containerElement, .summaryContainer{
   flex: 1;
-  background-color: rgb(222, 222, 222);
+  background-color: rgb(242, 242, 242);
   margin: 20px;
   border-radius: 5px;
   padding: 20px;
+
 }
 
 /*items in shopping cart*/
+
+.itemList{
+  overflow-y:visible !important;
+}
+
 ul {
   list-style-type: none;
   padding: 0;
@@ -34,18 +40,19 @@ ul {
 .item {
   width: 100%;
   background-color: white;
-  border: 1px solid black;
-  border-radius: 5px;
+  border: 2px solid black;
+  border-radius: 20px;
   box-sizing: border-box;
   margin-bottom: 20px;
   padding: 15px;
   display: flex;
   flex-direction: row;
+  box-shadow: 5px 5px 5px rgb(152, 152, 152);
 }
 
 .img {
-  max-width: 90px;
-  max-height: 90px;
+  max-width: 100px;
+  max-height: 100px;
   border: 1px solid rgb(109, 109, 109);
   border-radius: 5px;
 }
@@ -78,17 +85,26 @@ h3 {
 .countControls{
   display: flex;
   flex-direction: row;
+  margin-left: auto;
+  background-color: rgb(236, 236, 236);
+  border-radius: 10px;
 }
 
 .countControlButtons{
-  width: 30px;
-  border-radius: 15px;
-  border: 1;
+  border: 0px solid black !important;
+  background-color: transparent;
 }
 
 input{
-  width: 50px;
-  border-radius: 10px;
+  width: 35px;
+  height: 30px;
+  border: 0px solid black !important;
+  background-color: transparent;
+  text-align: center;
+}
+
+input:focus{
+  outline-width: 0;
 }
 
 .singularPrice{
@@ -96,9 +112,11 @@ input{
 }
 
 .multiplePrice{
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   text-align: center !important;
+  margin-left: auto;
+  margin-top: 5px;
 }
 
 /*removing input arrows*/
@@ -114,6 +132,10 @@ input[type="number"] {
 
 
 /*order summary*/
+.summaryContainer{
+  padding: 0;
+}
+
 table,
 th,
 td {
@@ -123,6 +145,14 @@ td {
 #total {
   border-top: 1px solid;
   border-collapse: collapse;
+}
+
+#orderNow{
+  width: 100%;
+  border: 0 solid black;
+  background-color: rgb(230, 230, 230);
+  height: 50px;
+  font-size: x-large;
 }
 
 /*responsivity*/
@@ -139,5 +169,21 @@ td {
 @media screen and (max-width: 1000px) {
   .multiple{
     margin-left: 15% !important;
+  }
+  
+  
+  h3{
+    font-size: 15px !important;
+  }
+  .singularPrice {
+    font-size:14px;
+  }
+
+  input{
+    width: 25px;
+    height: 20px;
+    font-size: 12px !important;
+    text-align: center;
+    padding-top: 5px;
   }
 }

@@ -6,6 +6,8 @@
   <link rel="stylesheet" href="shoppingCart.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../contactUs/contactUs.css">
+  <script src="../contactUs/contactUs.js"></script>
 </head>
 
 <body>
@@ -15,6 +17,40 @@
       <div class="itemList">
         <ul>
           <li>
+            <div class="item">
+              <img class="img" src="https://www.military-army-shop.sk/wp-content/uploads/2020/12/44031.jpg" alt="">
+              <div class="desc">
+                <h3>Pocket knife</h3>
+                <div class="prices">
+                  <p class="singularPrice">39.90€</p>
+                  <div class="multiple">
+                    <div class="countControls">
+                      <button class="countControlButtons" id="minusButton">-</button>
+                      <input type="number" value="2">
+                      <button class="countControlButtons" id="plusButton">+</button>
+                    </div>
+                    <p class="multiplePrice">79.80€</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <img class="img" src="https://www.military-army-shop.sk/wp-content/uploads/2020/12/44031.jpg" alt="">
+              <div class="desc">
+                <h3>Pocket knife</h3>
+                <div class="prices">
+                  <p class="singularPrice">39.90€</p>
+                  <div class="multiple">
+                    <div class="countControls">
+                      <button class="countControlButtons" id="minusButton">-</button>
+                      <input type="number" value="2">
+                      <button class="countControlButtons" id="plusButton">+</button>
+                    </div>
+                    <p class="multiplePrice">79.80€</p>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="item">
               <img class="img" src="https://www.military-army-shop.sk/wp-content/uploads/2020/12/44031.jpg" alt="">
               <div class="desc">
@@ -70,23 +106,55 @@
         </ul>
       </div>
     </div>
-    <div class="containerElement">
-      <h2>Order Summary</h2>
-      <table>
-        <tr>
-          <td>Subtotal:</td>
-          <td>$25</td>
-        </tr>
-        <tr>
-          <td>Shipping:</td>
-          <td>$5</td>
-        </tr>
-        <tr id="total">
-          <td id="total">Total:</td>
-          <td id="total">$30</td>
-        </tr>
-      </table>
-      <button>Order Now</button>
+    <div class="summaryContainer">
+      <div class="containerElement">
+        <h2>Order Summary</h2>
+        <table>
+          <tr>
+            <td>Subtotal:</td>
+            <td>$25</td>
+          </tr>
+          <tr>
+            <td>Shipping:</td>
+            <td>$5</td>
+          </tr>
+          <tr id="total">
+            <td id="total">Total:</td>
+            <td id="total">$30</td>
+          </tr>
+        </table>
+      </div>
+      <button id="orderNow">Order Now</button>
+    </div>
+    
+  </div>
+  <div id="contact-us" class="text-center">
+    <div class="contact-us-wrapper">
+      <div class="contact-us-column">
+        <h1>Contact us</h1>
+        <p>Phone: +421 944 987 789</p>
+        <p>Email: info@armyshop.xd</p>
+      </div>
+      <div class="contact-us-column">
+        <a href="#" target="_blank">
+          <img class="contact-us-logo" 
+            src="../../resources/images/logo/logoTransparent.png" 
+            alt="Armyshop">
+        </a>
+        <div class="contact-us-social-media">
+          <div>
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" class="social-media-link" target="_blank">
+              <img src="https://cdn.aboutstatic.com/file/d473bb55bdf6bd6430eeff7ed35fa4ca.png?quality=75&amp;height=480&amp;width=360" alt="media" class="social-media-img">
+            </a>
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" class="social-media-link" target="_blank">
+              <img src="https://cdn.aboutstatic.com/file/6a522d45a858eea2ccf7e71c2aa419fb.png?quality=75&amp;height=480&amp;width=360" alt="media" class="social-media-img">
+            </a>
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" class="social-media-link" target="_blank">
+              <img src="https://cdn.aboutstatic.com/file/75356ec63103aca8bf43a3071ed2a242.png?quality=75&height=75&width=75" alt="media" class="social-media-img">
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </body>
