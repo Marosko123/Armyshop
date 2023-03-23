@@ -44,7 +44,7 @@
                 <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
                 <label for="floatingPassword">Confirm password</label>
             </div>
-            <input class="form-check-input militray-checkbox" type="checkbox" value="" id="flexCheckDefault">
+            <input class="form-check-input militray-checkbox" type="checkbox" value="" id="flexCheckDefault" onclick="onMilitaryPassportChanged(this)">
             <label class="form-check-label militray-label" for="flexCheckDefault">
                 I have a military passport
             </label>
@@ -64,6 +64,22 @@
             <button id="submit-button" class="w-100 btn btn-lg btn-success" type="submit" click="www.google.com"> Log in </button>
             <p class="mt-5 mb-3 start-date">© 2023</p>
         </form>
+    </div>
+    <div id="popup">
+        <div id="popup1" class="overlay">
+            <div class="popup">
+                <h2> Insert your military passport </h2>
+                <a class="close" href="#" onclick="militarypassInsertionCancelled(this)">&times;</a>
+                <input type="file"
+                    id="file-input" name="avatar"
+                    accept="image/png, image/jpeg"
+                    onchange="imageChoosen(this)">
+                <div class="selected-image-wrapper">
+                    <img src="../../resources/images/productDetailImages/alexey-turenkov-VwoLh2EB5R4-unsplash.jpga" alt="Select a passport" id="selected-image" >
+                </div>
+                <a class="btn btn-success submit-button" onclick="submitImage(this)"> Submit </a>
+            </div>
+        </div>
     </div>
 </body>
 </html>

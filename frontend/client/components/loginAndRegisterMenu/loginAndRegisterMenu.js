@@ -1,6 +1,10 @@
 console.log('test');
 
 isLoginMenuOpen = true;
+isMilitaryPassChecked = false;
+isImageInserted = false;
+
+imageToSubmit = null;
 
 openRegisterMenu = (event) => {
 	if (!isLoginMenuOpen) {
@@ -36,6 +40,39 @@ openLoginMenu = (event) => {
 	isLoginMenuOpen = !isLoginMenuOpen;
 };
 
+onMilitaryPassportChanged = (event) => {
+	isMilitaryPassChecked = !isMilitaryPassChecked;
+
+	window.location.assign('#popup1');
+};
+
+militarypassInsertionCancelled = (event) => {
+	isMilitaryPassChecked = false;
+	changeMilitaryCheckbox(false);
+};
+
+imageChoosen = (event) => {
+	const [file] = event.files;
+	if (file) {
+		imageToSubmit = URL.createObjectURL(file);
+		document.querySelector('#selected-image').src = imageToSubmit;
+		return;
+	}
+
+	imageToSubmit = null;
+};
+
+submitImage = (event) => {
+	if (!imageToSubmit) {
+		return;
+	}
+
+	isImageInserted = true;
+	isMilitaryPassChecked = true;
+	changeMilitaryCheckbox(true);
+	window.location.assign('#');
+};
+
 myFunction = (event) => {
 	var x = document.getElementById('myInput');
 	if (x.type === 'password') {
@@ -43,4 +80,8 @@ myFunction = (event) => {
 	} else {
 		x.type = 'password';
 	}
+};
+
+changeMilitaryCheckbox = (value) => {
+	document.querySelector('#flexCheckDefault').checked = value;
 };
