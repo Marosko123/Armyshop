@@ -164,72 +164,80 @@
 			<h1 class="heading"> Order and pay </h1>
 
 			<h3> Personal information </h3>
-			<div class="input-group mb-3">
-				<input type="text" class="form-control" placeholder="First Name" aria-label="First Name">
+			<div id="personal-info">
+				<div class="input-group mb-3">
+					<input type="text" class="form-control" placeholder="First Name" aria-label="First Name">
+				</div>
+				<div class="input-group mb-3">
+					<input type="text" class="form-control" placeholder="Last Name" aria-label="Last Name">
+				</div>
+				<div class="input-group mb-3">
+					<input type="text" class="form-control" placeholder="Email" aria-label="Recipient's username">
+				</div>
+				<div class="line"> </div>
 			</div>
-			<div class="input-group mb-3">
-				<input type="text" class="form-control" placeholder="Last Name" aria-label="Last Name">
-			</div>
-			<div class="input-group mb-3">
-				<input type="text" class="form-control" placeholder="Email" aria-label="Recipient's username">
-			</div>
-			<div class="line"> </div>
 
-			<h3> Address </h3>
-			<div class="input-group mb-3">
-				<input type="text" class="form-control" placeholder="Address" aria-label="Address">
-			</div>
-			<div class="input-group mb-3">
-				<input type="text" class="form-control" placeholder="Zip Code" aria-label="Zip Code">
-			</div>
-			<div class="input-group mb-3">
-				<input type="text" class="form-control" placeholder="City" aria-label="City">
-			</div>
-			<div class="input-group mb-3">
-				<input type="text" class="form-control" placeholder="Country" aria-label="Country">
-			</div>
-			<div class="input-group mb-3">
-				<input type="text" class="form-control" placeholder="Tel. Number" aria-label="Tel. Number">
+			<div id="address">
+				<h3> Address </h3>
+				<div class="input-group mb-3">
+					<input type="text" class="form-control" placeholder="Address" aria-label="Address">
+				</div>
+				<div class="input-group mb-3">
+					<input type="text" class="form-control" placeholder="Zip Code" aria-label="Zip Code">
+				</div>
+				<div class="input-group mb-3">
+					<input type="text" class="form-control" placeholder="City" aria-label="City">
+				</div>
+				<div class="input-group mb-3">
+					<input type="text" class="form-control" placeholder="Country" aria-label="Country">
+				</div>
+				<div class="input-group mb-3">
+					<input type="text" class="form-control" placeholder="Tel. Number" aria-label="Tel. Number">
+				</div>
 			</div>
 			<div class="line"> </div>
 
 			<h3> Delivery </h3>
-			<div class="input-group mb-3">
-				<div class="delivery-row">
-					<input class="delivery-checkbox" type="checkbox" onchange="onDeliveryOptionChanged(this)" checked>
-					<img class="delivery-item-icon" src="https://upload.wikimedia.org/wikipedia/commons/2/24/Mark_of_the_United_States_Army.svg" alt="">
-					<div class="delivery-label"> Pick up in the store </div>
-					<span class="delivery-price"> Free </span>
-					<span class="delivery-availability"> Tomorrow 12:00 </span>
-				</div>
-				<div class="delivery-row">
-					<input class="delivery-checkbox " type="checkbox" onchange="onDeliveryOptionChanged(this)">
-					<img class="delivery-item-icon" src="../../resources/images/paymentDetailImages/postOffice.jpg" alt="">
-					<div class="delivery-label"> Post office </div>
-					<span class="delivery-price"> 2.50 € </span>
-					<span class="delivery-availability"> Tomorrow 18:00 </span>
-				</div>
-				<div class="delivery-row">
-					<input class="delivery-checkbox " type="checkbox" onchange="onDeliveryOptionChanged(this)">
-					<img class="delivery-item-icon" src="../../resources/images/paymentDetailImages/courier.jpg" alt="">
-					<div class="delivery-label"> DHL </div>
-					<span class="delivery-price"> 3.50 € </span>
-					<span class="delivery-availability"> Tomorrow 12:00 </span>
+			<div id="delivery">
+				<div class="input-group mb-3">
+					<div class="delivery-row">
+						<input class="delivery-checkbox" type="checkbox" onchange="onDeliveryOptionChanged(this)" checked>
+						<img class="delivery-item-icon" src="https://upload.wikimedia.org/wikipedia/commons/2/24/Mark_of_the_United_States_Army.svg" alt="">
+						<div class="delivery-label"> Pick up in the store </div>
+						<span class="delivery-price"> Free </span>
+						<span class="delivery-availability"> Tomorrow 12:00 </span>
+					</div>
+					<div class="delivery-row">
+						<input class="delivery-checkbox " type="checkbox" onchange="onDeliveryOptionChanged(this)">
+						<img class="delivery-item-icon" src="../../resources/images/paymentDetailImages/postOffice.jpg" alt="">
+						<div class="delivery-label"> Post office </div>
+						<span class="delivery-price"> 2.50 € </span>
+						<span class="delivery-availability"> Tomorrow 18:00 </span>
+					</div>
+					<div class="delivery-row">
+						<input class="delivery-checkbox " type="checkbox" onchange="onDeliveryOptionChanged(this)">
+						<img class="delivery-item-icon" src="../../resources/images/paymentDetailImages/courier.jpg" alt="">
+						<div class="delivery-label"> DHL </div>
+						<span class="delivery-price"> 3.50 € </span>
+						<span class="delivery-availability"> Tomorrow 12:00 </span>
+					</div>
 				</div>
 			</div>
 			<div class="line"> </div>
 
 			<h3> Payment </h3>
-			<div class="input-group mb-3">
-				<div class="payment-row">
-					<input class="payment-checkbox" type="checkbox" onchange="onPaymentOptionChanged(this)" checked>
-					<img class="payment-item-icon" src="../../resources/images/paymentDetailImages/creditCard.jpg" alt="">
-					<div class="payment-label"> By card </div>
-				</div>
-				<div class="delivery-row">
-					<input class="payment-checkbox" type="checkbox" onchange="onPaymentOptionChanged(this)">
-					<img class="payment-item-icon" src="../../resources/images/paymentDetailImages/cash.jpg" alt="">
-					<div class="delivery-label"> In cash </div>
+			<div id="delivery">
+				<div class="input-group mb-3">
+					<div class="payment-row">
+						<input class="payment-checkbox" type="checkbox" onchange="onPaymentOptionChanged(this)" checked>
+						<img class="payment-item-icon" src="../../resources/images/paymentDetailImages/creditCard.jpg" alt="">
+						<div class="payment-label"> By card </div>
+					</div>
+					<div class="delivery-row">
+						<input class="payment-checkbox" type="checkbox" onchange="onPaymentOptionChanged(this)">
+						<img class="payment-item-icon" src="../../resources/images/paymentDetailImages/cash.jpg" alt="">
+						<div class="delivery-label"> In cash </div>
+					</div>
 				</div>
 			</div>
 			<div class="line"> </div>

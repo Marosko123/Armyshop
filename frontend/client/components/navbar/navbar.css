@@ -55,13 +55,19 @@
 }
 
 .dropdown>.dropdown-toggle:active {
-/*Without this, clicking will make it sticky*/
     pointer-events: none;
 }
 
 .dropdown {
     border-radius: 5px;
-    background-color: rgb(149, 196, 20);
+    background-color: rgb(25, 58, 29);
+    margin: 10px;
+    width: inherit;
+}
+
+.dropdown:hover {
+    border-radius: 5px;
+    background-color: rgb(47, 99, 54);
     margin: 10px;
     width: inherit;
 }
@@ -74,6 +80,7 @@
 .dropdown-toggle {
     font-weight: bold;
     width: inherit;
+    color: rgb(255, 255, 255);
 }
 
 .navbar-dropdown {
