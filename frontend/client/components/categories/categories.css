@@ -12,37 +12,38 @@
 }
 
 .category {
-width: 65%;
-height: 80%;
-margin: 1rem;
-padding: 2rem;
-text-align: center;
-background-color: #f1f1f1;
-border-radius: 10px;
-box-shadow: 0 2px 4px rgba(0,0,0,.1);
-transition: all 0.3s ease-in-out;
+    width: 65%;
+    height: 80%;
+    margin: 1rem;
+    padding: 2rem;
+    text-align: center;
+    background-color: #dddddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+    transition: all 0.3s ease-in-out;
 }
 
 .category:hover {
-transform: translateY(-5px);
+    transform: translateY(-5px);
+    cursor:pointer;
 }
 
 .category img {
-width: 50%;
-height: auto;
-margin-bottom: 1rem;
+    width: 50%;
+    height: auto;
+    margin-bottom: 1rem;
 }
 
 .category h3 {
-font-size: 1.5rem;
-font-weight: bold;
-margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
 }
 
 .category p {
-font-size: 1.2rem;
-line-height: 1.5;
-color: #444;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: #444;
 }
 
 @media (max-width: 1200px) {
