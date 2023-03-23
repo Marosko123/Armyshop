@@ -53,13 +53,14 @@ militarypassInsertionCancelled = (event) => {
 
 imageChoosen = (event) => {
 	const [file] = event.files;
-	if (file) {
-		imageToSubmit = URL.createObjectURL(file);
-		document.querySelector('#selected-image').src = imageToSubmit;
+	if (!file) {
+		imageToSubmit = null;
 		return;
 	}
 
-	imageToSubmit = null;
+	imageToSubmit = URL.createObjectURL(file);
+	document.querySelector('#selected-image').src = imageToSubmit;
+	document.querySelector('#selected-image').style.marginTop = '0px';
 };
 
 submitImage = (event) => {
