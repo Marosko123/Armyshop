@@ -161,7 +161,7 @@
 	<div id="order-and-pay-wrapper">
 		<!-- Payment Detail -->
 		<div id="payment-detail-wrapper">
-			<h1> Order and pay </h1>
+			<h1 class="heading"> Order and pay </h1>
 
 			<h3> Personal information </h3>
 			<div class="input-group mb-3">
@@ -196,21 +196,21 @@
 			<h3> Delivery </h3>
 			<div class="input-group mb-3">
 				<div class="delivery-row">
-					<input class="delivery-checkbox form-check-input" type="checkbox" onchange="onDeliveryOptionChanged(this)" checked>
+					<input class="delivery-checkbox" type="checkbox" onchange="onDeliveryOptionChanged(this)" checked>
 					<img class="delivery-item-icon" src="https://upload.wikimedia.org/wikipedia/commons/2/24/Mark_of_the_United_States_Army.svg" alt="">
 					<div class="delivery-label"> Pick up in the store </div>
 					<span class="delivery-price"> Free </span>
 					<span class="delivery-availability"> Tomorrow 12:00 </span>
 				</div>
 				<div class="delivery-row">
-					<input class="delivery-checkbox form-check-input" type="checkbox" onchange="onDeliveryOptionChanged(this)">
+					<input class="delivery-checkbox " type="checkbox" onchange="onDeliveryOptionChanged(this)">
 					<img class="delivery-item-icon" src="../../resources/images/paymentDetailImages/postOffice.jpg" alt="">
 					<div class="delivery-label"> Post office </div>
 					<span class="delivery-price"> 2.50 € </span>
 					<span class="delivery-availability"> Tomorrow 18:00 </span>
 				</div>
 				<div class="delivery-row">
-					<input class="delivery-checkbox form-check-input" type="checkbox" onchange="onDeliveryOptionChanged(this)">
+					<input class="delivery-checkbox " type="checkbox" onchange="onDeliveryOptionChanged(this)">
 					<img class="delivery-item-icon" src="../../resources/images/paymentDetailImages/courier.jpg" alt="">
 					<div class="delivery-label"> DHL </div>
 					<span class="delivery-price"> 3.50 € </span>
@@ -219,13 +219,76 @@
 			</div>
 			<div class="line"> </div>
 
-			<button class="btn btn-success" id="order-button"> Order </button>
+			<h3> Payment </h3>
+			<div class="input-group mb-3">
+				<div class="payment-row">
+					<input class="payment-checkbox" type="checkbox" onchange="onPaymentOptionChanged(this)" checked>
+					<img class="payment-item-icon" src="../../resources/images/paymentDetailImages/creditCard.jpg" alt="">
+					<div class="payment-label"> By card </div>
+				</div>
+				<div class="delivery-row">
+					<input class="payment-checkbox" type="checkbox" onchange="onPaymentOptionChanged(this)">
+					<img class="payment-item-icon" src="../../resources/images/paymentDetailImages/cash.jpg" alt="">
+					<div class="delivery-label"> In cash </div>
+				</div>
+			</div>
+			<div class="line"> </div>
+
+			<a class="btn btn-success" href="#popup1" id="order-button" onclick="onOrderNowClicked(this)"> Order Now </a>
+		</div>
+		<div id="popup">
+			<div id="popup1" class="overlay">
+				<div class="popup">
+					<h2> Thank you for the order </h2>
+					<a class="close" href="#">&times;</a>
+					<div class="content">
+						We hope you will love our products!
+					</div>
+				</div>
+			</div>
 		</div>
 		<div id="summary">
-			<h3> Sum up </h3>
-			<p> kktko </p>
+			<h5> Products </h5>
+			<div id="summary-product-list">
+				<div class="product">
+					<img class="summary-item-img" src="https://upload.wikimedia.org/wikipedia/commons/2/24/Mark_of_the_United_States_Army.svg" alt="">
+					<span class="summary-item-label"> 1x AK47 </span>
+					<span class="summary-item-price"> 5.99 € </span>
+				</div>
+				<div class="product">
+					<img class="summary-item-img" src="https://upload.wikimedia.org/wikipedia/commons/2/24/Mark_of_the_United_States_Army.svg" alt="">
+					<span class="summary-item-label"> 1x AK47 </span>
+					<span class="summary-item-price"> 5.99 € </span>
+				</div>
+				<div class="product">
+					<img class="summary-item-img" src="https://upload.wikimedia.org/wikipedia/commons/2/24/Mark_of_the_United_States_Army.svg" alt="">
+					<span class="summary-item-label"> 1x AK47 </span>
+					<span class="summary-item-price"> 5.99 € </span>
+				</div>
+				<div class="product">
+					<img class="summary-item-img" src="https://upload.wikimedia.org/wikipedia/commons/2/24/Mark_of_the_United_States_Army.svg" alt="">
+					<span class="summary-item-label"> 1x AK47 </span>
+					<span class="summary-item-price"> 5.99 € </span>
+				</div>
+				<div class="product">
+					<img class="summary-item-img" src="https://upload.wikimedia.org/wikipedia/commons/2/24/Mark_of_the_United_States_Army.svg" alt="">
+					<span class="summary-item-label"> 1x AK47 </span>
+					<span class="summary-item-price"> 5.99 € </span>
+				</div>
+				<div class="product">
+					<img class="summary-item-img" src="https://upload.wikimedia.org/wikipedia/commons/2/24/Mark_of_the_United_States_Army.svg" alt="">
+					<span class="summary-item-label"> 1x AK47 </span>
+					<span class="summary-item-price"> 5.99 € </span>
+				</div>
+				<div class="product">
+					<img class="summary-item-img" src="https://upload.wikimedia.org/wikipedia/commons/2/24/Mark_of_the_United_States_Army.svg" alt="">
+					<span class="summary-item-label"> 1x AK47 </span>
+					<span class="summary-item-price"> 5.99 € </span>
+				</div>
+			</div>
+			<h5 class="summary-total-price">Total Price</h5>
+			<h4 class="text-center">5999.99 €</h4>
 		</div>
 	</div>
-
 </body>
 </html>
