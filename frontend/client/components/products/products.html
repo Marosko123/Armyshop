@@ -6,57 +6,309 @@
 	<link rel="stylesheet" type="text/css" href="products.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="./products.js"></script>
+    <link rel="stylesheet" href="../navbar/navbar.css">
+    <script src="../navbar/navbar.js"></script>
 </head>
 <body>
+  <div class="text-center">
+    <nav id="primary-navbar" class="navbar navbar-expand navbar-light bg-light">
+        <div class="container-fluid">
+            <a href="https://www.google.sk" target="_blank">
+                <img class="navbar-img" 
+                    src="https://upload.wikimedia.org/wikipedia/commons/2/24/Mark_of_the_United_States_Army.svg" 
+                    alt="Armyshop">
+            </a>
+            <input class="form-control search-input" type="search" placeholder="Search" aria-label="Search">
+            <img class="search-img" 
+                src="https://www.freeiconspng.com/uploads/search-icon-png-5.png" 
+                alt="Responsive image">
+            <button class="button shopping-cart__button">
+                <img class="navbar-img" 
+                    src="https://www.freeiconspng.com/uploads/bag-icon-6.png" 
+                    alt="Responsive image">
+            </button>
+            <button class="button profile__button">
+                <img class="navbar-img" 
+                    src="https://www.freeiconspng.com/uploads/msn-people-person-profile-user-icon--icon-search-engine-16.png" 
+                    alt="Responsive image">
+            </button>
+        </div>
+    </nav>
+
+    <nav id="secondary-navbar" class="navbar navbar-expand navbar-light bg-light">
+        <div class="navbar-dropdown container-fluid">
+            <div class="dropdown">
+                <button
+                  class="btn dropdown-toggle"
+                  type="button"
+                  id="dropdownMenuButton"
+                  data-mdb-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Weapons
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <li><a class="dropdown-item" href="#">Pistols</a></li>
+                  <li><a class="dropdown-item" href="#">Rifles</a></li>
+                  <li><a class="dropdown-item" href="#">Submachine guns</a></li>
+                  <li><a class="dropdown-item" href="#">Heavy</a></li>
+                  <li><a class="dropdown-item" href="#">Knives</a></li>
+                </ul>
+              </div>
+        </div>
+        <div class="navbar-dropdown container-fluid">
+            <div class="dropdown">
+                <button
+                  class="btn dropdown-toggle"
+                  type="button"
+                  id="dropdownMenuButton"
+                  data-mdb-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Transport
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <li><a class="dropdown-item" href="#">Cars</a></li>
+                  <li><a class="dropdown-item" href="#">Motocycles</a></li>
+                  <li><a class="dropdown-item" href="#">Panzers</a></li>
+                  <li><a class="dropdown-item" href="#">Planes</a></li>
+                  <li><a class="dropdown-item" href="#">Boats</a></li>
+                </ul>
+              </div>
+        </div>
+        <div class="navbar-dropdown container-fluid">
+            <div class="dropdown">
+                <button
+                  class="btn dropdown-toggle"
+                  type="button"
+                  id="dropdownMenuButton"
+                  data-mdb-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Clothing
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <li><a class="dropdown-item" href="#">Jackets</a></li>
+                  <li><a class="dropdown-item" href="#">Trousers</a></li>
+                  <li><a class="dropdown-item" href="#">Shoes</a></li>
+                  <li><a class="dropdown-item" href="#">Pants</a></li>
+                  <li><a class="dropdown-item" href="#">Socks</a></li>
+                </ul>
+              </div>
+        </div>
+        <div class="navbar-dropdown container-fluid">
+            <div class="dropdown">
+                <button
+                  class="btn dropdown-toggle"
+                  type="button"
+                  id="dropdownMenuButton"
+                  data-mdb-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Explosives
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <li><a class="dropdown-item" href="#">C4s</a></li>
+                  <li><a class="dropdown-item" href="#">Nukes</a></li>
+                  <li><a class="dropdown-item" href="#">Grenades</a></li>
+                  <li><a class="dropdown-item" href="#">TNTs</a></li>
+                  <li><a class="dropdown-item" href="#">Bombs</a></li>
+                </ul>
+              </div>
+        </div>
+        <div class="navbar-dropdown container-fluid">
+            <div class="dropdown">
+                <button
+                  class="btn dropdown-toggle"
+                  type="button"
+                  id="dropdownMenuButton"
+                  data-mdb-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Equipment
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <li><a class="dropdown-item" href="#">Backpacks</a></li>
+                  <li><a class="dropdown-item" href="#">Hunting</a></li>
+                  <li><a class="dropdown-item" href="#">Camping</a></li>
+                </ul>
+              </div>
+        </div>
+        <div class="navbar-dropdown container-fluid">
+            <div class="dropdown">
+                <button
+                  class="btn dropdown-toggle"
+                  type="button"
+                  id="dropdownMenuButton"
+                  data-mdb-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Accessories
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <li><a class="dropdown-item" href="#">Glasses</a></li>
+                  <li><a class="dropdown-item" href="#">Face pain</a></li>
+                  <li><a class="dropdown-item" href="#">Camouflage</a></li>
+                </ul>
+              </div>
+        </div>
+    </nav>
+</div>
+
  <div class="container">
-    <div class="container">
-        <div class="card-deck d-flex">
-            <div class="card">
-                <img class="card-img-top" src="../../resources/images/productDetailImages/alexey-turenkov-hvfi7LxkgKc-unsplash.jpg" alt="Card image cap">
-                <div class="card-body d-flex align-items-center justify-content-between mx-auto">
-                    <div>
-                        <h3 class="card-title">AK-47</h3>
-                        <p class="card-text">5999.99 €</p>
-                    </div>
-                    <img src="../../resources/images/productDetailImages/heart4.png" alt="" width="12%">
+        <div class="categories">
+            <div class="d-flex justify-content-center mx-auto">
+                <div class="category">
+                    <h3 class="description">Heavy</h3>
                 </div>
-                <div class="card-body d-flex align-items-center justify-content-between mx-auto">
-                    <img src="../../resources/images/productDetailImages/cart.png" alt="" width="15%" class="cart-img">
-                    <button type="button" class="btn btn-success btn-buy">Buy Now</button>
+                <div class="category">
+                    <h3 class="description">Heavy</h3>
                 </div>
-            </div>
-    
-            <div class="card">
-                <img class="card-img-top" src="../../resources/images/productDetailImages/alexey-turenkov-hvfi7LxkgKc-unsplash.jpg" alt="Card image cap">
-                <div class="card-body d-flex align-items-center justify-content-between mx-auto">
-                    <div>
-                        <h3 class="card-title">AK-47</h3>
-                        <p class="card-text">5999.99 €</p>
-                    </div>
-                    <img src="../../resources/images/productDetailImages/heart4.png" alt="" width="12%">
-                </div>
-                <div class="card-body d-flex align-items-center justify-content-between mx-auto">
-                    <img src="../../resources/images/productDetailImages/cart.png" alt="" width="15%" class="cart-img">
-                    <button type="button" class="btn btn-success btn-buy">Buy Now</button>
+                <div class="category">
+                    <h3 class="description">Heavy</h3>
                 </div>
             </div>
         </div>
-    </div>
-    
  </div>
 
+    <div class="card-container">
+        <div class="card m-3">
+            <img class="card-img-top" src="../../resources/images/productDetailImages/alexey-turenkov-hvfi7LxkgKc-unsplash.jpg" alt="Card image cap">
+            <div class="card-body d-flex align-items-center justify-content-between mx-auto">
+                <div>
+                    <h3 class="card-title">AK-47</h3>
+                    <p class="card-text">5999.99 €</p>
+                </div>
+                <img src="../../resources/images/productDetailImages/heart4.png" alt="" width="14%" class="likedPhoto">
+            </div>
+            <div class="card-body d-flex align-items-center justify-content-between mx-auto">
+                <img src="../../resources/images/productDetailImages/cart.png" alt="" width="15%" class="cart-img">
+                <button type="button" class="btn btn-success btn-buy">Buy Now</button>
+            </div>
+        </div>
 
 
+        <div class="card m-3">
+            <img class="card-img-top" src="../../resources/images/productDetailImages/alexey-turenkov-hvfi7LxkgKc-unsplash.jpg" alt="Card image cap">
+            <div class="card-body d-flex align-items-center justify-content-between mx-auto">
+                <div>
+                    <h3 class="card-title">AK-47</h3>
+                    <p class="card-text">5999.99 €</p>
+                </div>
+                <img src="../../resources/images/productDetailImages/heart4.png" alt="" width="14%" class="likedPhoto">
+            </div>
+            <div class="card-body d-flex align-items-center justify-content-between mx-auto">
+                <img src="../../resources/images/productDetailImages/cart.png" alt="" width="15%" class="cart-img">
+                <button type="button" class="btn btn-success btn-buy">Buy Now</button>
+            </div>
+        </div>
 
+        <div class="card m-3">
+            <img class="card-img-top" src="../../resources/images/productDetailImages/alexey-turenkov-hvfi7LxkgKc-unsplash.jpg" alt="Card image cap">
+            <div class="card-body d-flex align-items-center justify-content-between mx-auto">
+                <div>
+                    <h3 class="card-title">AK-47</h3>
+                    <p class="card-text">5999.99 €</p>
+                </div>
+                <img src="../../resources/images/productDetailImages/heart4.png" alt="" width="14%" class="likedPhoto">
+            </div>
+            <div class="card-body d-flex align-items-center justify-content-between mx-auto">
+                <img src="../../resources/images/productDetailImages/cart.png" alt="" width="15%" class="cart-img">
+                <button type="button" class="btn btn-success btn-buy">Buy Now</button>
+            </div>
+        </div>
 
+        <div class="card m-3">
+            <img class="card-img-top" src="../../resources/images/productDetailImages/alexey-turenkov-hvfi7LxkgKc-unsplash.jpg" alt="Card image cap">
+            <div class="card-body d-flex align-items-center justify-content-between mx-auto">
+                <div>
+                    <h3 class="card-title">AK-47</h3>
+                    <p class="card-text">5999.99 €</p>
+                </div>
+                <img src="../../resources/images/productDetailImages/heart4.png" alt="" width="14%" class="likedPhoto">
+            </div>
+            <div class="card-body d-flex align-items-center justify-content-between mx-auto">
+                <img src="../../resources/images/productDetailImages/cart.png" alt="" width="15%" class="cart-img">
+                <button type="button" class="btn btn-success btn-buy">Buy Now</button>
+            </div>
+        </div>
 
+        <div class="card m-3">
+            <img class="card-img-top" src="../../resources/images/productDetailImages/alexey-turenkov-hvfi7LxkgKc-unsplash.jpg" alt="Card image cap">
+            <div class="card-body d-flex align-items-center justify-content-between mx-auto">
+                <div>
+                    <h3 class="card-title">AK-47</h3>
+                    <p class="card-text">5999.99 €</p>
+                </div>
+                <img src="../../resources/images/productDetailImages/heart4.png" alt="" width="14%" class="likedPhoto">
+            </div>
+            <div class="card-body d-flex align-items-center justify-content-between mx-auto">
+                <img src="../../resources/images/productDetailImages/cart.png" alt="" width="15%" class="cart-img">
+                <button type="button" class="btn btn-success btn-buy">Buy Now</button>
+            </div>
+        </div>
 
+        <div class="card m-3">
+            <img class="card-img-top" src="../../resources/images/productDetailImages/alexey-turenkov-hvfi7LxkgKc-unsplash.jpg" alt="Card image cap">
+            <div class="card-body d-flex align-items-center justify-content-between mx-auto">
+                <div>
+                    <h3 class="card-title">AK-47</h3>
+                    <p class="card-text">5999.99 €</p>
+                </div>
+                <img src="../../resources/images/productDetailImages/heart4.png" alt="" width="14%" class="likedPhoto">
+            </div>
+            <div class="card-body d-flex align-items-center justify-content-between mx-auto">
+                <img src="../../resources/images/productDetailImages/cart.png" alt="" width="15%" class="cart-img">
+                <button type="button" class="btn btn-success btn-buy">Buy Now</button>
+            </div>
+        </div>
 
+        <div class="card m-3">
+            <img class="card-img-top" src="../../resources/images/productDetailImages/alexey-turenkov-hvfi7LxkgKc-unsplash.jpg" alt="Card image cap">
+            <div class="card-body d-flex align-items-center justify-content-between mx-auto">
+                <div>
+                    <h3 class="card-title">AK-47</h3>
+                    <p class="card-text">5999.99 €</p>
+                </div>
+                <img src="../../resources/images/productDetailImages/heart4.png" alt="" width="14%" class="likedPhoto">
+            </div>
+            <div class="card-body d-flex align-items-center justify-content-between mx-auto">
+                <img src="../../resources/images/productDetailImages/cart.png" alt="" width="15%" class="cart-img">
+                <button type="button" class="btn btn-success btn-buy">Buy Now</button>
+            </div>
+        </div>
 
+        <div class="card m-3">
+            <img class="card-img-top" src="../../resources/images/productDetailImages/alexey-turenkov-hvfi7LxkgKc-unsplash.jpg" alt="Card image cap">
+            <div class="card-body d-flex align-items-center justify-content-between mx-auto">
+                <div>
+                    <h3 class="card-title">AK-47</h3>
+                    <p class="card-text">5999.99 €</p>
+                </div>
+                <img src="../../resources/images/productDetailImages/heart4.png" alt="" width="14%" class="likedPhoto">
+            </div>
+            <div class="card-body d-flex align-items-center justify-content-between mx-auto">
+                <img src="../../resources/images/productDetailImages/cart.png" alt="" width="15%" class="cart-img">
+                <button type="button" class="btn btn-success btn-buy">Buy Now</button>
+            </div>
+        </div>
 
+        <div class="card m-3">
+            <img class="card-img-top" src="../../resources/images/productDetailImages/alexey-turenkov-hvfi7LxkgKc-unsplash.jpg" alt="Card image cap">
+            <div class="card-body d-flex align-items-center justify-content-between mx-auto">
+                <div>
+                    <h3 class="card-title">AK-47</h3>
+                    <p class="card-text">5999.99 €</p>
+                </div>
+                <img src="../../resources/images/productDetailImages/heart4.png" alt="" width="14%" class="likedPhoto">
+            </div>
+            <div class="card-body d-flex align-items-center justify-content-between mx-auto">
+                <img src="../../resources/images/productDetailImages/cart.png" alt="" width="15%" class="cart-img">
+                <button type="button" class="btn btn-success btn-buy">Buy Now</button>
+            </div>
+        </div>
+    </div>
 
-
-  </div>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
