@@ -1,80 +1,131 @@
 body {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-  url('../../resources/images/homepage/army-bg1.jpg'); /* Source: https://unsplash.com/s/photos/military */
+    url('../../resources/images/homepage/army-bg1.jpg');
+  /* Source: https://unsplash.com/s/photos/military */
   background-size: cover;
   background-position: center 40px;
   font-family: 'Roboto serif' !important;
-
 }
 
+/* Card - Product */
+
 .card-img-top {
-    height: 80%; /* set the height of the image */
-    object-fit: cover; /* ensure the image covers the entire space */
+  height: 80%;
+  object-fit: cover;
 }
 
 .card-body {
-    height: 20%; /* set the height of the card body */
-    display: flex; /* use flexbox to align items */
-    align-items: center;
-    justify-content: space-between;
-    max-width: 80%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 80%;
 }
-
-.btn-buy {
-    margin-left: 2rem;
-}
-
-.cart-img {
-    margin-right: 2rem;
-}
-
-.likedPhoto {
-    margin-right: 1.5rem;
-}
-
 
 .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 0 auto;
-    max-width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 90%;
 }
 
 .card {
-    flex-basis: 30%;
-    margin: 10px;
-    box-shadow: rgba(255, 255, 255, 0.60) 0px 5px 15px !important;
-    border: none !important;
+  flex-basis: 30%;
+  margin: 10px;
+  box-shadow: rgba(255, 255, 255, 0.60) 0px 5px 15px !important;
+  border: none !important;
 }
 
 .card:hover {
-    cursor: pointer;
+  cursor: pointer;
+  transform: translateY(-5px);
+}
+
+.btn-buy {
+  margin-left: 2rem;
+}
+
+.cart-img {
+  margin-right: 2rem;
+}
+
+.likedPhoto {
+  margin-right: 1.5rem;
+}
+
+.order-description {
+  color: white;
+  margin-left: 3rem;
+  font-size: 1.2rem;
+}
+
+/* Double handle slider */
+
+.slider-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.slider {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.slider-range {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 10px;
+  background: #ddd;
+  outline: none;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.slider-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1rem;
+  height: 1rem;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+.slider-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #4CAF50;
+  cursor: pointer;
 }
 
 .subcategories {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    width: 100%;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 100%;
+}
 
 .description p {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
 .subcategory {
-    flex: 0 1 12%;
-    height: 50%;
-    margin: 2rem;
-    padding: 2rem;
-    text-align: center;
-    background-color: #f1f1f1;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0,0,0,.1);
-    transition: all 0.3s ease-in-out;
+  flex: 0 1 12%;
+  height: 50%;
+  margin: 2rem;
+  padding: 2rem;
+  text-align: center;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+  transition: all 0.3s ease-in-out;
 }
 
 .subcategory:hover {
@@ -82,7 +133,86 @@ body {
   cursor: pointer;
 }
 
-/* For screens smaller than 576px */
+.slider-order {
+  width: 50%;
+}
+
+/* Dropdown menu - Order by */
+
+.dropbtn {
+  background-color: white;
+  color: black;
+  padding: 1rem;
+  border: none;
+  cursor: pointer;
+  transform: translateY(-5px);
+  transition: 0.5s;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: black;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-orderby:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-orderby:hover .dropbtn {
+  background-color: #444;
+}
+
+/* Paging */
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pagination li {
+  margin: 0 1rem;
+}
+
+.pagination li a {
+  display: block;
+  padding: 0.5rem 1.5rem;
+  background-color: #ddd;
+  color: #333;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.pagination li a:hover {
+  background-color: #555;
+  color: #fff;
+  transform: translateY(-5px);
+  transition: 0.5s;
+}
+
+.pagination li.active a {
+  background-color: #007bff;
+  color: #fff;
+}
+
+
+/* Screens smaller than 576px */
 @media (max-width: 700px) {
   .card-container {
     display: flex;
@@ -92,7 +222,7 @@ body {
     margin: 0 auto;
     max-width: 90%;
   }
-  
+
   .card {
     flex-basis: 80%;
     margin: 10px;
@@ -102,25 +232,33 @@ body {
     flex: 0 1 10%;
     margin: 0.5rem;
   }
+
+  .slider-order {
+    width: 100%;
+  }
 }
 
-/* For screens between 576px and 1200px */
+/* Screens between 576px and 1200px */
 @media (min-width: 700px) and (max-width: 1200px) {
-    .card-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin: 0 auto;
-      max-width: 100%;
-    }
-    
-    .card {
-      flex-basis: 40%;
-      margin: 10px;
-    }
-
-    .subcategory {
-      flex: 0 1 25%;
-      margin: 1rem;
-    }
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 100%;
   }
+
+  .card {
+    flex-basis: 40%;
+    margin: 10px;
+  }
+
+  .subcategory {
+    flex: 0 1 25%;
+    margin: 1rem;
+  }
+
+  .slider-order {
+    width: 100%;
+  }
+}
