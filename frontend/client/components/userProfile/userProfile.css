@@ -1,41 +1,28 @@
-/*general*/
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-header {
-  background-color: #00ff2f;
-  color: #fff;
-  padding: 20px;
-}
-
-h1 {
+#user-profile h1 {
   margin: 0;
   font-size: 36px;
   text-align: center
 }
 
-h2 {
+#user-profile h2 {
   margin-top: 0 !important;
   margin-bottom: 10px !important;
   font-size: x-large !important;
 }
 
-hr {
+#user-profile hr {
   margin-left: 0;
   margin-right: 0;
 }
 
 
-.container {
+#user-profile .container {
   display: flex;
   flex-wrap: wrap;
 }
 
-.containerElement,
-.containerElementFlex {
+#user-profile .containerElement,
+#user-profile .containerElementFlex {
   margin-top: 20px !important;
   padding: 20px;
   border: 1px solid #ccc;
@@ -45,7 +32,7 @@ hr {
   margin: auto;
 }
 
-.containerElementFlex {
+#user-profile .containerElementFlex {
   display: flex;
   flex-direction: column;
 }
@@ -60,34 +47,34 @@ hr {
   border-radius: 5px;
 }
 
-table {
+#user-profile table {
   border-collapse: collapse;
   width: 100%;
 }
 
-th,
-td {
+#user-profile th,
+#user-profile td {
   padding: 8px !important;
   text-align: left;
   border-bottom: 1px solid #ddd;
 }
 
-th {
+#user-profile th {
   background-color: #f2f2f2;
 }
 
 
-td.wishListPrice {
+#user-profile td.wishListPrice {
   text-align: right;
   font-weight: bold;
 }
 
-tr.wishListRow:nth-child(even) {
+#user-profile tr.wishListRow:nth-child(even) {
   background-color: #f2f2f2;
 }
 
 
-.productImg {
+#user-profile .productImg {
   max-width: 50px;
   border: 1px solid rgb(122, 122, 122);
   border-radius: 5px;
@@ -95,16 +82,16 @@ tr.wishListRow:nth-child(even) {
 }
 
 /*labels, inputs and buttons*/
-label {
+#user-profile label {
   display: block;
   margin-bottom: 10px;
   font-size: 18px;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="password"] {
+#user-profile input[type="text"],
+#user-profile input[type="email"],
+#user-profile input[type="tel"],
+#user-profile input[type="password"] {
   width: 100%;
   padding: 10px;
   font-size: 16px;
@@ -115,7 +102,7 @@ input[type="password"] {
 
 }
 
-button {
+#user-profile button {
   background-color: rgb(25, 58, 29);
   color: #fff !important;
   border: none;
@@ -128,11 +115,11 @@ button {
   box-sizing: border-box;
 }
 
-button:hover {
+#user-profile button:hover {
   background-color: rgb(47, 99, 54);
 }
 
-button:focus {
+#user-profile button:focus {
   outline: none;
 }
 
@@ -140,5 +127,11 @@ button:focus {
 @media screen and (max-width: 1000px) {
   .verticalContainer {
     margin: auto !important;
+  }
+}
+
+@media screen and (min-height: 1250px) {
+  #user-profile {
+    height: 65vh;
   }
 }
