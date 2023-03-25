@@ -1,24 +1,16 @@
-/*general*/
-body {
-  font-family: Arial, sans-serif;
-  font-size: x-large;
-  margin: 0;
-  padding: 0;
-}
-
-h1 {
+#shopping-cart h1 {
   text-align: center;
   color: black;
   padding: 10px;
 }
 
-.container {
+#shopping-cart .container {
   display: flex;
   flex-wrap: wrap;
 }
 
-.containerElement,
-.summaryContainer {
+#shopping-cart .containerElement,
+#shopping-cart .summaryContainer {
   flex: 1;
   background-color: rgb(242, 242, 242);
   margin: 20px;
@@ -28,22 +20,22 @@ h1 {
 
 /*items in shopping cart*/
 
-.listContainerElement {
+#shopping-cart .listContainerElement {
   padding: 20px;
   max-height: 600px;
   overflow-y: scroll;
 }
 
-.itemList {
+#shopping-cart .itemList {
   overflow-y: visible !important;
 }
 
-ul {
+#shopping-cart .itemList ul {
   list-style-type: none;
   padding: 0;
 }
 
-.item {
+#shopping-cart .item {
   width: 100%;
   background-color: white;
   border: 2px solid black;
@@ -56,14 +48,14 @@ ul {
   box-shadow: 5px 5px 5px rgb(152, 152, 152);
 }
 
-.img {
+#shopping-cart .img {
   max-width: 100px;
   max-height: 100px;
   border: 1px solid rgb(109, 109, 109);
   border-radius: 5px;
 }
 
-.desc {
+#shopping-cart .desc {
   margin: 0px;
   margin-left: 20px;
   width: 100%;
@@ -71,34 +63,34 @@ ul {
   flex-direction: column;
 }
 
-.title-remove {
+#shopping-cart .title-remove {
   display: flex;
 }
 
-.removeButton {
+#shopping-cart .removeButton {
   max-height: 30px;
   margin-bottom: 10px;
   margin-left: auto;
 }
 
-h3 {
+#shopping-cart .itemList h3 {
   font-size: 20px !important;
   margin-top: 0 !important;
 }
 
-.prices {
+#shopping-cart .prices {
   display: flex;
   flex-direction: row;
 }
 
-.multiple {
+#shopping-cart .multiple {
   display: flex;
   flex-direction: column;
   width: 40%;
   margin-left: auto;
 }
 
-.countControls {
+#shopping-cart .countControls {
   display: flex;
   flex-direction: row;
   margin-left: auto;
@@ -106,12 +98,12 @@ h3 {
   border-radius: 10px;
 }
 
-.countControlButtons {
+#shopping-cart .countControlButtons {
   border: 0px solid black !important;
   background-color: transparent;
 }
 
-input {
+#shopping-cart .itemList input {
   width: 35px;
   height: 30px;
   border: 0px solid black !important;
@@ -119,15 +111,15 @@ input {
   text-align: center;
 }
 
-input:focus {
+#shopping-cart .itemList input:focus {
   outline-width: 0;
 }
 
-.singularPrice {
+#shopping-cart .singularPrice {
   font-size: 18px;
 }
 
-.multiplePrice {
+#shopping-cart .multiplePrice {
   font-size: 20px;
   font-weight: bold;
   text-align: center !important;
@@ -136,30 +128,29 @@ input:focus {
 }
 
 /*removing input arrows*/
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
+#shopping-cart .itemList input[type="number"]::-webkit-outer-spin-button,
+#shopping-cart .itemList input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-input[type="number"] {
+#shopping-cart .itemList input[type="number"] {
   -moz-appearance: textfield;
 }
 
 
 /*order summary*/
-.summaryContainer {
+#shopping-cart .summaryContainer {
   padding: 0;
   height: fit-content;
 }
 
-table,
-th,
-td {
+#shopping-cart .summaryContainer table,
+#shopping-cart .summaryContainer td {
   width: 100%;
 }
 
-#total {
+#shopping-cart #total {
   border-top: 1px solid;
   border-collapse: collapse;
 }
@@ -172,32 +163,37 @@ td {
   font-size: x-large;
 }
 
+#secondary-navbar,
+#primary-navbar {
+  margin-bottom: 0px !important;
+}
+
 /*responsivity*/
 @media screen and (max-width: 500px) {
-  .containerElement {
+  #shopping-cart .containerElement {
     margin-left: 0px !important;
   }
 }
 
 @media screen and (max-width: 1000px) {
-  .multiple {
+  #shopping-cart .multiple {
     margin-left: 15% !important;
   }
 
 
-  h3 {
+  #shopping-cart .itemList h3 {
     font-size: 13px !important;
   }
 
-  .singularPrice {
+  #shopping-cart .singularPrice {
     font-size: 14px;
   }
 
-  .multiplePrice {
+  #shopping-cart .multiplePrice {
     font-size: 16px;
   }
 
-  input {
+  #shopping-cart .itemList input {
     width: 25px;
     height: 20px;
     font-size: 12px !important;
@@ -205,7 +201,7 @@ td {
     padding-top: 5px;
   }
 
-  .img {
+  #shopping-cart .img {
     max-height: 70px;
   }
 }
