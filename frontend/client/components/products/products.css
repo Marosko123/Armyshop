@@ -40,6 +40,7 @@ body {
 .card:hover {
   cursor: pointer;
   transform: translateY(-5px);
+  transition: 0.5s;
 }
 
 .btn-buy {
@@ -103,6 +104,12 @@ body {
   cursor: pointer;
 }
 
+.slider-order {
+  width: 50%;
+}
+
+/* Subcategories */
+
 .subcategories {
   display: flex;
   flex-wrap: wrap;
@@ -133,10 +140,6 @@ body {
   cursor: pointer;
 }
 
-.slider-order {
-  width: 50%;
-}
-
 /* Dropdown menu - Order by */
 
 .dropbtn {
@@ -145,8 +148,6 @@ body {
   padding: 1rem;
   border: none;
   cursor: pointer;
-  transform: translateY(-5px);
-  transition: 0.5s;
 }
 
 .dropdown-content {
@@ -169,6 +170,7 @@ body {
 
 .dropdown-orderby:hover .dropbtn {
   background-color: #444;
+  transition: 0.5s;
 }
 
 /* Paging */
@@ -235,6 +237,7 @@ body {
 
   .slider-order {
     width: 100%;
+    margin-top: 3rem;
   }
 }
 
@@ -259,6 +262,7 @@ body {
   }
 
   .slider-order {
-    width: 100%;
+    width: 80%;
+    margin-top: 3rem;
   }
 }
