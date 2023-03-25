@@ -1,4 +1,3 @@
-
 #shopping-cart h1 {
   text-align: center;
   color: black;
@@ -71,10 +70,15 @@
   display: flex;
 }
 
-#shopping-cart .removeButton {
-  max-height: 30px;
-  margin-bottom: 10px;
+#shopping-cart .remove-button {
+  border: 0;
+  background-color: transparent;
+  margin-bottom: 15px;
   margin-left: auto;
+}
+
+#shopping-cart .remove-button-img {
+  max-height: 30px;
 }
 
 #shopping-cart .itemList h3 {
