@@ -231,6 +231,10 @@
     opacity: 1;
 }
 
+#popup {
+    z-index: 50;
+}
+
 .popup {
     margin: 70px auto;
     padding: 20px;
