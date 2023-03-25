@@ -11,36 +11,93 @@
 <body>
   <h1>User Profile</h1>
   <div class="container">
-    <div class="containerElement"> 
+    <div class="containerElement">
       <h2>Billing information</h2>
       <hr>
       <div class="formContainer">
-      <form>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" value="John Doe"><br>
+        <form>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" value="John Doe"><br>
 
-        <label for="address1">Address Line 1:</label>
-        <input type="text" id="address1" name="address1" value="Pod Vápenicou 25"><br>
+          <label for="address1">Address Line 1:</label>
+          <input type="text" id="address1" name="address1" value="Pod Vápenicou 25"><br>
 
-        <label for="address2">Address Line 2:</label>
-        <input type="text" id="address2" name="address2" value="028 01 Trstená"><br>
+          <label for="address2">Address Line 2:</label>
+          <input type="text" id="address2" name="address2" value="028 01 Trstená"><br>
 
-        <label for="email">E-mail:</label>
-        <input type="email" id="email" name="email" value="email@gmail.com"><br>
+          <label for="email">E-mail:</label>
+          <input type="email" id="email" name="email" value="email@gmail.com"><br>
 
-        <label for="phone">Phone Number:</label>
-        <input type="tel" id="phone" name="phone" value="0904956723"><br>
+          <label for="phone">Phone Number:</label>
+          <input type="tel" id="phone" name="phone" value="0904956723"><br>
 
-        <button type="button" id="save-changes-btn">SAVE CHANGES</button>
-      </form>
+          <button type="button" id="save-changes-btn">SAVE CHANGES</button>
+        </form>
       </div>
     </div>
     <div class="verticalContainer">
-      <div class="containerElement"> 
+      <div class="containerElementFlex">
         <h2>Your experience</h2>
         <hr>
-        <button type="button" id="save-changes-btn">VIEW ORDERS</button>
-        <button type="button" id="save-changes-btn">WISH LIST</button>
+        <button type="button" id="order-history-btn">ORDER HISTORY</button>
+        <div id="orderHistoryContainer">
+          <table>
+            <tr>
+              <th>ID:</th>
+              <th>Items:</th>
+              <th>Price:</th>
+            </tr>
+            <tr>
+              <td>#10023</td>
+              <td>20</td>
+              <td>250€</td>
+            </tr>
+            <tr>
+              <td>#10342</td>
+              <td>2</td>
+              <td>26.78€</td>
+            </tr>
+            <tr>
+              <td>#18734</td>
+              <td>2000</td>
+              <td>1245€</td>
+            </tr>
+            <tr>
+              <td>#19734</td>
+              <td>2000</td>
+              <td>1245€</td>
+            </tr>
+            <tr>
+              <td>#19433</td>
+              <td>1</td>
+              <td>1245000€</td>
+            </tr>
+          </table>
+        </div>
+        <button type="button" id="wish-list-btn">WISH LIST</button>
+        <div id="wishListContainer">
+          <table>
+            <tr class="wishListRow">
+              <td>
+                <img class="productImg" src="https://www.military-army-shop.sk/wp-content/uploads/2020/12/44031.jpg">
+              </td>
+              <td>Noz vreckovy</td>
+              <td class="wishListPrice">250€</td>
+            </tr>
+            <tr class="wishListRow">
+              <td><img class="productImg" src="https://www.military-army-shop.sk/wp-content/uploads/2020/12/44031.jpg">
+              </td>
+              <td>Noz vreckovy - velmi ostri, neskutocne nebezpecny, treba si davat maximalny pozor</td>
+              <td class="wishListPrice">2.78€</td>
+            </tr>
+            <tr class="wishListRow">
+              <td><img class="productImg" src="https://www.military-army-shop.sk/wp-content/uploads/2020/12/44031.jpg">
+              </td>
+              <td>Noz vreckovy - velmi ostri, este viac neskutocne nebezpecny, treba si davat maximalny pozor</td>
+              <td class="wishListPrice">260.78€</td>
+            </tr>
+          </table>
+        </div>
       </div>
       <div class="containerElement">
         <h2>Change password</h2>
@@ -53,11 +110,12 @@
 
         <label for="passNewConfirm">Confirm new password:</label>
         <input type="password" id="passNewConfirm" name="passNewConfirm"><br>
-        
+
         <button type="button" id="change-password-btn">CHANGE PASSWORD</button>
       </div>
     </div>
-</div>
+  </div>
 </body>
+<script src="userProfile.js"></script>
 
 </html>

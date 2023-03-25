@@ -6,7 +6,7 @@ body {
 }
 
 header {
-  background-color: #007bff;
+  background-color: #00ff2f;
   color: #fff;
   padding: 20px;
 }
@@ -17,18 +17,25 @@ h1 {
   text-align: center
 }
 
-h2{
+h2 {
   margin-top: 0 !important;
   margin-bottom: 10px !important;
   font-size: x-large !important;
 }
+
+hr {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 
 .container {
   display: flex;
   flex-wrap: wrap;
 }
 
-.containerElement {
+.containerElement,
+.containerElementFlex {
   margin-top: 20px !important;
   padding: 20px;
   border: 1px solid #ccc;
@@ -36,6 +43,55 @@ h2{
   max-width: 500px;
   box-sizing: border-box;
   margin: auto;
+}
+
+.containerElementFlex {
+  display: flex;
+  flex-direction: column;
+}
+
+/*Orders*/
+#orderHistoryContainer,
+#wishListContainer {
+  display: none;
+  margin-top: 10px;
+  padding: 1px;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  padding: 8px !important;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+
+td.wishListPrice {
+  text-align: right;
+  font-weight: bold;
+}
+
+tr.wishListRow:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+
+.productImg {
+  max-width: 50px;
+  border: 1px solid rgb(122, 122, 122);
+  border-radius: 5px;
+
 }
 
 /*labels, inputs and buttons*/
@@ -59,33 +115,30 @@ input[type="password"] {
 
 }
 
-button[type="submit"],
-button[type="button"] {
-  background-color: #007bff;
-  color: #fff;
+button {
+  background-color: rgb(25, 58, 29);
+  color: #fff !important;
   border: none;
   border-radius: 5px;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
+  margin-top: 10px !important;
   margin-right: 10px;
-  margin-bottom: 10px;
   box-sizing: border-box;
 }
 
-button[type="submit"]:hover,
-button[type="button"]:hover {
-  background-color: #0069d9;
+button:hover {
+  background-color: rgb(47, 99, 54);
 }
 
-button[type="submit"]:focus,
-button[type="button"]:focus {
+button:focus {
   outline: none;
 }
 
 /* responsive styles */
 @media screen and (max-width: 1000px) {
-    .verticalContainer{
-      margin: auto !important;
-    }
+  .verticalContainer {
+    margin: auto !important;
+  }
 }
