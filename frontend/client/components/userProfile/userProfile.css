@@ -1,5 +1,5 @@
 #user-profile h1 {
-  margin: 0;
+  margin: 20px;
   font-size: 36px;
   text-align: center
 }
@@ -23,13 +23,19 @@
 
 #user-profile .containerElement,
 #user-profile .containerElementFlex {
+  flex: 1;
   margin-top: 20px !important;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 10px;
-  max-width: 500px;
   box-sizing: border-box;
   margin: auto;
+}
+
+
+#user-profile .verticalContainer {
+  width: 500px;
+  margin-left: 30px;
 }
 
 #user-profile .containerElementFlex {
@@ -124,14 +130,27 @@
 }
 
 /* responsive styles */
+@media screen and (max-width: 500px) {
+  .verticalContainer {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
 @media screen and (max-width: 1000px) {
   .verticalContainer {
-    margin: auto !important;
+    width: 300px !important;
+    margin-left: 20px;
   }
 }
 
 @media screen and (min-height: 1250px) {
   #user-profile {
     height: 65vh;
+  }
+
+  .verticalContainer {
+    margin: auto !important;
+    margin-left: 0;
   }
 }
