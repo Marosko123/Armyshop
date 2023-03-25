@@ -17,20 +17,21 @@ h1 {
   flex-wrap: wrap;
 }
 
-.containerElement,
+.cartContainerElement,
 .summaryContainer {
   flex: 1;
-  background-color: rgb(242, 242, 242);
   margin: 20px;
   border-radius: 5px;
   padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: gainsboro;
 }
 
 /*items in shopping cart*/
 
 .listContainerElement {
   padding: 20px;
-  max-height: 600px;
+  max-height: 700px;
   overflow-y: scroll;
 }
 
@@ -53,7 +54,8 @@ ul {
   padding: 15px;
   display: flex;
   flex-direction: row;
-  box-shadow: 5px 5px 5px rgb(152, 152, 152);
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  background-color: rgb(232, 232, 232)
 }
 
 .img {
@@ -61,6 +63,7 @@ ul {
   max-height: 100px;
   border: 1px solid rgb(109, 109, 109);
   border-radius: 5px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
 .desc {
@@ -104,6 +107,7 @@ h3 {
   margin-left: auto;
   background-color: rgb(236, 236, 236);
   border-radius: 10px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
 .countControlButtons {
@@ -153,23 +157,38 @@ input[type="number"] {
   height: fit-content;
 }
 
+.containerElement {
+  padding: 20px;
+}
+
 table,
 th,
 td {
   width: 100%;
+  font-size: large;
 }
 
 #total {
   border-top: 1px solid;
   border-collapse: collapse;
+  font-weight: bold;
+  font-size: x-large;
 }
 
-#orderNow {
+#continueButton {
   width: 100%;
   border: 0 solid black;
-  background-color: rgb(230, 230, 230);
-  height: 50px;
-  font-size: x-large;
+  background-color: rgb(25, 58, 29);
+  height: 80px;
+  font-size: xx-large;
+  font-weight: bold;
+  color: white;
+}
+
+#continueButton:hover {
+  color: gold;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+
 }
 
 /*responsivity*/
