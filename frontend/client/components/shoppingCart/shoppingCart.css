@@ -17,19 +17,25 @@ h1 {
   flex-wrap: wrap;
 }
 
-.containerElement, .summaryContainer{
+.containerElement,
+.summaryContainer {
   flex: 1;
   background-color: rgb(242, 242, 242);
   margin: 20px;
   border-radius: 5px;
   padding: 20px;
-
 }
 
 /*items in shopping cart*/
 
-.itemList{
-  overflow-y:visible !important;
+.listContainerElement {
+  padding: 20px;
+  max-height: 600px;
+  overflow-y: scroll;
+}
+
+.itemList {
+  overflow-y: visible !important;
 }
 
 ul {
@@ -65,6 +71,16 @@ ul {
   flex-direction: column;
 }
 
+.title-remove {
+  display: flex;
+}
+
+.removeButton {
+  max-height: 30px;
+  margin-bottom: 10px;
+  margin-left: auto;
+}
+
 h3 {
   font-size: 20px !important;
   margin-top: 0 !important;
@@ -82,7 +98,7 @@ h3 {
   margin-left: auto;
 }
 
-.countControls{
+.countControls {
   display: flex;
   flex-direction: row;
   margin-left: auto;
@@ -90,12 +106,12 @@ h3 {
   border-radius: 10px;
 }
 
-.countControlButtons{
+.countControlButtons {
   border: 0px solid black !important;
   background-color: transparent;
 }
 
-input{
+input {
   width: 35px;
   height: 30px;
   border: 0px solid black !important;
@@ -103,15 +119,15 @@ input{
   text-align: center;
 }
 
-input:focus{
+input:focus {
   outline-width: 0;
 }
 
-.singularPrice{
+.singularPrice {
   font-size: 18px;
 }
 
-.multiplePrice{
+.multiplePrice {
   font-size: 20px;
   font-weight: bold;
   text-align: center !important;
@@ -132,8 +148,9 @@ input[type="number"] {
 
 
 /*order summary*/
-.summaryContainer{
+.summaryContainer {
   padding: 0;
+  height: fit-content;
 }
 
 table,
@@ -147,7 +164,7 @@ td {
   border-collapse: collapse;
 }
 
-#orderNow{
+#orderNow {
   width: 100%;
   border: 0 solid black;
   background-color: rgb(230, 230, 230);
@@ -160,30 +177,35 @@ td {
   .containerElement {
     margin-left: 0px !important;
   }
-
-  h3{
-    font-size: 15px !important;
-  }
 }
 
 @media screen and (max-width: 1000px) {
-  .multiple{
+  .multiple {
     margin-left: 15% !important;
   }
-  
-  
-  h3{
-    font-size: 15px !important;
-  }
-  .singularPrice {
-    font-size:14px;
+
+
+  h3 {
+    font-size: 13px !important;
   }
 
-  input{
+  .singularPrice {
+    font-size: 14px;
+  }
+
+  .multiplePrice {
+    font-size: 16px;
+  }
+
+  input {
     width: 25px;
     height: 20px;
     font-size: 12px !important;
     text-align: center;
     padding-top: 5px;
+  }
+
+  .img {
+    max-height: 70px;
   }
 }
