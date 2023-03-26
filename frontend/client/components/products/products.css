@@ -171,8 +171,23 @@ body {
   margin-right: 2rem;
 }
 
-#products .likedPhoto {
+#products .liked-photo {
   margin-right: 1.5rem;
+  width: 18%;
+  margin-top: 0.3rem;
+}
+
+#products .liked-photo:hover {
+  background-image: url('../../resources/images/productDetailImages/heart4.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 18%;
+  margin-top: 0.3rem;
+}
+
+
+#products .new-image {
+  background-image: url("../../resources/images/productDetailImages/heart4.png");
 }
 
 #products .order-description {
