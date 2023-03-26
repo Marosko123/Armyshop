@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <title>Products</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="products.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script src="./products.js"></script>
-    <link rel="stylesheet" href="../navbar/navbar.css">
-    <script src="../navbar/navbar.js"></script>
-    <link rel="stylesheet" href="../contactUs/contactUs.css">
-    <script src="../contactUs/contactUs.js"></script>
+  <link rel="stylesheet" href="../navbar/navbar.css">
+  <link rel="stylesheet" href="../contactUs/contactUs.css">
+  <script src="./products.js"></script>
+  <script src="../navbar/navbar.js"></script>
+  <script src="../contactUs/contactUs.js"></script>
 </head>
 <body>
   <!-- navbar -->
@@ -163,52 +163,55 @@
     </div>
   </header>
 
- <div class="container">
+  <!-- products -->
+  <div id="products" class="container">
     <div class="subcategories">
-            <div class="subcategory">
-                <h3 class="description">Pistols</h3>
-            </div>
-            <div class="subcategory">
-                <h3 class="description">Rifles</h3>
-            </div>
-            <div class="subcategory">
-                <h3 class="description">SMG</h3>
-            </div>
-            <div class="subcategory">
-                <h3 class="description">Heavy</h3>
-            </div>
-            <div class="subcategory">
-                <h3 class="description">Knives</h3>
-            </div>
+      <div class="subcategory">
+          <h3 class="description">Pistols</h3>
+      </div>
+      <div class="subcategory">
+          <h3 class="description">Rifles</h3>
+      </div>
+      <div class="subcategory">
+          <h3 class="description">SMG</h3>
+      </div>
+      <div class="subcategory">
+          <h3 class="description">Heavy</h3>
+      </div>
+      <div class="subcategory">
+          <h3 class="description">Knives</h3>
+      </div>
     </div>
 
     <!-- filters -->
-    <div class="slider-order d-flex justify-content-between mx-auto">
-      <div class="slider-container">
-        <p class="order-description">0 € - 999999 €</p>
-        <div class="slider">
-          <input type="range" min="1" max="100" value="25" class="slider-range" id="myRange1">
-          <input type="range" min="1" max="100" value="75" class="slider-range" id="myRange2">
+    <div id="filters">
+      <div class="slider-order d-flex justify-content-between mx-auto">
+        <div class="slider-container">
+          <p class="order-description">0 € - 999999 €</p>
+          <div class="slider">
+            <input type="range" min="1" max="100" value="25" class="slider-range" id="myRange1">
+            <input type="range" min="1" max="100" value="75" class="slider-range" id="myRange2">
+          </div>
         </div>
-      </div>
 
-      <div class="license-needed d-flex mt-3">
-        <p class="order-description toggle-license">License:</p>
-        <img src="../../resources/images/productDetailImages/checkmark.png" alt="" width="10%" height="30%" class="checkmark-img" id="license-checkmark">
-      </div>
+        <div class="license-needed d-flex mt-3">
+          <p class="order-description toggle-license">License:</p>
+          <img src="../../resources/images/productDetailImages/checkmark.png" alt="" width="10%" height="30%" class="checkmark-img" id="license-checkmark">
+        </div>
 
-      <div class="dropdown-orderby">
-        <button class="dropbtn rounded">Order By</button>
-        <div class="dropdown-content">
-          <a href="#">Price Increasing</a>
-          <a href="#">Price Decreasing</a>
-          <a href="#">Popularity</a>
+        <div class="dropdown-orderby">
+          <button class="dropbtn rounded">Order By</button>
+          <div class="dropdown-content">
+            <a href="#">Price Increasing</a>
+            <a href="#">Price Decreasing</a>
+            <a href="#">Popularity</a>
+          </div>
         </div>
       </div>
     </div>
 
-
-    <div class="card-container">
+    <!-- cards -->
+    <div id="cards" class="card-container">
         <div class="card m-3">
             <!-- image source: unsplash.com -->
             <img class="card-img-top" src="../../resources/images/productDetailImages/alexey-turenkov-hvfi7LxkgKc-unsplash.jpg" alt="Card image cap" onclick="toggleLikedIcon()">
@@ -373,6 +376,7 @@
         </div>
     </div>
 
+    <!-- paging -->
     <div class="pagination-container">
       <ul class="pagination">
         <li><a href="#">1</a></li>
