@@ -4,7 +4,6 @@ body {
   url('../../resources/images/homepage/army-bg1.jpg'); /* Source: https://unsplash.com/s/photos/military */
   background-size: cover;
   background-position: center 40px;
-  font-family: 'Roboto serif' !important;
 }
 
 #landing-page .main-heading {
