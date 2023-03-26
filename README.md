@@ -89,7 +89,7 @@ objaviť v profile, v kolónke HELP.
 
 ## Screenshooty z aplikácie
 
-![landing-page](https://user-images.githubusercontent.com/91140372/227772002-6ae5f1f2-5386-4b62-a441-cea19340c7bc.png)
+![landing-page](https://user-images.githubusercontent.com/91140372/227772269-20362dcf-d6d3-455e-8325-570bce3bb03a.png)
 
 ![login-register](https://user-images.githubusercontent.com/91140372/227771797-5801579c-c794-4eaf-baac-c55cfc1d4176.png)
 
