@@ -14,3 +14,10 @@ body {
 #most-popular .card-container {
   display: flex !important; 
 }
+
+@media (max-width: 767px) {
+  #most-popular .card-container {
+    display: block !important;
+  }
+}
+
