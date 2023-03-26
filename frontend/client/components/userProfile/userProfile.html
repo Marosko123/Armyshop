@@ -15,8 +15,8 @@
 
 <body>
   <!-- navbar -->
-	<header>
-		<div id="navbar">
+  <header>
+    <div id="navbar">
       <!-- primary navbar -->
       <nav id="primary-navbar" class="navbar navbar-expand navbar-light bg-light">
         <div class="container-fluid">
@@ -134,28 +134,38 @@
   <div id="user-profile">
     <h1>User Profile</h1>
     <div class="container">
-      <div class="containerElement">
-        <h2>Billing information</h2>
-        <hr>
-        <div class="formContainer">
-          <form>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" value="John Doe"><br>
+      <div class="verticalContainer">
+        <div class="containerElement">
+          <h2>Billing information</h2>
+          <hr>
+          <div class="formContainer">
+            <form>
+              <label for="name">Name:</label>
+              <input type="text" id="name" name="name" value="John Doe"><br>
 
-            <label for="address1">Address Line 1:</label>
-            <input type="text" id="address1" name="address1" value="Pod Vápenicou 25"><br>
+              <label for="address1">Address Line 1:</label>
+              <input type="text" id="address1" name="address1" value="Pod Vápenicou 25"><br>
 
-            <label for="address2">Address Line 2:</label>
-            <input type="text" id="address2" name="address2" value="028 01 Trstená"><br>
+              <label for="address2">Address Line 2:</label>
+              <input type="text" id="address2" name="address2" value="028 01 Trstená"><br>
 
-            <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" value="email@gmail.com"><br>
+              <label for="email">E-mail:</label>
+              <input type="email" id="email" name="email" value="email@gmail.com"><br>
 
-            <label for="phone">Phone Number:</label>
-            <input type="tel" id="phone" name="phone" value="0904956723"><br>
+              <label for="phone">Phone Number:</label>
+              <input type="tel" id="phone" name="phone" value="0904956723"><br>
 
-            <button type="button" id="save-changes-btn">SAVE CHANGES</button>
-          </form>
+              <button type="button" id="save-changes-btn">SAVE CHANGES</button>
+            </form>
+          </div>
+        </div>
+        <div class="containerElement">
+          <h2>Firearm license</h2>
+          <hr>
+          <div class="image-container">
+            <label for="image-selector">Select an image:</label>
+            <input type="file" id="image-selector" accept="image/*">
+          </div>
         </div>
       </div>
       <div class="verticalContainer">
@@ -238,6 +248,7 @@
 
           <button type="button" id="change-password-btn">CHANGE PASSWORD</button>
         </div>
+        <button class="log-out-btn">Log Out</button>
       </div>
     </div>
   </div>
