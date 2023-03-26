@@ -183,6 +183,10 @@ body {
   border-radius: 5px;
 }
 
+.checkmark-img:hover {
+  cursor:pointer;
+}
+
 /* Paging */
 
 .pagination-container {
