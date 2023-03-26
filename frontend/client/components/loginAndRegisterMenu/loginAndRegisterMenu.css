@@ -1,14 +1,5 @@
-.form-controller {
-    width: 100%;
-    height: 520px;
-    max-width: 320px;
-    padding: 15px;
-    margin: auto;
-    box-shadow: rgba(0, 0, 0, 0.678) 0px 0px 150px 80px;
-    border-radius: 10px;
-    user-select: none;
-    background-color: #8f8f8f93;
-    z-index: 10;
+html, body {
+    height: 100%;
 }
 
 body {
@@ -27,98 +18,8 @@ body {
     -webkit-tap-highlight-color: transparent;
 }
 
-label {
-    display: inline-block;
-}
-
-.logo {
-    height: 130px;
-}
-
 .text-center {
     text-align: center!important;
-}
-
-html, body {
-    height: 100%;
-}
-
-.header-wrapper {
-    display:flex;
-    height: 20px;
-    
-}
-
-.header-line {
-    background-color: rgb(0, 113, 34);
-    height: 1px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.header-wrapper .header {
-    width: -webkit-fill-available;
-    font-weight: 800;
-}
-
-.header-wrapper .close-button {
-    background-color: transparent;
-    border: none;
-    border-radius: 5px;
-}
-
-.header-wrapper .close-button:hover {
-    background-color: rgba(226, 226, 226, 0.8);
-}
-
-#login-form #submit-button {
-    position: relative;
-    top: 90px;
-}
-
-#login-form .start-date {
-    position: relative;
-    top: 50px;
-}
-
-#register-form .start-date {
-    position: relative;
-    top: -40px;
-}
-
-.switch-menu-wrapper .switch {
-    background-color: transparent;
-    border-color: #dcdcdc;
-    border-width: 1px;
-    height: 40px;
-    width: 100px;
-    border-radius: 5px;
-    margin-bottom: 15px;
-    transition-duration: 0.4s;
-    font-weight: 500;
-    font-size: 20px;
-}
-
-.switch-menu-wrapper .switch-selected {
-    border-color: #ffffffaf;
-    background-color: rgba(223, 223, 223, 0.479);
-    border-width: 2px;
-}
-
-.switch-menu-wrapper .switch:hover {
-    background-color: rgba(226, 226, 226, 0.8);
-}
-
-form .militray-checkbox {
-    margin: 10px;
-}
-
-form .militray-label {
-    margin: 10px;
-}
-
-.hide {
-    display: none;
 }
 
 #myVideo {
@@ -133,9 +34,6 @@ form .militray-label {
     /* display: none; */
 }
 
-input {
-    background-color: rgba(156, 156, 156, 0.13) !important;
-}
 
 #mobile-image {
     position: absolute;
@@ -148,20 +46,126 @@ input {
     border-radius: 5px;
 }
 
+/* FORM */
+
+#form {
+    width: 100%;
+    height: 520px;
+    max-width: 320px;
+    padding: 15px;
+    margin: auto;
+    box-shadow: rgba(0, 0, 0, 0.678) 0px 0px 150px 80px;
+    border-radius: 10px;
+    user-select: none;
+    background-color: #8f8f8f93;
+    z-index: 10;
+}
+
+#form .hide {
+    display: none;
+}
+
+#form input {
+    background-color: rgba(156, 156, 156, 0.13) !important;
+}
+
+#form .header-wrapper {
+    display:flex;
+    height: 20px;
+    
+}
+
+#form .header-line {
+    background-color: rgb(0, 113, 34);
+    height: 1px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#form .switch-menu-wrapper .switch {
+    background-color: transparent;
+    border-color: #dcdcdc;
+    border-width: 1px;
+    height: 40px;
+    width: 100px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    transition-duration: 0.4s;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+#form .switch-menu-wrapper .switch-selected {
+    border-color: #ffffffaf;
+    background-color: rgba(223, 223, 223, 0.479);
+    border-width: 2px;
+}
+
+#form .switch-menu-wrapper .switch:hover {
+    background-color: rgba(226, 226, 226, 0.8);
+}
+
+#form .logo {
+    height: 130px;
+}
+
+#form label {
+    display: inline-block;
+}
+
+#form .header-wrapper .header {
+    width: -webkit-fill-available;
+    font-weight: 800;
+}
+
+#form .header-wrapper .close-button {
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+}
+
+#form .header-wrapper .close-button:hover {
+    background-color: rgba(226, 226, 226, 0.8);
+}
+
+#form #login-form #submit-button {
+    position: relative;
+    top: 90px;
+}
+
+#form #login-form .start-date {
+    position: relative;
+    top: 50px;
+}
+
+#form #register-form .start-date {
+    position: relative;
+    top: -40px;
+}
+
+
+#form #register-form .militray-checkbox {
+    margin: 10px;
+}
+
+#form #register-form .militray-label {
+    margin: 10px;
+}
+
 @media screen and (min-width: 1500px) {
-    .form-controller {
+    #form {
         scale: 1.5;
     }
 }
 
 @media screen and (min-width: 1000px) {
-    .form-controller {
+    #form {
         scale: 1;
     }
 }
 
 @media screen and (max-width: 1000px) {
-    .form-controller {
+    #form {
         scale: 0.7;
     }
 
@@ -173,40 +177,14 @@ input {
         display: block;
     }
 
-    .form-controller {
+    #form {
         background-color: #797979c4;
     }
 }
 
-/* popup */
-/* From */
-/* https://codepen.io/imprakash/pen/GgNMXO */
-.box {
-    width: 40%;
-    margin: 0 auto;
-    background: rgba(255,255,255,0.2);
-    padding: 35px;
-    border: 2px solid #fff;
-    border-radius: 20px/50px;
-    background-clip: padding-box;
-    text-align: center;
-}
+/* POPUP */
 
-.button {
-    font-size: 1em;
-    padding: 10px;
-    color: #fff;
-    border: 2px solid #06D85F;
-    border-radius: 20px/50px;
-    text-decoration: none;
-    cursor: pointer;
-    transition: all 0.3s ease-out;
-}
-.button:hover {
-    background: #06D85F;
-}
-
-.overlay {
+#popup .overlay {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -219,12 +197,12 @@ input {
     z-index: 100;
 }
 
-.overlay:target {
+#popup .overlay:target {
     visibility: visible;
     opacity: 1;
 }
 
-.popup {
+#popup .popup {
     margin: 70px auto;
     padding: 20px;
     background: #fff;
@@ -236,13 +214,13 @@ input {
     transition: all 0.5s ease-in-out;
 }
 
-.popup h2 {
-    margin-top: 0;
+#popup .popup h2 {
+    margin-top: 15px;
     color: #333;
     font-family: Tahoma, Arial, sans-serif;
 }
 
-.popup .close {
+#popup .popup .close {
     position: absolute;
     top: 20px;
     right: 30px;
@@ -253,46 +231,38 @@ input {
     color: #333;
 }
 
-.popup .close:hover {
+#popup .popup .close:hover {
     color: #06D85F;
 }
 
-
-.popup h2 {
-    margin-top: 15px;
+#popup .popup .submit-button {
+    margin-top: 50px;
 }
 
-#file-input {
+#popup #file-input {
     scale: 1.5;
     margin-top: 50px;
 }
 
-#file-input:hover {
+#popup #file-input:hover {
     cursor: pointer;
 }
 
-.selected-image-wrapper {
+#popup .selected-image-wrapper {
     border: 2px solid rgb(149, 149, 149);
     padding: 5px;
     margin-top: 50px;
     height: 250px;
 }
 
-#selected-image {
+#popup #selected-image {
     width: -webkit-fill-available;
     max-height: 240px;
     margin-top: 25%;
 }
 
-.popup .submit-button {
-    margin-top: 50px;
-}
-
 @media screen and (max-width: 700px){
-    .box{
-        width: 70%;
-    }
-    .popup{
+    #popup .popup{
         width: 70%;
     }
 }

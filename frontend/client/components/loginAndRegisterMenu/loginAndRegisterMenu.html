@@ -10,14 +10,19 @@
     <script src="./loginAndRegisterMenu.js"></script>
 </head>
 <body class="text-center">
+    <!-- pixabay license -->
+    <!-- https://pixabay.com/videos/soldier-war-nuclear-bomb-138115/ -->
     <video autoplay muted loop id="myVideo">
         <source src="../../resources/videos/solider-explosion.mp4" type="video/mp4">
         Your browser does not support HTML5 video.
     </video>
-
+    
+    <!-- pixabay license -->
     <!-- https://pixabay.com/photos/man-dirty-soldier-hero-army-brave-4207514/ -->
     <img src="../../resources/images/loginMenuImages/solider.jpg" alt="solider" id="mobile-image">
-    <div class="form-controller">
+    
+    <!-- form -->
+    <div id="form">
         <div class="header-wrapper">
             <button class="close-button"> < </button>
             <h5 id="header-text" class="header"> Log in </h5>
@@ -29,8 +34,10 @@
             <button id="login-switch" class="switch switch-selected" onclick="openLoginMenu()"> Log in </button>
         </div>
 
+        <!-- custom -->
         <img class="logo" src="../../resources/images/logo/logoTransparent.png">
 
+        <!-- register form -->
         <form id="register-form" class="hide">
             <div class="form-floating">
                 <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
@@ -52,6 +59,7 @@
             <p class="mt-5 mb-3 start-date">© 2023</p>
         </form>
 
+        <!-- login form -->
         <form id="login-form">
             <div class="form-floating">
             <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
@@ -65,6 +73,8 @@
             <p class="mt-5 mb-3 start-date">© 2023</p>
         </form>
     </div>
+
+    <!-- popup -->
     <div id="popup">
         <div id="popup1" class="overlay">
             <div class="popup">
@@ -75,7 +85,7 @@
                     accept="image/png, image/jpeg"
                     onchange="imageChoosen(this)">
                 <div class="selected-image-wrapper">
-                    <img src="../../resources/images/productDetailImages/alexey-turenkov-VwoLh2EB5R4-unsplash.jpga" alt="Select a passport" id="selected-image" >
+                    <img alt="Select a passport" id="selected-image" >
                 </div>
                 <a class="btn btn-success submit-button" onclick="submitImage(this)"> Submit </a>
             </div>

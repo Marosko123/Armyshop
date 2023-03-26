@@ -7,7 +7,7 @@ body {
   font-family: 'Roboto serif' !important;
 }
 
-.main-heading {
+#landing-page .main-heading {
   text-align: center;
   color: #dddddd;
 }
