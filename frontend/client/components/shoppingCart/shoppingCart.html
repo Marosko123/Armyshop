@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="shoppingCart.css">
+  <link rel="stylesheet" href="../../common/styles.css">
   <link rel="stylesheet" href="../navbar/navbar.css">
   <link rel="stylesheet" href="../contactUs/contactUs.css">
   <script src="../navbar/navbar.js"></script>
@@ -14,121 +15,128 @@
 </head>
 
 <body>
-  <!-- Navbar -->
-  <div id="navbar">
-    <nav id="primary-navbar" class="navbar navbar-expand navbar-light bg-light">
-      <div class="container-fluid">
-        <a href="#" target="_blank">
-          <img class="navbar-img" src="../../resources/images/logo/logoTransparent.png" alt="Armyshop">
-        </a>
-        <input class="form-control search-input" type="search" placeholder="Search" aria-label="Search">
-        <img class="search-img" src="https://www.freeiconspng.com/uploads/search-icon-png-5.png" alt="Responsive image">
-        <button class="button shopping-cart__button">
-          <img class="navbar-img" src="https://www.freeiconspng.com/uploads/bag-icon-6.png" alt="Responsive image">
-        </button>
-        <button class="button profile__button">
-          <img class="navbar-img"
-            src="https://www.freeiconspng.com/uploads/msn-people-person-profile-user-icon--icon-search-engine-16.png"
+  <!-- navbar -->
+  <header>
+    <div id="navbar">
+      <!-- primary navbar -->
+      <nav id="primary-navbar" class="navbar navbar-expand navbar-light bg-light">
+        <div class="container-fluid">
+          <a href="#" target="_blank">
+            <!-- custom image -->
+            <img class="navbar-img" src="../../resources/images/logo/logoTransparent.png" alt="Armyshop">
+          </a>
+          <input class="form-control search-input" type="search" placeholder="Search" aria-label="Search">
+          <img class="search-img" src="https://www.freeiconspng.com/uploads/search-icon-png-5.png"
             alt="Responsive image">
-        </button>
-      </div>
-    </nav>
+          <button class="button shopping-cart__button">
+            <img class="navbar-img" src="https://www.freeiconspng.com/uploads/bag-icon-6.png" alt="Responsive image">
+          </button>
+          <button class="button profile__button">
+            <img class="navbar-img"
+              src="https://www.freeiconspng.com/uploads/msn-people-person-profile-user-icon--icon-search-engine-16.png"
+              alt="Responsive image">
+          </button>
+        </div>
+      </nav>
 
-    <nav id="secondary-navbar" class="navbar navbar-expand navbar-light bg-light">
-      <div class="navbar-dropdown container-fluid">
-        <div class="dropdown">
-          <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown"
-            aria-expanded="false">
-            Weapons
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <li><a class="dropdown-item" href="#">Pistols</a></li>
-            <li><a class="dropdown-item" href="#">Rifles</a></li>
-            <li><a class="dropdown-item" href="#">Submachine guns</a></li>
-            <li><a class="dropdown-item" href="#">Heavy</a></li>
-            <li><a class="dropdown-item" href="#">Knives</a></li>
-          </ul>
+      <!-- secondary navbar -->
+      <nav id="secondary-navbar" class="navbar navbar-expand navbar-light bg-light">
+        <div class="navbar-dropdown container-fluid">
+          <div class="dropdown">
+            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown"
+              aria-expanded="false">
+              Weapons
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <li><a class="dropdown-item" href="#">Pistols</a></li>
+              <li><a class="dropdown-item" href="#">Rifles</a></li>
+              <li><a class="dropdown-item" href="#">Submachine guns</a></li>
+              <li><a class="dropdown-item" href="#">Heavy</a></li>
+              <li><a class="dropdown-item" href="#">Knives</a></li>
+            </ul>
+          </div>
         </div>
-      </div>
-      <div class="navbar-dropdown container-fluid">
-        <div class="dropdown">
-          <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown"
-            aria-expanded="false">
-            Transport
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <li><a class="dropdown-item" href="#">Cars</a></li>
-            <li><a class="dropdown-item" href="#">Motocycles</a></li>
-            <li><a class="dropdown-item" href="#">Panzers</a></li>
-            <li><a class="dropdown-item" href="#">Planes</a></li>
-            <li><a class="dropdown-item" href="#">Boats</a></li>
-          </ul>
+        <div class="navbar-dropdown container-fluid">
+          <div class="dropdown">
+            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown"
+              aria-expanded="false">
+              Transport
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <li><a class="dropdown-item" href="#">Cars</a></li>
+              <li><a class="dropdown-item" href="#">Motocycles</a></li>
+              <li><a class="dropdown-item" href="#">Panzers</a></li>
+              <li><a class="dropdown-item" href="#">Planes</a></li>
+              <li><a class="dropdown-item" href="#">Boats</a></li>
+            </ul>
+          </div>
         </div>
-      </div>
-      <div class="navbar-dropdown container-fluid">
-        <div class="dropdown">
-          <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown"
-            aria-expanded="false">
-            Clothing
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <li><a class="dropdown-item" href="#">Jackets</a></li>
-            <li><a class="dropdown-item" href="#">Trousers</a></li>
-            <li><a class="dropdown-item" href="#">Shoes</a></li>
-            <li><a class="dropdown-item" href="#">Pants</a></li>
-            <li><a class="dropdown-item" href="#">Socks</a></li>
-          </ul>
+        <div class="navbar-dropdown container-fluid">
+          <div class="dropdown">
+            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown"
+              aria-expanded="false">
+              Clothing
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <li><a class="dropdown-item" href="#">Jackets</a></li>
+              <li><a class="dropdown-item" href="#">Trousers</a></li>
+              <li><a class="dropdown-item" href="#">Shoes</a></li>
+              <li><a class="dropdown-item" href="#">Pants</a></li>
+              <li><a class="dropdown-item" href="#">Socks</a></li>
+            </ul>
+          </div>
         </div>
-      </div>
-      <div class="navbar-dropdown container-fluid">
-        <div class="dropdown">
-          <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown"
-            aria-expanded="false">
-            Explosives
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <li><a class="dropdown-item" href="#">C4s</a></li>
-            <li><a class="dropdown-item" href="#">Nukes</a></li>
-            <li><a class="dropdown-item" href="#">Grenades</a></li>
-            <li><a class="dropdown-item" href="#">TNTs</a></li>
-            <li><a class="dropdown-item" href="#">Bombs</a></li>
-          </ul>
+        <div class="navbar-dropdown container-fluid">
+          <div class="dropdown">
+            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown"
+              aria-expanded="false">
+              Explosives
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <li><a class="dropdown-item" href="#">C4s</a></li>
+              <li><a class="dropdown-item" href="#">Nukes</a></li>
+              <li><a class="dropdown-item" href="#">Grenades</a></li>
+              <li><a class="dropdown-item" href="#">TNTs</a></li>
+              <li><a class="dropdown-item" href="#">Bombs</a></li>
+            </ul>
+          </div>
         </div>
-      </div>
-      <div class="navbar-dropdown container-fluid">
-        <div class="dropdown">
-          <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown"
-            aria-expanded="false">
-            Equipment
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <li><a class="dropdown-item" href="#">Backpacks</a></li>
-            <li><a class="dropdown-item" href="#">Hunting</a></li>
-            <li><a class="dropdown-item" href="#">Camping</a></li>
-          </ul>
+        <div class="navbar-dropdown container-fluid">
+          <div class="dropdown">
+            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown"
+              aria-expanded="false">
+              Equipment
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <li><a class="dropdown-item" href="#">Backpacks</a></li>
+              <li><a class="dropdown-item" href="#">Hunting</a></li>
+              <li><a class="dropdown-item" href="#">Camping</a></li>
+            </ul>
+          </div>
         </div>
-      </div>
-      <div class="navbar-dropdown container-fluid">
-        <div class="dropdown">
-          <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown"
-            aria-expanded="false">
-            Accessories
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <li><a class="dropdown-item" href="#">Glasses</a></li>
-            <li><a class="dropdown-item" href="#">Face pain</a></li>
-            <li><a class="dropdown-item" href="#">Camouflage</a></li>
-          </ul>
+        <div class="navbar-dropdown container-fluid">
+          <div class="dropdown">
+            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown"
+              aria-expanded="false">
+              Accessories
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <li><a class="dropdown-item" href="#">Glasses</a></li>
+              <li><a class="dropdown-item" href="#">Face pain</a></li>
+              <li><a class="dropdown-item" href="#">Camouflage</a></li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </nav>
-  </div>
+      </nav>
+    </div>
+  </header>
 
   <!-- shopping-cart -->
   <div id="shopping-cart">
     <h1>Shopping cart</h1>
     <div class="container">
-      <div class="cartContainerElement">
+      <!-- cart container -->
+      <div id="cart-container">
         <div class="listContainerElement">
           <div class="itemList">
             <ul>
@@ -137,49 +145,11 @@
                   <img class="img" src="https://www.military-army-shop.sk/wp-content/uploads/2020/12/44031.jpg" alt="">
                   <div class="desc">
                     <div class="title-remove">
-                      <h3>Pocket knife</h3>
-                      <img class="removeButton" src="https://cdn-icons-png.flaticon.com/512/3515/3515498.png">
-                    </div>
-                    <div class="prices">
-                      <p class="singularPrice">39.90€</p>
-                      <div class="multiple">
-                        <div class="countControls">
-                          <button class="countControlButtons" id="minusButton">-</button>
-                          <input type="number" value="2">
-                          <button class="countControlButtons" id="plusButton">+</button>
-                        </div>
-                        <p class="multiplePrice">79.80€</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="item">
-                  <img class="img" src="https://www.military-army-shop.sk/wp-content/uploads/2020/12/44031.jpg" alt="">
-                  <div class="desc">
-                    <div class="title-remove">
-                      <h3>Pocket knife</h3>
-                      <img class="removeButton" src="https://cdn-icons-png.flaticon.com/512/3515/3515498.png">
-                    </div>
-                    <div class="prices">
-                      <p class="singularPrice">39.90€</p>
-                      <div class="multiple">
-                        <div class="countControls">
-                          <button class="countControlButtons" id="minusButton">-</button>
-                          <input type="number" value="2">
-                          <button class="countControlButtons" id="plusButton">+</button>
-                        </div>
-                        <p class="multiplePrice">79.80€</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="item">
-                  <img class="img" src="https://www.military-army-shop.sk/wp-content/uploads/2020/12/44031.jpg" alt="">
-                  <div class="desc">
-                    <div class="title-remove">
                       <h3>Pocket knife- very sharp, watch out!!!!!!!!!!!! beware of the sharpness - it is formidable
                       </h3>
-                      <img class="removeButton" src="https://cdn-icons-png.flaticon.com/512/3515/3515498.png">
+                      <button class="remove-button">
+                        <img class="remove-button-img" src="https://cdn-icons-png.flaticon.com/512/3515/3515498.png">
+                      </button>
                     </div>
                     <div class="prices">
                       <p class="singularPrice">39.90€</p>
@@ -198,9 +168,11 @@
                   <img class="img" src="https://www.military-army-shop.sk/wp-content/uploads/2020/12/44031.jpg" alt="">
                   <div class="desc">
                     <div class="title-remove">
-                      <h3>Pocket knife- very sharp, watch out!!!!!!!!!!!! beware of the sharpness - it is formidable
+                      <h3>Pocket knife
                       </h3>
-                      <img class="removeButton" src="https://cdn-icons-png.flaticon.com/512/3515/3515498.png">
+                      <button class="remove-button">
+                        <img class="remove-button-img" src="https://cdn-icons-png.flaticon.com/512/3515/3515498.png">
+                      </button>
                     </div>
                     <div class="prices">
                       <p class="singularPrice">39.90€</p>
@@ -219,9 +191,34 @@
                   <img class="img" src="https://www.military-army-shop.sk/wp-content/uploads/2020/12/44031.jpg" alt="">
                   <div class="desc">
                     <div class="title-remove">
-                      <h3>Pocket knife- very sharp, watch out!!!!!!!!!!!! beware of the sharpness - it is formidable
+                      <h3>Pocket knife- very sharp, watch out!!!!!!!!!!!! beware of the sharpness
                       </h3>
-                      <img class="removeButton" src="https://cdn-icons-png.flaticon.com/512/3515/3515498.png">
+                      <button class="remove-button">
+                        <img class="remove-button-img" src="https://cdn-icons-png.flaticon.com/512/3515/3515498.png">
+                      </button>
+                    </div>
+                    <div class="prices">
+                      <p class="singularPrice">39.90€</p>
+                      <div class="multiple">
+                        <div class="countControls">
+                          <button class="countControlButtons" id="minusButton">-</button>
+                          <input type="number" value="2">
+                          <button class="countControlButtons" id="plusButton">+</button>
+                        </div>
+                        <p class="multiplePrice">79.80€</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <img class="img" src="https://www.military-army-shop.sk/wp-content/uploads/2020/12/44031.jpg" alt="">
+                  <div class="desc">
+                    <div class="title-remove">
+                      <h3>Pocket knife- very sharp, watch out!!!!!!!!!!!!
+                      </h3>
+                      <button class="remove-button">
+                        <img class="remove-button-img" src="https://cdn-icons-png.flaticon.com/512/3515/3515498.png">
+                      </button>
                     </div>
                     <div class="prices">
                       <p class="singularPrice">39.90€</p>
@@ -241,7 +238,9 @@
           </div>
         </div>
       </div>
-      <div class="summaryContainer">
+
+      <!-- order summary -->
+      <div id="order-summary">
         <div class="containerElement">
           <h2>Order Summary</h2>
           <table>
@@ -264,42 +263,46 @@
     </div>
   </div>
 
-  <div id="contact-us" class="text-center">
-    <div class="contact-us-wrapper">
-      <div class="contact-us-column">
-        <h1>Contact us</h1>
-        <p>Phone: +421 944 987 789</p>
-        <p>Email: info@armyshop.xd</p>
-      </div>
-      <div class="contact-us-column">
-        <a href="#" target="_blank">
-          <img class="contact-us-logo" src="../../resources/images/logo/logoTransparent.png" alt="Armyshop">
-        </a>
-        <div class="contact-us-social-media">
-          <div>
-            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" class="social-media-link"
-              target="_blank">
-              <img
-                src="https://cdn.aboutstatic.com/file/d473bb55bdf6bd6430eeff7ed35fa4ca.png?quality=75&amp;height=480&amp;width=360"
-                alt="media" class="social-media-img">
-            </a>
-            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" class="social-media-link"
-              target="_blank">
-              <img
-                src="https://cdn.aboutstatic.com/file/6a522d45a858eea2ccf7e71c2aa419fb.png?quality=75&amp;height=480&amp;width=360"
-                alt="media" class="social-media-img">
-            </a>
-            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" class="social-media-link"
-              target="_blank">
-              <img
-                src="https://cdn.aboutstatic.com/file/75356ec63103aca8bf43a3071ed2a242.png?quality=75&height=75&width=75"
-                alt="media" class="social-media-img">
-            </a>
+  <!-- contact us -->
+  <footer>
+    <div id="contact-us" class="text-center">
+      <div class="contact-us-wrapper">
+        <div class="contact-us-column">
+          <h1>Contact us</h1>
+          <p>Phone: +421 944 987 789</p>
+          <p>Email: info@armyshop.xd</p>
+        </div>
+        <div class="contact-us-column">
+          <a href="#" target="_blank">
+            <!-- custom image -->
+            <img class="contact-us-logo" src="../../resources/images/logo/logoTransparent.png" alt="Armyshop">
+          </a>
+          <div class="contact-us-social-media">
+            <div>
+              <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" class="social-media-link"
+                target="_blank">
+                <img
+                  src="https://cdn.aboutstatic.com/file/d473bb55bdf6bd6430eeff7ed35fa4ca.png?quality=75&amp;height=480&amp;width=360"
+                  alt="media" class="social-media-img">
+              </a>
+              <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" class="social-media-link"
+                target="_blank">
+                <img
+                  src="https://cdn.aboutstatic.com/file/6a522d45a858eea2ccf7e71c2aa419fb.png?quality=75&amp;height=480&amp;width=360"
+                  alt="media" class="social-media-img">
+              </a>
+              <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" class="social-media-link"
+                target="_blank">
+                <img
+                  src="https://cdn.aboutstatic.com/file/75356ec63103aca8bf43a3071ed2a242.png?quality=75&height=75&width=75"
+                  alt="media" class="social-media-img">
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </footer>
 </body>
 
 </html>

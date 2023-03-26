@@ -1,5 +1,5 @@
 #user-profile h1 {
-  margin: 0;
+  margin: 20px;
   font-size: 36px;
   text-align: center
 }
@@ -23,13 +23,22 @@
 
 #user-profile .containerElement,
 #user-profile .containerElementFlex {
+  flex: 1;
   margin-top: 20px !important;
   padding: 20px;
   border: 1px solid #ccc;
-  border-radius: 10px;
-  max-width: 500px;
+  border-radius: 5px;
   box-sizing: border-box;
   margin: auto;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: gainsboro;
+}
+
+
+#user-profile .verticalContainer {
+  margin: auto;
+  margin-top: 0;
+  width: 500px;
 }
 
 #user-profile .containerElementFlex {
@@ -123,15 +132,30 @@
   outline: none;
 }
 
+/* log out button */
+
+.log-out-btn {
+  width: 100% !important;
+  background-color: rgb(127, 42, 42) !important;
+}
+
 /* responsive styles */
+
+
 @media screen and (max-width: 1000px) {
   .verticalContainer {
-    margin: auto !important;
+    width: 400px !important;
+    margin-left: 20px;
   }
 }
 
 @media screen and (min-height: 1250px) {
   #user-profile {
     height: 65vh;
+  }
+
+  .verticalContainer {
+    margin: auto !important;
+    margin-left: 0;
   }
 }
