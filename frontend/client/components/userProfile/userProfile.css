@@ -27,15 +27,18 @@
   margin-top: 20px !important;
   padding: 20px;
   border: 1px solid #ccc;
-  border-radius: 10px;
+  border-radius: 5px;
   box-sizing: border-box;
   margin: auto;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: gainsboro;
 }
 
 
 #user-profile .verticalContainer {
+  margin: auto;
+  margin-top: 0;
   width: 500px;
-  margin-left: 30px;
 }
 
 #user-profile .containerElementFlex {
@@ -129,17 +132,19 @@
   outline: none;
 }
 
-/* responsive styles */
-@media screen and (max-width: 500px) {
-  .verticalContainer {
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
+/* log out button */
+
+.log-out-btn {
+  width: 100% !important;
+  background-color: rgb(127, 42, 42) !important;
 }
+
+/* responsive styles */
+
 
 @media screen and (max-width: 1000px) {
   .verticalContainer {
-    width: 300px !important;
+    width: 400px !important;
     margin-left: 20px;
   }
 }
