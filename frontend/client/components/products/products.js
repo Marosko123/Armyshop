@@ -1,10 +1,16 @@
-function toggleLikedIcon(el) {
-    if (img.src.includes("-h3.")) {
-        img.src = img.src.replace("-h3.", ".");
+
+function toggleIcon(likedPhoto) {
+    if (likedPhoto.classList.contains("liked-photo-new")) {
+        // Image source: flaticon.com
+        likedPhoto.src = "../../resources/images/productDetailImages/heart6.png";
+        likedPhoto.classList.remove("liked-photo-new");
     } else {
-        img.src = img.src.replace(".", "-h3.");
+        // Image source: flaticon.com
+        likedPhoto.src = "../../resources/images/productDetailImages/heart4.png";
+        likedPhoto.classList.add("liked-photo-new");
     }
 }
+
 
 // prepared for slider
 
