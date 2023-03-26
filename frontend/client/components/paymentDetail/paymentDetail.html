@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <title> Payment detail </title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="./paymentDetail.css">
     <link rel="stylesheet" href="../navbar/navbar.css">
     <link rel="stylesheet" href="../contactUs/contactUs.css">
@@ -166,11 +166,12 @@
 	</header>
 
 
-	<div id="order-and-pay-wrapper">
-		<!-- Payment Detail -->
+	<!-- payment detail -->
+	<div id="payment-detail">
 		<div id="payment-detail-wrapper">
 			<h1 class="heading"> Order and pay </h1>
 
+			<!-- personal information -->
 			<h3> Personal information </h3>
 			<div id="personal-info">
 				<div class="input-group mb-3">
@@ -185,6 +186,7 @@
 				<div class="line"> </div>
 			</div>
 
+			<!-- address -->
 			<div id="address">
 				<h3> Address </h3>
 				<div class="input-group mb-3">
@@ -205,6 +207,7 @@
 			</div>
 			<div class="line"> </div>
 
+			<!-- delivery -->
 			<h3> Delivery </h3>
 			<div id="delivery">
 				<div class="input-group mb-3">
@@ -218,6 +221,8 @@
 					</div>
 					<div class="delivery-row">
 						<input class="delivery-checkbox " type="checkbox" onchange="onDeliveryOptionChanged(this)">
+						<!-- freepik license -->
+						<!-- https://www.freepik.com/free-vector/documents-letters-express-courier-delivering-postal-services-post-office-services-post-delivery-agent-post-office-card-accounts-concept-pinkish-coral-bluevector-isolated-illustration_11667313.htm#query=post%20office&position=0&from_view=search&track=ais -->
 						<img class="delivery-item-icon" src="../../resources/images/paymentDetailImages/postOffice.jpg" alt="">
 						<div class="delivery-label"> Post office </div>
 						<span class="delivery-price"> 2.50 € </span>
@@ -225,6 +230,8 @@
 					</div>
 					<div class="delivery-row">
 						<input class="delivery-checkbox " type="checkbox" onchange="onDeliveryOptionChanged(this)">
+						<!-- freepik license -->
+						<!-- https://www.freepik.com/free-vector/documents-letters-express-courier-delivering-postal-services-post-office-services-post-delivery-agent-post-office-card-accounts-concept-pinkish-coral-bluevector-isolated-illustration_11667313.htm#query=post%20office&position=0&from_view=search&track=ais -->
 						<img class="delivery-item-icon" src="../../resources/images/paymentDetailImages/courier.jpg" alt="">
 						<div class="delivery-label"> DHL </div>
 						<span class="delivery-price"> 3.50 € </span>
@@ -234,18 +241,23 @@
 			</div>
 			<div class="line"> </div>
 
+			<!-- payment -->
 			<h3> Payment </h3>
-			<div id="delivery">
+			<div id="payment">
 				<div class="input-group mb-3">
 					<div class="payment-row">
 						<input class="payment-checkbox" type="checkbox" onchange="onPaymentOptionChanged(this)" checked>
+						<!-- freepik license -->
+						<!-- https://www.freepik.com/free-vector/black-credit-card_1014950.htm#query=credit%20card&position=0&from_view=search&track=ais -->
 						<img class="payment-item-icon" src="../../resources/images/paymentDetailImages/creditCard.jpg" alt="">
 						<div class="payment-label"> By card </div>
 					</div>
-					<div class="delivery-row">
+					<div class="payment-row">
 						<input class="payment-checkbox" type="checkbox" onchange="onPaymentOptionChanged(this)">
+						<!-- freepik license -->
+						<!-- https://www.freepik.com/free-vector/isometric-money-background_4448290.htm#query=cash&position=20&from_view=search&track=sph -->
 						<img class="payment-item-icon" src="../../resources/images/paymentDetailImages/cash.jpg" alt="">
-						<div class="delivery-label"> In cash </div>
+						<div class="payment-label"> In cash </div>
 					</div>
 				</div>
 			</div>
@@ -253,6 +265,8 @@
 
 			<a class="btn btn-success" href="#popup1" id="order-button" onclick="onOrderNowClicked(this)"> Order Now </a>
 		</div>
+
+		<!-- popup -->
 		<div id="popup">
 			<div id="popup1" class="overlay">
 				<div class="popup">
@@ -264,6 +278,8 @@
 				</div>
 			</div>
 		</div>
+
+		<!-- summary -->
 		<div id="summary">
 			<h5> Products </h5>
 			<div id="summary-product-list">
