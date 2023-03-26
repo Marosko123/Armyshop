@@ -85,3 +85,20 @@ objaviť v profile, v kolónke HELP.
 -   teraz je možné prezerať iba modely obrazoviek
 
 ## Model databazy
+![model-databazy](https://user-images.githubusercontent.com/91140372/227771434-887f14b2-3322-4398-89ce-7821566927c8.png)
+
+## Screenshooty z aplikácie
+
+![landing-page](https://user-images.githubusercontent.com/91140372/227772002-6ae5f1f2-5386-4b62-a441-cea19340c7bc.png)
+
+![login-register](https://user-images.githubusercontent.com/91140372/227771797-5801579c-c794-4eaf-baac-c55cfc1d4176.png)
+
+![order-and-pay](https://user-images.githubusercontent.com/91140372/227771821-28d1abec-a01b-4f4f-a598-0f1339efe9e2.png)
+
+![product-detail](https://user-images.githubusercontent.com/91140372/227771848-b0e436cc-9f0f-48de-91d2-c100bb6dc1bd.png)
+
+![products](https://user-images.githubusercontent.com/91140372/227771867-9c2879ef-2eae-4965-881b-a0e4fe5deea6.png)
+
+![shopping-cart](https://user-images.githubusercontent.com/91140372/227771883-d2ce847c-0316-4c3b-8a15-0f76167db2e9.png)
+
+![user-profile](https://user-images.githubusercontent.com/91140372/227771897-791a888b-6d40-4992-a6db-625311f0e605.png)
