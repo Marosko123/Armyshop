@@ -170,7 +170,17 @@ body {
 
 .dropdown-orderby:hover .dropbtn {
   background-color: #444;
-  transition: 0.5s;
+  transition: 0.4s;
+}
+
+/* Sort by license */
+.checkmark-img {
+  width: 20px;
+  height: 20px;
+  margin: 0.3rem 0.4rem;
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 5px;
 }
 
 /* Paging */
@@ -214,7 +224,7 @@ body {
 }
 
 
-/* Screens smaller than 576px */
+/* Screens smaller than 700px */
 @media (max-width: 700px) {
   .card-container {
     display: flex;
@@ -236,8 +246,16 @@ body {
   }
 
   .slider-order {
+    flex-wrap: wrap;
     width: 100%;
     margin-top: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .license-needed {
+    order: 3;
+    width: 80%;
+    margin: auto;
   }
 }
 
@@ -262,7 +280,7 @@ body {
   }
 
   .slider-order {
-    width: 80%;
+    width: 100%;
     margin-top: 3rem;
   }
 }
