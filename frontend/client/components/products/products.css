@@ -264,19 +264,29 @@ body {
 
   #products .slider-order {
     flex-wrap: wrap;
-    width: 100%;
-    margin-top: 3rem;
+  }
+
+  #products .slider-container {
+    width: 80%;
     margin-bottom: 1rem;
+    margin-top: 1rem;
+    margin-right: 2rem;
   }
 
   #products .license-needed {
+    order: 2;
+    width: 40%;
+    margin: 2rem;
+  }
+
+  #products .dropdown-orderby {
     order: 3;
-    width: 80%;
-    margin: auto;
+    width: 40%;
+    margin: auto; 
   }
 }
 
-/* Screens between 576px and 1200px */
+/* Screens between 700px and 1200px */
 @media (min-width: 700px) and (max-width: 1200px) {
   #products #cards {
     display: flex;
@@ -297,7 +307,25 @@ body {
   }
 
   #products .slider-order {
-    width: 100%;
-    margin-top: 3rem;
+    flex-wrap: wrap;
+  }
+
+  #products .slider-container {
+    width: 60%;
+    margin: auto;
+    margin-bottom: 1rem;
+    margin-left: 2rem;
+  }
+
+  #products .license-needed {
+    order: 2;
+    width: 40%;
+    margin-right: 1rem;
+  }
+
+  #products .dropdown-orderby {
+    order: 3;
+    width: 40%;
+    margin-left: 1rem;
   }
 }
