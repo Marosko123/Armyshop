@@ -10,3 +10,7 @@ body {
   text-align: center;
   color: #dddddd;
 }
+
+#most-popular .card-container {
+  display: flex !important; 
+}
