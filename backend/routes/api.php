@@ -13,6 +13,7 @@ use App\Http\Controllers\Api\LikedProductsController;
 use App\Http\Controllers\Api\FinishedOrdersController;
 use App\Http\Controllers\Api\MessagesController;
 use App\Http\Controllers\Api\ChatRoomsController;
+use App\Http\Controllers\Api\TestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -161,3 +162,7 @@ Route::get('chat_rooms/permissions/{room_id}', [ChatRoomsController::class, 'get
 Route::post('chat_rooms/create', [ChatRoomsController::class, 'create']);
 // create chat room for 2 and more users
 Route::delete('chat_rooms/delete/{room_id}', [ChatRoomsController::class, 'delete']);
+
+//TEST
+Route::get('test', [TestController::class, 'get']);
+
