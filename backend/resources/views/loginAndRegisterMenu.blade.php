@@ -8,7 +8,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/loginAndRegisterMenu.css') }}">
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
-    <script src="{{ asset('js/loginAndRegisterMenu.js') }}"></script>
 </head>
 <body class="text-center">
     <!-- pixabay license -->
@@ -40,17 +39,20 @@
 
         <!-- register form -->
         <form id="register-form" class="hide">
-            <div class="form-floating">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                <label for="floatingInput">Email address</label>
+            <div class="form-floating input-control">
+                <input type="email" class="form-control" id="register-email" placeholder="name@example.com">
+                <label for="register-email">Email address</label>
+                <div class="error"></div>
             </div>
-            <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                <label for="floatingPassword">Password</label>
+            <div class="form-floating input-control">
+                <input type="password" class="form-control" id="register-password1" placeholder="Password">
+                <label for="register-password1">Password</label>
+                <div class="error"></div>
             </div>
-            <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                <label for="floatingPassword">Confirm password</label>
+            <div class="form-floating input-control">
+                <input type="password" class="form-control" id="register-password2" placeholder="Password">
+                <label for="register-password2">Confirm password</label>
+                <div class="error"></div>
             </div>
             <input class="form-check-input militray-checkbox" type="checkbox" value="" id="flexCheckDefault" onclick="onMilitaryPassportChanged(this)">
             <label class="form-check-label militray-label" for="flexCheckDefault">
@@ -62,13 +64,15 @@
 
         <!-- login form -->
         <form id="login-form">
-            <div class="form-floating">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Email address</label>
+            <div class="form-floating input-control">
+                <input type="email" class="form-control" id="login-email" placeholder="name@example.com">
+                <label for="login-email">Email address</label>
+                <div class="error"></div>
             </div>
-            <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-            <label for="floatingPassword">Password</label>
+            <div class="form-floating input-control">
+                <input type="password" class="form-control" id="login-password1" placeholder="Password">
+                <label for="login-password1">Password</label>
+                <div class="error"></div>
             </div>
             <button id="submit-button" class="w-100 btn btn-lg btn-success" type="submit" click="www.google.com"> Log in </button>
             <p class="mt-5 mb-3 start-date">© 2023</p>
@@ -92,5 +96,8 @@
             </div>
         </div>
     </div>
+    <script src="{{ asset('js/serverRequester.js') }}"></script>
+    <script src="{{ asset('js/loginAndRegisterMenu.js') }}"></script>
+    <script src="{{ asset('js/loginAndRegisterMenuValidator.js') }}"></script>
 </body>
 </html>

@@ -14,7 +14,7 @@ class LoginRegisterController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'email' => 'required|email',
-            'password' => 'required',
+            'password' => 'required|min:8',
         ]);
 
         if ($validator->fails()) {
@@ -31,13 +31,14 @@ class LoginRegisterController extends Controller
             $user = Auth::user();
             $token = $user->createToken('access_token')->accessToken;
             return response()->json([
-                'status' => 'Login successful',
+                'status' => 200,
                 'token' => $token,
+                'user' => $user,
             ], 200);
         } else {
             // Authentication failed
             return response()->json([
-                'status' => 'error',
+                'status' => 401,
                 'message' => 'Invalid credentials',
             ], 401);
         }
@@ -47,7 +48,7 @@ class LoginRegisterController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'email' => 'required|email|unique:users,email',
-            'password' => 'required',
+            'password' => 'required|min:8',
             'license_picture' => 'nullable|image|max:1024',
         ]);
 
@@ -68,14 +69,16 @@ class LoginRegisterController extends Controller
             $user->picture = $path;
         }
         $user->save();
+        $user = User::where('id', $user->id)->first();
 
         // Authenticate the user and generate an access token
         $token = $user->createToken('access_token')->accessToken;
 
         // Return response
         return response()->json([
-            'status' => 'success',
+            'status' => 200,
             'token' => $token,
-        ]);
+            'user' => $user,
+        ], 200);
     }
 }

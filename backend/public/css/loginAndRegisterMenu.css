@@ -49,7 +49,7 @@ body {
 
 #form {
     width: 100%;
-    height: 520px;
+    height: 570px;
     max-width: 320px;
     padding: 15px;
     margin: auto;
@@ -66,6 +66,32 @@ body {
 
 #form input {
     background-color: rgba(156, 156, 156, 0.13) !important;
+}
+
+#form .input-control input {
+    border: 2px solid #f0f0f0;
+	border-radius: 4px;
+	display: block;
+	font-size: 12px;
+	padding: 10px;
+	width: 100%;
+}
+
+#form .input-control.success input {
+    border-color: #09c372;
+}
+
+#form .input-control.error input {
+    border-color: #ee6782 !important;
+}
+
+#form .input-control .error {
+    color: #ff0033;
+    font-size: 9px;
+    height: 14px;
+    position: relative;
+    top: 4px;
+    font-weight: bold;
 }
 
 #form .header-wrapper {
@@ -129,12 +155,12 @@ body {
 
 #form #login-form #submit-button {
     position: relative;
-    top: 90px;
+    top: 104px;
 }
 
 #form #login-form .start-date {
     position: relative;
-    top: 50px;
+    top: 64px;
 }
 
 #form #register-form .start-date {
