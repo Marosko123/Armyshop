@@ -1,0 +1,17 @@
+{
+    "private": true,
+    "scripts": {
+        "build_all": "npm run db_wipe && npm run db_migrate && npm run db_seed && echo 'Server was built successfully' && npm run api_serve",
+        "db_wipe": "php artisan db:wipe",
+        "db_migrate": "php artisan migrate",
+        "db_seed": "php artisan db:seed",
+        "api_serve": "php artisan serve"
+    },
+    "devDependencies": {
+        "axios": "^1.1.2",
+        "laravel-vite-plugin": "^0.7.2",
+        "lodash": "^4.17.19",
+        "postcss": "^8.1.14",
+        "vite": "^4.0.0"
+    }
+}
