@@ -6,6 +6,38 @@
 -   Bednár Maroš
 -   Darovec Michal
 
+## Inštalácia
+
+### Pre správne fungovanie je potrebné mať nainštalovaný softvér
+
+-   [XAMPP](https://sourceforge.net/projects/xampp/)
+-   [Composer](https://getcomposer.org/)
+
+### Po inštalovaní softvéru je potrebné spustiť server a to tak:
+
+-   Otvoriť terminál v súbore Armyshop a spustiť príkazy
+
+```console
+    cd .\backend\
+    npm run build_all
+```
+
+Alebo postupne v jednotlivých krokoch
+
+```console
+    cd .\backend\
+    npm run db_wipe
+    npm run db_migrate
+    npm run db_seed
+    npm run api_serve
+```
+
+Následne sa je možné pripojiť na stránku
+
+```console
+    http://127.0.0.1:8000/armyshop
+```
+
 ## Zámer, základný opis funkcionality
 
 Aplikácia s názvom Armyshop má za úlohu zjednodušiť nakupovanie armádneho vybavenia. Docieli to tak,
@@ -85,6 +117,7 @@ objaviť v profile, v kolónke HELP.
 -   teraz je možné prezerať iba modely obrazoviek
 
 ## Model databazy
+
 ![model-databazy](https://user-images.githubusercontent.com/91140372/227771434-887f14b2-3322-4398-89ce-7821566927c8.png)
 
 ## Screenshooty z aplikácie
