@@ -15,7 +15,7 @@
 
 ### Po inštalovaní softvéru je potrebné spustiť server a to tak:
 
--   Otvoriť terminál v súbore Armyshop
+-   Otvoriť terminál v súbore Armyshop a spustiť príkazy
 
 ```console
     cd .\backend\
