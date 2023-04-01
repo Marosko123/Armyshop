@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\TestViewController;
+use App\Http\Controllers\Api\LoginRegisterViewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+//TEST
+Route::get('test', [TestViewController::class, 'get']);
+
+//Login and register menu
+Route::get('login', [LoginRegisterViewController::class, 'get']);
