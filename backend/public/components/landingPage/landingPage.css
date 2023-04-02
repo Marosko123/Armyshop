@@ -1,0 +1,23 @@
+body {
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  url('../../images/homepage/army-bg1.jpg'); /* Source: https://unsplash.com/s/photos/military */
+  background-size: cover;
+  background-position: center 40px;
+}
+
+#landing-page .main-heading {
+  text-align: center;
+  color: #dddddd;
+}
+
+#most-popular .card-container {
+  display: flex !important; 
+}
+
+@media (max-width: 767px) {
+  #most-popular .card-container {
+    display: block !important;
+  }
+}
+

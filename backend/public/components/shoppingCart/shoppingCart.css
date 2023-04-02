@@ -1,0 +1,240 @@
+/* CART CONTAINER */
+
+#shopping-cart #cart-container
+{
+  flex: 1;
+  margin: 20px;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: gainsboro;
+}
+
+#shopping-cart #cart-container .listContainerElement {
+  padding: 20px;
+  max-height: 700px;
+  overflow-y: scroll;
+}
+
+#shopping-cart #cart-container .itemList {
+  overflow-y: visible !important;
+}
+
+#shopping-cart #cart-container .itemList ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#shopping-cart #cart-container .itemList h3 {
+  font-size: 20px !important;
+  margin-top: 0 !important;
+}
+
+#shopping-cart #cart-container .itemList input {
+  width: 35px;
+  height: 30px;
+  border: 0px solid black !important;
+  background-color: transparent;
+  text-align: center;
+}
+
+#shopping-cart #cart-container .itemList input:focus {
+  outline-width: 0;
+}
+/*removing input arrows*/
+#shopping-cart #cart-container .itemList input[type="number"]::-webkit-outer-spin-button,
+#shopping-cart #cart-container .itemList input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#shopping-cart #cart-container .itemList input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* CART CONTAINER - ITEM STYLES*/
+
+#shopping-cart h1 {
+  text-align: center;
+  color: black;
+  padding: 10px;
+}
+
+#shopping-cart .container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#shopping-cart #cart-container .item {
+  width: 100%;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 20px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  background-color: rgb(232, 232, 232)
+}
+
+#shopping-cart #cart-container .img {
+  max-width: 100px;
+  max-height: 100px;
+  border: 1px solid rgb(109, 109, 109);
+  border-radius: 5px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+#shopping-cart #cart-container .desc {
+  margin: 0px;
+  margin-left: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#shopping-cart #cart-container .title-remove {
+  display: flex;
+}
+
+#shopping-cart #cart-container .remove-button {
+  border: 0;
+  background-color: transparent;
+  margin-bottom: 15px;
+  margin-left: auto;
+}
+
+#shopping-cart #cart-container .remove-button-img {
+  max-height: 30px;
+}
+
+#shopping-cart #cart-container .prices {
+  display: flex;
+  flex-direction: row;
+}
+
+#shopping-cart #cart-container .multiple {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin-left: auto;
+}
+
+#shopping-cart #cart-container .countControls {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  background-color: rgb(236, 236, 236);
+  border-radius: 10px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+#shopping-cart #cart-container .countControlButtons {
+  border: 0px solid black !important;
+  background-color: transparent;
+}
+
+#shopping-cart #cart-container .singularPrice {
+  font-size: 18px;
+}
+
+#shopping-cart #cart-container .multiplePrice {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center !important;
+  margin-left: auto;
+  margin-top: 5px;
+}
+
+/* ORDER SUMMARY */
+
+#shopping-cart #order-summary {
+  flex: 1;
+  margin: 20px;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: gainsboro;
+}
+
+#shopping-cart #order-summary {
+  padding: 0;
+  height: fit-content;
+}
+
+#shopping-cart #order-summary table,
+#shopping-cart #order-summary td {
+  width: 100%;
+}
+
+#shopping-cart .containerElement {
+  padding: 20px;
+  box-shadow: none !important;
+}
+
+#shopping-cart #order-summary #continueButton {
+  width: 100%;
+  border: 0 solid black;
+  background-color: rgb(25, 58, 29);
+  height: 80px;
+  font-size: xx-large;
+  font-weight: bold;
+  color: white;
+}
+
+#shopping-cart #order-summary #continueButton:hover {
+  color: gold;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+
+#shopping-cart #order-summary #total {
+  border-top: 1px solid;
+  border-collapse: collapse;
+  font-weight: bold;
+  font-size: x-large;
+}
+
+@media screen and (max-width: 500px) {
+  #shopping-cart .containerElement {
+    margin-left: 0px !important;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  #shopping-cart #cart-container .multiple {
+    margin-left: 15% !important;
+  }
+
+
+  #shopping-cart #cart-container .itemList h3 {
+    font-size: 13px !important;
+  }
+
+  #shopping-cart #cart-container .singularPrice {
+    font-size: 14px;
+  }
+
+  #shopping-cart #cart-container .multiplePrice {
+    font-size: 16px;
+  }
+
+  #shopping-cart #cart-container .itemList input {
+    width: 25px;
+    height: 20px;
+    font-size: 12px !important;
+    text-align: center;
+    padding-top: 5px;
+  }
+
+  #shopping-cart #cart-container .img {
+    max-height: 70px;
+  }
+}
+
+@media screen and (min-height: 1250px) {
+  #shopping-cart {
+    height: 65vh;
+  }
+}
