@@ -6,7 +6,7 @@
     
     <title> Register </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ asset('css/loginAndRegisterMenu.css') }}">
+    <link rel="stylesheet" href="{{ asset('components/loginAndRegisterMenu/loginAndRegisterMenu.css') }}">
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 </head>
 <body class="text-center">
@@ -97,7 +97,7 @@
         </div>
     </div>
     <script src="{{ asset('js/serverRequester.js') }}"></script>
-    <script src="{{ asset('js/loginAndRegisterMenu.js') }}"></script>
-    <script src="{{ asset('js/loginAndRegisterMenuValidator.js') }}"></script>
+    <script src="{{ asset('components/loginAndRegisterMenu/loginAndRegisterMenu.js') }}"></script>
+    <script src="{{ asset('components/loginAndRegisterMenu/loginAndRegisterMenuValidator.js') }}"></script>
 </body>
 </html>
