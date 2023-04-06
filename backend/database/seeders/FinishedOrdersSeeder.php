@@ -17,17 +17,20 @@ class FinishedOrdersSeeder extends Seeder
     {
         FinishedOrder::create([
             "user_id" => 4,
-            "ordered_products" => '{"0":{"product_id":1,"quantity":125},"1":{"product_id":2,"quantity":36}}'
+            "ordered_products" => '{"0":{"product_id":1,"quantity":125},"1":{"product_id":2,"quantity":36}}',
+            "delivery_details" => '{}'
         ]);
 
         FinishedOrder::create([
             "user_id" => 4,
-            "ordered_products" => '{"0":{"product_id":2,"quantity":95},"1":{"product_id":3,"quantity":445}}'
+            "ordered_products" => '{"0":{"product_id":2,"quantity":95},"1":{"product_id":3,"quantity":445}}',
+            "delivery_details" => '{}'
         ]);
 
         FinishedOrder::create([
             "user_id" => 4,
-            "ordered_products" => '{"0":{"product_id":3,"quantity":552},"1":{"product_id":4,"quantity":437}}'
+            "ordered_products" => '{"0":{"product_id":3,"quantity":552},"1":{"product_id":4,"quantity":437}}',
+            "delivery_details" => '{}'
         ]);
     }
 }

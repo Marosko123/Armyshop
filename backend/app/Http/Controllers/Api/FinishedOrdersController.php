@@ -55,6 +55,7 @@ class FinishedOrdersController extends Controller
         $finishedOrder = new FinishedOrder;
         $finishedOrder->user_id = $user_id;
         $finishedOrder->ordered_products = $request->ordered_products;
+        $finishedOrder->delivery_details = $request->delivery_details;
         $finishedOrder->save();
 
         return response()->json([
