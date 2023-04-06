@@ -136,7 +136,7 @@ Route::get('finished_orders', [FinishedOrdersController::class, 'getAll']);
 // get all finished orders of user
 Route::get('finished_orders/{user_id}', [FinishedOrdersController::class, 'getAllOfUser']);
 // add finished orders of user
-Route::post('finished_orders/add/{user_id}', [FinishedOrdersController::class, 'add']);
+Route::post('finished_orders/{user_id}', [FinishedOrdersController::class, 'add']);
 // delete finished orders of user
 Route::delete('finished_orders/delete/{user_id}', [FinishedOrdersController::class, 'delete']);
 
@@ -161,5 +161,3 @@ Route::get('chat_rooms/permissions/{room_id}', [ChatRoomsController::class, 'get
 Route::post('chat_rooms/create', [ChatRoomsController::class, 'create']);
 // create chat room for 2 and more users
 Route::delete('chat_rooms/delete/{room_id}', [ChatRoomsController::class, 'delete']);
-
-

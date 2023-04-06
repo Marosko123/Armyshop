@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->id();
             $table->integer('user_id');
             $table->string('ordered_products', 2048);
+            $table->string('delivery_details', 2048);
             $table->timestamps();
         });
     }

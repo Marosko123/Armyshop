@@ -31,6 +31,37 @@
     margin: 15px;
 }
 
+#payment-detail .input-control input {
+    border: 2px solid #f0f0f0;
+	border-radius: 4px;
+	display: block;
+	font-size: 12px;
+	padding: 10px;
+	width: 100%;
+}
+
+#payment-detail .input-control.success input {
+    border-color: #09c372;
+}
+
+#payment-detail .input-control.error input {
+    border-color: #ee6782 !important;
+}
+
+#payment-detail .input-control .error {
+    color: #ff0033;
+    font-size: 9px;
+    height: 10px;
+    position: relative;
+    top: 4px;
+    font-weight: bold;
+}
+
+#payment-detail .reset-button {
+    height: 35px;
+    width: 150px;
+}
+
 /* PERSONAL INFORMATION */
 
 /* DELIVERY */
@@ -201,11 +232,9 @@
 }
 
 #popup .popup .close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
+    position: relative;
     transition: all 200ms;
-    font-size: 30px;
+    font-size: 12px;
     font-weight: bold;
     text-decoration: none;
     color: #333;
@@ -218,6 +247,16 @@
 #popup .popup .content {
     max-height: 30%;
     overflow: auto;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+#popup .popup .content strong {
+    color: red;
+}
+
+#popup #countdown {
+    margin-bottom: 0px;
 }
 
 @media screen and (max-width: 1000px) {
