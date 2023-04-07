@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\LikedProduct;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -39,14 +40,14 @@ class LikedProductsController extends Controller
     {
         // check if this user_id exists
 
-        // $user = User::find($user_id);
+        $user = User::find($user_id);
 
-        // if(!$user) {
-        //     return response()->json([
-        //         'status' => 500,
-        //         'message' => 'User with this ID was not found.'
-        //     ], 500);
-        // }
+        if(!$user) {
+            return response()->json([
+                'status' => 404,
+                'message' => 'User with this ID was not found.'
+            ], 404);
+        }
 
         $liked = [
             'user_id' => $user_id,
@@ -65,6 +66,15 @@ class LikedProductsController extends Controller
             ], 422);
         } else {
             if ($liked) {
+                $createdProduct = LikedProduct::create($liked);
+                if (!$createdProduct)
+                {
+                    return response()->json([
+                        'status' => 500,
+                        'message' => 'Liked product was not created.'
+                    ], 500);
+                }
+                    
                 return response()->json([
                     'status' => 200,
                     'liked_product' => $liked

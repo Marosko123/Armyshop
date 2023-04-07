@@ -1,20 +1,28 @@
 
-onAddToBasketClicked = (event) => {
-    // TODO: create popup added to basket
-};
 
 function toggleIcon(likedPhoto) {
-    if (likedPhoto.classList.contains("liked-photo-new")) { // removes from liked images
+    if (likedPhoto.classList.contains("liked-photo-new")) { // removes from liked products
         // Image source: flaticon.com
         likedPhoto.src = "http://127.0.0.1:8000/images/productDetailImages/heart6.png";
         likedPhoto.classList.remove("liked-photo-new");
-    } else { // adds to liked images
+        
+        // delete from liked products table
+        const productId = window.location.href.split("/").pop();
+        const userId = 1
+        // deleteFromUrl(`/liked_products/${userId}/${productId}`);
+    } else { // adds to liked products
         // Image source: flaticon.com
         likedPhoto.src = "http://127.0.0.1:8000/images/productDetailImages/heart4.png";
         likedPhoto.classList.add("liked-photo-new");
+
+        // add to liked products table
+        // const productId = window.location.href.split("/").pop();
+        const productId = 5
+        const userId = 5
+        console.log('hello');
+        postToUrl(`/liked_products/add/${userId}/${productId}`, {});
     }
 }
-
 
 // get product information
 // get product id from url

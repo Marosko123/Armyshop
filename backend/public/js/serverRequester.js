@@ -31,3 +31,18 @@ getFromUrl = async function (subroute) {
     }
 };
 
+deleteFromUrl = async function (subroute) {
+    try {
+        return (
+            await fetch(apiUrl + subroute, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            })
+        ).json();
+    } catch (error) {
+        console.log(error);
+    }
+};
+
