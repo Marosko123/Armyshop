@@ -15,3 +15,19 @@ postToUrl = async function (subroute, bodyData) {
         console.log(error);
     }
 };
+
+getFromUrl = async function (subroute) {
+    try {
+        return (
+            await fetch(apiUrl + subroute, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            })
+        ).json();
+    } catch (error) {
+        console.log(error);
+    }
+};
+

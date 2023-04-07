@@ -84,7 +84,7 @@ handlePopup = () => {
 
     const countdownInterval = setInterval(() => {
         if (count > 0) {
-            countdownEl.textContent = `Auto redirec in: ${count}`;
+            countdownEl.textContent = `Auto redirect in: ${count}`;
             count--;
         } else {
             clearInterval(countdownInterval);

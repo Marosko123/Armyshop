@@ -80,7 +80,7 @@ Route::get('subcategories/create', [SubcategoriesController::class, 'addAll']);
 // get basket for user
 Route::get('baskets/{user_id}', [BasketsController::class, 'getByUserId']);
 // add item to basket
-Route::post('baskets/add/{user_id}/{product_id}', [BasketsController::class, 'add']);
+Route::post('baskets/add/{user_id}/{product_id}/{quantity}', [BasketsController::class, 'add']);
 // decrease item quantity from basket
 Route::delete('baskets/delete/{user_id}/{product_id}', [BasketsController::class, 'deleteItem']);
 // delete all items of given id from basket
@@ -94,7 +94,7 @@ Route::put('baskets/update/{user_id}/{product_id}/{quantity}', [BasketsControlle
 // get all products
 Route::get('products', [ProductsController::class, 'getAll']);
 // get 1 product
-Route::get('products/product/{product_id}', [ProductsController::class, 'getOne']);
+Route::get('products/{product_id}', [ProductsController::class, 'getOne']);
 // get products from category
 Route::get('products/category/{category_id}', [ProductsController::class, 'getFromCategory']);
 // get products from subcategory

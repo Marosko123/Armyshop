@@ -44,7 +44,7 @@ class BasketsController extends Controller
         ], 200);
     }
 
-    public function add(Request $request, $user_id, $product_id)
+    public function add(Request $request, $user_id, $product_id, $quantity)
     {
         // does user exist
         if (!User::find($user_id)) {
@@ -74,7 +74,7 @@ class BasketsController extends Controller
             $basket = new Basket;
             $basket->user_id = $user_id;
             $basket->product_id = $product_id;
-            $basket->quantity = 1;
+            $basket->quantity = $quantity;
             $basket->save();
         }
 
