@@ -36,6 +36,28 @@ class LikedProductsController extends Controller
         }
     }
 
+    public function getOne($user_id, $product_id)
+    {
+        $product = LikedProduct::where('user_id', $user_id)
+            ->where('product_id', $product_id)
+            ->first();
+
+        if ($product) {
+            return response()->json([
+                'status' => 200,
+                'product' => $product
+            ], 200);
+        } else {
+            return response()->json([
+                // failed to get product
+                'status' => 201,
+                'message' => 'The user has not liked this product.'
+            ], 201);
+        }
+    }
+
+
+
     public function add($user_id, $product_id)
     {
         // check if this user_id exists

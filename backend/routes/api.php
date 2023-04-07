@@ -121,6 +121,8 @@ Route::delete('products/delete/all', [ProductsController::class, 'deleteAll']);
 
 // get Liked products
 Route::get('liked_products/{user_id}', [LikedProductsController::class, 'get']);
+// get Liked product
+Route::get('liked_products/{user_id}/{product_id}', [LikedProductsController::class, 'getOne']);
 // add to liked products
 Route::post('liked_products/add/{user_id}/{product_id}', [LikedProductsController::class, 'add']);
 // delete from liked products
