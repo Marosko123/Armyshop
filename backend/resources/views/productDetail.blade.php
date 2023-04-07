@@ -169,13 +169,13 @@
     <div class="container">
         <main>
             <section id="header">
-                <div class="d-flex align-items-center justify-content-between mb-3">
-                    <div class="mx-auto">
+                <div class="d-flex align-items-center justify-content-between mb-3 w-100">
+                    <div class="title-subtitle mx-auto">
                         <h1 class="display-1" id="product-title">AK-47</h1>
                         <h5>Weapons > Rifles</h5>    
                     </div>
                     <!-- image source: flaticon.com -->
-                    <img width="8%" src="../../images/productDetailImages/heart4.png" alt="" class="liked" onclick="toggleIcon(this)">
+                    <img src="../../images/productDetailImages/heart6.png" alt="add to liked" class="liked" onclick="toggleIcon(this)">
                 </div>
             </section>
 

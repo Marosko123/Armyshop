@@ -18,6 +18,22 @@
     align-items: center;
     margin-top: 2rem;
   }
+
+  .liked {
+    width: 6rem;
+    height: 6rem;
+    margin-right: 3rem;
+  }
+
+  .liked-photo-new {
+    width: 6rem;
+    height: 5.6rem;
+    margin-right: 3rem;
+  }
+
+  .liked:hover {
+    cursor: pointer;
+  }
   
   h1 {
     font-size: 3rem;
@@ -98,8 +114,15 @@
       padding: 0;
     }
     .liked {
-      width: 20%;
-      margin-bottom: 1rem;
+      width: 5rem;
+      height: 5rem;
+      margin-right: 3rem;
+    }
+  
+    .liked-photo-new {
+      width: 5rem;
+      height: 4.6rem;
+      margin-right: 3rem;
     }
     .priceFor1 {
       font-size: 1rem;
