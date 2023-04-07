@@ -49,6 +49,18 @@ class LikedProductsController extends Controller
             ], 404);
         }
 
+        // check if this liked product exists
+        $foundProduct = LikedProduct::where('user_id', $user_id)
+            ->where('product_id', $product_id)
+            ->first();
+
+        if ($foundProduct) {
+            return response()->json([
+                'status' => 201,
+                'message' => 'Product is already in liked products.'
+            ], 201);
+        }
+
         $liked = [
             'user_id' => $user_id,
             'product_id' => $product_id
@@ -92,14 +104,14 @@ class LikedProductsController extends Controller
     {
         // check if this user_id exists
 
-        // $user = User::find($user_id);
+        $user = User::find($user_id);
 
-        // if(!$user) {
-        //     return response()->json([
-        //         'status' => 502,
-        //         'message' => 'User with this ID was not found.'
-        //     ], 502);
-        // }
+        if(!$user) {
+            return response()->json([
+                'status' => 404,
+                'message' => 'User with this ID was not found.'
+            ], 404);
+        }
 
         // find this entry in database
         $foundProduct = LikedProduct::where('user_id', $user_id)

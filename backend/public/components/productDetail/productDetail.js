@@ -7,9 +7,10 @@ function toggleIcon(likedPhoto) {
         likedPhoto.classList.remove("liked-photo-new");
         
         // delete from liked products table
-        const productId = window.location.href.split("/").pop();
+        // const productId = window.location.href.split("/").pop();
+        const productId = 1
         const userId = 1
-        // deleteFromUrl(`/liked_products/${userId}/${productId}`);
+        deleteFromUrl(`/liked_products/delete/${userId}/${productId}`);
     } else { // adds to liked products
         // Image source: flaticon.com
         likedPhoto.src = "http://127.0.0.1:8000/images/productDetailImages/heart4.png";
@@ -17,9 +18,9 @@ function toggleIcon(likedPhoto) {
 
         // add to liked products table
         // const productId = window.location.href.split("/").pop();
-        const productId = 5
-        const userId = 5
-        console.log('hello');
+        const productId = 1
+        const userId = 1
+        console.log('adding to liked products');
         postToUrl(`/liked_products/add/${userId}/${productId}`, {});
     }
 }
