@@ -166,8 +166,8 @@
         <div class="slider-container">
           <p class="order-description">0 € - 999999 €</p>
           <div class="slider">
-            <input type="range" min="1" max="100" value="25" class="slider-range" id="myRange1">
-            <input type="range" min="1" max="100" value="75" class="slider-range" id="myRange2">
+            <input type="range" min="0" max="1000" value="0" class="slider-range" id="myRange1">
+            <input type="range" min="1000" max="50000" step="1000" value="50000" class="slider-range" id="myRange2">
           </div>
         </div>
 

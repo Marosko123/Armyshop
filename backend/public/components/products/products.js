@@ -9,13 +9,13 @@ function toggleIcon(likedPhoto) {
         likedPhoto.src = "http://127.0.0.1:8000/images/productDetailImages/heart4.png";
         likedPhoto.classList.add("liked-photo-new");
     }
-}
+} 
 
 function addToCart() {
 
 }
 
-async function getProducts() {
+async function getAllProducts() {
     productList = await getFromUrl('/products');
     productsHTML = '';
     productList.products.forEach(function(product) {
@@ -48,19 +48,18 @@ async function getProducts() {
 getProducts()
 
 
-// prepared for slider
 
+
+// slider range
 const range1 = document.getElementById('myRange1');
 const range2 = document.getElementById('myRange2');
-
+const output = document.querySelector('.order-description');
+output.textContent = '0 € - 50000 €'
 range1.addEventListener('input', () => {
-    if (parseInt(range1.value) >= parseInt(range2.value)) {
-        range1.value = range2.value - 1;
-    }
+    console.log('hello');
+    output.textContent = range1.value + " € - " + range2.value + " €";
 });
 
 range2.addEventListener('input', () => {
-    if (parseInt(range2.value) <= parseInt(range1.value)) {
-        range2.value = parseInt(range1.value) + 1;
-    }
+    output.textContent = range1.value + " € - " + range2.value + " €";
 });
