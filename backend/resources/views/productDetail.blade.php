@@ -171,45 +171,36 @@
             <section id="header">
                 <div class="d-flex align-items-center justify-content-between mb-3">
                     <div class="mx-auto">
-                        <h1 class="display-1">AK-47</h1>
+                        <h1 class="display-1" id="product-title">AK-47</h1>
                         <h5>Weapons > Rifles</h5>    
                     </div>
                     <!-- image source: flaticon.com -->
-                    <img width="8%" src="../../images/productDetailImages/heart4.png" alt="" class="liked">
+                    <img width="8%" src="../../images/productDetailImages/heart4.png" alt="" class="liked" onclick="toggleIcon(this)">
                 </div>
             </section>
 
             <section id="carrouselAndPricing" class="align-items-center">
             <section id="carrousel">
-                <div id="carouselExampleIndicators" class="carousel slide mx-auto" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                    </ol>
+                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner rounded">
-                        <div class="carousel-item active">
-                            <!-- image source: unsplash.com (Alexey Turenkov)-->
-                            <img class="d-block w-100" src="../../images/productDetailImages/ak47-1.jpg" alt="First slide">
-                        </div>
-                        <div class="carousel-item">
-                            <!-- image source: unsplash.com (Alexey Turenkov)-->
-                            <img class="d-block w-100" src="../../images/productDetailImages/ak47-1.jpg" alt="Second slide">
-                        </div>
-                        <div class="carousel-item">
-                            <!-- image source: unsplash.com -->
-                            <img class="d-block w-100" src="../../images/productDetailImages/weapon1.jpg" alt="Third slide">
-                        </div>
+                      <div class="carousel-item active">
+                        <!-- image source: unsplash.com (Alexey Turenkov)-->
+                        <img class="d-block w-100" src="../../images/productDetailImages/ak47-1.jpg" alt="First slide">
+                      </div>
+                      <div class="carousel-item">
+                        <!-- image source: unsplash.com (Alexey Turenkov)-->
+                        <img class="d-block w-100" src="../../images/productDetailImages/ak47-2.jpg" alt="Second slide">
+                      </div>
                     </div>
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only"></span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only"></span>
-                    </a>
-                </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
             </section>
             <section id="pricing-window" class="">
                 <div class="bg-light rounded mx-auto d-block">
@@ -217,18 +208,17 @@
                     <div class="col-sm-6">
                     <form>
                         <div class="mb-4 mt-2 text-center">
-                        <h4 class="priceFor1">Price for 1: 5999.99 €</h4>
-                        <label for="amount" class="form-label">Amount</label>
-                        <div class="input-group">
-                            <button class="btn btn-outline-secondary" type="button" id="minusBtn">-</button>
-                            <input type="text" class="form-control text-center" id="amount" name="amount" value="1">
-                            <button class="btn btn-outline-secondary" type="button" id="plusBtn">+</button>
-                        </div>
+                            <h4 class="priceFor1"></h4>
+                            <label for="amount" class="form-label">Amount</label>
+                            <div class="input-group">
+                                <button class="btn btn-outline-secondary" type="button" id="minusBtn">-</button>
+                                <input type="number" class="form-control text-center" id="amount" name="amount" value="1">
+                                <button class="btn btn-outline-secondary" type="button" id="plusBtn">+</button>
+                            </div>
                         </div>
                         <div class="mb-3 text-center">
-                        <h4>Total Price</h4>
-                        <h4 class="text-center">5999.99 €</h4>
-                        
+                            <h4>Total Price</h4>
+                            <h4 class="text-center" id="total-price">5999.99 €</h4>
                         </div>
                         <div class="mb-3 text-center">
                         <!-- image source: flaticon.com -->
@@ -289,6 +279,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
+    <script src="{{ asset('js/serverRequester.js') }}"></script>
     <script src="{{ asset('components/productDetail/productDetail.js') }}"></script>
 	<script src="{{ asset('components/navbar/navbar.js') }}"></script>
 	<script src="{{ asset('components/contactUs/contactUs.js') }}"></script>
