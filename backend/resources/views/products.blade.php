@@ -166,8 +166,8 @@
         <div class="slider-container">
           <p class="order-description">0 € - 999999 €</p>
           <div class="slider">
-            <input type="range" min="1" max="100" value="25" class="slider-range" id="myRange1">
-            <input type="range" min="1" max="100" value="75" class="slider-range" id="myRange2">
+            <input type="range" min="0" max="1000" value="0" class="slider-range" id="myRange1">
+            <input type="range" min="1000" max="50000" step="1000" value="50000" class="slider-range" id="myRange2">
           </div>
         </div>
 
@@ -175,7 +175,7 @@
           <p class="order-description toggle-license">License:</p>
           <!-- image source: freeiconspng.com -->
           <img src="{{ asset('images/productDetailImages/checkmark.png') }}" alt="" width="10%" height="30%"
-            class="checkmark-img" id="license-checkmark">
+            class="checkmark-img checkmark" id="license-checkmark" onclick="toggleCheckmark(this)">
         </div>
 
         <div class="dropdown-orderby">
@@ -191,187 +191,7 @@
 
     <!-- cards -->
     <div id="cards" class="card-container">
-      <div class="card m-3">
-        <!-- image source: unsplash.com -->
-        <img class="card-img-top"
-          src="{{ asset('images/productDetailImages/ak47-1.jpg') }}"
-          alt="Card image cap">
-        <div class="card-body d-flex align-items-center justify-content-between mx-auto">
-          <div>
-            <h3 class="card-title">AK-47</h3>
-            <p class="card-text">5999.99 €</p>
-          </div>
-          <!-- image source: flaticon.com -->
-          <img src="{{ asset('images/productDetailImages/heart6.png') }}" alt="" width="14%" class="liked-photo" onclick="toggleIcon(this)">
-        </div>
-        <div class="card-body d-flex align-items-center justify-content-between mx-auto">
-          <!-- image source: flaticon.com -->
-          <img src="{{ asset('images/productDetailImages/cart.png') }}" alt="" width="15%" class="cart-img">
-          <button type="button" class="btn btn-success btn-buy">Buy Now</button>
-        </div>
-      </div>
-
-
-      <div class="card m-3">
-        <!-- image source: unsplash.com -->
-        <img class="card-img-top"
-          src="../../resources/images/productDetailImages/ak47-1.jpg"
-          alt="Card image cap">
-        <div class="card-body d-flex align-items-center justify-content-between mx-auto">
-          <div>
-            <h3 class="card-title">AK-47</h3>
-            <p class="card-text">5999.99 €</p>
-          </div>
-          <!-- image source: flaticon.com -->
-          <img src="../../resources/images/productDetailImages/heart6.png" alt="" width="14%" class="liked-photo" onclick="toggleIcon(this)"
-          >
-        </div>
-        <div class="card-body d-flex align-items-center justify-content-between mx-auto">
-          <!-- image source: flaticon.com -->
-          <img src="../../resources/images/productDetailImages/cart.png" alt="" width="15%" class="cart-img">
-          <button type="button" class="btn btn-success btn-buy">Buy Now</button>
-        </div>
-      </div>
-
-      <div class="card m-3">
-        <!-- image source: unsplash.com -->
-        <img class="card-img-top"
-          src="../../resources/images/productDetailImages/ak47-1.jpg"
-          alt="Card image cap">
-        <div class="card-body d-flex align-items-center justify-content-between mx-auto">
-          <div>
-            <h3 class="card-title">AK-47</h3>
-            <p class="card-text">5999.99 €</p>
-          </div>
-          <!-- image source: flaticon.com -->
-          <img src="../../resources/images/productDetailImages/heart6.png" alt="" width="14%" class="liked-photo" onclick="toggleIcon(this)">
-        </div>
-        <div class="card-body d-flex align-items-center justify-content-between mx-auto">
-          <!-- image source: flaticon.com -->
-          <img src="../../resources/images/productDetailImages/cart.png" alt="" width="15%" class="cart-img">
-          <button type="button" class="btn btn-success btn-buy">Buy Now</button>
-        </div>
-      </div>
-
-      <div class="card m-3">
-        <!-- image source: unsplash.com -->
-        <img class="card-img-top"
-          src="../../resources/images/productDetailImages/ak47-1.jpg"
-          alt="Card image cap">
-        <div class="card-body d-flex align-items-center justify-content-between mx-auto">
-          <div>
-            <h3 class="card-title">AK-47</h3>
-            <p class="card-text">5999.99 €</p>
-          </div>
-          <!-- image source: flaticon.com -->
-          <img src="../../resources/images/productDetailImages/heart6.png" alt="" width="14%" class="liked-photo" onclick="toggleIcon(this)">
-        </div>
-        <div class="card-body d-flex align-items-center justify-content-between mx-auto">
-          <!-- image source: flaticon.com -->
-          <img src="../../resources/images/productDetailImages/cart.png" alt="" width="15%" class="cart-img">
-          <button type="button" class="btn btn-success btn-buy">Buy Now</button>
-        </div>
-      </div>
-
-      <div class="card m-3">
-        <!-- image source: unsplash.com -->
-        <img class="card-img-top"
-          src="../../resources/images/productDetailImages/ak47-1.jpg"
-          alt="Card image cap">
-        <div class="card-body d-flex align-items-center justify-content-between mx-auto">
-          <div>
-            <h3 class="card-title">AK-47</h3>
-            <p class="card-text">5999.99 €</p>
-          </div>
-          <!-- image source: flaticon.com -->
-          <img src="../../resources/images/productDetailImages/heart6.png" alt="" width="14%" class="liked-photo" onclick="toggleIcon(this)">
-        </div>
-        <div class="card-body d-flex align-items-center justify-content-between mx-auto">
-          <!-- image source: flaticon.com -->
-          <img src="../../resources/images/productDetailImages/cart.png" alt="" width="15%" class="cart-img">
-          <button type="button" class="btn btn-success btn-buy">Buy Now</button>
-        </div>
-      </div>
-
-      <div class="card m-3">
-        <!-- image source: unsplash.com -->
-        <img class="card-img-top"
-          src="../../resources/images/productDetailImages/ak47-1.jpg"
-          alt="Card image cap">
-        <div class="card-body d-flex align-items-center justify-content-between mx-auto">
-          <div>
-            <h3 class="card-title">AK-47</h3>
-            <p class="card-text">5999.99 €</p>
-          </div>
-          <!-- image source: flaticon.com -->
-          <img src="../../resources/images/productDetailImages/heart6.png" alt="" width="14%" class="liked-photo" onclick="toggleIcon(this)">
-        </div>
-        <div class="card-body d-flex align-items-center justify-content-between mx-auto">
-          <!-- image source: flaticon.com -->
-          <img src="../../resources/images/productDetailImages/cart.png" alt="" width="15%" class="cart-img">
-          <button type="button" class="btn btn-success btn-buy">Buy Now</button>
-        </div>
-      </div>
-
-      <div class="card m-3">
-        <!-- image source: unsplash.com -->
-        <img class="card-img-top"
-          src="../../resources/images/productDetailImages/ak47-1.jpg"
-          alt="Card image cap">
-        <div class="card-body d-flex align-items-center justify-content-between mx-auto">
-          <div>
-            <h3 class="card-title">AK-47</h3>
-            <p class="card-text">5999.99 €</p>
-          </div>
-          <!-- image source: flaticon.com -->
-          <img src="../../resources/images/productDetailImages/heart6.png" alt="" width="14%" class="liked-photo" onclick="toggleIcon(this)">
-        </div>
-        <div class="card-body d-flex align-items-center justify-content-between mx-auto">
-          <!-- image source: flaticon.com -->
-          <img src="../../resources/images/productDetailImages/cart.png" alt="" width="15%" class="cart-img">
-          <button type="button" class="btn btn-success btn-buy">Buy Now</button>
-        </div>
-      </div>
-
-      <div class="card m-3">
-        <!-- image source: unsplash.com -->
-        <img class="card-img-top"
-          src="../../resources/images/productDetailImages/ak47-1.jpg"
-          alt="Card image cap">
-        <div class="card-body d-flex align-items-center justify-content-between mx-auto">
-          <div>
-            <h3 class="card-title">AK-47</h3>
-            <p class="card-text">5999.99 €</p>
-          </div>
-          <!-- image source: flaticon.com -->
-          <img src="../../resources/images/productDetailImages/heart6.png" alt="" width="14%" class="liked-photo" onclick="toggleIcon(this)">
-        </div>
-        <div class="card-body d-flex align-items-center justify-content-between mx-auto">
-          <!-- image source: flaticon.com -->
-          <img src="../../resources/images/productDetailImages/cart.png" alt="" width="15%" class="cart-img">
-          <button type="button" class="btn btn-success btn-buy">Buy Now</button>
-        </div>
-      </div>
-
-      <div class="card m-3">
-        <!-- image source: unsplash.com -->
-        <img class="card-img-top"
-          src="../../resources/images/productDetailImages/ak47-1.jpg"
-          alt="Card image cap">
-        <div class="card-body d-flex align-items-center justify-content-between mx-auto">
-          <div>
-            <h3 class="card-title">AK-47</h3>
-            <p class="card-text">5999.99 €</p>
-          </div>
-          <!-- image source: flaticon.com -->
-          <img src="../../resources/images/productDetailImages/heart6.png" alt="" width="14%" class="liked-photo" onclick="toggleIcon(this)">
-        </div>
-        <div class="card-body d-flex align-items-center justify-content-between mx-auto">
-          <!-- image source: flaticon.com -->
-          <img src="../../resources/images/productDetailImages/cart.png" alt="" width="15%" class="cart-img">
-          <button type="button" class="btn btn-success btn-buy">Buy Now</button>
-        </div>
-      </div>
+      
     </div>
 
       <!-- paging -->
@@ -429,7 +249,8 @@
       </div>
     </footer>
 
-    <script src="{{ asset('components/products/products.js') }}"></script>
+  <script src="{{ asset('js/serverRequester.js') }}"></script>
+  <script src="{{ asset('components/products/products.js') }}"></script>
 	<script src="{{ asset('components/navbar/navbar.js') }}"></script>
 	<script src="{{ asset('components/contactUs/contactUs.js') }}"></script>
 </body>

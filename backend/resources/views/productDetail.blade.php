@@ -243,14 +243,14 @@
     <!-- popup -->
     <div id="popup">
         <div id="popup1" class="overlay">
-            <div class="popup">
-                <h2> Product added to basket. </h2>
+            <div class="popup text-center">
+                <h2 class="popup-info"> Product added to basket. </h2>
                 <a class="close" href="#">&times;</a>
                 <div class="content">
                     We hope you will love it!
                 </div>
                 <p id="countdown">Auto redirect in: 5</p>
-                <a class="close" href="/"> Go To Landing Page </a>
+                <a class="close popup-goto" href="/"> Go To Basket </a>
             </div>
         </div>
     </div>
