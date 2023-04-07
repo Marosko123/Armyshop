@@ -113,20 +113,22 @@ amountInput.addEventListener("change", () => {
 
 
 
-document.querySelector('.addToBasket').addEventListener('click', async () => {
+document.querySelector('.addToBasket').addEventListener('click', async (e) => {
+    e.preventDefault()
     const amount = document.getElementById('amount').value;
 
     const basket = {
         amount: amount
     };
 
-    const response = await postToUrl(`/baskets/add/1/1/${amount}`, basket);
+    const response = await postToUrl(`/baskets/add/3/3/${amount}`, basket);
     if (response.status === 200) {
         return handlePopup();
     }
 });
 
-document.getElementById('order-now').addEventListener('click', async () => {
+document.getElementById('order-now').addEventListener('click', async (e) => {
+    e.preventDefault()
     const amount = document.getElementById('amount').value;
 
     const basket = {
@@ -137,8 +139,20 @@ document.getElementById('order-now').addEventListener('click', async () => {
 });
 
 handlePopup = (orderNow = false) => {
+    console.log('hello');
     window.location.assign("#popup1");
     const countdownEl = document.getElementById("countdown");
+    const popupInfo = document.querySelector(".popup-info");
+    const popupGoto = document.querySelector(".popup-goto");
+    if(orderNow) {
+        popupInfo.textContent = "You have ordered the product!";
+        popupGoto.textContent = "Proceed to payment";
+        popupGoto.href = "/paymentDetail";
+    } else {
+        popupInfo.textContent = "You have added the product to your basket!";
+        popupGoto.textContent = "Go to basket";
+        popupGoto.href = "/basket";
+    }
     let count = 4;
 
     const countdownInterval = setInterval(() => {
