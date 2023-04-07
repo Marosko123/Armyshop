@@ -36,6 +36,17 @@ function setProductInformation(product) {
     document.getElementById("description").innerHTML = product.description;
     document.querySelector('.priceFor1').innerHTML = "Price for 1: " + product.price + " €";
     document.getElementById("total-price").innerHTML = product.price + " €";
+
+    // find out if product is liked, if so, change the heart icon
+    const likedPhoto = document.getElementById("liked-photo");
+    const userId = 1;
+    getFromUrl(`/liked_products/${userId}/${productId}`).then((response) => {
+        if (response.status === 200) {
+            // Image source: flaticon.com
+            likedPhoto.src = "http://127.0.0.1:8000/images/productDetailImages/heart4.png";
+            likedPhoto.classList.add("liked-photo-new");
+        }
+    });
 }
 
 // Function to handle 404 errors
@@ -107,6 +118,9 @@ document.querySelector('.addToBasket').addEventListener('click', async () => {
     };
 
     const response = await postToUrl(`/baskets/add/1/1/${amount}`, basket);
+    if (response.status === 200) {
+        return handlePopup();
+    }
 });
 
 document.getElementById('order-now').addEventListener('click', async () => {
