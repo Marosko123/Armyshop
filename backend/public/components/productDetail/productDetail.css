@@ -99,14 +99,79 @@
       -moz-appearance: textfield;
   }
 
-  
+
+  /* Pop Up */
+  #popup {
+    z-index: 50;
+}
+
+#popup .overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+#popup .overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+#popup .popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 30%;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
+
+#popup .popup h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+#popup .popup .close {
+    position: relative;
+    transition: all 200ms;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+#popup .popup .close:hover {
+    color: #06D85F;
+}
+
+#popup .popup .content {
+    max-height: 30%;
+    overflow: auto;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+#popup .popup .content strong {
+    color: red;
+}
+
+#popup #countdown {
+    margin-bottom: 0px;
+}
+
   /* make footer responsive */
   footer {
     margin-top: 2rem;
     text-align: center;
     font-size: 1.2rem;
   }
-  
+
   /* adjust margin and padding for smaller screens */
   @media (max-width: 576px) {
     body {
@@ -144,6 +209,11 @@
     #description {
       margin-top: 1rem;
     }
+    .input-group {
+      width: 50%;
+      margin: 0 auto;
+    }
+
     .form-label {
       font-size: 1rem;
     }
@@ -155,6 +225,9 @@
     }
     .btn-success {
       font-size: 1rem;
+    }
+    #popup .popup {
+      width: 70%;
     }
   }
   
@@ -192,6 +265,9 @@
     .btn-success {
       font-size: 1rem;
     }
+    .priceFor1 {
+      font-size: 1.5rem;
+    }
   }
 
   /* adjust margin and padding for medium screens */
@@ -211,7 +287,6 @@
     #pricing-window {
       margin-top: 1.5rem;
       margin: 2rem auto;
-      margin-top: 20rem;
       width: 100%;
       max-width: 60%;
     }

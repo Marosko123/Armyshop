@@ -226,7 +226,7 @@
                             <p class="small">add to basket</p></button>
                         
                         <p>or</p>
-                        <button type="submit" class="btn btn-success btn-lg">Order Now</button>
+                        <button type="submit" class="btn btn-success btn-lg" id="order-now">Order Now</button>
                         </div>
                     </form>
                     </div>
@@ -238,6 +238,21 @@
             <p>The AK-47 is a selective-fire assault rifle that was designed by Mikhail Kalashnikov in the Soviet Union in 1947. It is one of the most widely used firearms in the world due to its simplicity, reliability, and durability. The AK-47 fires 7.62x39mm cartridges and can be used in a variety of combat situations.</p>
             </div>
         </main>
+    </div>
+
+    <!-- popup -->
+    <div id="popup">
+        <div id="popup1" class="overlay">
+            <div class="popup">
+                <h2> Product added to basket. </h2>
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+                    We hope you will love it!
+                </div>
+                <p id="countdown">Auto redirect in: 5</p>
+                <a class="close" href="/"> Go To Landing Page </a>
+            </div>
+        </div>
     </div>
 
     <!-- contact-us -->

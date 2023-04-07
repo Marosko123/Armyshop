@@ -90,35 +90,41 @@ amountInput.addEventListener("change", () => {
 
 
 
-// document.querySelector('.add-to-basket').addEventListener('click', () => {
-    // const amount = document.querySelector('#amount').value;
-    // const productId = document.querySelector('#product-id').value;
-    // const productTitle = document.querySelector('#product-title').value;
-    // const productPrice = document.querySelector('#product-price').value;
-    // const productImage = document.querySelector('#product-image').value;
+document.querySelector('.addToBasket').addEventListener('click', async () => {
+    const amount = document.getElementById('amount').value;
 
-    // const basket = {
-    //     amount: amount,
-    //     productId: productId,
-    //     productTitle: productTitle,
-    //     productPrice: productPrice,
-    //     productImage: productImage
-    // };
+    const basket = {
+        amount: amount
+    };
 
-    // fetch('/add-to-basket', {
-    //     method: 'POST',
-    //     body: JSON.stringify(basket),
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     }
-    // }).then(res => {
-    //     if (res.ok) {
-    //         return res.json()
-    //     }
-    // }).then(data => {
-    //     console.log(data);
-    // }).catch(err => {
-    //     console.log(err);
-    // });
-// });
+    const response = await postToUrl(`/baskets/add/1/1/${amount}`, basket);
+});
+
+document.getElementById('order-now').addEventListener('click', async () => {
+    const amount = document.getElementById('amount').value;
+
+    const basket = {
+        amount: amount
+    };
+    return handlePopup(true);
+    
+});
+
+handlePopup = (orderNow = false) => {
+    window.location.assign("#popup1");
+    const countdownEl = document.getElementById("countdown");
+    let count = 4;
+
+    const countdownInterval = setInterval(() => {
+        if (count > 0) {
+            countdownEl.textContent = `Auto redirect in: ${count}`;
+            count--;
+        } else {
+            clearInterval(countdownInterval);
+            countdownEl.textContent = "Redirecting...";
+            if (orderNow) return (window.location.href = "/paymentDetail");
+            return (window.location.href = "/basket");
+        }
+    }, 1000);
+};
   
