@@ -12,15 +12,18 @@ registerForm?.addEventListener("submit", async (e) => {
     if (isRegisterInputValid()) {
         console.log("Register data are valid");
 
+        const img = sessionStorage.getItem("military-passport");
+
         const response = await postToUrl("/register", {
             email: registerEmail.value.trim(),
             password: registerPassword1.value.trim(),
+            license_picture: img,
         });
 
         console.log(response);
 
-        if (response.status === 200) {
-            return (window.location.href = "/");
+        if (response.status === 200 || response.status === 409) {
+            return handleUserAuthentication(response.user);
         }
         if (response.status === 422) {
             if (response.errors.email) {
@@ -48,7 +51,7 @@ loginForm?.addEventListener("submit", async (e) => {
         console.log(response);
 
         if (response.status === 200) {
-            return (window.location.href = "/");
+            return handleUserAuthentication(response.user);
         }
         if (response.status === 401) {
             setError(loginEmail, "Invalid credentials");
@@ -64,6 +67,14 @@ loginForm?.addEventListener("submit", async (e) => {
         }
     }
 });
+
+const handleUserAuthentication = async (user) => {
+    localStorage.setItem(
+        "armyshop_currently_signed_in_user",
+        JSON.stringify(user)
+    );
+    window.location.href = "/";
+};
 
 const setError = (element, message) => {
     const inputControl = element.parentElement;

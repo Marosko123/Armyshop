@@ -49,7 +49,7 @@ class LoginRegisterController extends Controller
         $validator = Validator::make($request->all(), [
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:8',
-            'license_picture' => 'nullable|image|max:1024',
+            'license_picture' => 'nullable|string',
         ]);
 
         if ($validator->fails()) {
@@ -63,13 +63,41 @@ class LoginRegisterController extends Controller
         $user = new User;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
-        $user->is_license_valid = false;
-        if ($request->hasFile('picture')) {
-            $path = $request->file('picture')->store('public/id_pictures');
-            $user->picture = $path;
-        }
+        $user->is_license_valid = $request->license_picture !== null;
         $user->save();
         $user = User::where('id', $user->id)->first();
+
+        if ($request->license_picture) {
+            try {
+                $data = $request->license_picture;
+
+                list($type, $data) = explode(';', $data);
+                list(, $data) = explode(',', $data);
+                $data = base64_decode($data);
+
+                $path = 'militaryPassports/militaryPassportOfUserWithId_' . $user->id . '.png';
+                file_put_contents($path, $data);
+
+                $file = file_get_contents($path);
+                $data = base64_encode($file);
+                $data = 'data:image/png;base64,' . $data;
+
+                $user->license_picture = $data;
+            } catch (\Exception $e) {
+                $errMessage = 'Our apologies.. Image was not uploaded successfully. Try reuploading it in your profile or contact our support.';
+
+                // Authenticate the user and generate an access token
+                $token = $user->createToken('access_token')->accessToken;
+                $user->license_picture = $errMessage;
+
+                return response()->json([
+                    'status' => 409,
+                    'token' => $token,
+                    'user' => $user,
+                    'message' => $errMessage,
+                ], 409);
+            }
+        }
 
         // Authenticate the user and generate an access token
         $token = $user->createToken('access_token')->accessToken;

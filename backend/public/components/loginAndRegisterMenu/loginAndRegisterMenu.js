@@ -62,9 +62,18 @@ imageChoosen = (event) => {
         return;
     }
 
-    imageToSubmit = URL.createObjectURL(file);
-    document.querySelector("#selected-image").src = imageToSubmit;
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+
+    reader.addEventListener("load", () => {
+        sessionStorage.setItem("military-passport", reader.result);
+    });
+
+    document.querySelector("#selected-image").src =
+        sessionStorage.getItem("military-passport");
     document.querySelector("#selected-image").style.marginTop = "0px";
+
+    imageToSubmit = true;
 };
 
 submitImage = (event) => {
