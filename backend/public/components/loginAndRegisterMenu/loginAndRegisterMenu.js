@@ -55,7 +55,11 @@ militarypassInsertionCancelled = (event) => {
     changeMilitaryCheckbox(false);
 };
 
-imageChoosen = (event) => {
+function delay(time) {
+    return new Promise((resolve) => setTimeout(resolve, time));
+}
+
+imageChoosen = async (event) => {
     const [file] = event.files;
     if (!file) {
         imageToSubmit = null;
@@ -68,6 +72,8 @@ imageChoosen = (event) => {
     reader.addEventListener("load", () => {
         sessionStorage.setItem("military-passport", reader.result);
     });
+
+    await delay(200);
 
     document.querySelector("#selected-image").src =
         sessionStorage.getItem("military-passport");
