@@ -177,169 +177,171 @@
 		</div>
 	</header>
 
-	<!-- landing page -->
-	<div id="landing-page">
-		<!-- categories -->
-		<div id="categories">
-			<div class="container">
-			<h1 class="main-heading mt-5 display-1">Welcome to our ArmyShop</h1>
-			<div class="categories mt-5">
-				<div class="row justify-content-center">
-					<div class="col-sm-4 col-8 mb-4" >
-						<div class="category mx-auto" onclick="onCategoryClicked('weapons')">
-						<div class="category-icon mb-3 mt-3">
-							<!-- image source: flaticon.com -->
-							<img src="{{ asset('images/productDetailImages/gun-pistol-icon.png') }}" alt="hello">
+	<main>
+		<!-- landing page -->
+		<div id="landing-page">
+			<!-- categories -->
+			<div id="categories">
+				<div class="container">
+				<h1 class="main-heading mt-5 display-1">Welcome to our ArmyShop</h1>
+				<div class="categories mt-5">
+					<div class="row justify-content-center">
+						<div class="col-sm-4 col-8 mb-4" >
+							<div class="category mx-auto" onclick="onCategoryClicked('weapons')">
+							<div class="category-icon mb-3 mt-3">
+								<!-- image source: flaticon.com -->
+								<img src="{{ asset('images/productDetailImages/gun-pistol-icon.png') }}" alt="hello">
+							</div>
+							<p class="description">Weapons</p>
+							</div>
 						</div>
-						<p class="description">Weapons</p>
+						<div class="col-sm-4 col-8 mb-4">
+							<div class="category mx-auto" onclick="onCategoryClicked('transport')">
+							<div class="category-icon mb-3 mt-4">
+								<!-- image source: flaticon.com -->
+								<img src="{{ asset('images/productDetailImages/tank.png') }}" alt="hello">
+							</div>
+							<p class="description">Transport</p>
+							</div>
+						</div>
+						<div class="col-sm-4 col-8 mb-4">
+							<div class="category mx-auto" onclick="onCategoryClicked('clothing')">
+							<div class="category-icon mb-2 mt-4">
+								<!-- image source: flaticon.com -->
+								<img src="{{ asset('images/productDetailImages/tshirt.png') }}" alt="hello">
+							</div>
+							<p class="description">Clothing</p>
+							</div>
 						</div>
 					</div>
-					<div class="col-sm-4 col-8 mb-4">
-						<div class="category mx-auto" onclick="onCategoryClicked('transport')">
-						<div class="category-icon mb-3 mt-4">
-							<!-- image source: flaticon.com -->
-							<img src="{{ asset('images/productDetailImages/tank.png') }}" alt="hello">
+					<div class="row justify-content-center">
+						<div class="col-sm-4 col-8 mb-4">
+							<div class="category mx-auto" onclick="onCategoryClicked('explosives')">
+							<div class="category-icon mt-1 mb-2">
+								<!-- image source: flaticon.com -->
+								<img src="{{ asset('images/productDetailImages/bomb.png') }}" alt="hello">
+							</div>
+							<p class="description">Explosives</p>
+							</div>
 						</div>
-						<p class="description">Transport</p>
+						<div class="col-sm-4 col-8 mb-4">
+							<div class="category mx-auto" onclick="onCategoryClicked('equipment')">
+							<div class="category-icon">
+								<!-- image source: flaticon.com -->
+								<img src="{{ asset('images/productDetailImages/backpack.png') }}" alt="hello">
+							</div>
+							<p class="description">Equipment</p>
+							</div>
 						</div>
-					</div>
-					<div class="col-sm-4 col-8 mb-4">
-						<div class="category mx-auto" onclick="onCategoryClicked('clothing')">
-						<div class="category-icon mb-2 mt-4">
-							<!-- image source: flaticon.com -->
-							<img src="{{ asset('images/productDetailImages/tshirt.png') }}" alt="hello">
-						</div>
-						<p class="description">Clothing</p>
+						<div class="col-sm-4 col-8 mb-4">
+							<div class="category mx-auto" onclick="onCategoryClicked('accessories')">
+							<div class="category-icon mb-2 mt-1">
+								<!-- image source: flaticon.com -->
+								<img src="{{ asset('images/productDetailImages/dog-tag.png') }}" alt="hello">
+							</div>
+							<p class="description">Accessories</p>
+							</div>
 						</div>
 					</div>
 				</div>
-				<div class="row justify-content-center">
-					<div class="col-sm-4 col-8 mb-4">
-						<div class="category mx-auto" onclick="onCategoryClicked('explosives')">
-						<div class="category-icon mt-1 mb-2">
+
+				<section id="most-popular">
+					<h1 class="main-heading mt-5 display-1">Most Popular</h1>
+					<div class="card-container">
+					<div class="card m-3">
+						<!-- image source: unsplash.com -->
+						<img class="card-img-top" src="{{ asset('images/productDetailImages/ak47-1.jpg') }}" alt="Card image cap" onclick="toggleLikedIcon()">
+						<div class="card-body d-flex align-items-center justify-content-between mx-auto">
+							<div>
+								<h3 class="card-title">AK-47</h3>
+								<p class="card-text">5999.99 €</p>
+							</div>
 							<!-- image source: flaticon.com -->
-							<img src="{{ asset('images/productDetailImages/bomb.png') }}" alt="hello">
+							<img src="{{ asset('images/productDetailImages/heart4.png') }}" alt="" width="14%" class="liked-photo">
 						</div>
-						<p class="description">Explosives</p>
+						<div class="card-body d-flex align-items-center justify-content-between mx-auto">
+							<!-- image source: flaticon.com -->
+							<img src="{{ asset('images/productDetailImages/cart.png') }}" alt="" width="15%" class="cart-img">
+							<button type="button" class="btn btn-success btn-buy">Buy Now</button>
 						</div>
 					</div>
-					<div class="col-sm-4 col-8 mb-4">
-						<div class="category mx-auto" onclick="onCategoryClicked('equipment')">
-						<div class="category-icon">
+
+					<div class="card m-3">
+						<!-- image source: unsplash.com -->
+						<img class="card-img-top" src="{{ asset('images/productDetailImages/ak47-1.jpg') }}" alt="Card image cap">
+						<div class="card-body d-flex align-items-center justify-content-between mx-auto">
+							<div>
+								<h3 class="card-title">AK-47</h3>
+								<p class="card-text">5999.99 €</p>
+							</div>
 							<!-- image source: flaticon.com -->
-							<img src="{{ asset('images/productDetailImages/backpack.png') }}" alt="hello">
+							<img src="{{ asset('images/productDetailImages/heart4.png') }}" alt="" width="14%" class="liked-photo">
 						</div>
-						<p class="description">Equipment</p>
+						<div class="card-body d-flex align-items-center justify-content-between mx-auto">
+							<!-- image source: flaticon.com -->
+							<img src="{{ asset('images/productDetailImages/cart.png') }}" alt="" width="15%" class="cart-img">
+							<button type="button" class="btn btn-success btn-buy">Buy Now</button>
 						</div>
 					</div>
-					<div class="col-sm-4 col-8 mb-4">
-						<div class="category mx-auto" onclick="onCategoryClicked('accessories')">
-						<div class="category-icon mb-2 mt-1">
+
+					<div class="card m-3">
+						<!-- image source: unsplash.com -->
+						<img class="card-img-top" src="{{ asset('images/productDetailImages/ak47-1.jpg') }}" alt="Card image cap">
+						<div class="card-body d-flex align-items-center justify-content-between mx-auto">
+							<div>
+								<h3 class="card-title">AK-47</h3>
+								<p class="card-text">5999.99 €</p>
+							</div>
 							<!-- image source: flaticon.com -->
-							<img src="{{ asset('images/productDetailImages/dog-tag.png') }}" alt="hello">
+							<img src="{{ asset('images/productDetailImages/heart4.png') }}" alt="" width="14%" class="liked-photo">
 						</div>
-						<p class="description">Accessories</p>
+						<div class="card-body d-flex align-items-center justify-content-between mx-auto">
+							<!-- image source: flaticon.com -->
+							<img src="{{ asset('images/productDetailImages/cart.png') }}" alt="" width="15%" class="cart-img">
+							<button type="button" class="btn btn-success btn-buy">Buy Now</button>
 						</div>
 					</div>
 				</div>
+				</section>
 			</div>
-
-			<section id="most-popular">
-				<h1 class="main-heading mt-5 display-1">Most Popular</h1>
-				<div class="card-container">
-				<div class="card m-3">
-					<!-- image source: unsplash.com -->
-					<img class="card-img-top" src="{{ asset('images/productDetailImages/ak47-1.jpg') }}" alt="Card image cap" onclick="toggleLikedIcon()">
-					<div class="card-body d-flex align-items-center justify-content-between mx-auto">
-						<div>
-							<h3 class="card-title">AK-47</h3>
-							<p class="card-text">5999.99 €</p>
-						</div>
-						<!-- image source: flaticon.com -->
-						<img src="{{ asset('images/productDetailImages/heart4.png') }}" alt="" width="14%" class="liked-photo">
-					</div>
-					<div class="card-body d-flex align-items-center justify-content-between mx-auto">
-						<!-- image source: flaticon.com -->
-						<img src="{{ asset('images/productDetailImages/cart.png') }}" alt="" width="15%" class="cart-img">
-						<button type="button" class="btn btn-success btn-buy">Buy Now</button>
-					</div>
-				</div>
-
-				<div class="card m-3">
-					<!-- image source: unsplash.com -->
-					<img class="card-img-top" src="{{ asset('images/productDetailImages/ak47-1.jpg') }}" alt="Card image cap">
-					<div class="card-body d-flex align-items-center justify-content-between mx-auto">
-						<div>
-							<h3 class="card-title">AK-47</h3>
-							<p class="card-text">5999.99 €</p>
-						</div>
-						<!-- image source: flaticon.com -->
-						<img src="{{ asset('images/productDetailImages/heart4.png') }}" alt="" width="14%" class="liked-photo">
-					</div>
-					<div class="card-body d-flex align-items-center justify-content-between mx-auto">
-						<!-- image source: flaticon.com -->
-						<img src="{{ asset('images/productDetailImages/cart.png') }}" alt="" width="15%" class="cart-img">
-						<button type="button" class="btn btn-success btn-buy">Buy Now</button>
-					</div>
-				</div>
-
-				<div class="card m-3">
-					<!-- image source: unsplash.com -->
-					<img class="card-img-top" src="{{ asset('images/productDetailImages/ak47-1.jpg') }}" alt="Card image cap">
-					<div class="card-body d-flex align-items-center justify-content-between mx-auto">
-						<div>
-							<h3 class="card-title">AK-47</h3>
-							<p class="card-text">5999.99 €</p>
-						</div>
-						<!-- image source: flaticon.com -->
-						<img src="{{ asset('images/productDetailImages/heart4.png') }}" alt="" width="14%" class="liked-photo">
-					</div>
-					<div class="card-body d-flex align-items-center justify-content-between mx-auto">
-						<!-- image source: flaticon.com -->
-						<img src="{{ asset('images/productDetailImages/cart.png') }}" alt="" width="15%" class="cart-img">
-						<button type="button" class="btn btn-success btn-buy">Buy Now</button>
-					</div>
-				</div>
 			</div>
-			</section>
 		</div>
-		</div>
-	</div>
+	</main>
 
 	<!-- contact us -->
 	<footer>
 		<div id="contact-us" class="text-center mt-5">
-		<div class="contact-us-wrapper">
-			<div class="contact-us-column">
-			<h1>Contact us</h1>
-			<p>Phone: +421 9xx xxx xxx</p>
-			<p>Email: info@armyshop.xd</p>
-			</div>
-			<div class="contact-us-column">
-			<a href="#" target="_blank">
-				<!-- custom image -->
-				<img class="contact-us-logo" 
-				src="{{ asset('images/logo/logoTransparent.png') }}" 
-				alt="Armyshop">
-			</a>
-			<div class="contact-us-social-media">
-				<div>
-				<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" class="social-media-link" target="_blank">
-					<!-- image source: freepik.com -->
-					<img src="https://cdn.aboutstatic.com/file/d473bb55bdf6bd6430eeff7ed35fa4ca.png?quality=75&amp;height=480&amp;width=360" alt="media" class="social-media-img">
+			<div class="contact-us-wrapper">
+				<div class="contact-us-column">
+				<h1>Contact us</h1>
+				<p>Phone: +421 9xx xxx xxx</p>
+				<p>Email: info@armyshop.xd</p>
+				</div>
+				<div class="contact-us-column">
+				<a href="#" target="_blank">
+					<!-- custom image -->
+					<img class="contact-us-logo" 
+					src="{{ asset('images/logo/logoTransparent.png') }}" 
+					alt="Armyshop">
 				</a>
-				<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" class="social-media-link" target="_blank">
-					<!-- image source: freepik.com -->
-					<img src="https://cdn.aboutstatic.com/file/6a522d45a858eea2ccf7e71c2aa419fb.png?quality=75&amp;height=480&amp;width=360" alt="media" class="social-media-img">
-				</a>
-				<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" class="social-media-link" target="_blank">
-					<!-- image source: freepik.com -->
-					<img src="https://cdn.aboutstatic.com/file/75356ec63103aca8bf43a3071ed2a242.png?quality=75&height=75&width=75" alt="media" class="social-media-img">
-				</a>
+				<div class="contact-us-social-media">
+					<div>
+					<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" class="social-media-link" target="_blank">
+						<!-- image source: freepik.com -->
+						<img src="https://cdn.aboutstatic.com/file/d473bb55bdf6bd6430eeff7ed35fa4ca.png?quality=75&amp;height=480&amp;width=360" alt="media" class="social-media-img">
+					</a>
+					<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" class="social-media-link" target="_blank">
+						<!-- image source: freepik.com -->
+						<img src="https://cdn.aboutstatic.com/file/6a522d45a858eea2ccf7e71c2aa419fb.png?quality=75&amp;height=480&amp;width=360" alt="media" class="social-media-img">
+					</a>
+					<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" class="social-media-link" target="_blank">
+						<!-- image source: freepik.com -->
+						<img src="https://cdn.aboutstatic.com/file/75356ec63103aca8bf43a3071ed2a242.png?quality=75&height=75&width=75" alt="media" class="social-media-img">
+					</a>
+					</div>
+				</div>
 				</div>
 			</div>
-			</div>
-		</div>
 		</div>
 	</footer>
 

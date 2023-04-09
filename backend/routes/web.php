@@ -40,3 +40,8 @@ Route::get('products', function () {
 Route::get('productDetail', function () {
     return view('productDetail');
 });
+
+// User profile
+Route::get('profile', function () {
+    return view('userProfile');
+});

@@ -109,7 +109,7 @@ document.querySelector(".search-input").addEventListener("keydown", (event) => {
     }
 });
 
-document.querySelector("#landing-page").addEventListener("click", (event) => {
+document.querySelector("main").addEventListener("click", (event) => {
     document.querySelector("#search-results-wrapper").innerHTML = "";
     return (document.querySelector(".search-input").value = "");
 });

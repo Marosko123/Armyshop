@@ -164,8 +164,9 @@
 			</nav>
 			</div>
 		</div>
-		</header>
+	</header>
 
+	<main>
 		<!-- payment detail -->
 		<div id="payment-detail">
 			<div id="payment-detail-wrapper">
@@ -341,47 +342,47 @@
 				<h5 class="summary-total-price">Total Price</h5>
 				<h4 class="text-center">5999.99 €</h4>
 			</div>
-		</div>
+		</div>	
+	</main>
 
-		<!-- contact us -->
-		<footer>
-			<div id="contact-us" class="text-center mt-5">
-			<div class="contact-us-wrapper">
-				<div class="contact-us-column">
-				<h1>Contact us</h1>
-				<p>Phone: +421 9xx xxx xxx</p>
-				<p>Email: info@armyshop.xd</p>
-				</div>
-				<div class="contact-us-column">
-				<a href="#" target="_blank">
-					<!-- custom image -->
-					<img class="contact-us-logo" 
-					src="{{ asset('images/logo/logoTransparent.png') }}" 
-					alt="Armyshop">
+	<!-- contact us -->
+	<footer>
+		<div id="contact-us" class="text-center mt-5">
+		<div class="contact-us-wrapper">
+			<div class="contact-us-column">
+			<h1>Contact us</h1>
+			<p>Phone: +421 9xx xxx xxx</p>
+			<p>Email: info@armyshop.xd</p>
+			</div>
+			<div class="contact-us-column">
+			<a href="#" target="_blank">
+				<!-- custom image -->
+				<img class="contact-us-logo" 
+				src="{{ asset('images/logo/logoTransparent.png') }}" 
+				alt="Armyshop">
+			</a>
+			<div class="contact-us-social-media">
+				<div>
+				<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" class="social-media-link" target="_blank">
+					<!-- image source: freepik.com -->
+					<img src="https://cdn.aboutstatic.com/file/d473bb55bdf6bd6430eeff7ed35fa4ca.png?quality=75&amp;height=480&amp;width=360" alt="media" class="social-media-img">
 				</a>
-				<div class="contact-us-social-media">
-					<div>
-					<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" class="social-media-link" target="_blank">
-						<!-- image source: freepik.com -->
-						<img src="https://cdn.aboutstatic.com/file/d473bb55bdf6bd6430eeff7ed35fa4ca.png?quality=75&amp;height=480&amp;width=360" alt="media" class="social-media-img">
-					</a>
-					<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" class="social-media-link" target="_blank">
-						<!-- image source: freepik.com -->
-						<img src="https://cdn.aboutstatic.com/file/6a522d45a858eea2ccf7e71c2aa419fb.png?quality=75&amp;height=480&amp;width=360" alt="media" class="social-media-img">
-					</a>
-					<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" class="social-media-link" target="_blank">
-						<!-- image source: freepik.com -->
-						<img src="https://cdn.aboutstatic.com/file/75356ec63103aca8bf43a3071ed2a242.png?quality=75&height=75&width=75" alt="media" class="social-media-img">
-					</a>
-					</div>
-				</div>
+				<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" class="social-media-link" target="_blank">
+					<!-- image source: freepik.com -->
+					<img src="https://cdn.aboutstatic.com/file/6a522d45a858eea2ccf7e71c2aa419fb.png?quality=75&amp;height=480&amp;width=360" alt="media" class="social-media-img">
+				</a>
+				<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" class="social-media-link" target="_blank">
+					<!-- image source: freepik.com -->
+					<img src="https://cdn.aboutstatic.com/file/75356ec63103aca8bf43a3071ed2a242.png?quality=75&height=75&width=75" alt="media" class="social-media-img">
+				</a>
 				</div>
 			</div>
 			</div>
-		</footer>
-	</div>
+		</div>
+		</div>
+	</footer>
 
-    <script src="{{ asset('js/serverRequester.js') }}"></script>
+	<script src="{{ asset('js/serverRequester.js') }}"></script>
 	<script src="{{ asset('components/navbar/navbar.js') }}"></script>
 	<script src="{{ asset('components/contactUs/contactUs.js') }}"></script>
 	<script src="{{ asset('components/paymentDetail/paymentDetail.js') }}"></script>

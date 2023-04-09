@@ -166,79 +166,81 @@
         </div>
     </header>
 
-    <div class="container">
-        <main>
-            <section id="header">
-                <div class="d-flex align-items-center justify-content-between mb-3 w-100">
-                    <div class="title-subtitle mx-auto">
-                        <h1 class="display-1" id="product-title">AK-47</h1>
-                        <h5>Weapons > Rifles</h5>    
-                    </div>
-                    <!-- image source: flaticon.com -->
-                    <img src="../../images/productDetailImages/heart6.png" alt="add to liked" class="liked" onclick="toggleIcon(this)">
-                </div>
-            </section>
-
-            <section id="carrouselAndPricing" class="align-items-center">
-            <section id="carrousel">
-                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner rounded">
-                      <div class="carousel-item active">
-                        <!-- image source: unsplash.com (Alexey Turenkov)-->
-                        <img class="d-block w-100" src="../../images/productDetailImages/ak47-1.jpg" alt="First slide">
-                      </div>
-                      <div class="carousel-item">
-                        <!-- image source: unsplash.com (Alexey Turenkov)-->
-                        <img class="d-block w-100" src="../../images/productDetailImages/ak47-2.jpg" alt="Second slide">
-                      </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Next</span>
-                    </button>
-                  </div>
-            </section>
-            <section id="pricing-window" class="">
-                <div class="bg-light rounded mx-auto d-block">
-                <div class="row justify-content-center align-items-center">
-                    <div class="col-sm-6">
-                    <form>
-                        <div class="mb-4 mt-2 text-center">
-                            <h4 class="priceFor1"></h4>
-                            <label for="amount" class="form-label">Amount</label>
-                            <div class="input-group">
-                                <button class="btn btn-outline-secondary" type="button" id="minusBtn">-</button>
-                                <input type="number" class="form-control text-center" id="amount" name="amount" value="1">
-                                <button class="btn btn-outline-secondary" type="button" id="plusBtn">+</button>
-                            </div>
+	<main>
+        <div class="container">
+            <main>
+                <section id="header">
+                    <div class="d-flex align-items-center justify-content-between mb-3 w-100">
+                        <div class="title-subtitle mx-auto">
+                            <h1 class="display-1" id="product-title">AK-47</h1>
+                            <h5>Weapons > Rifles</h5>    
                         </div>
-                        <div class="mb-3 text-center">
-                            <h4>Total Price</h4>
-                            <h4 class="text-center" id="total-price">5999.99 €</h4>
-                        </div>
-                        <div class="mb-3 text-center">
                         <!-- image source: flaticon.com -->
-                        <button class="addToBasket"><img width="30%" src="../../images/productDetailImages/cart.png" alt="Empty Shopping Basket - Shopping Basket Icon Png@seekpng.com">
-                            <p class="small">add to basket</p></button>
-                        
-                        <p>or</p>
-                        <button type="submit" class="btn btn-success btn-lg" id="order-now">Order Now</button>
-                        </div>
-                    </form>
+                        <img src="../../images/productDetailImages/heart6.png" alt="add to liked" class="liked" onclick="toggleIcon(this)">
                     </div>
+                </section>
+
+                <section id="carrouselAndPricing" class="align-items-center">
+                <section id="carrousel">
+                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner rounded">
+                        <div class="carousel-item active">
+                            <!-- image source: unsplash.com (Alexey Turenkov)-->
+                            <img class="d-block w-100" src="../../images/productDetailImages/ak47-1.jpg" alt="First slide">
+                        </div>
+                        <div class="carousel-item">
+                            <!-- image source: unsplash.com (Alexey Turenkov)-->
+                            <img class="d-block w-100" src="../../images/productDetailImages/ak47-2.jpg" alt="Second slide">
+                        </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </section>
+                <section id="pricing-window" class="">
+                    <div class="bg-light rounded mx-auto d-block">
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col-sm-6">
+                        <form>
+                            <div class="mb-4 mt-2 text-center">
+                                <h4 class="priceFor1"></h4>
+                                <label for="amount" class="form-label">Amount</label>
+                                <div class="input-group">
+                                    <button class="btn btn-outline-secondary" type="button" id="minusBtn">-</button>
+                                    <input type="number" class="form-control text-center" id="amount" name="amount" value="1">
+                                    <button class="btn btn-outline-secondary" type="button" id="plusBtn">+</button>
+                                </div>
+                            </div>
+                            <div class="mb-3 text-center">
+                                <h4>Total Price</h4>
+                                <h4 class="text-center" id="total-price">5999.99 €</h4>
+                            </div>
+                            <div class="mb-3 text-center">
+                            <!-- image source: flaticon.com -->
+                            <button class="addToBasket"><img width="30%" src="../../images/productDetailImages/cart.png" alt="Empty Shopping Basket - Shopping Basket Icon Png@seekpng.com">
+                                <p class="small">add to basket</p></button>
+                            
+                            <p>or</p>
+                            <button type="submit" class="btn btn-success btn-lg" id="order-now">Order Now</button>
+                            </div>
+                        </form>
+                        </div>
+                    </div>
+                    </div>
+                </section>
+                </section>
+                <div id="description" class="mt-5">
+                <p>The AK-47 is a selective-fire assault rifle that was designed by Mikhail Kalashnikov in the Soviet Union in 1947. It is one of the most widely used firearms in the world due to its simplicity, reliability, and durability. The AK-47 fires 7.62x39mm cartridges and can be used in a variety of combat situations.</p>
                 </div>
-                </div>
-            </section>
-            </section>
-            <div id="description" class="mt-5">
-            <p>The AK-47 is a selective-fire assault rifle that was designed by Mikhail Kalashnikov in the Soviet Union in 1947. It is one of the most widely used firearms in the world due to its simplicity, reliability, and durability. The AK-47 fires 7.62x39mm cartridges and can be used in a variety of combat situations.</p>
-            </div>
-        </main>
-    </div>
+            </main>
+        </div>
+    </main>
 
     <!-- popup -->
     <div id="popup">
