@@ -45,3 +45,8 @@ Route::get('productDetail', function () {
 Route::get('profile', function () {
     return view('userProfile');
 });
+
+// Shopping cart
+Route::get('shoppingCart', function () {
+    return view('shoppingCart');
+});

@@ -24,26 +24,35 @@ integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6
 	<!-- navbar -->
 	<header>
 		<div id="navbar">
+			<div class="text-center">
 			<!-- primary navbar -->
 			<nav id="primary-navbar" class="navbar navbar-expand navbar-light bg-light">
 				<div class="container-fluid">
-					<a href="https://www.google.sk" target="_blank">
+					<a href="" target="_blank" onclick="onLogoClicked()">
 					<!-- custom image -->
-					<img class="navbar-img" src="../../resources/images/logo/logoTransparent.png" alt="Armyshop">
+						<img class="navbar-img" 
+							src="{{ asset('images/logo/logoTransparent.png') }}" 
+							alt="Armyshop">
 					</a>
-					<input class="form-control search-input" type="search" placeholder="Search" aria-label="Search">
+					<div class="search-input-wrapper">
+						<input class="form-control search-input" type="search" placeholder="Search" aria-label="Search">
+						<div id="search-results-wrapper"></div>
+					</div>
 					<!-- image source: freeiconspng.com -->
-					<img class="search-img" src="https://www.freeiconspng.com/uploads/search-icon-png-5.png"
-					alt="Responsive image">
-					<button class="button shopping-cart__button">
-					<!-- image source: freeiconspng.com -->
-					<img class="navbar-img" src="https://www.freeiconspng.com/uploads/bag-icon-6.png" alt="Responsive image">
-					</button>
-					<button class="button profile__button">
-					<!-- image source: freeiconspng.com -->
-					<img class="navbar-img"
-						src="https://www.freeiconspng.com/uploads/msn-people-person-profile-user-icon--icon-search-engine-16.png"
+					<img class="search-img" 
+						src="https://www.freeiconspng.com/uploads/search-icon-png-5.png" 
 						alt="Responsive image">
+					<button class="button shopping-cart__button" onclick="onShoppingCartClicked()">
+					<!-- image source: freeiconspng.com -->
+						<img class="navbar-img" 
+							src="https://www.freeiconspng.com/uploads/bag-icon-6.png" 
+							alt="Responsive image">
+					</button>
+					<button class="button profile__button" onclick="onProfileClicked()">
+					<!-- image source: freeiconspng.com -->
+						<img class="navbar-img" 
+							src="https://www.freeiconspng.com/uploads/msn-people-person-profile-user-icon--icon-search-engine-16.png" 
+							alt="Responsive image">
 					</button>
 				</div>
 			</nav>
@@ -52,91 +61,128 @@ integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6
 			<nav id="secondary-navbar" class="navbar navbar-expand navbar-light bg-light">
 				<div class="navbar-dropdown container-fluid">
 					<div class="dropdown">
-					<button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown"
-						aria-expanded="false">
-						Weapons
-					</button>
-					<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<li><a class="dropdown-item" href="#">Pistols</a></li>
-						<li><a class="dropdown-item" href="#">Rifles</a></li>
-						<li><a class="dropdown-item" href="#">Submachine guns</a></li>
-						<li><a class="dropdown-item" href="#">Heavy</a></li>
-						<li><a class="dropdown-item" href="#">Knives</a></li>
-					</ul>
+						<div onclick="onCategoryClicked('weapons')">
+							<button
+								class="btn dropdown-toggle"
+								type="button"
+								id="dropdownMenuButton"
+								data-mdb-toggle="dropdown"
+								aria-expanded="false">
+								Weapons
+							</button>
+						</div>
+						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('weapons', 'pistols')">Pistols</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('weapons', 'rifles')">Rifles</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('weapons', 'submachine_guns')">Submachine guns</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('weapons', 'heavy')">Heavy</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('weapons', 'knives')">Knives</a></li>
+						</ul>
 					</div>
 				</div>
 				<div class="navbar-dropdown container-fluid">
 					<div class="dropdown">
-					<button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown"
-						aria-expanded="false">
-						Transport
-					</button>
-					<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<li><a class="dropdown-item" href="#">Cars</a></li>
-						<li><a class="dropdown-item" href="#">Motocycles</a></li>
-						<li><a class="dropdown-item" href="#">Panzers</a></li>
-						<li><a class="dropdown-item" href="#">Planes</a></li>
-						<li><a class="dropdown-item" href="#">Boats</a></li>
-					</ul>
+						<div onclick="onCategoryClicked('transport')">
+							<button
+								class="btn dropdown-toggle"
+								type="button"
+								id="dropdownMenuButton"
+								data-mdb-toggle="dropdown"
+								aria-expanded="false">
+								Transport
+							</button>
+						</div>
+						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('transport', 'cars')">Cars</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('transport', 'motocycles')">Motocycles</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('transport', 'panzers')">Panzers</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('transport', 'planes')">Planes</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('transport', 'boats')">Boats</a></li>
+						</ul>
 					</div>
 				</div>
 				<div class="navbar-dropdown container-fluid">
 					<div class="dropdown">
-					<button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown"
-						aria-expanded="false">
-						Clothing
-					</button>
-					<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<li><a class="dropdown-item" href="#">Jackets</a></li>
-						<li><a class="dropdown-item" href="#">Shirts</a></li>
-						<li><a class="dropdown-item" href="#">Pants</a></li>
-						<li><a class="dropdown-item" href="#">Shoes</a></li>
-						<li><a class="dropdown-item" href="#">Socks</a></li>
-					</ul>
+						<div onclick="onCategoryClicked('clothing')">
+							<button
+								class="btn dropdown-toggle"
+								type="button"
+								id="dropdownMenuButton"
+								data-mdb-toggle="dropdown"
+								aria-expanded="false">
+								Clothing
+							</button>
+						</div>
+						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('clothing','jackets')">Jackets</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('clothing','shirts')">Shirts</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('clothing','pants')">Pants</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('clothing','shoes')">Shoes</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('clothing','socks')">Socks</a></li>
+						</ul>
 					</div>
 				</div>
 				<div class="navbar-dropdown container-fluid">
 					<div class="dropdown">
-					<button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown"
-						aria-expanded="false">
-						Explosives
-					</button>
-					<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<li><a class="dropdown-item" href="#">C4s</a></li>
-						<li><a class="dropdown-item" href="#">Nukes</a></li>
-						<li><a class="dropdown-item" href="#">Grenades</a></li>
-						<li><a class="dropdown-item" href="#">TNTs</a></li>
-						<li><a class="dropdown-item" href="#">Bombs</a></li>
-					</ul>
+						<div onclick="onCategoryClicked('explosives')">
+							<button
+								class="btn dropdown-toggle"
+								type="button"
+								id="dropdownMenuButton"
+								data-mdb-toggle="dropdown"
+								aria-expanded="false">
+								Explosives
+							</button>
+						</div>
+						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('explosives', 'c4s')">C4s</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('explosives', 'nukes')">Nukes</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('explosives', 'grenades')">Grenades</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('explosives', 'tnts')">TNTs</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('explosives', 'bombs')">Bombs</a></li>
+						</ul>
 					</div>
 				</div>
 				<div class="navbar-dropdown container-fluid">
 					<div class="dropdown">
-					<button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown"
-						aria-expanded="false">
-						Equipment
-					</button>
-					<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<li><a class="dropdown-item" href="#">Backpacks</a></li>
-						<li><a class="dropdown-item" href="#">Hunting</a></li>
-						<li><a class="dropdown-item" href="#">Camping</a></li>
-					</ul>
+						<div onclick="onCategoryClicked('equipment')">
+							<button
+								class="btn dropdown-toggle"
+								type="button"
+								id="dropdownMenuButton"
+								data-mdb-toggle="dropdown"
+								aria-expanded="false">
+								Equipment
+							</button>
+						</div>
+						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('equipment', 'backpacks')">Backpacks</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('equipment', 'hunting')">Hunting</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('equipment', 'camping')">Camping</a></li>
+						</ul>
 					</div>
 				</div>
 				<div class="navbar-dropdown container-fluid">
 					<div class="dropdown">
-					<button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown"
-						aria-expanded="false">
-						Accessories
-					</button>
-					<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<li><a class="dropdown-item" href="#">Glasses</a></li>
-						<li><a class="dropdown-item" href="#">Face pain</a></li>
-						<li><a class="dropdown-item" href="#">Camouflage</a></li>
-					</ul>
+						<div onclick="onCategoryClicked('accessories')">
+							<button
+								class="btn dropdown-toggle"
+								type="button"
+								id="dropdownMenuButton"
+								data-mdb-toggle="dropdown"
+								aria-expanded="false">
+								Accessories
+							</button>
+						</div>
+						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						<li><a class="dropdown-item" onclick="onSubCategoryClicked('accessories', 'glasses')">Glasses</a></li>
+						<li><a class="dropdown-item" onclick="onSubCategoryClicked('accessories', 'face_paint')">Face pain</a></li>
+						<li><a class="dropdown-item" onclick="onSubCategoryClicked('accessories', 'camouflage')">Camouflage</a></li>
+						</ul>
 					</div>
 				</div>
 			</nav>
+			</div>
 		</div>
 	</header>
 
@@ -214,7 +260,7 @@ integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6
 			<p>Email: info@armyshop.xd</p>
 			</div>
 			<div class="contact-us-column">
-			<a href="#" target="_blank">
+			<a href="/">
 				<!-- custom image -->
 				<img class="contact-us-logo" src="../../resources/images/logo/logoTransparent.png" alt="Armyshop">
 			</a>

@@ -19,7 +19,7 @@
 			<!-- primary navbar -->
 			<nav id="primary-navbar" class="navbar navbar-expand navbar-light bg-light">
 				<div class="container-fluid">
-					<a href="#" target="_blank">
+					<a href="" target="_blank" onclick="onLogoClicked()">
 					<!-- custom image -->
 						<img class="navbar-img" 
 							src="{{ asset('images/logo/logoTransparent.png') }}" 
@@ -318,7 +318,7 @@
 				<p>Email: info@armyshop.xd</p>
 				</div>
 				<div class="contact-us-column">
-				<a href="#" target="_blank">
+				<a href="/">
 					<!-- custom image -->
 					<img class="contact-us-logo" 
 					src="{{ asset('images/logo/logoTransparent.png') }}" 

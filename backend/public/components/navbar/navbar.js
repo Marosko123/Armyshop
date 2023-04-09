@@ -17,8 +17,12 @@ const onSearchInputChanged = async (event) => {
     document.getElementById("search-results-wrapper").innerHTML = searchResult;
 };
 
+const onLogoClicked = () => {
+    window.location.href = "/";
+};
+
 const onShoppingCartClicked = () => {
-    window.location.href = "/shoppingcart";
+    window.location.href = "/shoppingCart";
 };
 
 const onProfileClicked = () => {
