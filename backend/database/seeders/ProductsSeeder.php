@@ -523,7 +523,7 @@ class ProductsSeeder extends Seeder
             "name" => "Men's Winter Jacket",
             "price" => 129.99,
             "description" => "This men's winter jacket is made of high-quality waterproof and windproof material. It features a detachable hood, multiple pockets, and a warm and comfortable inner lining. Perfect for cold and snowy weather.",
-            "image_url" => "https://as1.ftcdn.net/v2/jpg/03/45/56/72/1000_F_345567287_r3qJeO1ZXyBgIt8oLFLw2J4xGvDdZ7lf.jpg",
+            "image_url" => "https://t3.ftcdn.net/jpg/03/06/72/12/240_F_306721279_qxeSz54MyV6ziwp11yM1YOTZVRs7UVLB.jpg",
             "alt_text" => "Men's Winter Jacket",
             "subcategory_id" => 11,
             "license_needed" => false
@@ -533,7 +533,7 @@ class ProductsSeeder extends Seeder
             "name" => "Women's Leather Jacket",
             "price" => 299.99,
             "description" => "This women's leather jacket is made of high-quality leather and features a classic design with a modern twist. It has a warm and comfortable inner lining and multiple pockets for storing your essentials. Perfect for a stylish and sophisticated look.",
-            "image_url" => "https://as1.ftcdn.net/v2/jpg/02/30/71/53/1000_F_230715399_PzA4oYNi4h4yETuydD7G8ZxbUbMkX9Ya.jpg",
+            "image_url" => "https://t4.ftcdn.net/jpg/04/56/64/49/240_F_456644907_wR7BtbgylkG8smC83bxbS0rSK3Ib8fsa.jpg",
             "alt_text" => "Women's Leather Jacket",
             "subcategory_id" => 11,
             "license_needed" => false
@@ -543,48 +543,48 @@ class ProductsSeeder extends Seeder
             "name" => "Men's Denim Jacket",
             "price" => 79.99,
             "description" => "This men's denim jacket is a classic wardrobe staple. It's made of durable and high-quality denim material and features multiple pockets and a comfortable inner lining. Perfect for a casual and stylish look.",
-            "image_url" => "https://as2.ftcdn.net/v2/jpg/02/67/85/61/1000_F_267856159_jEHpLzvJxLZpDyItAVwifz3LLq3dxNBi.jpg",
+            "image_url" => "https://t3.ftcdn.net/jpg/04/85/87/74/240_F_485877472_y6rABhOEC4AzZMLveRmHj8EJsecyLNel.jpg",
             "alt_text" => "Men's Denim Jacket",
             "subcategory_id" => 11,
             "license_needed" => false
         ]);
-        
+
         Product::create([
             "name" => "Women's Puffer Jacket",
             "price" => 149.99,
             "description" => "This women's puffer jacket is made of high-quality and lightweight material that's perfect for staying warm and cozy. It features a detachable hood, multiple pockets, and a comfortable inner lining. Perfect for cold and snowy weather.",
-            "image_url" => "https://as1.ftcdn.net/v2/jpg/03/18/41/97/1000_F_318419750_RtzEDojlWsElHvNpQLVmG8nn6XrO6c08.jpg",
+            "image_url" => "https://t3.ftcdn.net/jpg/03/93/07/38/240_F_393073849_O30WkQVdeIB3GX7HPbHdqtez4klBYgwm.jpg",
             "alt_text" => "Women's Puffer Jacket",
             "subcategory_id" => 11,
             "license_needed" => false
         ]);
-        
+
         Product::create([
             "name" => "Men's Parka",
             "price" => 249.99,
             "description" => "This men's parka is made of high-quality and waterproof material that's perfect for cold and rainy weather. It features a detachable hood, multiple pockets, and a warm and comfortable inner lining. Perfect for outdoor activities.",
-            "image_url" => "https://as1.ftcdn.net/v2/jpg/02/40/55/54/1000_F_240555431_KQ2wS1U6Jtt2O57OY6crkU6Phy0pEdlf.jpg",
+            "image_url" => "https://t3.ftcdn.net/jpg/00/96/25/60/240_F_96256015_gfIF1cOm0QJsf8BiHGyidvQRewsA3zDZ.jpg",
             "alt_text" => "Men's Parka",
             "subcategory_id" => 11,
             "license_needed" => false
         ]);
-        
+
         Product::create([
             "name" => "Women's Bomber Jacket",
             "price" => 99.99,
             "description" => "This women's bomber jacket is a stylish and comfortable choice for any occasion. It features a classic design with a modern twist, multiple pockets, and a comfortable inner lining. Perfect for a casual and trendy look.",
-            "image_url" => "https://as1.ftcdn.net/v2/jpg/02/41/69/32/1000_F_241693272_q5ZX7VqMvwwntZcmV8I5R69hJGwHz67F.jpg",
+            "image_url" => "https://t4.ftcdn.net/jpg/02/46/38/57/240_F_246385756_P9CYfheUfrwb7XtN7NykHYRT1wjUyWIE.jpg",
             "alt_text" => "Women's Bomber Jacket",
             "subcategory_id" => 11,
             "license_needed" => false
-        ]);        
+        ]);
 
         // Clothing - pants
         Product::create([
             "name" => "Men's Cargo Pants",
             "price" => 69.99,
             "description" => "These men's cargo pants are made of high-quality and durable material. They feature multiple pockets for storing your essentials and have an adjustable waistband for a comfortable fit. Perfect for outdoor activities and casual wear.",
-            "image_url" => "https://as1.ftcdn.net/v2/jpg/03/23/73/70/1000_F_323737057_RdZgSlALZQIObEkwVKM7W8plmCp3yJq3.jpg",
+            "image_url" => "https://t3.ftcdn.net/jpg/00/45/19/26/240_F_45192673_ZFaeHx6v6Hm2grh7jnnnuuzKoiUpuAKJ.jpg",
             "alt_text" => "Men's Cargo Pants",
             "subcategory_id" => 12,
             "license_needed" => false
@@ -594,7 +594,7 @@ class ProductsSeeder extends Seeder
             "name" => "Women's Skinny Jeans",
             "price" => 89.99,
             "description" => "These women's skinny jeans are made of high-quality stretch denim material. They have a comfortable and flattering fit and feature a classic design with a modern twist. Perfect for everyday wear and special occasions.",
-            "image_url" => "https://as1.ftcdn.net/v2/jpg/03/14/01/71/1000_F_314017174_HxHawLTj0ZgIc1Im8w2fejTZy0AuyyX9.jpg",
+            "image_url" => "https://t4.ftcdn.net/jpg/02/01/09/85/240_F_201098554_vYmaSzVbKiumuMzqZXaNYCzYoFNH3Vqp.jpg",
             "alt_text" => "Women's Skinny Jeans",
             "subcategory_id" => 12,
             "license_needed" => false
@@ -604,27 +604,27 @@ class ProductsSeeder extends Seeder
             "name" => "Women's High-Waisted Pants",
             "price" => 79.99,
             "description" => "These women's high-waisted pants are made of high-quality and stretchy material. They have a flattering and comfortable fit and feature a classic and versatile design. Perfect for dressing up or down.",
-            "image_url" => "https://as1.ftcdn.net/v2/jpg/03/30/01/98/1000_F_330019808_Q0QxMjzCYwGT7MlnxBJf5m7dDgWIB5LI.jpg",
+            "image_url" => "https://t4.ftcdn.net/jpg/01/23/63/75/240_F_123637582_ue1qfiNPiH8eiOUTIexK3vNxvlvRySdi.jpg",
             "alt_text" => "Women's High-Waisted Pants",
             "subcategory_id" => 12,
             "license_needed" => false
         ]);
-    
+
         Product::create([
             "name" => "Men's Dress Pants",
             "price" => 99.99,
             "description" => "These men's dress pants are made of high-quality and durable material. They have a classic and versatile design and feature a comfortable fit with a modern and stylish look. Perfect for formal occasions and business wear.",
-            "image_url" => "https://as1.ftcdn.net/v2/jpg/03/04/06/11/1000_F_304061148_LQfmh6F5U2grY47F1RQ9zAGJGyNUlmkP.jpg",
+            "image_url" => "https://t3.ftcdn.net/jpg/01/31/00/60/240_F_131006084_xvDsbZtMf9jOqWNd8OEVeaMtmzB5ziFm.jpg",
             "alt_text" => "Men's Dress Pants",
             "subcategory_id" => 12,
             "license_needed" => false
         ]);
-    
+
         Product::create([
             "name" => "Women's Wide-Leg Pants",
             "price" => 69.99,
             "description" => "These women's wide-leg pants are made of high-quality and lightweight material. They have a comfortable and flattering fit and feature a trendy and stylish design. Perfect for summer and spring wear.",
-            "image_url" => "https://as1.ftcdn.net/v2/jpg/03/12/20/47/1000_F_312204702_QZoxGnI4HGBYUGhiKjQNN4W54dbHaxI1.jpg",
+            "image_url" => "https://t3.ftcdn.net/jpg/00/91/28/22/240_F_91282204_EQSc2FIc5AXZDDTvMkRbMR9QfI3EEwjI.jpg",
             "alt_text" => "Women's Wide-Leg Pants",
             "subcategory_id" => 12,
             "license_needed" => false
@@ -634,29 +634,19 @@ class ProductsSeeder extends Seeder
             "name" => "Men's Jogger Pants",
             "price" => 49.99,
             "description" => "These men's jogger pants are made of soft and comfortable material. They feature a tapered design with an elastic waistband and cuffs for a modern and stylish look. Perfect for casual wear and light exercise.",
-            "image_url" => "https://as1.ftcdn.net/v2/jpg/03/03/97/29/1000_F_303972942_t8CgKjWTY1y3qIC3Tq1xK2wvpSrmZS4F.jpg",
+            "image_url" => "https://t4.ftcdn.net/jpg/02/46/38/57/240_F_246385708_xSYAxuAgThzE3iaUWbYccnNl5yBJliCY.jpg",
             "alt_text" => "Men's Jogger Pants",
             "subcategory_id" => 12,
             "license_needed" => false
-            ]);
-    
-        // Clothing - shirts
-        Product::create([
-            "name" => "Men's Oxford Shirt",
-            "price" => 49.99,
-            "description" => "This men's Oxford shirt is made of high-quality cotton material and features a classic design with a modern twist. It has a comfortable and flattering fit and is perfect for both casual and formal occasions.",
-            "image_url" => "https://as1.ftcdn.net/v2/jpg/03/54/31/42/1000_F_354314208_M9XtrnojJh7n81nSdeuV7Riz5ZtGrgL1.jpg",
-            "alt_text" => "Men's Oxford Shirt",
-            "subcategory_id" => 13,
-            "license_needed" => false
         ]);
 
+        // Clothing - shirts
         Product::create([
-            "name" => "Women's Tunic Shirt",
-            "price" => 59.99,
-            "description" => "This women's tunic shirt is made of high-quality and soft cotton material. It features a loose and comfortable fit and a stylish and unique design. Perfect for casual and trendy looks.",
-            "image_url" => "https://as1.ftcdn.net/v2/jpg/03/06/44/54/1000_F_306445454_IKAbWnoyngYRyFJzLdS6TjT6jvU6LRX9.jpg",
-            "alt_text" => "Women's Tunic Shirt",
+            "name" => "You can T-Shirt",
+            "price" => 49.99,
+            "description" => "This men's T-shirt is made of high-quality cotton material and features a classic design with a modern twist. It has a comfortable and flattering fit and is perfect for both casual and formal occasions.",
+            "image_url" => "https://t4.ftcdn.net/jpg/03/77/71/41/240_F_377714140_0ZgnZfVnkXoZBctoZh6YNCHHRIZvGbW7.jpg",
+            "alt_text" => "Men's Oxford Shirt",
             "subcategory_id" => 13,
             "license_needed" => false
         ]);
@@ -665,105 +655,371 @@ class ProductsSeeder extends Seeder
             "name" => "Men's Polo Shirt",
             "price" => 39.99,
             "description" => "This men's polo shirt is made of high-quality and breathable material. It features a classic design with a comfortable fit and is perfect for both casual and semi-formal occasions.",
-            "image_url" => "https://as1.ftcdn.net/v2/jpg/02/61/34/22/1000_F_261342235_JNQ12S1sc3qgmNtEzmlLWSjZ4kwf9jiJ.jpg",
+            "image_url" => "https://t4.ftcdn.net/jpg/04/60/49/41/240_F_460494127_4K2wrCwwYdLIEfpBbOEUvDEMzdFuwuWQ.jpg",
             "alt_text" => "Men's Polo Shirt",
             "subcategory_id" => 13,
             "license_needed" => false
         ]);
 
         Product::create([
-            "name" => "Women's Button-Up Shirt",
+            "name" => "Button-Up Shirt",
             "price" => 69.99,
-            "description" => "This women's button-up shirt is made of high-quality and soft cotton material. It features a unique and trendy design with a flattering and comfortable fit. Perfect for both casual and semi-formal occasions.",
-            "image_url" => "https://as1.ftcdn.net/v2/jpg/02/75/05/62/1000_F_275056291_i8hhdigCqBr3qmvK4XZ30ilfRSLmYi4d.jpg",
-            "alt_text" => "Women's Button-Up Shirt",
+            "description" => "This button-up shirt is made of high-quality and soft cotton material. It features a unique and trendy design with a flattering and comfortable fit. Perfect for both casual and semi-formal occasions.",
+            "image_url" => "https://t4.ftcdn.net/jpg/03/93/58/35/240_F_393583588_EAFxrSIJ7OjnDHqQARrjsQjeGsuwN5ZR.jpg",
+            "alt_text" => "Button-Up Shirt",
             "subcategory_id" => 13,
             "license_needed" => false
         ]);
 
         // Clothing - shoes
         Product::create([
-            "name" => "Men's Running Shoes",
+            "name" => "Men's Tactical Boots",
+            "price" => 99.99,
+            "description" => "These men's tactical boots are made of high-quality leather and nylon material. They feature a slip-resistant sole, padded collar, and insole for added comfort and support. Perfect for military and outdoor activities.",
+            "image_url" => "https://t3.ftcdn.net/jpg/02/69/77/38/240_F_269773879_baRIda4u0npjdjfUqy8FezAsTc5uAk6c.jpg",
+            "alt_text" => "Men's Tactical Boots",
+            "subcategory_id" => 14,
+            "license_needed" => false
+        ]);
+        
+        Product::create([
+            "name" => "Women's Combat Boots",
             "price" => 89.99,
-            "description" => "These men's running shoes are made of high-quality and breathable material. They have a comfortable fit and provide excellent support for running and other physical activities. Available in various colors.",
-            "image_url" => "https://as1.ftcdn.net/v2/jpg/02/72/07/17/1000_F_272071773_M8dRheG9A68TwPY0pwFyJop7VCDfDIzL.jpg",
-            "alt_text" => "Men's Running Shoes",
-            "subcategory_id" => 13,
+            "description" => "These women's combat boots are made of high-quality leather and feature a lace-up design for a secure fit. They have a cushioned insole and a rubber outsole for added comfort and traction. Perfect for military and outdoor activities.",
+            "image_url" => "https://t3.ftcdn.net/jpg/01/12/30/78/240_F_112307894_F0t1FeTycWNApdxEPKigKRVAeb6HJ95O.jpg",
+            "alt_text" => "Women's Combat Boots",
+            "subcategory_id" => 14,
             "license_needed" => false
         ]);
         
         Product::create([
-            "name" => "Women's High Heels",
-            "price" => 149.99,
-            "description" => "These women's high heels are made of high-quality material and feature a classic design with a modern twist. They have a comfortable and supportive fit and are perfect for special occasions and formal events. Available in various colors.",
-            "image_url" => "https://as1.ftcdn.net/v2/jpg/01/92/19/03/1000_F_192190363_68QO7YcYqbhpvIG7zp1gOtbJcd7VHRSd.jpg",
-            "alt_text" => "Women's High Heels",
-            "subcategory_id" => 13,
+            "name" => "Men's Jungle Boots",
+            "price" => 79.99,
+            "description" => "These men's jungle boots are made of high-quality leather and canvas material. They feature a breathable lining and a slip-resistant sole for added comfort and safety. Perfect for military and outdoor activities in tropical environments.",
+            "image_url" => "https://t3.ftcdn.net/jpg/00/31/41/78/240_F_31417811_MaDRm2655C3me7WjE36UiqQDHIZqQNwd.jpg",
+            "alt_text" => "Men's Jungle Boots",
+            "subcategory_id" => 14,
             "license_needed" => false
         ]);
         
         Product::create([
-            "name" => "Men's Dress Shoes",
-            "price" => 129.99,
-            "description" => "These men's dress shoes are made of high-quality leather and feature a classic and elegant design. They have a comfortable fit and are perfect for formal events and work. Available in various colors.",
-            "image_url" => "https://as1.ftcdn.net/v2/jpg/03/17/84/69/1000_F_317846924_y3qKj6W8UvFxy0It0C3OqyU98W8Jc0jK.jpg",
-            "alt_text" => "Men's Dress Shoes",
-            "subcategory_id" => 13,
+            "name" => "Women's Hiking Boots",
+            "price" => 109.99,
+            "description" => "These women's hiking boots are made of high-quality leather and feature a waterproof and breathable membrane. They have a cushioned insole and a rubber outsole for added comfort and traction. Perfect for military and outdoor activities.",
+            "image_url" => "https://t4.ftcdn.net/jpg/02/19/02/99/240_F_219029951_XIazmf97MEI4GbE8X4x5nEaBCsXCKUGh.jpg",
+            "alt_text" => "Women's Hiking Boots",
+            "subcategory_id" => 14,
             "license_needed" => false
         ]);
-        
-        Product::create([
-            "name" => "Women's Sandals",
-            "price" => 69.99,
-            "description" => "These women's sandals are made of high-quality and comfortable material. They have a stylish and trendy design and are perfect for everyday wear and casual occasions. Available in various colors.",
-            "image_url" => "https://as1.ftcdn.net/v2/jpg/02/54/90/94/1000_F_254909497_WzZpTh7I8NRrmwjOtjKtOwqx0yQr0rMv.jpg",
-            "alt_text" => "Women's Sandals",
-            "subcategory_id" => 13,
-            "license_needed" => false
-        ]);
-        
+
         // Clothing - socks
         Product::create([
             "name" => "Men's Athletic Socks",
             "price" => 12.99,
             "description" => "These men's athletic socks are made of high-quality material and are designed for maximum comfort and support. They feature a breathable mesh top and arch compression for a secure fit. Perfect for sports and everyday wear.",
-            "image_url" => "https://as1.ftcdn.net/v2/jpg/03/24/44/69/1000_F_324446913_9XyIdJMTfllV7ICuOjvj4Lxy6cCZlwtv.jpg",
+            "image_url" => "https://t4.ftcdn.net/jpg/01/56/97/63/240_F_156976330_CbLxGsCI1QGMl8apV9am7wAuTVuTtMqv.jpg",
             "alt_text" => "Men's Athletic Socks",
             "subcategory_id" => 15,
             "license_needed" => false
         ]);
-        
+
         Product::create([
             "name" => "Women's Ankle Socks",
             "price" => 9.99,
             "description" => "These women's ankle socks are made of high-quality material and are designed for maximum comfort and style. They feature a cushioned sole and reinforced heel and toe for durability. Perfect for everyday wear and exercise.",
-            "image_url" => "https://as1.ftcdn.net/v2/jpg/03/58/01/42/1000_F_358014224_7AxtGmncJ9zRZ4W8uV7cxOGzgyHwV7fa.jpg",
+            "image_url" => "https://t3.ftcdn.net/jpg/00/80/97/84/240_F_80978422_LhK9Ao5drjDFyLm3vlDfffmfYOt9Xrqi.jpg",
             "alt_text" => "Women's Ankle Socks",
             "subcategory_id" => 15,
             "license_needed" => false
         ]);
-        
+
         Product::create([
-            "name" => "Men's Dress Socks",
+            "name" => "Men's Military Socks",
             "price" => 14.99,
-            "description" => "These men's dress socks are made of high-quality material and are designed for maximum comfort and style. They feature a reinforced heel and toe and a ribbed cuff for a secure fit. Perfect for formal occasions and business wear.",
-            "image_url" => "https://as2.ftcdn.net/v2/jpg/02/28/72/09/1000_F_228720914_Mli6Kj3qibXlbWJlHd7ESZCxYJ3q7dS5.jpg",
-            "alt_text" => "Men's Dress Socks",
+            "description" => "These men's Military socks are made of high-quality material and are designed for maximum comfort and style. They feature a reinforced heel and toe and a ribbed cuff for a secure fit.",
+            "image_url" => "https://t3.ftcdn.net/jpg/03/90/87/92/240_F_390879286_xkrHCJKgLFKoNaLjWsTUOs1wdFAv3m2r.jpg",
+            "alt_text" => "Men's military Socks",
             "subcategory_id" => 15,
             "license_needed" => false
         ]);
-        
+
         Product::create([
             "name" => "Women's Knee High Socks",
             "price" => 16.99,
             "description" => "These women's knee high socks are made of high-quality material and are designed for maximum comfort and style. They feature a reinforced heel and toe and a ribbed cuff for a secure fit. Perfect for casual and dressy occasions.",
-            "image_url" => "https://as2.ftcdn.net/v2/jpg/03/47/13/12/1000_F_347131216_9lYkJZAmY64byL8WzcwNwv2usjyOjgld.jpg",
+            "image_url" => "https://t4.ftcdn.net/jpg/01/79/24/53/240_F_179245318_ztWSb9MqyoH6tDc2QCpY9UthtOFBVuLL.jpg",
             "alt_text" => "Women's Knee High Socks",
             "subcategory_id" => 15,
             "license_needed" => false
         ]);
-        
-        
+
+        // Explosives - C4s
+
+        // Explosives - Nukes
+
+        // Explosives - grenades
+
+        // Explosives - TNTs
+
+        // Explosives - bombs
+
+        // Equipment - backpacks
+        Product::create([
+            "name" => "Tactical Backpack",
+            "price" => 79.99,
+            "description" => "This tactical backpack is made of high-quality and durable material. It features multiple compartments for organizing your gear, and is designed to be comfortable to wear for extended periods of time. Perfect for outdoor adventures and everyday use.",
+            "image_url" => "https://t3.ftcdn.net/jpg/02/67/44/76/240_F_267447676_0KoUhtnI4gj8TI5ElIfNC7gjNjLSREwH.jpg",
+            "alt_text" => "Tactical Backpack",
+            "subcategory_id" => 21,
+            "license_needed" => false
+        ]);
+
+        Product::create([
+            "name" => "Assault Backpack",
+            "price" => 99.99,
+            "description" => "This assault backpack is designed for durability and functionality. It features a spacious main compartment, multiple external pockets, and MOLLE webbing for attaching additional gear. Perfect for military and law enforcement use.",
+            "image_url" => "https://t4.ftcdn.net/jpg/01/31/16/55/240_F_131165572_MdvaxXdFUmlM0E94s8TwJxyTQC7uC6BP.jpg",
+            "alt_text" => "Assault Backpack",
+            "subcategory_id" => 21,
+            "license_needed" => false
+        ]);
+
+        Product::create([
+            "name" => "Camouflage Backpack",
+            "price" => 59.99,
+            "description" => "This camouflage backpack is perfect for blending in with your surroundings. It features a spacious main compartment, padded shoulder straps, and multiple pockets for organizing your gear. Perfect for hunting and camping trips.",
+            "image_url" => "https://t4.ftcdn.net/jpg/05/76/39/51/240_F_576395177_JoRQqfJz8bh8W7DXqBr8rlpIv69dGaMl.jpg",
+            "alt_text" => "Camouflage Backpack",
+            "subcategory_id" => 21,
+            "license_needed" => false
+        ]);
+
+        Product::create([
+            "name" => "Hydration Backpack",
+            "price" => 49.99,
+            "description" => "This hydration backpack is designed for outdoor activities and features a water bladder with a drinking tube. It also has a spacious main compartment and multiple pockets for storing your gear. Perfect for hiking and biking.",
+            "image_url" => "https://t4.ftcdn.net/jpg/01/15/29/35/240_F_115293537_0jngICrmIIMt3eCAM5DsEKJGoZy3RdeI.jpg",
+            "alt_text" => "Hydration Backpack",
+            "subcategory_id" => 21,
+            "license_needed" => false
+        ]);
+
+        // Equipment - hunting
+        Product::create([
+            "name" => "Hunting Rifle",
+            "price" => 899.99,
+            "description" => "This hunting rifle is made of high-quality materials and features a durable and ergonomic design. It has a smooth trigger pull and a detachable magazine for easy reloading. Perfect for hunting big game.",
+            "image_url" => "https://t3.ftcdn.net/jpg/03/06/23/42/240_F_306234268_QR25znBW5XEMXbRjA2Vo9JA5rCQTLOec.jpg",
+            "alt_text" => "Hunting Rifle",
+            "subcategory_id" => 21,
+            "license_needed" => true
+        ]);
+
+        Product::create([
+            "name" => "Hunting Binoculars",
+            "price" => 149.99,
+            "description" => "These hunting binoculars are made of high-quality materials and feature a compact and lightweight design. They have a wide field of view and high magnification for clear and crisp images. Perfect for spotting game from a distance.",
+            "image_url" => "https://t3.ftcdn.net/jpg/02/29/25/40/240_F_229254092_5cySLF0sMcfM4C0a4oe6cmlvWv3IBDT6.jpg",
+            "alt_text" => "Hunting Binoculars",
+            "subcategory_id" => 21,
+            "license_needed" => false
+        ]);
+
+        Product::create([
+            "name" => "Hunting Knife",
+            "price" => 79.99,
+            "description" => "This hunting knife is made of high-quality steel and features a comfortable and ergonomic handle. It has a sharp and durable blade for precision cutting and is perfect for skinning and cleaning game.",
+            "image_url" => "https://t4.ftcdn.net/jpg/02/67/36/99/240_F_267369942_qJ6RstEIao50FPXV4gmzP57YVzuJ3ZMk.jpg",
+            "alt_text" => "Hunting Knife",
+            "subcategory_id" => 21,
+            "license_needed" => false
+        ]);
+
+        Product::create([
+            "name" => "Hunting Backpack",
+            "price" => 199.99,
+            "description" => "This hunting backpack is made of high-quality and durable materials. It has multiple compartments and pockets for storing hunting gear and features a comfortable and adjustable strap system for a secure and comfortable fit. Perfect for extended hunting trips.",
+            "image_url" => "https://t3.ftcdn.net/jpg/03/84/73/04/240_F_384730442_d5YTncTzyIl2fHfXadJ3lJVgzWZycGe5.jpg",
+            "alt_text" => "Hunting Backpack",
+            "subcategory_id" => 21,
+            "license_needed" => false
+        ]);
+
+        // Equipment - camping
+        Product::create([
+            "name" => "4-Person Tent",
+            "price" => 149.99,
+            "description" => "This 4-person tent is made of high-quality materials and is designed to withstand the elements. It features a spacious interior and has multiple windows for ventilation. Perfect for camping and outdoor activities.",
+            "image_url" => "https://t4.ftcdn.net/jpg/02/36/31/83/240_F_236318320_nDa7zpTVK7HSbtJbw7sTYhiiHpoYSF05.jpg",
+            "alt_text" => "4-Person Tent",
+            "subcategory_id" => 22,
+            "license_needed" => false
+        ]);
+
+        Product::create([
+            "name" => "Sleeping Bag",
+            "price" => 89.99,
+            "description" => "This high-quality sleeping bag is designed to keep you warm and comfortable during cold nights. It is made of durable materials and features a soft and cozy interior. Perfect for camping and outdoor activities.",
+            "image_url" => "https://t3.ftcdn.net/jpg/00/60/71/20/240_F_60712075_xicv2z3WxHrhat05iMfVNq3xy5vNlrBZ.jpg",
+            "alt_text" => "Sleeping Bag",
+            "subcategory_id" => 22,
+            "license_needed" => false
+        ]);
+
+        Product::create([
+            "name" => "Camping Chair",
+            "price" => 39.99,
+            "description" => "This camping chair is made of high-quality materials and is designed for maximum comfort and durability. It features a sturdy frame and a comfortable seat and backrest. Perfect for camping and outdoor activities.",
+            "image_url" => "https://t4.ftcdn.net/jpg/01/63/75/19/240_F_163751935_T1KCOZhwEfnzVml77VO62K2qHGmexauG.jpg",
+            "alt_text" => "Camping Chair",
+            "subcategory_id" => 22,
+            "license_needed" => false
+        ]);
+
+        Product::create([
+            "name" => "Portable Camping Stove",
+            "price" => 69.99,
+            "description" => "This portable camping stove is made of high-quality materials and is designed to be lightweight and easy to use. It features a durable and efficient burner and is compatible with most fuel canisters. Perfect for camping and outdoor activities.",
+            "image_url" => "https://t4.ftcdn.net/jpg/03/38/53/67/240_F_338536703_IHmbJNE80z7AnJXwEX7rLwcwfPwGfVTn.jpg",
+            "alt_text" => "Portable Camping Stove",
+            "subcategory_id" => 22,
+            "license_needed" => false
+        ]);
+
+
+        // Accessories - glasses
+        Product::create([
+            "name" => "Tactical Goggles",
+            "price" => 49.99,
+            "description" => "These tactical goggles are made of high-strength polycarbonate and feature a comfortable foam lining. They have an adjustable strap and provide excellent protection against dust, wind, and debris. Perfect for outdoor activities and combat training.",
+            "image_url" => "https://t3.ftcdn.net/jpg/01/12/78/20/240_F_112782003_6j6PU6aZrvPszwYTlcHqYvgVAL9D2wNz.jpg",
+            "alt_text" => "Tactical Goggles",
+            "subcategory_id" => 24,
+            "license_needed" => false
+        ]);
+
+        Product::create([
+            "name" => "Ballistic Sunglasses",
+            "price" => 89.99,
+            "description" => "These ballistic sunglasses are made of high-quality polycarbonate and feature shatterproof lenses. They provide excellent protection against UV rays and flying debris. Perfect for military operations and outdoor activities.",
+            "image_url" => "https://t3.ftcdn.net/jpg/05/54/70/54/240_F_554705477_rmX7FWSC2M9GkarbQ1QsXCs2QPTSVVn8.jpg",
+            "alt_text" => "Ballistic Sunglasses",
+            "subcategory_id" => 24,
+            "license_needed" => false
+        ]);
+
+        Product::create([
+            "name" => "Aviator Glasses",
+            "price" => 59.99,
+            "description" => "These aviator glasses are made of high-quality metal and feature polycarbonate lenses. They have a classic design and provide excellent protection against glare and UV rays. Perfect for military pilots and aviation enthusiasts.",
+            "image_url" => "https://t3.ftcdn.net/jpg/04/72/36/50/240_F_472365025_EhnlrWYeqREXUKUkgUhzdYyUP09lukLm.jpg",
+            "alt_text" => "Aviator Glasses",
+            "subcategory_id" => 24,
+            "license_needed" => false
+        ]);
+
+        Product::create([
+            "name" => "Combat Glasses",
+            "price" => 79.99,
+            "description" => "These combat glasses are made of high-strength polycarbonate and feature a wraparound design for maximum protection. They have a comfortable foam lining and an adjustable strap. Perfect for military and law enforcement personnel.",
+            "image_url" => "https://t4.ftcdn.net/jpg/05/81/24/67/240_F_581246781_7YtsAaeS77OcGZi7JLLvyRX5dJxzZfWj.jpg",
+            "alt_text" => "Combat Glasses",
+            "subcategory_id" => 24,
+            "license_needed" => false
+        ]);
+
+        Product::create([
+            "name" => "Night Vision Goggles",
+            "price" => 199.99,
+            "description" => "These night vision goggles are designed for maximum visibility in low-light conditions. They feature a durable and ergonomic frame and are equipped with advanced night vision technology. Perfect for military and law enforcement use.",
+            "image_url" => "https://t4.ftcdn.net/jpg/04/71/55/61/240_F_471556110_OfWdEI9l1p3tw9dSlrrsgFJmKcDrBI9m.jpg",
+            "alt_text" => "Night vision goggles",
+            "subcategory_id" => 24,
+            "license_needed" => false
+        ]);
+
+        // Accessories - face paint
+        Product::create([
+            "name" => "Water-Based Face Paint Palette",
+            "price" => 19.99,
+            "description" => "This water-based face paint palette contains 12 vibrant colors that are easy to apply and wash off. It is non-toxic and safe for all skin types, making it perfect for kids and adults alike.",
+            "image_url" => "https://t4.ftcdn.net/jpg/01/40/17/53/240_F_140175350_RuKwSjgQLNfuJ74nOppMgMHEdrnNWhzo.jpg",
+            "alt_text" => "Water-Based Face Paint Palette",
+            "subcategory_id" => 25,
+            "license_needed" => false
+        ]);
+
+        Product::create([
+            "name" => "UV Glow Face Paint",
+            "price" => 14.99,
+            "description" => "This UV glow face paint is perfect for parties and festivals. It comes in 6 bright colors that glow under black light, making it a fun and unique addition to any outfit.",
+            "image_url" => "https://t3.ftcdn.net/jpg/02/64/95/98/240_F_264959889_Ep9vMl1mACbnz2zuJC91Gfa2Cr8akmOo.jpg",
+            "alt_text" => "UV Glow Face Paint",
+            "subcategory_id" => 25,
+            "license_needed" => false
+        ]);
+
+        Product::create([
+            "name" => "Metallic Face Paint",
+            "price" => 9.99,
+            "description" => "This metallic face paint is perfect for adding some shine to your look. It comes in 5 beautiful colors that are easy to apply and long-lasting.",
+            "image_url" => "https://t4.ftcdn.net/jpg/00/34/86/81/240_F_34868134_mptA73zXdbZcIgfpJz7FIHydkywdX1xA.jpg",
+            "alt_text" => "Metallic Face Paint",
+            "subcategory_id" => 25,
+            "license_needed" => false
+        ]);
+
+
+        // Accessories - camouflage
+        Product::create([
+            "name" => "Camouflage Backpack",
+            "price" => 49.99,
+            "description" => "This camouflage backpack is made of high-quality material and is designed to blend in with natural surroundings. It features multiple compartments for storage and a padded back and straps for comfort. Perfect for outdoor activities and everyday use.",
+            "image_url" => "https://t4.ftcdn.net/jpg/05/76/39/51/240_F_576395177_JoRQqfJz8bh8W7DXqBr8rlpIv69dGaMl.jpg",
+            "alt_text" => "Camouflage Backpack",
+            "subcategory_id" => 26,
+            "license_needed" => false
+        ]);
+
+        Product::create([
+            "name" => "Camouflage Hat",
+            "price" => 19.99,
+            "description" => "This camouflage hat is made of high-quality material and features a comfortable fit and a classic design. Perfect for outdoor activities and everyday wear.",
+            "image_url" => "https://t4.ftcdn.net/jpg/03/70/79/91/240_F_370799140_0m0rdeziss3KIKk2jyM18fahKuzK7MIy.jpg",
+            "alt_text" => "Camouflage Hat",
+            "subcategory_id" => 26,
+            "license_needed" => false
+        ]);
+
+        Product::create([
+            "name" => "Camouflage Gloves",
+            "price" => 29.99,
+            "description" => "These camouflage gloves are made of high-quality material and feature a comfortable fit and durable design. Perfect for outdoor activities and tactical use.",
+            "image_url" => "https://t3.ftcdn.net/jpg/05/32/07/82/240_F_532078251_3PRyUw5yDNGVoyZNv9qBbcryDv64xiVx.jpg",
+            "alt_text" => "Camouflage Gloves",
+            "subcategory_id" => 26,
+            "license_needed" => false
+        ]);
+
+        Product::create([
+            "name" => "Camouflage Bandana",
+            "price" => 12.99,
+            "description" => "This camouflage bandana is made of high-quality material and features a versatile design. Perfect for outdoor activities and tactical use.",
+            "image_url" => "https://t3.ftcdn.net/jpg/02/96/44/32/240_F_296443238_X2kv56HuNDvj9jzKtbzS3NxSvbVKSHAq.jpg",
+            "alt_text" => "Camouflage Bandana",
+            "subcategory_id" => 26,
+            "license_needed" => false
+        ]);
+
+        Product::create([
+            "name" => "Camouflage Belt",
+            "price" => 24.99,
+            "description" => "This camouflage belt is made of high-quality material and features a durable design and a secure buckle. Perfect for outdoor activities and tactical use.",
+            "image_url" => "https://t3.ftcdn.net/jpg/00/52/67/02/240_F_52670282_MS5lyWVlrluQqSCYKTg8qgD1jxaN76iJ.jpg",
+            "alt_text" => "Camouflage Belt",
+            "subcategory_id" => 26,
+            "license_needed" => false
+        ]);
 
     }
 }

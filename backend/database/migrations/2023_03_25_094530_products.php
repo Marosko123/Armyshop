@@ -17,7 +17,7 @@ return new class extends Migration {
             $table->string('name');
             $table->double('price');
             $table->string('description', 1024);
-            $table->string('image_url', 200)->nullable();
+            $table->string('image_url', 1024)->nullable();
             $table->string('alt_text', 50)->nullable();
             $table->integer('subcategory_id');
             $table->boolean('license_needed');
