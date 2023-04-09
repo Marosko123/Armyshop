@@ -44,7 +44,7 @@ class ProductsSeeder extends Seeder
         Product::create([
             "name" => "P250",
             "price" => 399.99,
-            "description" => "The SIG Sauer P250 is a semi-automatic pistol made by J.P. Sauer & Sohn, and SIG Sauer of Exeter, New Hampshire. The SIG Sauer P250 can be chambered in .357 SIG, .40 S&W, .45 ACP, and 9×19mm Parabellum. Like other SIG-Sauer pistols, the P250 pistol is a short recoil operated, locked breech pistol. It uses the typical SIG-Sauer cam-operated barrel, which locks into the ejection port on the slide.",
+            "description" => "The SIG Sauer P250 is a semi-automatic pistol made by J.P. Sauer & Sohn, and SIG Sauer of Exeter, New Hampshire. The SIG Sauer P250 can be chambered in .357 SIG, .40 S&W, .45 ACP, and 9x19mm Parabellum. Like other SIG-Sauer pistols, the P250 pistol is a short recoil operated, locked breech pistol. It uses the typical SIG-Sauer cam-operated barrel, which locks into the ejection port on the slide.",
             "image_url" => "https://img.freepik.com/premium-photo/gun-wooden-table-with-word-gun-it_771335-54053.jpg?w=1800",
             "alt_text" => "P250 on the table",
             "subcategory_id" => 1,
@@ -190,7 +190,7 @@ class ProductsSeeder extends Seeder
         Product::create([
             "name" => "P90",
             "price" => 2499.99,
-            "description" => "The P90 is a selective fire, straight blowback-operated weapon with a cyclic rate of fire of around 850–1,100 rounds per minute. The weapon is chambered for FN's 5.7×28mm ammunition. Its unusual shape is based on extensive ergonomic research.",
+            "description" => "The P90 is a selective fire, straight blowback-operated weapon with a cyclic rate of fire of around 850-1,100 rounds per minute. The weapon is chambered for FN's 5.7x28mm ammunition. Its unusual shape is based on extensive ergonomic research.",
             "image_url" => "https://as1.ftcdn.net/v2/jpg/03/34/69/06/1000_F_334690693_JJeb69qcb2yKB0F38s02NpIMCxafdY5n.jpg",
             "alt_text" => "P90 on camouflage table",
             "subcategory_id" => 3,
@@ -220,7 +220,7 @@ class ProductsSeeder extends Seeder
         Product::create([
             "name" => "MP7",
             "price" => 1499.99,
-            "description" => "The MP7 is a German personal defense weapon (PDW) developed by Heckler & Koch (H&K), and is intended to replace H&K's MP5 submachine gun. Intended to compete with the P90, the MP7 fires the 4.6x30mm cartridge, a competitor to the P90's 5.7×28mm cartridge, which has good armor piercing capabilities in real life.",
+            "description" => "The MP7 is a German personal defense weapon (PDW) developed by Heckler & Koch (H&K), and is intended to replace H&K's MP5 submachine gun. Intended to compete with the P90, the MP7 fires the 4.6x30mm cartridge, a competitor to the P90's 5.7x28mm cartridge, which has good armor piercing capabilities in real life.",
             "image_url" => "https://as2.ftcdn.net/v2/jpg/02/76/12/21/1000_F_276122169_NaSsomU3VQkRIdVEm0DOSKBu7Xp3CVRQ.jpg",
             "alt_text" => "Green MP7 on white background",
             "subcategory_id" => 3,
@@ -334,5 +334,188 @@ class ProductsSeeder extends Seeder
         ]);
 
 
+
+        // Transport - cars
+        Product::create([
+            "name" => "Military JEEP",
+            "price" => 44999.99,
+            "description" => "The Willys MB and the Ford GPW, formally the U.S. Army Truck, 0.25-ton, 4x4, Command Reconnaissance, informally the Willys Jeep, Jeep, or jeep, and sometimes referred to by its supply catalogue designation G503, are American off-road four-wheel drive military light utility vehicles, built in large numbers.",
+            "image_url" => "https://t3.ftcdn.net/jpg/01/75/48/34/240_F_175483406_qRtBngtDm0HdtjI9QQbqRRxlGOswKPZ0.jpg",
+            "alt_text" => "Military JEEP in the terrain",
+            "subcategory_id" => 6,
+            "license_needed" => true
+        ]);
+
+        Product::create([
+            "name" => "Armored JEEP",
+            "price" => 64999.99,
+            "description" => "The Armored Jeep is an upgraded version of the Jeep. It has the same low speed and average maneuverability as the Jeep, but higher health due to the armor. It can carry one passenger, or gunner who can fire a slow M249 mounted on the front passenger seat.",
+            "image_url" => "https://as2.ftcdn.net/v2/jpg/00/08/10/77/1000_F_8107792_YR6Q19CLtnWUVOhiOLf7gpch0JGaUNlt.jpg",
+            "alt_text" => "Armored JEEP in the terrain",
+            "subcategory_id" => 6,
+            "license_needed" => true
+        ]);
+
+        Product::create([
+            "name" => "Armoured boxer",
+            "price" => 99999.99,
+            "description" => "Boxer is set to become the new British Mechanised Infantry Vehicle (MIV), an eight-by-eight-wheeled, all-terrain, armoured transport vehicle. Its unique module design consists of a drive module and a mission module.",
+            "image_url" => "https://as2.ftcdn.net/v2/jpg/03/60/86/17/1000_F_360861714_ubsKPDcNpZaW17ziuP4r2Zg7XTEQfzSP.jpg",
+            "alt_text" => "A Boxer military armoured fighting vehicle driving in the sand",
+            "subcategory_id" => 6,
+            "license_needed" => true
+        ]);
+
+
+
+        // Transport - motorcycle
+        Product::create([
+            "name" => "Three-wheeled motorcycle",
+            "price" => 16999.99,
+            "description" => "The Zündapp KS 750 is a World War II-era motorcycle and sidecar combination developed for the German Wehrmacht (armed forces) before and during the Second World War, by the German company Zündapp G.m.b.H. After entering service in 1941, over 18,000 were built through 1944, and deployed on all major German battlefronts.",
+            "image_url" => "https://as1.ftcdn.net/v2/jpg/00/16/21/28/1000_F_16212854_MxB70SeDt7lmt8Ssnh1TrUomiwQ8JKmV.jpg",
+            "alt_text" => "Three-wheeled motorcycle on grass",
+            "subcategory_id" => 7,
+            "license_needed" => true
+        ]);
+
+        Product::create([
+            "name" => "Kawasaki KLR650 Diesel",
+            "price" => 64999.99,
+            "description" => "Converting the Kawasaki KLR650 gasoline engine to run on JP-8/diesel was no mean feat, large parts of the engine had to be completely replaced and many other modifications for military use were needed. The resulting bike now runs on the same JP-8 fuel as the B-2 Stealth Bomber and the Hummvee.",
+            "image_url" => "https://as1.ftcdn.net/v2/jpg/03/73/89/26/1000_F_373892683_g06XvV05jZGxxhK0TlS0uGGT5ArgGNVm.jpg",
+            "alt_text" => "Kawasaki KLR650 Diesel on concrete",
+            "subcategory_id" => 7,
+            "license_needed" => true
+        ]);
+
+        Product::create([
+            "name" => "Triumph T100 green",
+            "price" => 99999.99,
+            "description" => "Enjoyed by experienced and new riders alike, the lively but easy-going 900 cc motor provides riding excitement accompanied by the trademark Bonneville British twin soundtrack. Modern, confidence-inspiring handling with a comfortable riding position and low 31.1 in seat height, plus the versatility to take you beyond your destination, the T100 makes every ride a pleasure, whether it's injecting fun into the work commute or escaping the everyday on the weekend.",
+            "image_url" => "https://as1.ftcdn.net/v2/jpg/05/01/84/30/1000_F_501843033_NhuskoKDSZ50FrbBYb1IjwATrH6z1Zqi.jpg",
+            "alt_text" => "Triumph T100 green in the store",
+            "subcategory_id" => 7,
+            "license_needed" => true
+        ]);
+
+
+
+        // Transport - panzers
+        Product::create([
+            "name" => "Kampfpanzer Leopard 2 A 6",
+            "price" => 253999.99,
+            "description" => "The Leopard 2A6 is one of the latest generations of the main battle tanks from the family of German Leopard. The Leopard 2A6 was developed and manufactured by the German Defence Company Krauss-Maffei Wegmann based on the Leopard 2A5 main battle tank. The Leopard 2A6 entered into service with the German army in 2001. The first version of the Leopard 2 tank was produced for the first time in 1979 and is in service in Austria, Canada, Chile, Denmark, Finland, Germany, Greece, Norway, Poland, Portugal, Singapore, Switzerland, Sweden, Spain and Turkey.",
+            "image_url" => "https://as1.ftcdn.net/v2/jpg/00/87/42/10/1000_F_87421002_7hZ6Nb0y95wiNr7iZyJp0qukO5V05oY3.jpg",
+            "alt_text" => "Kampfpanzer Leopard 2 A 6 on battlefront",
+            "subcategory_id" => 8,
+            "license_needed" => true
+        ]);
+
+        Product::create([
+            "name" => "Leopard 1",
+            "price" => 228999.99,
+            "description" => "The Kampfpanzer Leopard 1 (also styled Leopard I, before the Leopard 2 simply known as the Kampfpanzer Leopard) is a main battle tank designed by Porsche and manufactured by Krauss-Maffei in West Germany, first entering service in 1965. Developed in an era when HEAT warheads were thought to make conventional heavy armour of limited value, the Leopard design focused on effective firepower and mobility instead of heavy protection. It featured moderate armour, only effective against low caliber autocannons and heavy machine guns, giving it a high power-to-weight ratio.",
+            "image_url" => "https://as2.ftcdn.net/v2/jpg/05/67/76/79/1000_F_567767903_6IeuCiuHoyDQmVZjHbEMPFx5tAQF1ZHu.jpg",
+            "alt_text" => "Leopard 1 on battlefield",
+            "subcategory_id" => 8,
+            "license_needed" => true
+        ]);
+
+        Product::create([
+            "name" => "American M1 Abrams",
+            "price" => 249999.99,
+            "description" => "Approved for production in 1990, the M1A2 represents the U.S. Army's technological improvement of the basic M1A1 design and the most modern battle tank in the world. Outwardly similar in appearance to the M1A1, the most notable exterior changes on the M1A2 are the redesigned Commander's Weapon Station (CWS) and the addition of a Commander's Independent Thermal Viewer) on the left side of the turret forward of the loader's hatch. Internally, however, the M1A2 has been radically redesigned to take advantage of newer technology.",
+            "image_url" => "https://as2.ftcdn.net/v2/jpg/00/81/29/97/1000_F_81299735_ghs8P6EH9Q85RAIuSjeAlL1bk6A01vFY.jpg",
+            "alt_text" => "American M1 Abrams grass",
+            "subcategory_id" => 8,
+            "license_needed" => true
+        ]);
+
+
+
+        // Transport - planes
+        Product::create([
+            "name" => "C-130",
+            "price" => 1201999.99,
+            "description" => "The C-130 Hercules primarily performs the tactical portion of the airlift mission. The aircraft is capable of operating from rough, dirt strips and is the prime transport for airdropping troops and equipment into hostile areas.",
+            "image_url" => "https://as1.ftcdn.net/v2/jpg/00/03/23/62/1000_F_3236250_IWXYqNfpUmwbGZr12Yr1Bq89Jy01Bq.jpg",
+            "alt_text" => "C-130 in the air",
+            "subcategory_id" => 9,
+            "license_needed" => true
+        ]);
+
+        Product::create([
+            "name" => "F-15 Eagle",
+            "price" => 4228999.99,
+            "description" => "The F-15 Eagle is an all-weather, extremely maneuverable, tactical fighter designed to permit the Air Force to gain and maintain air supremacy over the battlefield. The Eagle's air superiority is achieved through a mixture of unprecedented maneuverability and acceleration, range, weapons and avionics.",
+            "image_url" => "https://as1.ftcdn.net/v2/jpg/00/39/87/90/1000_F_39879054_TZMn7wf3no2FuaAHamhvBh5ZuAIcZMPs.jpg",
+            "alt_text" => "F-15 Eagle in the air",
+            "subcategory_id" => 9,
+            "license_needed" => true
+        ]);
+
+        Product::create([
+            "name" => "F-35C Lightning II",
+            "price" => 5359999.99,
+            "description" => "The Lockheed Martin F-35 Lightning II is an American family of single-seat, single-engine, all-weather stealth multirole combat aircraft that is intended to perform both air superiority and strike missions. It is also able to provide electronic warfare and intelligence, surveillance, and reconnaissance capabilities.",
+            "image_url" => "https://as1.ftcdn.net/v2/jpg/04/80/78/70/1000_F_480787088_W3FqRMa5Hrplh5xbOeFXvGaDShommaVY.jpg",
+            "alt_text" => "F-35C Lightning II in the clouds",
+            "subcategory_id" => 9,
+            "license_needed" => true
+        ]);
+
+        Product::create([
+            "name" => "Eurocopter Tiger",
+            "price" => 1686999.99,
+            "description" => "The Eurocopter Tiger is a four-blade, twin-engine attack helicopter which first entered service in 2003. It is manufactured by Airbus Helicopters (formerly Eurocopter), which arose from the merger of Aérospatiale's and DASA's respective helicopter divisions. Airbus Helicopters designates it as the EC665. In France and Spain, the Tiger is known as the Tigre (which is French and Spanish for Tiger), while in Germany it is referred to as the Tiger.",
+            "image_url" => "https://as2.ftcdn.net/v2/jpg/03/58/29/57/1000_F_358295770_C5bKn8vjSzhuYrjn9IPyrIIU54yW8wgB.jpg",
+            "alt_text" => "Eurocopter Tiger in the air",
+            "subcategory_id" => 9,
+            "license_needed" => true
+        ]);
+
+
+
+        // Transport - boats
+        Product::create([
+            "name" => "Nuclear ship",
+            "price" => 865501999.99,
+            "description" => "Nuclear submarines and aircraft carriers are powered by onboard nuclear reactors. Atoms in the nuclear reactor split, which releases energy as heat. This heat is used to create high-pressured steam. The steam turns propulsion turbines that provide the power to turn the propeller.",
+            "image_url" => "https://as2.ftcdn.net/v2/jpg/02/51/36/13/1000_F_251361393_IHG3duzbBWkrGiikcz0fltLdW3ONHY1Q.jpg",
+            "alt_text" => "Nuclear ship in the water",
+            "subcategory_id" => 10,
+            "license_needed" => true
+        ]);
+
+        Product::create([
+            "name" => "RIB boat",
+            "price" => 28999.99,
+            "description" => "The Rigid Hull Inflatable Boat is a high-speed, high-buoyancy, extreme-weather craft with the primary mission of SEAL insertion/extraction and a secondary mission of marine interdiction operations. The RHIB is also used by U.S. Navy sailors for visit board and search operations at sea.",
+            "image_url" => "https://as2.ftcdn.net/v2/jpg/03/28/45/55/1000_F_328455530_RhX15Vq1Uzjmcrax87b6YLlzD345Vt3m.jpg",
+            "alt_text" => "RIB boat during exercise",
+            "subcategory_id" => 10,
+            "license_needed" => true
+        ]);
+
+        Product::create([
+            "name" => "Frigate F-101 Alvaro de Bazan",
+            "price" => 249999.99,
+            "description" => "The Álvaro de Bazán class, also known as the F100 class, is a class of Aegis combat system-equipped air defence frigates in service with the Spanish Navy. The vessels were built by Spanish shipbuilder Navantia in Ferrol, with the lead ship of the class named for Admiral Álvaro de Bazán.",
+            "image_url" => "https://as1.ftcdn.net/v2/jpg/00/47/44/98/1000_F_47449806_nZwKHBdqy9U9xMetGqTKYvUOW2LJ1CIe.jpg",
+            "alt_text" => "Frigate F-101 Alvaro de Bazan in the water",
+            "subcategory_id" => 10,
+            "license_needed" => true
+        ]);
+
+        Product::create([
+            "name" => "Submarine",
+            "price" => 249999.99,
+            "description" => "Submarine, any naval vessel that is capable of propelling itself beneath the water as well as on the water's surface. This is a unique capability among warships, and submarines are quite different in design and appearance from surface ships.",
+            "image_url" => "https://as2.ftcdn.net/v2/jpg/00/37/05/35/1000_F_37053547_bxhJ6HtSpN4YGYRQdbQqJiV1VNESDg0f.jpg",
+            "alt_text" => "Submarine underwater",
+            "subcategory_id" => 10,
+            "license_needed" => true
+        ]);
     }
 }
