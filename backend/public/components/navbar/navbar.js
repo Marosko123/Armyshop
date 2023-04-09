@@ -72,6 +72,14 @@ const createListOfResults = (results, searchString) => {
             `<mark>${searchString}</mark>`
         );
 
+        const formattedPrice = result.price
+            .toLocaleString("en-US", {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+                useGrouping: true,
+            })
+            .replaceAll(",", " ");
+
         resultElement += `
             <div class="search-result-row ${
                 i % 2 ? "pair-row" : ""
@@ -84,7 +92,7 @@ const createListOfResults = (results, searchString) => {
                     result.subcategory_id
                 )}</span>
                 <span class="search-result-row-description">${highlightedDescription}...</span>
-                <span class="search-result-row-price">${result.price} €</span>
+                <span class="search-result-row-price">${formattedPrice} €</span>
             </div>
         `;
         i++;
