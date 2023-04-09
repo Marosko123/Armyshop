@@ -54,7 +54,7 @@ class SubcategoriesController extends Controller
             // Weapons
             ['Cars', 'Motorcycles', 'Panzers', 'Planes', 'Boats'],
             // Transport
-            ['Jackets', 'Pants', 'Shirts', 'Shoes', 'Socks'],
+            ['Jackets', 'Shirts', 'Pants', 'Shoes', 'Socks'],
             // Clothing
             ['C4s', 'Nukes', 'Grenades', 'TNTs', 'Bombs'],
             // Explosives

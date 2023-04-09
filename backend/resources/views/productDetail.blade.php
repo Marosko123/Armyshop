@@ -99,9 +99,9 @@
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <li><a class="dropdown-item" href="#">Jackets</a></li>
-                        <li><a class="dropdown-item" href="#">Trousers</a></li>
-                        <li><a class="dropdown-item" href="#">Shoes</a></li>
+                        <li><a class="dropdown-item" href="#">Shirts</a></li>
                         <li><a class="dropdown-item" href="#">Pants</a></li>
+                        <li><a class="dropdown-item" href="#">Shoes</a></li>
                         <li><a class="dropdown-item" href="#">Socks</a></li>
                         </ul>
                     </div>
