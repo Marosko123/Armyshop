@@ -45,7 +45,7 @@ async function getAllProducts(pageNumber = 1) {
         <div class="card m-3">
             <!-- image source: unsplash.com -->
             <img class="card-img-top"
-            src="http://127.0.0.1:8000/images/productDetailImages/${product.image_url}"
+            src="${product.image_url}"
             alt="Card image cap">
             <div class="card-body d-flex align-items-center justify-content-between mx-auto">
                 <div>

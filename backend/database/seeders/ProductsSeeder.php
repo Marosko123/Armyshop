@@ -517,5 +517,253 @@ class ProductsSeeder extends Seeder
             "subcategory_id" => 10,
             "license_needed" => true
         ]);
+
+        // Clothing - jackets
+        Product::create([
+            "name" => "Men's Winter Jacket",
+            "price" => 129.99,
+            "description" => "This men's winter jacket is made of high-quality waterproof and windproof material. It features a detachable hood, multiple pockets, and a warm and comfortable inner lining. Perfect for cold and snowy weather.",
+            "image_url" => "https://as1.ftcdn.net/v2/jpg/03/45/56/72/1000_F_345567287_r3qJeO1ZXyBgIt8oLFLw2J4xGvDdZ7lf.jpg",
+            "alt_text" => "Men's Winter Jacket",
+            "subcategory_id" => 11,
+            "license_needed" => false
+        ]);
+
+        Product::create([
+            "name" => "Women's Leather Jacket",
+            "price" => 299.99,
+            "description" => "This women's leather jacket is made of high-quality leather and features a classic design with a modern twist. It has a warm and comfortable inner lining and multiple pockets for storing your essentials. Perfect for a stylish and sophisticated look.",
+            "image_url" => "https://as1.ftcdn.net/v2/jpg/02/30/71/53/1000_F_230715399_PzA4oYNi4h4yETuydD7G8ZxbUbMkX9Ya.jpg",
+            "alt_text" => "Women's Leather Jacket",
+            "subcategory_id" => 11,
+            "license_needed" => false
+        ]);
+
+        Product::create([
+            "name" => "Men's Denim Jacket",
+            "price" => 79.99,
+            "description" => "This men's denim jacket is a classic wardrobe staple. It's made of durable and high-quality denim material and features multiple pockets and a comfortable inner lining. Perfect for a casual and stylish look.",
+            "image_url" => "https://as2.ftcdn.net/v2/jpg/02/67/85/61/1000_F_267856159_jEHpLzvJxLZpDyItAVwifz3LLq3dxNBi.jpg",
+            "alt_text" => "Men's Denim Jacket",
+            "subcategory_id" => 11,
+            "license_needed" => false
+        ]);
+        
+        Product::create([
+            "name" => "Women's Puffer Jacket",
+            "price" => 149.99,
+            "description" => "This women's puffer jacket is made of high-quality and lightweight material that's perfect for staying warm and cozy. It features a detachable hood, multiple pockets, and a comfortable inner lining. Perfect for cold and snowy weather.",
+            "image_url" => "https://as1.ftcdn.net/v2/jpg/03/18/41/97/1000_F_318419750_RtzEDojlWsElHvNpQLVmG8nn6XrO6c08.jpg",
+            "alt_text" => "Women's Puffer Jacket",
+            "subcategory_id" => 11,
+            "license_needed" => false
+        ]);
+        
+        Product::create([
+            "name" => "Men's Parka",
+            "price" => 249.99,
+            "description" => "This men's parka is made of high-quality and waterproof material that's perfect for cold and rainy weather. It features a detachable hood, multiple pockets, and a warm and comfortable inner lining. Perfect for outdoor activities.",
+            "image_url" => "https://as1.ftcdn.net/v2/jpg/02/40/55/54/1000_F_240555431_KQ2wS1U6Jtt2O57OY6crkU6Phy0pEdlf.jpg",
+            "alt_text" => "Men's Parka",
+            "subcategory_id" => 11,
+            "license_needed" => false
+        ]);
+        
+        Product::create([
+            "name" => "Women's Bomber Jacket",
+            "price" => 99.99,
+            "description" => "This women's bomber jacket is a stylish and comfortable choice for any occasion. It features a classic design with a modern twist, multiple pockets, and a comfortable inner lining. Perfect for a casual and trendy look.",
+            "image_url" => "https://as1.ftcdn.net/v2/jpg/02/41/69/32/1000_F_241693272_q5ZX7VqMvwwntZcmV8I5R69hJGwHz67F.jpg",
+            "alt_text" => "Women's Bomber Jacket",
+            "subcategory_id" => 11,
+            "license_needed" => false
+        ]);        
+
+        // Clothing - pants
+        Product::create([
+            "name" => "Men's Cargo Pants",
+            "price" => 69.99,
+            "description" => "These men's cargo pants are made of high-quality and durable material. They feature multiple pockets for storing your essentials and have an adjustable waistband for a comfortable fit. Perfect for outdoor activities and casual wear.",
+            "image_url" => "https://as1.ftcdn.net/v2/jpg/03/23/73/70/1000_F_323737057_RdZgSlALZQIObEkwVKM7W8plmCp3yJq3.jpg",
+            "alt_text" => "Men's Cargo Pants",
+            "subcategory_id" => 12,
+            "license_needed" => false
+        ]);
+
+        Product::create([
+            "name" => "Women's Skinny Jeans",
+            "price" => 89.99,
+            "description" => "These women's skinny jeans are made of high-quality stretch denim material. They have a comfortable and flattering fit and feature a classic design with a modern twist. Perfect for everyday wear and special occasions.",
+            "image_url" => "https://as1.ftcdn.net/v2/jpg/03/14/01/71/1000_F_314017174_HxHawLTj0ZgIc1Im8w2fejTZy0AuyyX9.jpg",
+            "alt_text" => "Women's Skinny Jeans",
+            "subcategory_id" => 12,
+            "license_needed" => false
+        ]);
+
+        Product::create([
+            "name" => "Women's High-Waisted Pants",
+            "price" => 79.99,
+            "description" => "These women's high-waisted pants are made of high-quality and stretchy material. They have a flattering and comfortable fit and feature a classic and versatile design. Perfect for dressing up or down.",
+            "image_url" => "https://as1.ftcdn.net/v2/jpg/03/30/01/98/1000_F_330019808_Q0QxMjzCYwGT7MlnxBJf5m7dDgWIB5LI.jpg",
+            "alt_text" => "Women's High-Waisted Pants",
+            "subcategory_id" => 12,
+            "license_needed" => false
+        ]);
+    
+        Product::create([
+            "name" => "Men's Dress Pants",
+            "price" => 99.99,
+            "description" => "These men's dress pants are made of high-quality and durable material. They have a classic and versatile design and feature a comfortable fit with a modern and stylish look. Perfect for formal occasions and business wear.",
+            "image_url" => "https://as1.ftcdn.net/v2/jpg/03/04/06/11/1000_F_304061148_LQfmh6F5U2grY47F1RQ9zAGJGyNUlmkP.jpg",
+            "alt_text" => "Men's Dress Pants",
+            "subcategory_id" => 12,
+            "license_needed" => false
+        ]);
+    
+        Product::create([
+            "name" => "Women's Wide-Leg Pants",
+            "price" => 69.99,
+            "description" => "These women's wide-leg pants are made of high-quality and lightweight material. They have a comfortable and flattering fit and feature a trendy and stylish design. Perfect for summer and spring wear.",
+            "image_url" => "https://as1.ftcdn.net/v2/jpg/03/12/20/47/1000_F_312204702_QZoxGnI4HGBYUGhiKjQNN4W54dbHaxI1.jpg",
+            "alt_text" => "Women's Wide-Leg Pants",
+            "subcategory_id" => 12,
+            "license_needed" => false
+        ]);
+
+        Product::create([
+            "name" => "Men's Jogger Pants",
+            "price" => 49.99,
+            "description" => "These men's jogger pants are made of soft and comfortable material. They feature a tapered design with an elastic waistband and cuffs for a modern and stylish look. Perfect for casual wear and light exercise.",
+            "image_url" => "https://as1.ftcdn.net/v2/jpg/03/03/97/29/1000_F_303972942_t8CgKjWTY1y3qIC3Tq1xK2wvpSrmZS4F.jpg",
+            "alt_text" => "Men's Jogger Pants",
+            "subcategory_id" => 12,
+            "license_needed" => false
+            ]);
+    
+        // Clothing - shirts
+        Product::create([
+            "name" => "Men's Oxford Shirt",
+            "price" => 49.99,
+            "description" => "This men's Oxford shirt is made of high-quality cotton material and features a classic design with a modern twist. It has a comfortable and flattering fit and is perfect for both casual and formal occasions.",
+            "image_url" => "https://as1.ftcdn.net/v2/jpg/03/54/31/42/1000_F_354314208_M9XtrnojJh7n81nSdeuV7Riz5ZtGrgL1.jpg",
+            "alt_text" => "Men's Oxford Shirt",
+            "subcategory_id" => 13,
+            "license_needed" => false
+        ]);
+
+        Product::create([
+            "name" => "Women's Tunic Shirt",
+            "price" => 59.99,
+            "description" => "This women's tunic shirt is made of high-quality and soft cotton material. It features a loose and comfortable fit and a stylish and unique design. Perfect for casual and trendy looks.",
+            "image_url" => "https://as1.ftcdn.net/v2/jpg/03/06/44/54/1000_F_306445454_IKAbWnoyngYRyFJzLdS6TjT6jvU6LRX9.jpg",
+            "alt_text" => "Women's Tunic Shirt",
+            "subcategory_id" => 13,
+            "license_needed" => false
+        ]);
+
+        Product::create([
+            "name" => "Men's Polo Shirt",
+            "price" => 39.99,
+            "description" => "This men's polo shirt is made of high-quality and breathable material. It features a classic design with a comfortable fit and is perfect for both casual and semi-formal occasions.",
+            "image_url" => "https://as1.ftcdn.net/v2/jpg/02/61/34/22/1000_F_261342235_JNQ12S1sc3qgmNtEzmlLWSjZ4kwf9jiJ.jpg",
+            "alt_text" => "Men's Polo Shirt",
+            "subcategory_id" => 13,
+            "license_needed" => false
+        ]);
+
+        Product::create([
+            "name" => "Women's Button-Up Shirt",
+            "price" => 69.99,
+            "description" => "This women's button-up shirt is made of high-quality and soft cotton material. It features a unique and trendy design with a flattering and comfortable fit. Perfect for both casual and semi-formal occasions.",
+            "image_url" => "https://as1.ftcdn.net/v2/jpg/02/75/05/62/1000_F_275056291_i8hhdigCqBr3qmvK4XZ30ilfRSLmYi4d.jpg",
+            "alt_text" => "Women's Button-Up Shirt",
+            "subcategory_id" => 13,
+            "license_needed" => false
+        ]);
+
+        // Clothing - shoes
+        Product::create([
+            "name" => "Men's Running Shoes",
+            "price" => 89.99,
+            "description" => "These men's running shoes are made of high-quality and breathable material. They have a comfortable fit and provide excellent support for running and other physical activities. Available in various colors.",
+            "image_url" => "https://as1.ftcdn.net/v2/jpg/02/72/07/17/1000_F_272071773_M8dRheG9A68TwPY0pwFyJop7VCDfDIzL.jpg",
+            "alt_text" => "Men's Running Shoes",
+            "subcategory_id" => 13,
+            "license_needed" => false
+        ]);
+        
+        Product::create([
+            "name" => "Women's High Heels",
+            "price" => 149.99,
+            "description" => "These women's high heels are made of high-quality material and feature a classic design with a modern twist. They have a comfortable and supportive fit and are perfect for special occasions and formal events. Available in various colors.",
+            "image_url" => "https://as1.ftcdn.net/v2/jpg/01/92/19/03/1000_F_192190363_68QO7YcYqbhpvIG7zp1gOtbJcd7VHRSd.jpg",
+            "alt_text" => "Women's High Heels",
+            "subcategory_id" => 13,
+            "license_needed" => false
+        ]);
+        
+        Product::create([
+            "name" => "Men's Dress Shoes",
+            "price" => 129.99,
+            "description" => "These men's dress shoes are made of high-quality leather and feature a classic and elegant design. They have a comfortable fit and are perfect for formal events and work. Available in various colors.",
+            "image_url" => "https://as1.ftcdn.net/v2/jpg/03/17/84/69/1000_F_317846924_y3qKj6W8UvFxy0It0C3OqyU98W8Jc0jK.jpg",
+            "alt_text" => "Men's Dress Shoes",
+            "subcategory_id" => 13,
+            "license_needed" => false
+        ]);
+        
+        Product::create([
+            "name" => "Women's Sandals",
+            "price" => 69.99,
+            "description" => "These women's sandals are made of high-quality and comfortable material. They have a stylish and trendy design and are perfect for everyday wear and casual occasions. Available in various colors.",
+            "image_url" => "https://as1.ftcdn.net/v2/jpg/02/54/90/94/1000_F_254909497_WzZpTh7I8NRrmwjOtjKtOwqx0yQr0rMv.jpg",
+            "alt_text" => "Women's Sandals",
+            "subcategory_id" => 13,
+            "license_needed" => false
+        ]);
+        
+        // Clothing - socks
+        Product::create([
+            "name" => "Men's Athletic Socks",
+            "price" => 12.99,
+            "description" => "These men's athletic socks are made of high-quality material and are designed for maximum comfort and support. They feature a breathable mesh top and arch compression for a secure fit. Perfect for sports and everyday wear.",
+            "image_url" => "https://as1.ftcdn.net/v2/jpg/03/24/44/69/1000_F_324446913_9XyIdJMTfllV7ICuOjvj4Lxy6cCZlwtv.jpg",
+            "alt_text" => "Men's Athletic Socks",
+            "subcategory_id" => 15,
+            "license_needed" => false
+        ]);
+        
+        Product::create([
+            "name" => "Women's Ankle Socks",
+            "price" => 9.99,
+            "description" => "These women's ankle socks are made of high-quality material and are designed for maximum comfort and style. They feature a cushioned sole and reinforced heel and toe for durability. Perfect for everyday wear and exercise.",
+            "image_url" => "https://as1.ftcdn.net/v2/jpg/03/58/01/42/1000_F_358014224_7AxtGmncJ9zRZ4W8uV7cxOGzgyHwV7fa.jpg",
+            "alt_text" => "Women's Ankle Socks",
+            "subcategory_id" => 15,
+            "license_needed" => false
+        ]);
+        
+        Product::create([
+            "name" => "Men's Dress Socks",
+            "price" => 14.99,
+            "description" => "These men's dress socks are made of high-quality material and are designed for maximum comfort and style. They feature a reinforced heel and toe and a ribbed cuff for a secure fit. Perfect for formal occasions and business wear.",
+            "image_url" => "https://as2.ftcdn.net/v2/jpg/02/28/72/09/1000_F_228720914_Mli6Kj3qibXlbWJlHd7ESZCxYJ3q7dS5.jpg",
+            "alt_text" => "Men's Dress Socks",
+            "subcategory_id" => 15,
+            "license_needed" => false
+        ]);
+        
+        Product::create([
+            "name" => "Women's Knee High Socks",
+            "price" => 16.99,
+            "description" => "These women's knee high socks are made of high-quality material and are designed for maximum comfort and style. They feature a reinforced heel and toe and a ribbed cuff for a secure fit. Perfect for casual and dressy occasions.",
+            "image_url" => "https://as2.ftcdn.net/v2/jpg/03/47/13/12/1000_F_347131216_9lYkJZAmY64byL8WzcwNwv2usjyOjgld.jpg",
+            "alt_text" => "Women's Knee High Socks",
+            "subcategory_id" => 15,
+            "license_needed" => false
+        ]);
+        
+        
+
     }
 }

@@ -106,9 +106,9 @@
 						</div>
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 							<li><a class="dropdown-item" onclick="onSubCategoryClicked('clothing','jackets')">Jackets</a></li>
-							<li><a class="dropdown-item" onclick="onSubCategoryClicked('clothing','trousers')">Trousers</a></li>
-							<li><a class="dropdown-item" onclick="onSubCategoryClicked('clothing','shoes')">Shoes</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('clothing','shirts')">Shirts</a></li>
 							<li><a class="dropdown-item" onclick="onSubCategoryClicked('clothing','pants')">Pants</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('clothing','shoes')">Shoes</a></li>
 							<li><a class="dropdown-item" onclick="onSubCategoryClicked('clothing','socks')">Socks</a></li>
 						</ul>
 					</div>
