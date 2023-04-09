@@ -190,21 +190,21 @@ integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6
 		<!-- products -->
 		<div id="products" class="container">
 			<div class="subcategories">
-			<div class="subcategory">
-				<h3 class="description">Pistols</h3>
-			</div>
-			<div class="subcategory">
-				<h3 class="description">Rifles</h3>
-			</div>
-			<div class="subcategory">
-				<h3 class="description">SMG</h3>
-			</div>
-			<div class="subcategory">
-				<h3 class="description">Heavy</h3>
-			</div>
-			<div class="subcategory">
-				<h3 class="description">Knives</h3>
-			</div>
+				<div class="subcategory" onclick="onCategoryClicked('pistols')">
+					<h3 class="description">Pistols</h3>
+				</div>
+				<div class="subcategory" onclick="onCategoryClicked('rifles')">
+					<h3 class="description">Rifles</h3>
+				</div>
+				<div class="subcategory" onclick="onCategoryClicked('smgs')">
+					<h3 class="description">SMG</h3>
+				</div>
+				<div class="subcategory" onclick="onCategoryClicked('heavy')">
+					<h3 class="description">Heavy</h3>
+				</div>
+				<div class="subcategory" onclick="onCategoryClicked('knives')">
+					<h3 class="description">Knives</h3>
+				</div>
 			</div>
 
 			<!-- filters -->
@@ -262,7 +262,7 @@ integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6
 			<div class="contact-us-column">
 			<a href="/">
 				<!-- custom image -->
-				<img class="contact-us-logo" src="../../resources/images/logo/logoTransparent.png" alt="Armyshop">
+				<img class="contact-us-logo" src="{{ asset('images/logo/logoTransparent.png') }}" alt="Armyshop">
 			</a>
 			<div class="contact-us-social-media">
 				<div>

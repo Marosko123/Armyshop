@@ -39,6 +39,7 @@ const onSubCategoryClicked = (category, subcategory) => {
 
 const onSearchResultSelected = (result) => {
     const resultString =
+        "/products/" +
         result
             .querySelector(".search-result-row-category")
             .innerHTML.toLowerCase()
@@ -47,7 +48,9 @@ const onSearchResultSelected = (result) => {
         result
             .querySelector(".search-result-row-label")
             .innerHTML.toLowerCase()
-            .replace(" ", "_");
+            .replace(" ", "_")
+            .replace("<mark>", "")
+            .replace("</mark>", "");
     window.location.href = resultString;
 };
 

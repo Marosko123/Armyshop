@@ -36,6 +36,21 @@ Route::get('products', function () {
     return view('products');
 });
 
+// Products
+Route::get('products/{category}', function () {
+    return view('products');
+});
+
+// Products
+Route::get('products/{category}/{subcategory}', function () {
+    return view('products');
+});
+
+// Products
+Route::get('products/{category}/{subcategory}/{product}', function () {
+    return view('products');
+});
+
 // Product detail
 Route::get('productDetail', function () {
     return view('productDetail');

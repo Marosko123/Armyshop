@@ -312,7 +312,7 @@
 						</tr>
 					</table>
 					</div>
-					<button id="continueButton">Continue</button>
+					<button id="continueButton" onclick="onContinueButtonClicked()">Continue</button>
 				</div>
 			</div>
 		</div>
