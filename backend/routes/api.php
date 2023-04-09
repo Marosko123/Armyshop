@@ -93,6 +93,8 @@ Route::put('baskets/update/{user_id}/{product_id}/{quantity}', [BasketsControlle
 
 // get all products
 Route::get('products', [ProductsController::class, 'getAll']);
+// get products by search query string
+Route::get('/products/search', [ProductsController::class, 'getSearchedProducts']);
 // get 1 product
 Route::get('products/{product_id}', [ProductsController::class, 'getOne']);
 // get products from category

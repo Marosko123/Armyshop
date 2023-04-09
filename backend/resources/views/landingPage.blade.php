@@ -26,7 +26,7 @@
 							alt="Armyshop">
 					</a>
 					<div class="search-input-wrapper">
-						<input class="form-control search-input" type="search" placeholder="Search" aria-label="Search" onchange="onSearchInputChanged(this)">
+						<input class="form-control search-input" type="search" placeholder="Search" aria-label="Search">
 						<div id="search-results-wrapper"></div>
 					</div>
 					<!-- image source: freeiconspng.com -->
@@ -343,6 +343,8 @@
 		</div>
 	</footer>
 
+    <script src="{{ asset('js/subcategoriesMap.js') }}"></script>
+    <script src="{{ asset('js/serverRequester.js') }}"></script>
 	<script src="{{ asset('components/landingPage/landingPage.js') }}"></script>
 	<script src="{{ asset('components/navbar/navbar.js') }}"></script>
 	<script src="{{ asset('components/contactUs/contactUs.js') }}"></script>
