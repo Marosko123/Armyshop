@@ -16,6 +16,7 @@ class Product extends Model
         'price',
         'description',
         'image_url',
+        'alt_text',
         'subcategory_id',
         'license_needed'
     ];
