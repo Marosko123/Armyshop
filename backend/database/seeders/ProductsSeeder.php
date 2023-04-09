@@ -361,7 +361,7 @@ class ProductsSeeder extends Seeder
             "price" => 99999.99,
             "description" => "Boxer is set to become the new British Mechanised Infantry Vehicle (MIV), an eight-by-eight-wheeled, all-terrain, armoured transport vehicle. Its unique module design consists of a drive module and a mission module.",
             "image_url" => "https://as2.ftcdn.net/v2/jpg/03/60/86/17/1000_F_360861714_ubsKPDcNpZaW17ziuP4r2Zg7XTEQfzSP.jpg",
-            "alt_text" => "A Boxer military armoured fighting vehicle driving in the sand",
+            "alt_text" => "A Boxer driving in the sand",
             "subcategory_id" => 6,
             "license_needed" => true
         ]);
