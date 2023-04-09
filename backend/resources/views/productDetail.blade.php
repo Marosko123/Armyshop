@@ -186,7 +186,7 @@
                         <h5>Weapons > Rifles</h5>    
                     </div>
                     <!-- image source: flaticon.com -->
-                    <img src="../../images/productDetailImages/heart6.png" alt="add to liked" class="liked" onclick="toggleIcon(this)">
+                    <img src="{{ asset('images/productDetailImages/heart6.png') }}" alt="add to liked" class="liked" onclick="toggleIcon(this)">
                 </div>
             </section>
 
@@ -196,11 +196,11 @@
                     <div class="carousel-inner rounded">
                     <div class="carousel-item active">
                         <!-- image source: unsplash.com (Alexey Turenkov)-->
-                        <img class="d-block w-100" src="../../images/productDetailImages/ak47-1.jpg" alt="First slide">
+                        <img class="d-block w-100" src="{{ asset('images/productDetailImages/ak47-1.jpg') }}" alt="First slide">
                     </div>
                     <div class="carousel-item">
                         <!-- image source: unsplash.com (Alexey Turenkov)-->
-                        <img class="d-block w-100" src="../../images/productDetailImages/ak47-2.jpg" alt="Second slide">
+                        <img class="d-block w-100" src="{{ asset('images/productDetailImages/ak47-2.jpg') }}" alt="Second slide">
                     </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -233,7 +233,7 @@
                         </div>
                         <div class="mb-3 text-center">
                         <!-- image source: flaticon.com -->
-                        <button class="addToBasket"><img width="30%" src="../../images/productDetailImages/cart.png" alt="Empty Shopping Basket - Shopping Basket Icon Png@seekpng.com">
+                        <button class="addToBasket"><img width="30%" src="{{ asset('images/productDetailImages/cart.png') }}" alt="Empty Shopping Basket - Shopping Basket Icon Png@seekpng.com">
                             <p class="small">add to basket</p></button>
                         
                         <p>or</p>
@@ -279,7 +279,7 @@
                     <a href="/">
                         <!-- custom image -->
                         <img class="contact-us-logo" 
-                            src="../../images/logo/logoTransparent.png" 
+                            src="{{ asset('images/logo/logoTransparent.png') }}" 
                             alt="Armyshop">
                     </a>
                     <div class="contact-us-social-media">
