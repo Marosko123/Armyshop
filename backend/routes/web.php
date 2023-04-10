@@ -25,6 +25,7 @@ Route::get('test', [TestViewController::class, 'get']);
 
 //Login and register menu
 Route::get('login', [LoginRegisterViewController::class, 'get']);
+
 // Payment detail
 Route::get('paymentDetail', function () {
     return view('paymentDetail');

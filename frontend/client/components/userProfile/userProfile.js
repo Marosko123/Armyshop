@@ -21,3 +21,36 @@ wishListBtn.addEventListener('click', function () {
     wishListContainer.style.display = 'none';
   }
 });
+
+//handle billing information save changes 
+const saveBtn = document.getElementById('save-changes-btn');
+
+saveBtn.addEventListener('click', function() {
+  const inputs = document.querySelectorAll('input');
+  for (let i = 0; i < inputs.length; i++) {
+    const input = inputs[i];
+    if (input.checkValidity() === false) {
+      console.log('invalid')
+      input.classList.add('invalid');
+    } else {
+      console.log('not invalid')
+      input.classList.remove('invalid');
+    }
+  }
+});
+
+//handle password change 
+const changePassBtn = document.getElementById('change-password-btn');
+
+changePassBtn.addEventListener('click', function () {
+  //validate fields, create json if valid
+  console.log("changePassBtn clicked");
+});
+
+//handle log out 
+const logOutBtn = document.getElementById('log-out-btn');
+
+logOutBtn.addEventListener('click', function () {
+  //log out user
+  console.log("logOutBtn clicked");
+});
