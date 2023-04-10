@@ -80,7 +80,7 @@ Route::get('subcategories/create', [SubcategoriesController::class, 'addAll']);
 // get basket for user
 Route::get('baskets/{user_id}', [BasketsController::class, 'getByUserId']);
 // add item to basket
-Route::post('baskets/add/{user_id}/{product_id}', [BasketsController::class, 'add']);
+Route::post('baskets/add/{user_id}/{product_id}/{quantity}', [BasketsController::class, 'add']);
 // decrease item quantity from basket
 Route::delete('baskets/delete/{user_id}/{product_id}', [BasketsController::class, 'deleteItem']);
 // delete all items of given id from basket
@@ -93,8 +93,10 @@ Route::put('baskets/update/{user_id}/{product_id}/{quantity}', [BasketsControlle
 
 // get all products
 Route::get('products', [ProductsController::class, 'getAll']);
+// get products by search query string
+Route::get('/products/search', [ProductsController::class, 'getSearchedProducts']);
 // get 1 product
-Route::get('products/product/{product_id}', [ProductsController::class, 'getOne']);
+Route::get('products/{product_id}', [ProductsController::class, 'getOne']);
 // get products from category
 Route::get('products/category/{category_id}', [ProductsController::class, 'getFromCategory']);
 // get products from subcategory
@@ -121,6 +123,8 @@ Route::delete('products/delete/all', [ProductsController::class, 'deleteAll']);
 
 // get Liked products
 Route::get('liked_products/{user_id}', [LikedProductsController::class, 'get']);
+// get Liked product
+Route::get('liked_products/{user_id}/{product_id}', [LikedProductsController::class, 'getOne']);
 // add to liked products
 Route::post('liked_products/add/{user_id}/{product_id}', [LikedProductsController::class, 'add']);
 // delete from liked products
@@ -136,7 +140,7 @@ Route::get('finished_orders', [FinishedOrdersController::class, 'getAll']);
 // get all finished orders of user
 Route::get('finished_orders/{user_id}', [FinishedOrdersController::class, 'getAllOfUser']);
 // add finished orders of user
-Route::post('finished_orders/add/{user_id}', [FinishedOrdersController::class, 'add']);
+Route::post('finished_orders/{user_id}', [FinishedOrdersController::class, 'add']);
 // delete finished orders of user
 Route::delete('finished_orders/delete/{user_id}', [FinishedOrdersController::class, 'delete']);
 
@@ -161,5 +165,3 @@ Route::get('chat_rooms/permissions/{room_id}', [ChatRoomsController::class, 'get
 Route::post('chat_rooms/create', [ChatRoomsController::class, 'create']);
 // create chat room for 2 and more users
 Route::delete('chat_rooms/delete/{room_id}', [ChatRoomsController::class, 'delete']);
-
-

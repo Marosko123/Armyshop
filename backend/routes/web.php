@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\TestViewController;
 use App\Http\Controllers\Api\LoginRegisterViewController;
+use App\Http\Controllers\Api\ProductsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,4 +30,39 @@ Route::get('login', [LoginRegisterViewController::class, 'get']);
 // Payment detail
 Route::get('paymentDetail', function () {
     return view('paymentDetail');
+});
+
+// Products
+Route::get('products', function () {
+    return view('products');
+});
+
+// Products
+Route::get('products/{category}', function () {
+    return view('products');
+});
+
+// Products
+Route::get('products/{category}/{subcategory}', function () {
+    return view('products');
+});
+
+// Products
+Route::get('products/{category}/{subcategory}/{product}', function () {
+    return view('products');
+});
+
+// Product detail
+Route::get('productDetail', function () {
+    return view('productDetail');
+});
+
+// User profile
+Route::get('profile', function () {
+    return view('userProfile');
+});
+
+// Shopping cart
+Route::get('shoppingCart', function () {
+    return view('shoppingCart');
 });

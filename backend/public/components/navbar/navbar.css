@@ -13,9 +13,14 @@
 }
 
 #navbar #primary-navbar .search-input {
-    position: relative;
-    left: 10px;
     width: 100%;
+}
+
+#navbar #primary-navbar .search-input-wrapper {
+    position: relative;
+    left: 15px;
+    width: 100%;
+    z-index: 10;
 }
 
 #navbar #primary-navbar .search-img {
@@ -44,6 +49,90 @@
     background-color: rgba(236, 236, 236, 0.722);
 }
 
+#navbar #primary-navbar #search-results {
+    position: absolute;
+    z-index: 50;    
+    background-color: rgba(161, 161, 161, 0.9);
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+#navbar #primary-navbar #search-results-wrapper .search-result-row {
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+    width: 100%;
+    height: 120px;
+    align-items: center;
+    padding: 5px 20px;
+}
+
+#navbar #primary-navbar #search-results-wrapper .search-result-row mark {
+    background-color: rgb(130, 226, 117);
+    color: black;
+    padding: 0;
+}
+
+#navbar #primary-navbar #search-results-wrapper .search-result-row.pair-row {
+    background-color: rgba(160, 160, 160, 0.722);
+}
+
+#navbar #primary-navbar #search-results-wrapper .search-result-row:hover {
+    background-color: rgba(126, 126, 126, 0.722);
+    cursor: pointer;
+}
+
+#navbar #primary-navbar #search-results-wrapper .search-result-row-img {
+    max-width: 100px;
+    max-height: 100px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50px;
+    padding: 5px;
+}
+
+#navbar #primary-navbar #search-results-wrapper .search-result-row-label {
+    width: 25%;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+#navbar #primary-navbar #search-results-wrapper .search-result-row-category {
+    width: 25%;
+    font-size: 25px;
+}
+
+#navbar #primary-navbar #search-results-wrapper .search-result-row-description {
+    width: 30%;
+    font-size: 17px;
+}
+
+#navbar #primary-navbar #search-results-wrapper .search-result-row-price {
+    flex-grow: 1;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
 
 /* SECONDARY NAVBAR */
 
@@ -74,6 +163,12 @@
     width: inherit;
 }
 
+#navbar #secondary-navbar .dropdown:hover .dropdown-item:hover {
+    background-color: rgb(47, 99, 54);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
 #navbar #secondary-navbar .dropdown>.dropdown-toggle:active {
     pointer-events: none;
 }
@@ -85,7 +180,7 @@
 
 #navbar #secondary-navbar .dropdown-toggle {
     font-weight: bold;
-    width: inherit;
+    width: -webkit-fill-available;
     color: rgb(255, 255, 255);
 }
 

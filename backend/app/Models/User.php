@@ -19,14 +19,15 @@ class User extends Authenticatable
         'age',
         'address',
         'license_picture',
-        'is_license_valid'
+        'is_license_valid',
     ];
 
     protected $hidden = [
         'password',
         'remember_token',
         'created_at',
-        'updated_at'
+        'updated_at',
+        'is_deleted'
     ];
 
 }

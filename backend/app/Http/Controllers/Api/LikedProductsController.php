@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\LikedProduct;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -35,18 +36,52 @@ class LikedProductsController extends Controller
         }
     }
 
+    public function getOne($user_id, $product_id)
+    {
+        $product = LikedProduct::where('user_id', $user_id)
+            ->where('product_id', $product_id)
+            ->first();
+
+        if ($product) {
+            return response()->json([
+                'status' => 200,
+                'product' => $product
+            ], 200);
+        } else {
+            return response()->json([
+                // failed to get product
+                'status' => 201,
+                'message' => 'The user has not liked this product.'
+            ], 201);
+        }
+    }
+
+
+
     public function add($user_id, $product_id)
     {
         // check if this user_id exists
 
-        // $user = User::find($user_id);
+        $user = User::find($user_id);
 
-        // if(!$user) {
-        //     return response()->json([
-        //         'status' => 500,
-        //         'message' => 'User with this ID was not found.'
-        //     ], 500);
-        // }
+        if(!$user) {
+            return response()->json([
+                'status' => 404,
+                'message' => 'User with this ID was not found.'
+            ], 404);
+        }
+
+        // check if this liked product exists
+        $foundProduct = LikedProduct::where('user_id', $user_id)
+            ->where('product_id', $product_id)
+            ->first();
+
+        if ($foundProduct) {
+            return response()->json([
+                'status' => 201,
+                'message' => 'Product is already in liked products.'
+            ], 201);
+        }
 
         $liked = [
             'user_id' => $user_id,
@@ -65,6 +100,15 @@ class LikedProductsController extends Controller
             ], 422);
         } else {
             if ($liked) {
+                $createdProduct = LikedProduct::create($liked);
+                if (!$createdProduct)
+                {
+                    return response()->json([
+                        'status' => 500,
+                        'message' => 'Liked product was not created.'
+                    ], 500);
+                }
+                    
                 return response()->json([
                     'status' => 200,
                     'liked_product' => $liked
@@ -82,14 +126,14 @@ class LikedProductsController extends Controller
     {
         // check if this user_id exists
 
-        // $user = User::find($user_id);
+        $user = User::find($user_id);
 
-        // if(!$user) {
-        //     return response()->json([
-        //         'status' => 502,
-        //         'message' => 'User with this ID was not found.'
-        //     ], 502);
-        // }
+        if(!$user) {
+            return response()->json([
+                'status' => 404,
+                'message' => 'User with this ID was not found.'
+            ], 404);
+        }
 
         // find this entry in database
         $foundProduct = LikedProduct::where('user_id', $user_id)

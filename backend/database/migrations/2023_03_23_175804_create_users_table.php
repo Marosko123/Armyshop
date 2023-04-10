@@ -22,6 +22,7 @@ return new class extends Migration {
             $table->string('address')->nullable();
             $table->string('license_picture')->nullable();
             $table->boolean('is_license_valid')->default(false);
+            $table->boolean('is_deleted')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

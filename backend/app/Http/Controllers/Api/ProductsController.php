@@ -89,6 +89,22 @@ class ProductsController extends Controller
         }
     }
 
+    public function getSearchedProducts(Request $request)
+    {
+        $searchTerm = $request->query('q');
+
+        if ($searchTerm) {
+            $result = Product::where('name', 'like', '%' . $searchTerm . '%')
+                ->orWhere('description', 'like', '%' . $searchTerm . '%')
+                ->get();
+        }
+
+        return response()->json([
+            'status' => 200,
+            'products' => $result ?? []
+        ], 200);
+    }
+
     public function getMostPopular($amount)
     {
 
@@ -100,7 +116,8 @@ class ProductsController extends Controller
             'name' => 'required|string|max:20',
             'price' => 'required|numeric|between:0,9999999.9',
             'description' => 'required|string|max:300',
-            'image_url' => 'string|max:500',
+            'image_url' => 'string|max:200',
+            'alt_text' => 'string|max:50',
             'subcategory_id' => 'required|integer|min:0',
             'license_needed' => 'required|boolean'
         ]);
@@ -116,6 +133,7 @@ class ProductsController extends Controller
                 'price' => $request->price,
                 'description' => $request->description,
                 'image_url' => $request->image_url,
+                'alt_text' => $request->alt_text,
                 'subcategory_id' => $request->subcategory_id,
                 'license_needed' => $request->license_needed
             ]);

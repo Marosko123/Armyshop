@@ -17,24 +17,27 @@
 			<!-- primary navbar -->
 			<nav id="primary-navbar" class="navbar navbar-expand navbar-light bg-light">
 				<div class="container-fluid">
-					<a href="#" target="_blank">
+					<a href="" target="_blank" onclick="onLogoClicked()">
 					<!-- custom image -->
 						<img class="navbar-img" 
 							src="{{ asset('images/logo/logoTransparent.png') }}" 
 							alt="Armyshop">
 					</a>
-					<input class="form-control search-input" type="search" placeholder="Search" aria-label="Search">
+					<div class="search-input-wrapper">
+						<input class="form-control search-input" type="search" placeholder="Search" aria-label="Search">
+						<div id="search-results-wrapper"></div>
+					</div>
 					<!-- image source: freeiconspng.com -->
 					<img class="search-img" 
 						src="https://www.freeiconspng.com/uploads/search-icon-png-5.png" 
 						alt="Responsive image">
-					<button class="button shopping-cart__button">
+					<button class="button shopping-cart__button" onclick="onShoppingCartClicked()">
 					<!-- image source: freeiconspng.com -->
 						<img class="navbar-img" 
 							src="https://www.freeiconspng.com/uploads/bag-icon-6.png" 
 							alt="Responsive image">
 					</button>
-					<button class="button profile__button">
+					<button class="button profile__button" onclick="onProfileClicked()">
 					<!-- image source: freeiconspng.com -->
 						<img class="navbar-img" 
 							src="https://www.freeiconspng.com/uploads/msn-people-person-profile-user-icon--icon-search-engine-16.png" 
@@ -47,223 +50,241 @@
 			<nav id="secondary-navbar" class="navbar navbar-expand navbar-light bg-light">
 				<div class="navbar-dropdown container-fluid">
 					<div class="dropdown">
-						<button
-						class="btn dropdown-toggle"
-						type="button"
-						id="dropdownMenuButton"
-						data-mdb-toggle="dropdown"
-						aria-expanded="false"
-						>
-						Weapons
-						</button>
+						<div onclick="onCategoryClicked('weapons')">
+							<button
+								class="btn dropdown-toggle"
+								type="button"
+								id="dropdownMenuButton"
+								data-mdb-toggle="dropdown"
+								aria-expanded="false">
+								Weapons
+							</button>
+						</div>
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<li><a class="dropdown-item" href="#">Pistols</a></li>
-						<li><a class="dropdown-item" href="#">Rifles</a></li>
-						<li><a class="dropdown-item" href="#">Submachine guns</a></li>
-						<li><a class="dropdown-item" href="#">Heavy</a></li>
-						<li><a class="dropdown-item" href="#">Knives</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('weapons', 'pistols')">Pistols</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('weapons', 'rifles')">Rifles</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('weapons', 'submachine_guns')">Submachine guns</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('weapons', 'heavy')">Heavy</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('weapons', 'knives')">Knives</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="navbar-dropdown container-fluid">
 					<div class="dropdown">
-						<button
-						class="btn dropdown-toggle"
-						type="button"
-						id="dropdownMenuButton"
-						data-mdb-toggle="dropdown"
-						aria-expanded="false"
-						>
-						Transport
-						</button>
+						<div onclick="onCategoryClicked('transport')">
+							<button
+								class="btn dropdown-toggle"
+								type="button"
+								id="dropdownMenuButton"
+								data-mdb-toggle="dropdown"
+								aria-expanded="false">
+								Transport
+							</button>
+						</div>
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<li><a class="dropdown-item" href="#">Cars</a></li>
-						<li><a class="dropdown-item" href="#">Motocycles</a></li>
-						<li><a class="dropdown-item" href="#">Panzers</a></li>
-						<li><a class="dropdown-item" href="#">Planes</a></li>
-						<li><a class="dropdown-item" href="#">Boats</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('transport', 'cars')">Cars</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('transport', 'motocycles')">Motocycles</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('transport', 'panzers')">Panzers</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('transport', 'planes')">Planes</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('transport', 'boats')">Boats</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="navbar-dropdown container-fluid">
 					<div class="dropdown">
-						<button
-						class="btn dropdown-toggle"
-						type="button"
-						id="dropdownMenuButton"
-						data-mdb-toggle="dropdown"
-						aria-expanded="false"
-						>
-						Clothing
-						</button>
+						<div onclick="onCategoryClicked('clothing')">
+							<button
+								class="btn dropdown-toggle"
+								type="button"
+								id="dropdownMenuButton"
+								data-mdb-toggle="dropdown"
+								aria-expanded="false">
+								Clothing
+							</button>
+						</div>
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<li><a class="dropdown-item" href="#">Jackets</a></li>
-						<li><a class="dropdown-item" href="#">Trousers</a></li>
-						<li><a class="dropdown-item" href="#">Shoes</a></li>
-						<li><a class="dropdown-item" href="#">Pants</a></li>
-						<li><a class="dropdown-item" href="#">Socks</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('clothing','jackets')">Jackets</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('clothing','shirts')">Shirts</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('clothing','pants')">Pants</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('clothing','shoes')">Shoes</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('clothing','socks')">Socks</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="navbar-dropdown container-fluid">
 					<div class="dropdown">
-						<button
-						class="btn dropdown-toggle"
-						type="button"
-						id="dropdownMenuButton"
-						data-mdb-toggle="dropdown"
-						aria-expanded="false"
-						>
-						Explosives
-						</button>
+						<div onclick="onCategoryClicked('explosives')">
+							<button
+								class="btn dropdown-toggle"
+								type="button"
+								id="dropdownMenuButton"
+								data-mdb-toggle="dropdown"
+								aria-expanded="false">
+								Explosives
+							</button>
+						</div>
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<li><a class="dropdown-item" href="#">C4s</a></li>
-						<li><a class="dropdown-item" href="#">Nukes</a></li>
-						<li><a class="dropdown-item" href="#">Grenades</a></li>
-						<li><a class="dropdown-item" href="#">TNTs</a></li>
-						<li><a class="dropdown-item" href="#">Bombs</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('explosives', 'c4s')">C4s</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('explosives', 'nukes')">Nukes</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('explosives', 'grenades')">Grenades</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('explosives', 'tnts')">TNTs</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('explosives', 'bombs')">Bombs</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="navbar-dropdown container-fluid">
 					<div class="dropdown">
-						<button
-						class="btn dropdown-toggle"
-						type="button"
-						id="dropdownMenuButton"
-						data-mdb-toggle="dropdown"
-						aria-expanded="false"
-						>
-						Equipment
-						</button>
+						<div onclick="onCategoryClicked('equipment')">
+							<button
+								class="btn dropdown-toggle"
+								type="button"
+								id="dropdownMenuButton"
+								data-mdb-toggle="dropdown"
+								aria-expanded="false">
+								Equipment
+							</button>
+						</div>
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<li><a class="dropdown-item" href="#">Backpacks</a></li>
-						<li><a class="dropdown-item" href="#">Hunting</a></li>
-						<li><a class="dropdown-item" href="#">Camping</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('equipment', 'backpacks')">Backpacks</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('equipment', 'hunting')">Hunting</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('equipment', 'camping')">Camping</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="navbar-dropdown container-fluid">
 					<div class="dropdown">
-						<button
-						class="btn dropdown-toggle"
-						type="button"
-						id="dropdownMenuButton"
-						data-mdb-toggle="dropdown"
-						aria-expanded="false"
-						>
-						Accessories
-						</button>
+						<div onclick="onCategoryClicked('accessories')">
+							<button
+								class="btn dropdown-toggle"
+								type="button"
+								id="dropdownMenuButton"
+								data-mdb-toggle="dropdown"
+								aria-expanded="false">
+								Accessories
+							</button>
+						</div>
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<li><a class="dropdown-item" href="#">Glasses</a></li>
-						<li><a class="dropdown-item" href="#">Face pain</a></li>
-						<li><a class="dropdown-item" href="#">Camouflage</a></li>
+						<li><a class="dropdown-item" onclick="onSubCategoryClicked('accessories', 'glasses')">Glasses</a></li>
+						<li><a class="dropdown-item" onclick="onSubCategoryClicked('accessories', 'face_paint')">Face pain</a></li>
+						<li><a class="dropdown-item" onclick="onSubCategoryClicked('accessories', 'camouflage')">Camouflage</a></li>
 						</ul>
 					</div>
 				</div>
 			</nav>
 			</div>
 		</div>
-		</header>
+	</header>
 
+	<main>
 		<!-- payment detail -->
 		<div id="payment-detail">
 			<div id="payment-detail-wrapper">
-				<h1 class="heading"> Order and pay </h1>
+				<form>
+					<h1 class="heading"> Order and pay </h1>
 
-				<!-- personal information -->
-				<h3> Personal information </h3>
-				<div id="personal-info">
-					<div class="input-group mb-3">
-						<input type="text" class="form-control" placeholder="First Name" aria-label="First Name">
+					<!-- personal information -->
+					<h3> Personal information </h3>
+					<div id="personal-info">
+						<div class="mb-1 input-control">
+							<input id="first-name-input" type="text" class="form-control" placeholder="First Name" aria-label="First Name">
+							<div class="error"></div>
+						</div>
+						<div class="mb-1 input-control">
+							<input id="last-name-input" type="text" class="form-control" placeholder="Last Name" aria-label="Last Name">
+							<div class="error"></div>
+						</div>
+						<div class="mb-1 input-control">
+							<input id="email-input" type="text" class="form-control" placeholder="Email" aria-label="Recipient's username">
+							<div class="error"></div>
+						</div>
+						<div class="line"> </div>
 					</div>
-					<div class="input-group mb-3">
-						<input type="text" class="form-control" placeholder="Last Name" aria-label="Last Name">
-					</div>
-					<div class="input-group mb-3">
-						<input type="text" class="form-control" placeholder="Email" aria-label="Recipient's username">
+
+					<!-- address -->
+					<div id="address">
+						<h3> Address </h3>
+						<div class="mb-1 input-control">
+							<input id="address-input" type="text" class="form-control" placeholder="Address" aria-label="Address">
+							<div class="error"></div>
+						</div>
+						<div class="mb-1 input-control">
+							<input id="zip-input" type="text" class="form-control" placeholder="Zip Code" aria-label="Zip Code">
+							<div class="error"></div>
+						</div>
+						<div class="mb-1 input-control">
+							<input id="city-input" type="text" class="form-control" placeholder="City" aria-label="City">
+							<div class="error"></div>
+						</div>
+						<div class="mb-1 input-control">
+							<input id="country-input" type="text" class="form-control" placeholder="Country" aria-label="Country">
+							<div class="error"></div>
+						</div>
+						<div class="mb-1 input-control">
+							<input id="telephone-input" type="text" class="form-control" placeholder="Tel. Number" aria-label="Tel. Number">
+							<div class="error"></div>
+						</div>
+						<button class="btn btn-danger reset-button" type="reset" value="Reset"> Clear input fields </button>
 					</div>
 					<div class="line"> </div>
-				</div>
 
-				<!-- address -->
-				<div id="address">
-					<h3> Address </h3>
-					<div class="input-group mb-3">
-						<input type="text" class="form-control" placeholder="Address" aria-label="Address">
+					<!-- delivery -->
+					<h3> Delivery </h3>
+					<div id="delivery">
+						<div class="input-group mb-1">
+							<div class="delivery-row">
+								<input class="delivery-checkbox" type="checkbox" onchange="onDeliveryOptionChanged(this)" checked>
+								<!-- custom image -->
+								<img class="delivery-item-icon" src="{{ asset('images/logo/logoTransparent.png') }}" alt="">
+								<div class="delivery-label"> Pick up in the store </div>
+								<span class="delivery-price"> Free </span>
+								<span class="delivery-availability"> Tomorrow 12:00 </span>
+							</div>
+							<div class="delivery-row">
+								<input class="delivery-checkbox " type="checkbox" onchange="onDeliveryOptionChanged(this)">
+								<!-- freepik license -->
+								<!-- https://www.freepik.com/free-vector/documents-letters-express-courier-delivering-postal-services-post-office-services-post-delivery-agent-post-office-card-accounts-concept-pinkish-coral-bluevector-isolated-illustration_11667313.htm#query=post%20office&position=0&from_view=search&track=ais -->
+								<img class="delivery-item-icon" src="{{ asset('images/paymentDetailImages/postOffice.jpg') }}" alt="">
+								<div class="delivery-label"> Post office </div>
+								<span class="delivery-price"> 2.50 € </span>
+								<span class="delivery-availability"> Tomorrow 18:00 </span>
+							</div>
+							<div class="delivery-row">
+								<input class="delivery-checkbox " type="checkbox" onchange="onDeliveryOptionChanged(this)">
+								<!-- freepik license -->
+								<!-- https://www.freepik.com/free-vector/documents-letters-express-courier-delivering-postal-services-post-office-services-post-delivery-agent-post-office-card-accounts-concept-pinkish-coral-bluevector-isolated-illustration_11667313.htm#query=post%20office&position=0&from_view=search&track=ais -->
+								<img class="delivery-item-icon" src="{{ asset('images/paymentDetailImages/courier.jpg') }}" alt="">
+								<div class="delivery-label"> DHL </div>
+								<span class="delivery-price"> 3.50 € </span>
+								<span class="delivery-availability"> Tomorrow 12:00 </span>
+							</div>
+						</div>
 					</div>
-					<div class="input-group mb-3">
-						<input type="text" class="form-control" placeholder="Zip Code" aria-label="Zip Code">
-					</div>
-					<div class="input-group mb-3">
-						<input type="text" class="form-control" placeholder="City" aria-label="City">
-					</div>
-					<div class="input-group mb-3">
-						<input type="text" class="form-control" placeholder="Country" aria-label="Country">
-					</div>
-					<div class="input-group mb-3">
-						<input type="text" class="form-control" placeholder="Tel. Number" aria-label="Tel. Number">
-					</div>
-				</div>
-				<div class="line"> </div>
+					<div class="line"> </div>
 
-				<!-- delivery -->
-				<h3> Delivery </h3>
-				<div id="delivery">
-					<div class="input-group mb-3">
-						<div class="delivery-row">
-							<input class="delivery-checkbox" type="checkbox" onchange="onDeliveryOptionChanged(this)" checked>
-							<!-- custom image -->
-							<img class="delivery-item-icon" src="{{ asset('images/logo/logoTransparent.png') }}" alt="">
-							<div class="delivery-label"> Pick up in the store </div>
-							<span class="delivery-price"> Free </span>
-							<span class="delivery-availability"> Tomorrow 12:00 </span>
-						</div>
-						<div class="delivery-row">
-							<input class="delivery-checkbox " type="checkbox" onchange="onDeliveryOptionChanged(this)">
-							<!-- freepik license -->
-							<!-- https://www.freepik.com/free-vector/documents-letters-express-courier-delivering-postal-services-post-office-services-post-delivery-agent-post-office-card-accounts-concept-pinkish-coral-bluevector-isolated-illustration_11667313.htm#query=post%20office&position=0&from_view=search&track=ais -->
-							<img class="delivery-item-icon" src="{{ asset('images/paymentDetailImages/postOffice.jpg') }}" alt="">
-							<div class="delivery-label"> Post office </div>
-							<span class="delivery-price"> 2.50 € </span>
-							<span class="delivery-availability"> Tomorrow 18:00 </span>
-						</div>
-						<div class="delivery-row">
-							<input class="delivery-checkbox " type="checkbox" onchange="onDeliveryOptionChanged(this)">
-							<!-- freepik license -->
-							<!-- https://www.freepik.com/free-vector/documents-letters-express-courier-delivering-postal-services-post-office-services-post-delivery-agent-post-office-card-accounts-concept-pinkish-coral-bluevector-isolated-illustration_11667313.htm#query=post%20office&position=0&from_view=search&track=ais -->
-							<img class="delivery-item-icon" src="{{ asset('images/paymentDetailImages/courier.jpg') }}" alt="">
-							<div class="delivery-label"> DHL </div>
-							<span class="delivery-price"> 3.50 € </span>
-							<span class="delivery-availability"> Tomorrow 12:00 </span>
+					<!-- payment -->
+					<h3> Payment </h3>
+					<div id="payment">
+						<div class="input-group mb-3">
+							<div class="payment-row">
+								<input class="payment-checkbox" type="checkbox" onchange="onPaymentOptionChanged(this)" checked>
+								<!-- freepik license -->
+								<!-- https://www.freepik.com/free-vector/black-credit-card_1014950.htm#query=credit%20card&position=0&from_view=search&track=ais -->
+								<img class="payment-item-icon" src="{{ asset('images/paymentDetailImages/creditCard.jpg') }}" alt="">
+								<div class="payment-label"> By card </div>
+							</div>
+							<div class="payment-row">
+								<input class="payment-checkbox" type="checkbox" onchange="onPaymentOptionChanged(this)">
+								<!-- freepik license -->
+								<!-- https://www.freepik.com/free-vector/isometric-money-background_4448290.htm#query=cash&position=20&from_view=search&track=sph -->
+								<img class="payment-item-icon" src="{{ asset('images/paymentDetailImages/cash.jpg') }}" alt="">
+								<div class="payment-label"> In cash </div>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="line"> </div>
+					<div class="line"> </div>
 
-				<!-- payment -->
-				<h3> Payment </h3>
-				<div id="payment">
-					<div class="input-group mb-3">
-						<div class="payment-row">
-							<input class="payment-checkbox" type="checkbox" onchange="onPaymentOptionChanged(this)" checked>
-							<!-- freepik license -->
-							<!-- https://www.freepik.com/free-vector/black-credit-card_1014950.htm#query=credit%20card&position=0&from_view=search&track=ais -->
-							<img class="payment-item-icon" src="{{ asset('images/paymentDetailImages/creditCard.jpg') }}" alt="">
-							<div class="payment-label"> By card </div>
-						</div>
-						<div class="payment-row">
-							<input class="payment-checkbox" type="checkbox" onchange="onPaymentOptionChanged(this)">
-							<!-- freepik license -->
-							<!-- https://www.freepik.com/free-vector/isometric-money-background_4448290.htm#query=cash&position=20&from_view=search&track=sph -->
-							<img class="payment-item-icon" src="{{ asset('images/paymentDetailImages/cash.jpg') }}" alt="">
-							<div class="payment-label"> In cash </div>
-						</div>
-					</div>
-				</div>
-				<div class="line"> </div>
-
-				<a class="btn btn-success" href="#popup1" id="order-button" onclick="onOrderNowClicked(this)"> Order Now </a>
+					<a class="btn btn-success" id="order-button" onclick="onOrderNowClicked(this)"> Order Now </a>
+				</form>
 			</div>
 
 			<!-- popup -->
@@ -271,10 +292,11 @@
 				<div id="popup1" class="overlay">
 					<div class="popup">
 						<h2> Thank you for the order </h2>
-						<a class="close" href="#">&times;</a>
 						<div class="content">
-							We hope you will love our products!
+							<p> We hope <strong> you will love </strong> our products! </p>
 						</div>
+						<p id="countdown">Auto redirec in: 5</p>
+						<a class="close" href="/"> Go To Landing Page </a>
 					</div>
 				</div>
 			</div>
@@ -329,48 +351,50 @@
 				<h5 class="summary-total-price">Total Price</h5>
 				<h4 class="text-center">5999.99 €</h4>
 			</div>
-		</div>
+		</div>	
+	</main>
 
-		<!-- contact us -->
-		<footer>
-			<div id="contact-us" class="text-center mt-5">
-			<div class="contact-us-wrapper">
-				<div class="contact-us-column">
-				<h1>Contact us</h1>
-				<p>Phone: +421 9xx xxx xxx</p>
-				<p>Email: info@armyshop.xd</p>
-				</div>
-				<div class="contact-us-column">
-				<a href="#" target="_blank">
-					<!-- custom image -->
-					<img class="contact-us-logo" 
-					src="{{ asset('images/logo/logoTransparent.png') }}" 
-					alt="Armyshop">
+	<!-- contact us -->
+	<footer>
+		<div id="contact-us" class="text-center mt-5">
+		<div class="contact-us-wrapper">
+			<div class="contact-us-column">
+			<h1>Contact us</h1>
+			<p>Phone: +421 9xx xxx xxx</p>
+			<p>Email: info@armyshop.xd</p>
+			</div>
+			<div class="contact-us-column">
+			<a href="/">
+				<!-- custom image -->
+				<img class="contact-us-logo" 
+				src="{{ asset('images/logo/logoTransparent.png') }}" 
+				alt="Armyshop">
+			</a>
+			<div class="contact-us-social-media">
+				<div>
+				<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" class="social-media-link" target="_blank">
+					<!-- image source: freepik.com -->
+					<img src="https://cdn.aboutstatic.com/file/d473bb55bdf6bd6430eeff7ed35fa4ca.png?quality=75&amp;height=480&amp;width=360" alt="media" class="social-media-img">
 				</a>
-				<div class="contact-us-social-media">
-					<div>
-					<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" class="social-media-link" target="_blank">
-						<!-- image source: freepik.com -->
-						<img src="https://cdn.aboutstatic.com/file/d473bb55bdf6bd6430eeff7ed35fa4ca.png?quality=75&amp;height=480&amp;width=360" alt="media" class="social-media-img">
-					</a>
-					<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" class="social-media-link" target="_blank">
-						<!-- image source: freepik.com -->
-						<img src="https://cdn.aboutstatic.com/file/6a522d45a858eea2ccf7e71c2aa419fb.png?quality=75&amp;height=480&amp;width=360" alt="media" class="social-media-img">
-					</a>
-					<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" class="social-media-link" target="_blank">
-						<!-- image source: freepik.com -->
-						<img src="https://cdn.aboutstatic.com/file/75356ec63103aca8bf43a3071ed2a242.png?quality=75&height=75&width=75" alt="media" class="social-media-img">
-					</a>
-					</div>
-				</div>
+				<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" class="social-media-link" target="_blank">
+					<!-- image source: freepik.com -->
+					<img src="https://cdn.aboutstatic.com/file/6a522d45a858eea2ccf7e71c2aa419fb.png?quality=75&amp;height=480&amp;width=360" alt="media" class="social-media-img">
+				</a>
+				<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" class="social-media-link" target="_blank">
+					<!-- image source: freepik.com -->
+					<img src="https://cdn.aboutstatic.com/file/75356ec63103aca8bf43a3071ed2a242.png?quality=75&height=75&width=75" alt="media" class="social-media-img">
+				</a>
 				</div>
 			</div>
 			</div>
-		</footer>
-	</div>
+		</div>
+		</div>
+	</footer>
 
+	<script src="{{ asset('js/serverRequester.js') }}"></script>
 	<script src="{{ asset('components/navbar/navbar.js') }}"></script>
 	<script src="{{ asset('components/contactUs/contactUs.js') }}"></script>
 	<script src="{{ asset('components/paymentDetail/paymentDetail.js') }}"></script>
+	<script src="{{ asset('components/paymentDetail/paymentDetailValidator.js') }}"></script>
 </body>
 </html>

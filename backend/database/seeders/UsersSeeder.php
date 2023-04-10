@@ -14,45 +14,51 @@ class UsersSeeder extends Seeder
             'first_name' => 'Admin',
             'last_name' => 'Admin',
             'email' => 'admin@armyshop.xd',
-            'password' => bcrypt('admin'),
+            'password' => bcrypt('adminadmin'),
             'license_picture' => null,
             'is_license_valid' => true,
             'address' => 'FIIT STU',
-            'age' => 68
+            'age' => 68,
+            'is_deleted' => false
         ]);
 
         User::create([
             'id' => 2,
-            'first_name' => 'Marosko',
+            'first_name' => 'Maros',
             'last_name' => 'Bednar',
-            'email' => 'marosko@arymshop.xd',
-            'password' => bcrypt('marosko'),
+            'email' => 'bednarmaros@arymshop.xd',
+            'password' => bcrypt('bednarmaros'),
             'license_picture' => null,
             'is_license_valid' => true,
             'address' => 'FIIT STU',
-            'age' => 21
+            'age' => 21,
+            'is_deleted' => false
         ]);
 
         User::create([
             'id' => 3,
-            'first_name' => 'Misko',
+            'first_name' => 'Michal',
             'last_name' => 'Darovec',
-            'email' => 'misko@arymshop.xd',
-            'password' => bcrypt('misko'),
+            'email' => 'darovecmichal@arymshop.xd',
+            'password' => bcrypt('darovecmichal'),
             'license_picture' => null,
             'is_license_valid' => true,
             'address' => 'FIIT STU',
-            'age' => 21
+            'age' => 21,
+            'is_deleted' => false
         ]);
 
         User::create([
             'id' => 4,
             'first_name' => 'Jozko',
             'last_name' => 'Vajda',
-            'email' => 'jozko@centrum.sk',
-            'password' => bcrypt('jozko'),
+            'email' => 'vajdajozko@gmail.com',
+            'password' => bcrypt('vajdajozko'),
             'license_picture' => null,
             'is_license_valid' => false,
+            'address' => 'Bratislava Vajnory',
+            'age' => 63,
+            'is_deleted' => false
         ]);
     }
 }

@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<title>Army Shop Landing Page</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-<link rel="stylesheet" href="{{ asset('css/styles.css') }}">
-<link rel="stylesheet" href="{{ asset('components/landingPage/landingPage.css') }}">
-<link rel="stylesheet" href="{{ asset('components/categories/categories.css') }}">
-<link rel="stylesheet" href="{{ asset('components/navbar/navbar.css') }}">
-<link rel="stylesheet" href="{{ asset('components/contactUs/contactUs.css') }}">
-<link rel="stylesheet" href="{{ asset('components/products/products.css') }}">
+	<meta charset="UTF-8">
+	<title>Army Shop Landing Page</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+		integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+	<link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+	<link rel="stylesheet" href="{{ asset('components/userProfile/userProfile.css') }}">
+	<link rel="stylesheet" href="{{ asset('components/categories/categories.css') }}">
+	<link rel="stylesheet" href="{{ asset('components/navbar/navbar.css') }}">
+	<link rel="stylesheet" href="{{ asset('components/contactUs/contactUs.css') }}">
+	<link rel="stylesheet" href="{{ asset('components/products/products.css') }}">
 </head>
+
 <body>
 	<!-- navbar -->
 	<header>
@@ -178,132 +181,130 @@
 	</header>
 
 	<main>
-		<!-- landing page -->
-		<div id="landing-page">
-			<!-- categories -->
-			<div id="categories">
-				<div class="container">
-				<h1 class="main-heading mt-5 display-1">Welcome to our ArmyShop</h1>
-				<div class="categories mt-5">
-					<div class="row justify-content-center">
-						<div class="col-sm-4 col-8 mb-4" >
-							<div class="category mx-auto" onclick="onCategoryClicked('weapons')">
-							<div class="category-icon mb-3 mt-3">
-								<!-- image source: flaticon.com -->
-								<img src="{{ asset('images/productDetailImages/gun-pistol-icon.png') }}" alt="hello">
-							</div>
-							<p class="description">Weapons</p>
-							</div>
-						</div>
-						<div class="col-sm-4 col-8 mb-4">
-							<div class="category mx-auto" onclick="onCategoryClicked('transport')">
-							<div class="category-icon mb-3 mt-4">
-								<!-- image source: flaticon.com -->
-								<img src="{{ asset('images/productDetailImages/tank.png') }}" alt="hello">
-							</div>
-							<p class="description">Transport</p>
-							</div>
-						</div>
-						<div class="col-sm-4 col-8 mb-4">
-							<div class="category mx-auto" onclick="onCategoryClicked('clothing')">
-							<div class="category-icon mb-2 mt-4">
-								<!-- image source: flaticon.com -->
-								<img src="{{ asset('images/productDetailImages/tshirt.png') }}" alt="hello">
-							</div>
-							<p class="description">Clothing</p>
-							</div>
+		<!-- user-profile -->
+		<div id="user-profile">
+			<h1>User Profile</h1>
+			<div class="container">
+				<div class="verticalContainer">
+					<!-- biling information -->
+					<div class="containerElement">
+						<h2>Billing information</h2>
+						<hr>
+						<div class="formContainer">
+							<form>
+								<label for="name">Name:</label>
+								<input type="text" id="name" name="name" value="John Doe"><br>
+
+								<label for="address1">Address Line 1:</label>
+								<input type="text" id="address1" name="address1" value="Hlavoňova 25"><br>
+
+								<label for="address2">Address Line 2:</label>
+								<input type="text" id="address2" name="address2" value="068 01 Terezov"><br>
+
+								<label for="email">E-mail:</label>
+								<input type="email" id="email" name="email" value="email@gmail.com"><br>
+
+								<label for="phone">Phone Number:</label>
+								<input type="tel" id="phone" name="phone" value="0904956723"><br>
+
+								<button type="button" id="save-changes-btn">SAVE CHANGES</button>
+							</form>
 						</div>
 					</div>
-					<div class="row justify-content-center">
-						<div class="col-sm-4 col-8 mb-4">
-							<div class="category mx-auto" onclick="onCategoryClicked('explosives')">
-							<div class="category-icon mt-1 mb-2">
-								<!-- image source: flaticon.com -->
-								<img src="{{ asset('images/productDetailImages/bomb.png') }}" alt="hello">
-							</div>
-							<p class="description">Explosives</p>
-							</div>
-						</div>
-						<div class="col-sm-4 col-8 mb-4">
-							<div class="category mx-auto" onclick="onCategoryClicked('equipment')">
-							<div class="category-icon">
-								<!-- image source: flaticon.com -->
-								<img src="{{ asset('images/productDetailImages/backpack.png') }}" alt="hello">
-							</div>
-							<p class="description">Equipment</p>
-							</div>
-						</div>
-						<div class="col-sm-4 col-8 mb-4">
-							<div class="category mx-auto" onclick="onCategoryClicked('accessories')">
-							<div class="category-icon mb-2 mt-1">
-								<!-- image source: flaticon.com -->
-								<img src="{{ asset('images/productDetailImages/dog-tag.png') }}" alt="hello">
-							</div>
-							<p class="description">Accessories</p>
-							</div>
+
+					<!-- military passport -->
+					<div class="containerElement">
+						<h2>Military passport</h2>
+						<hr>
+						<div class="image-container">
+							<label for="image-selector">Select an image:</label>
+							<input type="file" id="image-selector" accept="image/*">
 						</div>
 					</div>
 				</div>
 
-				<section id="most-popular">
-					<h1 class="main-heading mt-5 display-1">Most Popular</h1>
-					<div class="card-container">
-					<div class="card m-3">
-						<!-- image source: unsplash.com -->
-						<img class="card-img-top" src="{{ asset('images/productDetailImages/ak47-1.jpg') }}" alt="Card image cap" onclick="toggleLikedIcon()">
-						<div class="card-body d-flex align-items-center justify-content-between mx-auto">
-							<div>
-								<h3 class="card-title">AK-47</h3>
-								<p class="card-text">5999.99 €</p>
-							</div>
-							<!-- image source: flaticon.com -->
-							<img src="{{ asset('images/productDetailImages/heart4.png') }}" alt="" width="14%" class="liked-photo">
+				<!-- statistics -->
+				<div class="verticalContainer">
+					<div class="containerElementFlex">
+						<h2>Your experience</h2>
+						<hr>
+						<button type="button" id="order-history-btn">ORDER HISTORY</button>
+						<div id="orderHistoryContainer">
+							<table>
+								<tr>
+									<th>ID:</th>
+									<th>Items:</th>
+									<th>Price:</th>
+								</tr>
+								<tr>
+									<td>#10023</td>
+									<td>20</td>
+									<td>250€</td>
+								</tr>
+								<tr>
+									<td>#10342</td>
+									<td>2</td>
+									<td>26.78€</td>
+								</tr>
+								<tr>
+									<td>#18734</td>
+									<td>2000</td>
+									<td>1245€</td>
+								</tr>
+								<tr>
+									<td>#19734</td>
+									<td>2000</td>
+									<td>1245€</td>
+								</tr>
+								<tr>
+									<td>#19433</td>
+									<td>1</td>
+									<td>1245000€</td>
+								</tr>
+							</table>
 						</div>
-						<div class="card-body d-flex align-items-center justify-content-between mx-auto">
-							<!-- image source: flaticon.com -->
-							<img src="{{ asset('images/productDetailImages/cart.png') }}" alt="" width="15%" class="cart-img">
-							<button type="button" class="btn btn-success btn-buy">Buy Now</button>
+						<button type="button" id="wish-list-btn">WISH LIST</button>
+						<div id="wishListContainer">
+							<table>
+								<tr class="wishListRow">
+									<td>
+										<!-- image source: unsplash.com -->
+										<img class="productImg"
+											src="{{ asset('images/productImages/weapons/jay-rembert-e0kgA5otj0Q-unsplash.jpg') }}">
+									</td>
+									<td>Small firearm modern cast steel, semi-automatic</td>
+									<td class="wishListPrice">250€</td>
+								</tr>
+								<tr class="wishListRow">
+									<td>
+										<!-- image source: unsplash.com -->
+										<img class="productImg"
+											src="{{ asset('images/productImages/weapons/bexar-arms-uLOWWVPVefQ-unsplash.jpg') }}">
+									</td>
+									<td>Assault rifle black steel</td>
+									<td class="wishListPrice">339.90€</td>
+								</tr>
+							</table>
 						</div>
 					</div>
 
-					<div class="card m-3">
-						<!-- image source: unsplash.com -->
-						<img class="card-img-top" src="{{ asset('images/productDetailImages/ak47-1.jpg') }}" alt="Card image cap">
-						<div class="card-body d-flex align-items-center justify-content-between mx-auto">
-							<div>
-								<h3 class="card-title">AK-47</h3>
-								<p class="card-text">5999.99 €</p>
-							</div>
-							<!-- image source: flaticon.com -->
-							<img src="{{ asset('images/productDetailImages/heart4.png') }}" alt="" width="14%" class="liked-photo">
-						</div>
-						<div class="card-body d-flex align-items-center justify-content-between mx-auto">
-							<!-- image source: flaticon.com -->
-							<img src="{{ asset('images/productDetailImages/cart.png') }}" alt="" width="15%" class="cart-img">
-							<button type="button" class="btn btn-success btn-buy">Buy Now</button>
-						</div>
-					</div>
+					<!-- change password -->
+					<div class="containerElement">
+						<h2>Change password</h2>
+						<hr>
+						<label for="passOld">Old password:</label>
+						<input type="password" id="passOld" name="passOld"><br>
 
-					<div class="card m-3">
-						<!-- image source: unsplash.com -->
-						<img class="card-img-top" src="{{ asset('images/productDetailImages/ak47-1.jpg') }}" alt="Card image cap">
-						<div class="card-body d-flex align-items-center justify-content-between mx-auto">
-							<div>
-								<h3 class="card-title">AK-47</h3>
-								<p class="card-text">5999.99 €</p>
-							</div>
-							<!-- image source: flaticon.com -->
-							<img src="{{ asset('images/productDetailImages/heart4.png') }}" alt="" width="14%" class="liked-photo">
-						</div>
-						<div class="card-body d-flex align-items-center justify-content-between mx-auto">
-							<!-- image source: flaticon.com -->
-							<img src="{{ asset('images/productDetailImages/cart.png') }}" alt="" width="15%" class="cart-img">
-							<button type="button" class="btn btn-success btn-buy">Buy Now</button>
-						</div>
+						<label for="passNew">New password:</label>
+						<input type="password" id="passNew" name="passNew"><br>
+
+						<label for="passNewConfirm">Confirm new password:</label>
+						<input type="password" id="passNewConfirm" name="passNewConfirm"><br>
+
+						<button type="button" id="change-password-btn">CHANGE PASSWORD</button>
 					</div>
+					<button class="log-out-btn">Log Out</button>
 				</div>
-				</section>
-			</div>
 			</div>
 		</div>
 	</main>
@@ -313,42 +314,48 @@
 		<div id="contact-us" class="text-center mt-5">
 			<div class="contact-us-wrapper">
 				<div class="contact-us-column">
-				<h1>Contact us</h1>
-				<p>Phone: +421 9xx xxx xxx</p>
-				<p>Email: info@armyshop.xd</p>
+					<h1>Contact us</h1>
+					<p>Phone: +421 9xx xxx xxx</p>
+					<p>Email: info@armyshop.xd</p>
 				</div>
 				<div class="contact-us-column">
-				<a href="/">
-					<!-- custom image -->
-					<img class="contact-us-logo" 
-					src="{{ asset('images/logo/logoTransparent.png') }}" 
-					alt="Armyshop">
-				</a>
-				<div class="contact-us-social-media">
-					<div>
-					<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" class="social-media-link" target="_blank">
-						<!-- image source: freepik.com -->
-						<img src="https://cdn.aboutstatic.com/file/d473bb55bdf6bd6430eeff7ed35fa4ca.png?quality=75&amp;height=480&amp;width=360" alt="media" class="social-media-img">
+					<a href="/">
+						<!-- custom image -->
+						<img class="contact-us-logo" src="{{ asset('images/logo/logoTransparent.png') }}"
+							alt="Armyshop">
 					</a>
-					<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" class="social-media-link" target="_blank">
-						<!-- image source: freepik.com -->
-						<img src="https://cdn.aboutstatic.com/file/6a522d45a858eea2ccf7e71c2aa419fb.png?quality=75&amp;height=480&amp;width=360" alt="media" class="social-media-img">
-					</a>
-					<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" class="social-media-link" target="_blank">
-						<!-- image source: freepik.com -->
-						<img src="https://cdn.aboutstatic.com/file/75356ec63103aca8bf43a3071ed2a242.png?quality=75&height=75&width=75" alt="media" class="social-media-img">
-					</a>
+					<div class="contact-us-social-media">
+						<div>
+							<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley"
+								class="social-media-link" target="_blank">
+								<!-- image source: freepik.com -->
+								<img src="https://cdn.aboutstatic.com/file/d473bb55bdf6bd6430eeff7ed35fa4ca.png?quality=75&amp;height=480&amp;width=360"
+									alt="media" class="social-media-img">
+							</a>
+							<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley"
+								class="social-media-link" target="_blank">
+								<!-- image source: freepik.com -->
+								<img src="https://cdn.aboutstatic.com/file/6a522d45a858eea2ccf7e71c2aa419fb.png?quality=75&amp;height=480&amp;width=360"
+									alt="media" class="social-media-img">
+							</a>
+							<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley"
+								class="social-media-link" target="_blank">
+								<!-- image source: freepik.com -->
+								<img src="https://cdn.aboutstatic.com/file/75356ec63103aca8bf43a3071ed2a242.png?quality=75&height=75&width=75"
+									alt="media" class="social-media-img">
+							</a>
+						</div>
 					</div>
-				</div>
 				</div>
 			</div>
 		</div>
 	</footer>
 
-    <script src="{{ asset('js/subcategoriesMap.js') }}"></script>
-    <script src="{{ asset('js/serverRequester.js') }}"></script>
-	<script src="{{ asset('components/landingPage/landingPage.js') }}"></script>
+	<script src="{{ asset('js/subcategoriesMap.js') }}"></script>
+	<script src="{{ asset('js/serverRequester.js') }}"></script>
 	<script src="{{ asset('components/navbar/navbar.js') }}"></script>
 	<script src="{{ asset('components/contactUs/contactUs.js') }}"></script>
+	<script src="{{ asset('components/userProfile/userProfile.js') }}"></script>
 </body>
+
 </html>

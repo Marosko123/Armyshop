@@ -13,7 +13,8 @@ class FinishedOrder extends Model
 
     protected $fillable = [
         'user_id',
-        'ordered_products'
+        'ordered_products',
+        'delivery_details'
     ];
 
     protected $hidden = [
