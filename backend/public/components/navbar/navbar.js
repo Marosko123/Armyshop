@@ -26,8 +26,22 @@ const onShoppingCartClicked = () => {
 };
 
 const onProfileClicked = () => {
-    window.location.href = "/profile";
+    if (localStorage.getItem("armyshop_currently_signed_in_user") === null) {
+        window.location.href = "/login";
+      } else {
+        window.location.href = "/profile";
+      }
 };
+
+window.addEventListener('load', function() {
+    if (localStorage.getItem("armyshop_currently_signed_in_user") != null) {
+        const imgs = document.querySelectorAll('.profile__button');
+
+        imgs.forEach(img => {
+            img.style.backgroundColor = 'gold';
+        });
+    }
+  });
 
 const onCategoryClicked = (category) => {
     window.location.href = "/products/" + category;

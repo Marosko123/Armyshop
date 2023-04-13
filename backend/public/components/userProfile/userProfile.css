@@ -139,7 +139,7 @@
 
 /* log out button */
 
-.log-out-btn {
+#log-out-btn {
   width: 100% !important;
   background-color: rgb(127, 42, 42) !important;
 }

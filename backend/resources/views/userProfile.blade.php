@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="{{ asset('components/contactUs/contactUs.css') }}">
 </head>
 
-<body>
+<body hidden>
 	<!-- navbar -->
 	<header>
 		<div id="navbar">
@@ -178,7 +178,7 @@
 		</div>
 	</header>
 
-	<main>
+	<main >
 		<!-- user-profile -->
 		<div id="user-profile">
 			<h1>User Profile</h1>
@@ -191,19 +191,25 @@
 						<div class="formContainer">
 							<form>
 								<label for="name">Name:</label>
-								<input type="text" id="name" name="name" value="John Doe"><br>
-
-								<label for="address1">Address Line 1:</label>
-								<input type="text" id="address1" name="address1" value="Hlavoňova 25"><br>
-
-								<label for="address2">Address Line 2:</label>
-								<input type="text" id="address2" name="address2" value="068 01 Terezov"><br>
+								<input type="text" id="name" name="name" placeholder=""><br>
 
 								<label for="email">E-mail:</label>
-								<input type="email" id="email" name="email" value="email@gmail.com"><br>
+								<input type="email" id="email" name="email" placeholder=""><br>
 
 								<label for="phone">Phone Number:</label>
-								<input type="tel" id="phone" name="phone" value="0904956723"><br>
+								<input type="tel" id="phone" name="phone" placeholder=""><br>
+
+								<label for="address">Address:</label>
+								<input type="text" id="address" name="address" placeholder=""><br>
+
+								<label for="zip-code">Zip Code:</label>
+								<input type="text" id="zip-code" name="zip-code" placeholder=""><br>
+
+								<label for="city">City:</label>
+								<input type="text" id="city" name="city" placeholder=""><br>
+
+								<label for="country">Country:</label>
+								<input type="text" id="country" name="country" placeholder=""><br>
 
 								<button type="button" id="save-changes-btn">SAVE CHANGES</button>
 							</form>
@@ -301,7 +307,7 @@
 
 						<button type="button" id="change-password-btn">CHANGE PASSWORD</button>
 					</div>
-					<button class="log-out-btn">Log Out</button>
+					<button type="button" id="log-out-btn">Log Out</button>
 				</div>
 			</div>
 		</div>
@@ -349,11 +355,11 @@
 		</div>
 	</footer>
 
-	<script src="{{ asset('js/subcategoriesMap.js') }}"></script>
-	<script src="{{ asset('js/serverRequester.js') }}"></script>
-	<script src="{{ asset('components/navbar/navbar.js') }}"></script>
-	<script src="{{ asset('components/contactUs/contactUs.js') }}"></script>
-	<script src="{{ asset('components/userProfile/userProfile.js') }}"></script>
+<script src="{{ asset('js/subcategoriesMap.js') }}"></script>
+<script src="{{ asset('js/serverRequester.js') }}"></script>
+<script src="{{ asset('components/navbar/navbar.js') }}"></script>
+<script src="{{ asset('components/contactUs/contactUs.js') }}"></script>
+<script src="{{ asset('components/userProfile/userProfile.js') }}"></script>
 </body>
 
 </html>
