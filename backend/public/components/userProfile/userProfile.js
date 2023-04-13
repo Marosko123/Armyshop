@@ -40,28 +40,24 @@ window.addEventListener('load', function () {
     document.querySelector('body').removeAttribute('hidden');
 
   //load user data into fields
-  if (data.name)
-    document.getElementById('name').setAttribute("value", data.name);
-
   if (data.email)
-    document.getElementById('email').setAttribute("value", data.email);
+    document.getElementById('email').value = data.email;
 
   if (data.phone)
-    document.getElementById('email').setAttribute("value", data.phone);
+    document.getElementById('phone').value = data.phone;
 
   nameInput = document.getElementById('name');
   if (data.first_name)
-    nameInput.setAttribute("value", data.first_name + " ");
-
+    nameInput.value = data.first_name + " ";
   if (data.last_name)
-    nameInput.setAttribute("value", (nameInput.value == null ? "" : nameInput.value) + data.last_name);
+    nameInput.value = (nameInput.value == null ? "" : nameInput.value) + data.last_name;
 
   if (data.address) {
     addressFields = data.address.split(",");
-    document.getElementById('address').setAttribute("value", addressFields[0]);
-    document.getElementById('zip-code').setAttribute("value", addressFields[1]);
-    document.getElementById('city').setAttribute("value", addressFields[2]);
-    document.getElementById('country').setAttribute("value", addressFields[3]);
+    document.getElementById('address').value = addressFields[0];
+    document.getElementById('zip-code').value = addressFields[1];
+    document.getElementById('city').value = addressFields[2];
+    document.getElementById('country').value = addressFields[3];
   }
 });
 
@@ -94,10 +90,6 @@ saveChangesButton.addEventListener('click', async function () {
   console.log(data);
   localStorage.setItem("armyshop_currently_signed_in_user",JSON.stringify(data));
 
-  
-  const productResponse = await getFromUrl('/products');
-  const productList = productResponse.products;
 
-  console.log(productList);
-
+  alert("Changes saved.");
 });
