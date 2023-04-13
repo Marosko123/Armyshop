@@ -8,10 +8,8 @@
 		integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 	<link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 	<link rel="stylesheet" href="{{ asset('components/userProfile/userProfile.css') }}">
-	<link rel="stylesheet" href="{{ asset('components/categories/categories.css') }}">
 	<link rel="stylesheet" href="{{ asset('components/navbar/navbar.css') }}">
 	<link rel="stylesheet" href="{{ asset('components/contactUs/contactUs.css') }}">
-	<link rel="stylesheet" href="{{ asset('components/products/products.css') }}">
 </head>
 
 <body>
