@@ -15,11 +15,23 @@ function addToCart() {
 
 }
 
-async function getAllProducts(pageNumber) {
+
+// spravit tri verzie tejto funkcie, jednu pre vsetky produkty a druhu pre produkty z kategorie a tretiu pre podkategorie
+async function getAllProducts(pageNumber, category = null, subcategory = null) {
+
+    // construct the URL based on whether a category or subcategory is specified
+    let url = `/products?page=${pageNumber}`;
+    if (category) {
+        url += `/category/${category}`;
+    } else if (subcategory) {
+        url += `/subcategory/${subcategory}`;
+    }
 
     // get all products from backend
     const productResponse = await getFromUrl(`/products?page=${pageNumber}`);
     const pageProductList = productResponse.products;
+    const count = productResponse.count;
+    console.log(`Number of products: ${count}`);
 
     const notLikedImg = 'http://127.0.0.1:8000/images/productDetailImages/heart6.png';
     const likedImg = 'http://127.0.0.1:8000/images/productDetailImages/heart4.png';
@@ -63,6 +75,10 @@ async function getAllProducts(pageNumber) {
 
     const cardContainer = document.getElementById('cards');
     cardContainer.innerHTML = productsHTML;
+
+    // return the number of products
+    return count;
+
 }
 
 // get products from category
@@ -109,9 +125,8 @@ async function getProductsByCategory(categoryId) {
     }
 }
 
-console.time("slowFunction");
-getAllProducts(3);
-console.timeEnd("slowFunction");
+// get all products
+let productCount = getAllProducts(1);
 
 // pagination
 const page1 = document.getElementById('page1');
@@ -137,14 +152,15 @@ page3.addEventListener('click', () => {
 });
 
 pageNext.addEventListener('click', () => {
-    // update the page numbers
+
+    // update the page numbers and stop at the last page
     const page1Number = parseInt(page1.textContent) + 3;
     const page2Number = parseInt(page2.textContent) + 3;
     const page3Number = parseInt(page3.textContent) + 3;
     page1.textContent = page1Number;
     page2.textContent = page2Number;
     page3.textContent = page3Number;
-    if (page1Number >= 9) {
+    if (page1Number >= 9) { // change to productCount
         pageNext.classList.add("disabled-page");
     }
     if(pagePrevious.classList.contains("disabled-page")) {

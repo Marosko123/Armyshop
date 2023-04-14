@@ -20,6 +20,9 @@ class ProductsController extends Controller
         }
         $limit = 18;
         $startIndex = ($pageNumber - 1) * $limit;
+
+        $count = Product::count(); // get the count of all products
+
         $products = Product::offset($startIndex) // This will skip the specified amount of results
             ->limit($limit) // This will limit the results to the specified amount
             ->get();
@@ -27,7 +30,8 @@ class ProductsController extends Controller
         if ($products) {
             return response()->json([
                 'status' => 200,
-                'products' => $products
+                'products' => $products,
+                'count' => $count
             ], 200);
         } else {
             return response()->json([
@@ -63,6 +67,13 @@ class ProductsController extends Controller
         $amount = 18;
         $startId = ($pageNumber - 1) * $amount;
 
+        // get all products from subcategories of the category
+        $count = Product::whereIn('subcategory_id', function ($query) use ($category_id) {
+            $query->select('id')
+                ->from('subcategories')
+                ->where('category_id', $category_id);
+        })->count();
+
         $products = Product::whereIn('subcategory_id', function ($query) use ($category_id) {
             $query->select('id')
                 ->from('subcategories')
@@ -76,7 +87,8 @@ class ProductsController extends Controller
         if ($products) {
             return response()->json([
                 'status' => 200,
-                'products' => $products
+                'products' => $products,
+                'count' => $count
             ], 200);
         } else {
             return response()->json([
@@ -88,11 +100,17 @@ class ProductsController extends Controller
 
     public function getFromSubcategory($subcategory_id)
     {
+
+        // get the count
+        $count = Product::where('subcategory_id', $subcategory_id)->count();
+
+        // get the products
         $products = Product::where('subcategory_id', $subcategory_id)->get();
         if (count($products) > 0) {
             return response()->json([
                 'status' => 200,
-                'products' => $products
+                'products' => $products,
+                'count' => $count
             ], 200);
         } else {
             return response()->json([
