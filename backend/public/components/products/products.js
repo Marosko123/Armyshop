@@ -9,7 +9,7 @@ function toggleIcon(likedPhoto) {
         likedPhoto.src = "http://127.0.0.1:8000/images/productDetailImages/heart4.png";
         likedPhoto.classList.add("liked-photo-new");
     }
-} 
+}
 
 function addToCart() {
 
@@ -28,7 +28,7 @@ async function getAllProducts(pageNumber, category = null, subcategory = null) {
     }
 
     // get all products from backend
-    const productResponse = await getFromUrl(`/products?page=${pageNumber}`);
+    const productResponse = await getFromUrl(url);
     const pageProductList = productResponse.products;
     const count = productResponse.count;
     console.log(`Number of products: ${count}`);
@@ -39,7 +39,7 @@ async function getAllProducts(pageNumber, category = null, subcategory = null) {
     // get the liked products for each user
     const userId = 1; // local storage
     const response = await getFromUrl(`/liked_products/${userId}`);
-    
+
     let likedArray = [];
     if (response.status === 200) {
         likedArray = response.products.map(product => product.product_id);
@@ -76,8 +76,10 @@ async function getAllProducts(pageNumber, category = null, subcategory = null) {
     const cardContainer = document.getElementById('cards');
     cardContainer.innerHTML = productsHTML;
 
-    // return the number of products
-    return count;
+    // calculate the number of pages
+    const numPages = Math.ceil(parseInt(count) / 18)
+    // return the number of pages
+    return numPages;
 
 }
 
@@ -125,8 +127,16 @@ async function getProductsByCategory(categoryId) {
     }
 }
 
-// get all products
-let productCount = getAllProducts(1);
+let numberOfPages = 10;
+
+async function getInitialProducts() {
+    console.log('getting page number');
+    numberOfPages = await getAllProducts(1);
+    console.log('pages ' + numberOfPages);
+}
+
+getInitialProducts();
+
 
 // pagination
 const page1 = document.getElementById('page1');
@@ -152,7 +162,7 @@ page3.addEventListener('click', () => {
 });
 
 pageNext.addEventListener('click', () => {
-
+    console.log(numberOfPages);
     // update the page numbers and stop at the last page
     const page1Number = parseInt(page1.textContent) + 3;
     const page2Number = parseInt(page2.textContent) + 3;
@@ -160,12 +170,14 @@ pageNext.addEventListener('click', () => {
     page1.textContent = page1Number;
     page2.textContent = page2Number;
     page3.textContent = page3Number;
-    if (page1Number >= 9) { // change to productCount
+    if (page3Number >= numberOfPages) {
         pageNext.classList.add("disabled-page");
     }
-    if(pagePrevious.classList.contains("disabled-page")) {
+    if (pagePrevious.classList.contains("disabled-page")) {
         pagePrevious.classList.remove("disabled-page");
     }
+
+    hideExcessPageElements();
 });
 
 pagePrevious.addEventListener('click', () => {
@@ -179,10 +191,23 @@ pagePrevious.addEventListener('click', () => {
     if (page1Number <= 1) {
         pagePrevious.classList.add("disabled-page");
     }
-    if(pageNext.classList.contains("disabled-page")) {
+    if (pageNext.classList.contains("disabled-page")) {
         pageNext.classList.remove("disabled-page");
     }
+
+    hideExcessPageElements();
 });
+
+function hideExcessPageElements() {
+    const pages = [page1, page2, page3];
+    for (let i = 0; i < pages.length; i++) {
+        if (parseInt(pages[i].textContent) > numberOfPages) {
+            pages[i].classList.add("disabled-page");
+        } else {
+            pages[i].classList.remove("disabled-page");
+        }
+    }
+}
 
 
 // license toggle checkmark
