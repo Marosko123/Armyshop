@@ -13,7 +13,17 @@ class ProductsController extends Controller
 {
     public function getAll()
     {
-        $products = Product::all();
+        $pageNumber = 1;
+        if (isset($_GET['page']))
+        {
+            $pageNumber = $_GET['page'];
+        }
+        $limit = 18;
+        $startIndex = ($pageNumber - 1) * $limit;
+        $products = Product::offset($startIndex) // This will skip the specified amount of results
+            ->limit($limit) // This will limit the results to the specified amount
+            ->get();
+
         if ($products) {
             return response()->json([
                 'status' => 200,
@@ -43,21 +53,24 @@ class ProductsController extends Controller
         }
     }
 
-    public function getFromCategory($category_id)
+    public function getFromCategory($category_id, $pageNumber)
     {
-        // $subs = Subcategory::where('category_id', (int) $category_id)->get();
-        // $products = [];
-
-        // foreach ($subs as $subcategory) {
-        //     $foundProducts = Product::where('subcategory_id', $subcategory->id)->get();
-        //     array_push($products, ...$foundProducts);
-        // }
+        $pageNumber = 1;
+        if (isset($_GET['page']))
+        {
+            $pageNumber = $_GET['page'];
+        }
+        $amount = 18;
+        $startId = ($pageNumber - 1) * $amount;
 
         $products = Product::whereIn('subcategory_id', function ($query) use ($category_id) {
             $query->select('id')
                 ->from('subcategories')
                 ->where('category_id', $category_id);
-        })->get();
+        })
+            ->offset($startId) // This will skip the specified amount of results
+            ->limit($amount) // This will limit the results to the specified amount
+            ->get();
 
 
         if ($products) {
