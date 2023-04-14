@@ -20,12 +20,10 @@ Route::get('/', function () {
     return view('landingPage');
 });
 
-
-//TEST
-Route::get('test', [TestViewController::class, 'get']);
-
 //Login and register menu
-Route::get('login', [LoginRegisterViewController::class, 'get']);
+Route::get('login', function () {
+    return view('loginAndRegisterMenu');
+});
 
 // Payment detail
 Route::get('paymentDetail', function () {
