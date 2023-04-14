@@ -80,10 +80,11 @@ integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6
 		<!-- paging -->
 		<div class="pagination-container">
 			<ul class="pagination">
-			<li><a href="#">1</a></li>
-			<li><a href="#">2</a></li>
-			<li><a href="#">3</a></li>
-			<li><a href="#">Next</a></li>
+				<li><a id="page-prev" class="disabled-page">Previous</a></li>
+				<li><a href="#" id="page1">1</a></li>
+				<li><a href="#" id="page2">2</a></li>
+				<li><a href="#" id="page3">3</a></li>
+				<li><a id="page-next">Next</a></li>
 			</ul>
 		</div>
 	</main>

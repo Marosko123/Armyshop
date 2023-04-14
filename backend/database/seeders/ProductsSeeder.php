@@ -1021,5 +1021,17 @@ class ProductsSeeder extends Seeder
             "license_needed" => false
         ]);
 
+        // Accessories - tactical
+        Product::create([
+            "name" => "Tactical Backpack",
+            "price" => 99.99,
+            "description" => "This tactical backpack is made of high-quality material and features a durable design and multiple compartments for storage. Perfect for outdoor activities and tactical use.",
+            "image_url" => "https://t4.ftcdn.net/jpg/03/70/79/91/240_F_370799140_0m0rdeziss3KIKk2jyM18fahKuzK7MIy.jpg",
+            "alt_text" => "Tactical Backpack",
+            "subcategory_id" => 27,
+            "license_needed" => false
+        ]);
+
+
     }
 }
