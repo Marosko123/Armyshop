@@ -1,81 +1,47 @@
-console.log("test");
+const onSearchInputChanged = async (event) => {
+    const searchString = event.target.value.replace(" ", "+");
 
-document.querySelector(".search-input").addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-        document.querySelector("#search-results-wrapper").innerHTML = "";
-        return (event.target.value = "");
+    const listOfProducts = await getFromUrl(
+        "/products/search?q=" + searchString
+    );
+
+    if (listOfProducts.status !== 200) {
+        return;
     }
-});
 
-document.querySelector("#landing-page").addEventListener("click", (event) => {
-    document.querySelector("#search-results-wrapper").innerHTML = "";
-    return (document.querySelector(".search-input").value = "");
-});
-
-const onSearchInputChanged = (event) => {
-    console.log(event.value);
-
-    const searchResult = createListOfResults([
-        {
-            img: "https://im9.cz/sk/iR/importprodukt-orig/e97/e973cf874f7c5b77944518743de8b9ff--mmf350x350.jpg",
-            label: "Nozik",
-            category: "weapons/knives",
-            price: "10",
-        },
-        {
-            img: "https://shop.militaryrange.sk/Content/custom/img_products_small/ko-1823-1.jpg",
-            label: "Ak47",
-            category: "weapons/rifles",
-            price: "584",
-        },
-        {
-            img: "https://im9.cz/sk/iR/importprodukt-orig/e97/e973cf874f7c5b77944518743de8b9ff--mmf350x350.jpg",
-            label: "Nozik",
-            category: "weapons/knives",
-            price: "10",
-        },
-        {
-            img: "https://shop.militaryrange.sk/Content/custom/img_products_small/ko-1823-1.jpg",
-            label: "Ak47",
-            category: "weapons/rifles",
-            price: "584",
-        },
-        {
-            img: "https://im9.cz/sk/iR/importprodukt-orig/e97/e973cf874f7c5b77944518743de8b9ff--mmf350x350.jpg",
-            label: "Nozik",
-            category: "weapons/knives",
-            price: "10",
-        },
-        {
-            img: "https://shop.militaryrange.sk/Content/custom/img_products_small/ko-1823-1.jpg",
-            label: "Ak47",
-            category: "weapons/rifles",
-            price: "584",
-        },
-        {
-            img: "https://im9.cz/sk/iR/importprodukt-orig/e97/e973cf874f7c5b77944518743de8b9ff--mmf350x350.jpg",
-            label: "Nozik",
-            category: "weapons/knives",
-            price: "10",
-        },
-        {
-            img: "https://shop.militaryrange.sk/Content/custom/img_products_small/ko-1823-1.jpg",
-            label: "Ak47",
-            category: "weapons/rifles",
-            price: "584",
-        },
-    ]);
+    const searchResult = createListOfResults(
+        listOfProducts.products,
+        searchString
+    );
 
     document.getElementById("search-results-wrapper").innerHTML = searchResult;
 };
 
+const onLogoClicked = () => {
+    window.location.href = "/";
+};
+
 const onShoppingCartClicked = () => {
-    window.location.href = "/shoppingcart";
+    window.location.href = "/shoppingCart";
 };
 
 const onProfileClicked = () => {
-    window.location.href = "/profile";
+    if (localStorage.getItem("armyshop_currently_signed_in_user") === null) {
+        window.location.href = "/login";
+      } else {
+        window.location.href = "/profile";
+      }
 };
+
+window.addEventListener('load', function() {
+    if (localStorage.getItem("armyshop_currently_signed_in_user") != null) {
+        const imgs = document.querySelectorAll('.profile__button');
+
+        imgs.forEach(img => {
+            img.style.backgroundColor = 'gold';
+        });
+    }
+  });
 
 const onCategoryClicked = (category) => {
     window.location.href = "/products/" + category;
@@ -87,6 +53,7 @@ const onSubCategoryClicked = (category, subcategory) => {
 
 const onSearchResultSelected = (result) => {
     const resultString =
+        "/products/" +
         result
             .querySelector(".search-result-row-category")
             .innerHTML.toLowerCase()
@@ -95,25 +62,58 @@ const onSearchResultSelected = (result) => {
         result
             .querySelector(".search-result-row-label")
             .innerHTML.toLowerCase()
-            .replace(" ", "_");
+            .replace(" ", "_")
+            .replace("<mark>", "")
+            .replace("</mark>", "");
     window.location.href = resultString;
 };
 
-const createListOfResults = (results) => {
+const createListOfResults = (results, searchString) => {
     let resultElement = '<div id="search-results">';
     let i = 0;
 
+    const regex = new RegExp(searchString, "gi");
+
     for (let result of results) {
+        let highlightedDescription = "";
+
+        if (document.body.clientWidth >= 1820) {
+            let description = result.description.slice(0, 50);
+            description += "<br>" + result.description.slice(50, 100);
+            description += "<br>" + result.description.slice(100, 150);
+            description += "<br>" + result.description.slice(150, 200);
+
+            highlightedDescription = description.replace(
+                regex,
+                `<mark>${searchString}</mark>`
+            );
+        }
+        const highlightedName = result.name.replace(
+            regex,
+            `<mark>${searchString}</mark>`
+        );
+
+        const formattedPrice = result.price
+            .toLocaleString("en-US", {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+                useGrouping: true,
+            })
+            .replaceAll(",", " ");
+
         resultElement += `
             <div class="search-result-row ${
                 i % 2 ? "pair-row" : ""
             }" onclick="onSearchResultSelected(this)">
-                <img class="search-result-row-img" src="${result.img}" alt="">
-                <span class="search-result-row-label">${result.label}</span>
-                <span class="search-result-row-category">${
-                    result.category
-                }</span>
-                <span class="search-result-row-price">${result.price} €</span>
+                <img class="search-result-row-img" src="${
+                    result.image_url
+                }" alt="${result.alt_text}">
+                <span class="search-result-row-label">${highlightedName}</span>
+                <span class="search-result-row-category">${SubcategoriesMap.getFullPathFromId(
+                    result.subcategory_id
+                )}</span>
+                <span class="search-result-row-description">${highlightedDescription}...</span>
+                <span class="search-result-row-price">${formattedPrice} €</span>
             </div>
         `;
         i++;
@@ -122,3 +122,19 @@ const createListOfResults = (results) => {
 
     return resultElement;
 };
+
+document.querySelector(".search-input").addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+        document.querySelector("#search-results-wrapper").innerHTML = "";
+        return (event.target.value = "");
+    }
+});
+
+document.querySelector("main").addEventListener("click", (event) => {
+    document.querySelector("#search-results-wrapper").innerHTML = "";
+    return (document.querySelector(".search-input").value = "");
+});
+
+document
+    .querySelector(".search-input")
+    .addEventListener("input", onSearchInputChanged);

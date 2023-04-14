@@ -15,6 +15,9 @@
   margin-right: 0;
 }
 
+#user-profile {
+  height: fit-content !important;
+}
 
 #user-profile .container {
   display: flex;
@@ -37,7 +40,7 @@
 
 #user-profile .verticalContainer {
   margin: auto;
-  margin-top: 0;
+  margin-top: 0 !important;
   width: 500px;
 }
 
@@ -132,9 +135,13 @@
   outline: none;
 }
 
+#user-profile .invalid {
+  border: 2px solid red !important;
+}
+
 /* log out button */
 
-.log-out-btn {
+#user-profile #log-out-btn {
   width: 100% !important;
   background-color: rgb(127, 42, 42) !important;
 }

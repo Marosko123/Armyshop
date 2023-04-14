@@ -89,6 +89,22 @@ class ProductsController extends Controller
         }
     }
 
+    public function getSearchedProducts(Request $request)
+    {
+        $searchTerm = $request->query('q');
+
+        if ($searchTerm) {
+            $result = Product::where('name', 'like', '%' . $searchTerm . '%')
+                ->orWhere('description', 'like', '%' . $searchTerm . '%')
+                ->get();
+        }
+
+        return response()->json([
+            'status' => 200,
+            'products' => $result ?? []
+        ], 200);
+    }
+
     public function getMostPopular($amount)
     {
 

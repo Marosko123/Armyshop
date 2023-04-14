@@ -45,4 +45,3 @@ deleteFromUrl = async function (subroute) {
         console.log(error);
     }
 };
-

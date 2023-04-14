@@ -20,12 +20,11 @@ Route::get('/', function () {
     return view('landingPage');
 });
 
-
-//TEST
-Route::get('test', [TestViewController::class, 'get']);
-
 //Login and register menu
-Route::get('login', [LoginRegisterViewController::class, 'get']);
+Route::get('login', function () {
+    return view('loginAndRegisterMenu');
+});
+
 // Payment detail
 Route::get('paymentDetail', function () {
     return view('paymentDetail');
@@ -36,7 +35,32 @@ Route::get('products', function () {
     return view('products');
 });
 
+// Products
+Route::get('products/{category}', function () {
+    return view('products');
+});
+
+// Products
+Route::get('products/{category}/{subcategory}', function () {
+    return view('products');
+});
+
+// Products
+Route::get('products/{category}/{subcategory}/{product}', function () {
+    return view('products');
+});
+
 // Product detail
 Route::get('productDetail', function () {
     return view('productDetail');
+});
+
+// User profile
+Route::get('profile', function () {
+    return view('userProfile');
+});
+
+// Shopping cart
+Route::get('shoppingCart', function () {
+    return view('shoppingCart');
 });

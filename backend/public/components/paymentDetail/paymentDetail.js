@@ -93,3 +93,32 @@ handlePopup = () => {
         }
     }, 1000);
 };
+
+//load logged in user data
+window.addEventListener('load', function () {
+    //do not load data if user is not logged in
+    data = JSON.parse(localStorage.getItem("armyshop_currently_signed_in_user"));
+    if (data === null)
+      return;
+  
+    //load user data into fields
+    if (data.email)
+        document.getElementById('email-input').value = data.email;
+
+    if (data.phone)
+      document.getElementById('telephone-input').value = data.phone;
+  
+    if (data.first_name)
+      document.getElementById('first-name-input').value = data.first_name;
+  
+    if (data.last_name)
+      document.getElementById('last-name-input').value = data.last_name;
+  
+    if (data.address) {
+      addressFields = data.address.split(",");
+      document.getElementById('address-input').value = addressFields[0];
+      document.getElementById('zip-input').value = addressFields[1];
+      document.getElementById('city-input').value = addressFields[2];
+      document.getElementById('country-input').value = addressFields[3];
+    }
+  });

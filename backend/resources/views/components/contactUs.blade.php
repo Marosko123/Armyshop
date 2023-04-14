@@ -1,20 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> Payment detail </title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="./contactUs.css">
-		<link rel="stylesheet" href="../../common/styles.css">
-    <script src="./contactUs.js"></script>
-</head>
-<body class="text-center">
+<footer class="text-center">
 	<!-- contact us -->
 	<div id="contact-us">
 		<div class="contact-us-wrapper">
 			<div class="contact-us-column">
 				<h1>Contact us</h1>
+				<h1>WAZZZUUUUPP</h1>
 				<p>Phone: +421 9xx xxx xxx</p>
 				<p>Email: info@armyshop.xd</p>
 			</div>
@@ -22,7 +12,7 @@
 				<a href="#" target="_blank">
 					<!-- custom image -->
 					<img class="contact-us-logo" 
-						src="../../resources/images/logo/logoTransparent.png" 
+						src="{{ asset('images/logo/logoTransparent.png') }}" 
 						alt="Armyshop">
 				</a>
 				<div class="contact-us-social-media">
@@ -44,5 +34,4 @@
 			</div>
 		</div>
 	</div>
-</body>
-</html>
+</footer>

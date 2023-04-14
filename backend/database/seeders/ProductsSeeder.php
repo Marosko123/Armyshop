@@ -54,7 +54,7 @@ class ProductsSeeder extends Seeder
         Product::create([
             "name" => "Five-Seven",
             "price" => 499.99,
-            "description" => "The Five-seven is a semi-automatic delayed blowback pistol chambered for FN's 5.7×28mm ammunition. The pistol has a concealed hammer. Polymer materials are used extensively in the pistol's design, and even the steel slide is encased in a polymer shell. This provides reduced weight and greater resistance to corrosion.",
+            "description" => "The Five-seven is a semi-automatic delayed blowback pistol chambered for FN's 5.7x28mm ammunition. The pistol has a concealed hammer. Polymer materials are used extensively in the pistol's design, and even the steel slide is encased in a polymer shell. This provides reduced weight and greater resistance to corrosion.",
             "image_url" => "https://img.freepik.com/free-vector/black-pistol-white_1308-36380.jpg?w=1800&t=st=1681023988~exp=1681024588~hmac=fd24948369a985299536b10cd218f40f3eb8b1c0723b26c7f5aad2ea7f714b2a",
             "alt_text" => "Five-Seven on white background",
             "subcategory_id" => 1,
