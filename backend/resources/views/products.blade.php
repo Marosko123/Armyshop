@@ -48,19 +48,24 @@ integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6
 			<!-- filters -->
 			<div id="filters">
 			<div class="slider-order d-flex justify-content-between mx-auto">
-				<div class="slider-container">
-				<p class="order-description">0 € - 999999 €</p>
-				<div class="slider">
-					<input type="range" min="0" max="1000" value="0" class="slider-range" id="myRange1">
-					<input type="range" min="1000" max="50000" step="1000" value="50000" class="slider-range" id="myRange2">
-				</div>
-				</div>
+				<!-- <div class="slider-container">
+					<p class="order-description">0 € - 999999 €</p>
+					<div class="slider">
+						<input type="range" min="0" max="1000" value="0" class="slider-range" id="myRange1">
+						<input type="range" min="1000" max="50000" step="1000" value="50000" class="slider-range" id="myRange2">
+					</div>
+				</div> -->
+				<section class="range-slider">
+				<p class="order-description">0 € - 99999 €</p>
+				<input value="80000" min="0" max="99999" step="10" type="range" class="slider-input">
+				<input value="10000" min="0" max="99999" step="10" type="range" class="slider-input">
+				</section>
 
 				<div class="license-needed d-flex mt-3">
-				<p class="order-description toggle-license">License:</p>
-				<!-- image source: freeiconspng.com -->
-				<img src="{{ asset('images/productDetailImages/checkmark.png') }}" alt="" width="10%" height="30%"
-					class="checkmark-img checkmark" id="license-checkmark" onclick="toggleCheckmark(this)">
+					<p class="order-description toggle-license">License:</p>
+					<!-- image source: freeiconspng.com -->
+					<img src="{{ asset('images/productDetailImages/checkmark.png') }}" alt="" width="10%" height="30%"
+						class="checkmark-img checkmark" id="license-checkmark" onclick="toggleCheckmark(this)">
 				</div>
 
 				<div class="dropdown-orderby">
@@ -80,10 +85,11 @@ integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6
 		<!-- paging -->
 		<div class="pagination-container">
 			<ul class="pagination">
-			<li><a href="#">1</a></li>
-			<li><a href="#">2</a></li>
-			<li><a href="#">3</a></li>
-			<li><a href="#">Next</a></li>
+				<li><a id="page-prev" class="disabled-page">Previous</a></li>
+				<li><a href="#" id="page1">1</a></li>
+				<li><a href="#" id="page2">2</a></li>
+				<li><a href="#" id="page3">3</a></li>
+				<li><a id="page-next">Next</a></li>
 			</ul>
 		</div>
 	</main>

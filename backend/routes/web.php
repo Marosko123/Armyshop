@@ -36,18 +36,24 @@ Route::get('products', function () {
 });
 
 // Products
-Route::get('products/{category}', function () {
+Route::get('products/category/{category}', function () {
     return view('products');
 });
 
 // Products
-Route::get('products/{category}/{subcategory}', function () {
+Route::get('products/subcategory/{subcategory}', function () {
     return view('products');
 });
 
 // Product detail
 Route::get('product/{productID}', function ($productID) {
     return view('productDetail',['productID'=>$productID]);
+Route::get('products/{product}', function () {
+    return view('productDetail');
+});
+
+Route::get('productDetail', function () {
+    return view('productDetail');
 });
 
 // User profile
