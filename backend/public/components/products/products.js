@@ -17,7 +17,7 @@ function addToCart() {
 
 async function getAllProducts(pageNumber = 1) {
     // get all products from backend
-    const productResponse = await getFromUrl('/products');
+    const productResponse = await ServerRequester.getFromUrl('/products');
     const productList = productResponse.products;
 
     // get relevant products for page
@@ -36,7 +36,7 @@ async function getAllProducts(pageNumber = 1) {
         let liked = false;
         const userId = 1; // local storage
         const productId = product.id;
-        const response = await getFromUrl(`/liked_products/${userId}/${productId}`);
+        const response = await ServerRequester.getFromUrl(`/liked_products/${userId}/${productId}`);
         if (response.status === 200) {
             liked = true;
         }

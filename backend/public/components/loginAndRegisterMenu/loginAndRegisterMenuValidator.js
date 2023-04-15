@@ -14,7 +14,7 @@ registerForm?.addEventListener("submit", async (e) => {
 
         const img = sessionStorage.getItem("military-passport");
 
-        const response = await postToUrl("/register", {
+        const response = await ServerRequester.postToUrl("/register", {
             email: registerEmail.value.trim(),
             password: registerPassword1.value.trim(),
             license_picture: img,
@@ -43,7 +43,7 @@ loginForm?.addEventListener("submit", async (e) => {
     if (isLoginInputValid()) {
         console.log("Login data are valid");
 
-        const response = await postToUrl("/login", {
+        const response = await ServerRequester.postToUrl("/login", {
             email: loginEmail.value.trim(),
             password: loginPassword1.value.trim(),
         });

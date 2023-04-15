@@ -51,7 +51,7 @@ onOrderNowClicked = async (event) => {
             deliveryMethod,
             paymentMethod,
         });
-        const response = await postToUrl("/finished_orders/1", {
+        const response = await ServerRequester.postToUrl("/finished_orders/1", {
             ordered_products,
             delivery_details,
         });

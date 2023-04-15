@@ -1,7 +1,7 @@
 const onSearchInputChanged = async (event) => {
     const searchString = event.target.value.replace(" ", "+");
 
-    const listOfProducts = await getFromUrl(
+    const listOfProducts = await ServerRequester.getFromUrl(
         "/products/search?q=" + searchString
     );
 
@@ -33,7 +33,9 @@ const onProfileClicked = () => {
       }
 };
 
-window.addEventListener('load', function() {
+window.addEventListener('load',async function() {
+    GlobalVariables.products = await ServerRequester.getFromUrl("/products");
+    console.log(GlobalVariables.products);
     if (localStorage.getItem("armyshop_currently_signed_in_user") != null) {
         const imgs = document.querySelectorAll('.profile__button');
 

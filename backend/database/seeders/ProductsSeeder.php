@@ -81,8 +81,6 @@ class ProductsSeeder extends Seeder
             "license_needed" => true
         ]);
 
-
-
         // Weapons - rifles
         Product::create([
             "name" => "AR15",
