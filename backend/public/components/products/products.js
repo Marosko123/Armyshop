@@ -15,6 +15,12 @@ function addToCart() {
 
 }
 
+let maxPrice = 0;
+let minPrice = 0;
+const orderDescription = document.querySelector('.order-description');
+const sliders1 = document.querySelectorAll(".slider-input");
+let slider1 = sliders1[0];
+let slider2 = sliders1[1];
 
 // spravit tri verzie tejto funkcie, jednu pre vsetky produkty a druhu pre produkty z kategorie a tretiu pre podkategorie
 async function getAllProducts(pageNumber, category = null, subcategory = null) {
@@ -31,6 +37,18 @@ async function getAllProducts(pageNumber, category = null, subcategory = null) {
     const productResponse = await getFromUrl(url);
     const pageProductList = productResponse.products;
     const count = productResponse.count;
+    
+    // calculate the max and min price
+    maxPrice = Math.max(...pageProductList.map(product => product.price));
+    minPrice = Math.min(...pageProductList.map(product => product.price));
+    orderDescription.textContent = `${minPrice} € - ${maxPrice} €`
+    slider1.min = minPrice;
+    slider1.max = maxPrice;
+    slider2.min = minPrice;
+    slider2.max = maxPrice;
+    slider1.value = minPrice;
+    slider2.value = maxPrice;
+
     console.log(`Number of products: ${count}`);
 
     const notLikedImg = 'http://127.0.0.1:8000/images/productDetailImages/heart6.png';
@@ -130,9 +148,9 @@ async function getProductsByCategory(categoryId) {
 let numberOfPages = 10;
 
 async function getInitialProducts() {
-    console.log('getting page number');
+    // console.log('getting page number');
     numberOfPages = await getAllProducts(1);
-    console.log('pages ' + numberOfPages);
+    // console.log('pages ' + numberOfPages);
 }
 
 getInitialProducts();
@@ -223,16 +241,32 @@ function toggleCheckmark(checkmark) {
     }
 }
 
-// slider range
-const range1 = document.getElementById('myRange1');
-const range2 = document.getElementById('myRange2');
-const output = document.querySelector('.order-description');
-output.textContent = '0 € - 50000 €'
-range1.addEventListener('input', () => {
-    console.log('hello');
-    output.textContent = range1.value + " € - " + range2.value + " €";
-});
 
-range2.addEventListener('input', () => {
-    output.textContent = range1.value + " € - " + range2.value + " €";
-});
+
+function getVals(){
+    // Get slider values
+    var parent = this.parentNode;   
+    var slides = parent.getElementsByTagName("input");
+    var slide1 = parseFloat( slides[0].value );
+    var slide2 = parseFloat( slides[1].value );
+
+    // Neither slider will clip the other, so make sure we determine which is larger
+    if( slide1 > slide2 ){ let tmp = slide2; slide2 = slide1; slide1 = tmp; }
+    let desc = parent.getElementsByClassName("order-description")[0];
+    desc.innerHTML = slide1 + " € - " + slide2 + " €";
+  }
+  
+  window.onload = function(){
+    // Initialize Sliders
+    var sliderSections = document.getElementsByClassName("range-slider");
+        for( var x = 0; x < sliderSections.length; x++ ){
+          var sliders = sliderSections[x].getElementsByTagName("input");
+          for( var y = 0; y < sliders.length; y++ ){
+            if( sliders[y].type ==="range" ){
+              sliders[y].oninput = getVals;
+              // Manually trigger event first time to display values
+              sliders[y].oninput();
+            }
+          }
+        }
+  }
