@@ -23,109 +23,7 @@
 				<div id="cart-container">
 					<div class="listContainerElement">
 					<div class="itemList">
-						<ul>
-						<li>
-							<div class="item">
-							<!-- image source: unsplash.com -->
-							<img class="img" src="{{ asset('images/productImages/weapons/bexar-arms-uLOWWVPVefQ-unsplash.jpg') }}" alt="">
-							<div class="desc">
-								<div class="title-remove">
-								<h3>Assault rifle black steel
-								</h3>
-								<button class="remove-button">
-									<!-- image source: flaticon.com -->
-									<img class="remove-button-img" src="{{ asset('images/shoppingCartImages/3515498.png') }}">
-								</button>
-								</div>
-								<div class="prices">
-								<p class="singularPrice">339.90€</p>
-								<div class="multiple">
-									<div class="countControls">
-									<button class="countControlButtons" id="minusButton">-</button>
-									<input type="number" value="1">
-									<button class="countControlButtons" id="plusButton">+</button>
-									</div>
-									<p class="multiplePrice">339.90€</p>
-								</div>
-								</div>
-							</div>
-							</div>
-							<div class="item">
-							<!-- image source: unsplash.com -->
-							<img class="img" src="{{ asset('images/productImages/weapons/dusty-barnes-oNyJXHIxlWI-unsplash.jpg') }}" alt="">
-							<div class="desc">
-								<div class="title-remove">
-								<h3>Small firearm vintage cast steel, wooden handle 6 shots
-								</h3>
-								<button class="remove-button">
-									<!-- image source: flaticon.com -->
-									<img class="remove-button-img" src="{{ asset('images/shoppingCartImages/3515498.png') }}">
-								</button>
-								</div>
-								<div class="prices">
-								<p class="singularPrice">39.90€</p>
-								<div class="multiple">
-									<div class="countControls">
-									<button class="countControlButtons" id="minusButton">-</button>
-									<input type="number" value="2">
-									<button class="countControlButtons" id="plusButton">+</button>
-									</div>
-									<p class="multiplePrice">79.80€</p>
-								</div>
-								</div>
-							</div>
-							</div>
-							<div class="item">
-							<!-- image source: unsplash.com -->
-							<img class="img" src="{{ asset('images/productImages/weapons/jay-rembert-e0kgA5otj0Q-unsplash.jpg') }}" alt="">
-							<div class="desc">
-								<div class="title-remove">
-								<h3>Small firearm modern cast steel, semi-automatic
-								</h3>
-								<button class="remove-button">
-									<!-- image source: flaticon.com -->
-									<img class="remove-button-img" src="{{ asset('images/shoppingCartImages/3515498.png') }}">
-								</button>
-								</div>
-								<div class="prices">
-								<p class="singularPrice">250€</p>
-								<div class="multiple">
-									<div class="countControls">
-									<button class="countControlButtons" id="minusButton">-</button>
-									<input type="number" value="4">
-									<button class="countControlButtons" id="plusButton">+</button>
-									</div>
-									<p class="multiplePrice">1000€</p>
-								</div>
-								</div>
-							</div>
-							</div>
-							<div class="item">
-							<!-- image source: unsplash.com -->
-							<img class="img" src="{{ asset('images/productImages/weapons/stngr-industries-D6egwLuXVDU-unsplash.jpg') }}" alt="">
-							<div class="desc">
-								<div class="title-remove">
-								<h3>Assault rifle with sights
-								</h3>
-								<button class="remove-button">
-									<!-- image source: flaticon.com -->
-									<img class="remove-button-img" src="{{ asset('images/shoppingCartImages/3515498.png') }}">
-								</button>
-								</div>
-								<div class="prices">
-								<p class="singularPrice">39.90€</p>
-								<div class="multiple">
-									<div class="countControls">
-									<button class="countControlButtons" id="minusButton">-</button>
-									<input type="number" value="2">
-									<button class="countControlButtons" id="plusButton">+</button>
-									</div>
-									<p class="multiplePrice">79.80€</p>
-								</div>
-								</div>
-							</div>
-							</div>
-						</li>
+						<ul id="products">
 						</ul>
 					</div>
 					</div>
@@ -138,15 +36,15 @@
 					<table>
 						<tr>
 						<td>Subtotal:</td>
-						<td>1499,50€</td>
+						<td id="subtotal"></td>
 						</tr>
 						<tr>
 						<td>Shipping:</td>
-						<td>10€</td>
+						<td id="shipping"></td>
 						</tr>
-						<tr id="total">
-						<td id="total">Total:</td>
-						<td id="total">1509,50€</td>
+						<tr class="total">
+						<td class="total">Total:</td>
+						<td class="total" id="total"></td>
 						</tr>
 					</table>
 					</div>
