@@ -46,9 +46,7 @@ Route::get('products/subcategory/{subcategory}', function () {
 });
 
 // Product detail
-Route::get('product/{productID}', function ($productID) {
-    return view('productDetail',['productID'=>$productID]);
-Route::get('products/{product}', function () {
+Route::get('product/{product}', function () {
     return view('productDetail');
 });
 
