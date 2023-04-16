@@ -66,6 +66,68 @@ const categorySubcategoryMap = {
     "accessories": [24, 25, 26]
 };
 
+const reverseSubcategoriesDict = {};
+for (let key in subcategoriesDict) {
+    reverseSubcategoriesDict[subcategoriesDict[key]] = key;
+}
+
+function getCategoryFromSubcategory(subcategory) {
+    // Find the category that contains the subcategory
+    for (const category in categorySubcategoryMap) {
+        if (categorySubcategoryMap[category].includes(subcategoriesDict[subcategory])) {
+            return category;
+        }
+    }
+    // If the subcategory is not found, return null
+    return null;
+}
+
+
+
+// function to get the subcategories for a category
+function getSubcategoriesForCategory() {
+    // Get the parent element for the subcategories
+    const subcategoriesContainer = document.querySelector('.subcategories');
+    let category = null;
+    // find out whether there is a category in the url
+    const url = window.location.href;
+    if (url.includes('subcategory')) {
+        category = getCategoryFromSubcategory(url.split('subcategory/')[1].split('?')[0]);
+    }
+    isCategory = url.includes('category')
+    if (isCategory) {
+        if (category === null) {
+            // get the category from the url
+            category = url.split('category/')[1];
+            category = category.split('?')[0];
+        }
+        // get the subcategories for the category
+        let subcategories = categorySubcategoryMap[category];
+        console.log(subcategories);
+        // get the subcategories names
+        subcategories = subcategories.map(subcategory => reverseSubcategoriesDict[subcategory]);
+
+        // Generate the HTML markup for the subcategories
+        const subcategoriesMarkup = subcategories.map(subcategory => `
+          <div class="subcategory" onclick="onSubCategoryClicked('${subcategory}')">
+            <h3 class="description">${subcategory.charAt(0).toUpperCase() + subcategory.slice(1)}</h3>
+          </div>
+        `).join('');
+
+        // Set the innerHTML of the parent container to the generated HTML
+        subcategoriesContainer.innerHTML = subcategoriesMarkup;
+
+        // delete the margin class from the parent container
+        subcategoriesContainer.classList.remove('mt-3');
+    }
+}
+
+
+
+
+
+
+
 const notLikedImg = 'http://127.0.0.1:8000/images/productDetailImages/heart6.png';
 const likedImg = 'http://127.0.0.1:8000/images/productDetailImages/heart4.png';
 
@@ -77,7 +139,6 @@ async function getLikedProducts() {
     const userId = 1; // local storage
     const response = await ServerRequester.getFromUrl(`/liked_products/${userId}`);
 
-    let likedArray = [];
     if (response.status === 200) {
         likedArray = response.products.map(product => product.product_id);
     } else {
@@ -171,6 +232,8 @@ function getProductsHTML(products, notLikedImg, likedImg, likedArray) {
 
 async function getAllProducts(page) {
 
+    getSubcategoriesForCategory()
+
     await waitForProducts;
     console.log(`Number of products: ${GlobalVariables.products.length}`);
     products = GlobalVariables.products;
@@ -192,9 +255,6 @@ async function getAllProducts(page) {
         products = getByCategory(products, category);
     }
 
-    // initialize slider
-    initializeSlider(products);
-    count = products.length;
 
     // filter by slider
     products = filterBySlider(products);
@@ -204,6 +264,10 @@ async function getAllProducts(page) {
 
     // order by price
     products = orderByPrice(products);
+
+    // initialize slider
+    initializeSlider(products);
+    count = products.length;
 
     // create html for each product
     let productsHTML = '';
