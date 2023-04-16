@@ -36,4 +36,9 @@
 	</div>
 	<script src="{{ asset('js/globalVariables.js') }}"></script>
 	<script src="{{ asset('js/formatter.js') }}"></script>
+	<script src="{{ asset('js/subcategoriesMap.js') }}"></script>
+    <script src="{{ asset('js/serverRequester.js') }}"></script>
+	<script src="{{ asset('components/landingPage/landingPage.js') }}"></script>
+	<script src="{{ asset('components/navbar/navbar.js') }}"></script>
+	<script src="{{ asset('components/contactUs/contactUs.js') }}"></script>
 </footer>

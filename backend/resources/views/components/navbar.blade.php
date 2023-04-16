@@ -11,7 +11,7 @@
 							alt="Armyshop">
 					</a>
 					<div class="search-input-wrapper">
-						<input class="form-control search-input" type="search" placeholder="WAZZZUUUUPP" aria-label="Search">
+						<input class="form-control search-input" type="search" placeholder="Search for products.." aria-label="Search">
 						<div id="search-results-wrapper"></div>
 					</div>
 					<!-- image source: freeiconspng.com -->

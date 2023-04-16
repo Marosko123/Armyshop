@@ -1,5 +1,9 @@
 const onSearchInputChanged = async (event) => {
     const searchString = event.target.value.replace(" ", "+");
+    if (searchString.length < 3) {
+        document.getElementById("search-results-wrapper").innerHTML = "";
+        return;
+    }
 
     const listOfProducts = await ServerRequester.getFromUrl(
         "/products/search?q=" + searchString
@@ -28,22 +32,29 @@ const onShoppingCartClicked = () => {
 const onProfileClicked = () => {
     if (localStorage.getItem("armyshop_currently_signed_in_user") === null) {
         window.location.href = "/login";
-      } else {
+    } else {
         window.location.href = "/profile";
-      }
+    }
 };
 
-window.addEventListener('load',async function() {
-    GlobalVariables.products = await ServerRequester.getFromUrl("/products");
-    console.log(GlobalVariables.products);
-    if (localStorage.getItem("armyshop_currently_signed_in_user") != null) {
-        const imgs = document.querySelectorAll('.profile__button');
+window.addEventListener("load", async function () {
+    const response = await ServerRequester.getFromUrl("/products");
 
-        imgs.forEach(img => {
-            img.style.backgroundColor = 'gold';
+    if (response.status !== 200) {
+        return;
+    }
+
+    GlobalVariables.products = response.products;
+    console.log(GlobalVariables.products);
+
+    if (localStorage.getItem("armyshop_currently_signed_in_user") != null) {
+        const imgs = document.querySelectorAll(".profile__button");
+
+        imgs.forEach((img) => {
+            img.style.backgroundColor = "gold";
         });
     }
-  });
+});
 
 const onCategoryClicked = (category) => {
     window.location.href = "/products/" + category;
@@ -54,20 +65,25 @@ const onSubCategoryClicked = (category, subcategory) => {
 };
 
 const onSearchResultSelected = (result) => {
-    const resultString =
-        "/products/" +
-        result
-            .querySelector(".search-result-row-category")
-            .innerHTML.toLowerCase()
-            .replace(" ", "_") +
-        "/" +
-        result
-            .querySelector(".search-result-row-label")
-            .innerHTML.toLowerCase()
-            .replace(" ", "_")
-            .replace("<mark>", "")
-            .replace("</mark>", "");
-    window.location.href = resultString;
+    const category = result
+        .querySelector(".search-result-row-category")
+        .innerHTML.toLowerCase()
+        .replace(" ", "_");
+
+    const productName = result
+        .querySelector(".search-result-row-label")
+        .innerHTML.toLowerCase()
+        .replace(" ", "_")
+        .replace("<mark>", "")
+        .replace("</mark>", "");
+
+    const productId = GlobalVariables.products.find(
+        (product) => product.name.toLowerCase() === productName
+    )?.id;
+
+    if (productId != null) {
+        window.location.href = `/products/${category}/${productId}`;
+    }
 };
 
 const createListOfResults = (results, searchString) => {

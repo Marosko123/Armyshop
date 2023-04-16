@@ -60,7 +60,7 @@ class SubcategoriesMap {
 
     static getFullPathFromId(id) {
         const res = SubcategoriesMap.list.find((x) => x.id === id);
-        return `${res.parent}/${res.name}`;
+        return res ? `${res.parent}/${res.name}` : "";
     }
 
     toString() {

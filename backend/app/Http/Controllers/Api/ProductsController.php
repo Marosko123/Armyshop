@@ -13,9 +13,25 @@ class ProductsController extends Controller
 {
     public function getAll()
     {
+        $products = Product::get();
+
+        if ($products) {
+            return response()->json([
+                'status' => 200,
+                'products' => $products
+            ], 200);
+        } else {
+            return response()->json([
+                'status' => 500,
+                'message' => 'Failed to get products from database.'
+            ], 500);
+        }
+    }
+
+    public function getByLimit()
+    {
         $pageNumber = 1;
-        if (isset($_GET['page']))
-        {
+        if (isset($_GET['page'])) {
             $pageNumber = $_GET['page'];
         }
         $limit = 18;
@@ -60,8 +76,7 @@ class ProductsController extends Controller
     public function getFromCategory($category_id, $pageNumber)
     {
         $pageNumber = 1;
-        if (isset($_GET['page']))
-        {
+        if (isset($_GET['page'])) {
             $pageNumber = $_GET['page'];
         }
         $amount = 18;
