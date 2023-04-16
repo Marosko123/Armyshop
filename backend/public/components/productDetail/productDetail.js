@@ -157,8 +157,8 @@ document.querySelector('.addToBasket').addEventListener('click', async (e) => {
 
     user = JSON.parse(localStorage.getItem('armyshop_currently_signed_in_user'));
     if(user){
-        fetch(`/api/baskets/update/${user.id}/${productID}/${data[product.product.id].count}`, {
-            method: 'PUT',
+        fetch(`/api/baskets/add/${user.id}/${productID}/${data[product.product.id].count}`, {
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },

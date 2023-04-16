@@ -68,7 +68,7 @@ class BasketsController extends Controller
             ->first();
 
         if ($basket) {
-            $basket->quantity += $quantity;
+            $basket->quantity = $quantity;
             $basket->save();
         } else {
             $basket = new Basket;
@@ -114,16 +114,11 @@ class BasketsController extends Controller
             ], 404);
         }
 
-        $basket->quantity -= 1;
-        $basket->save();
-
-        if ($basket->quantity == 0) {
-            $basket->delete();
-        }
+        $basket->delete();
 
         return response()->json([
             'status' => 200,
-            'message' => 'Product quantity decreased successfully',
+            'message' => 'Successfuly deleted',
         ], 200);
     }
 

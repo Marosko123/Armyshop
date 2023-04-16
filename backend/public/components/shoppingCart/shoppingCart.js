@@ -148,6 +148,7 @@ window.addEventListener('load', function () {
 
             var product = document.getElementById(`product_${key}`);
             product.parentNode.removeChild(product);
+            saveToDB(key, null, true);
         });
     }
     calculateSummary(data);
@@ -172,7 +173,7 @@ function handleProductCountChange(key, increment, decrement, value) {
 
     localStorage.setItem("cart", JSON.stringify(data));
 
-    ServerRequester.postToUrl()
+    saveToDB(key, data[key].count);
 }
 
 function calculateSummary(data) {
@@ -184,4 +185,32 @@ function calculateSummary(data) {
     // document.getElementById(`shipping`).innerText = Formatter.formatPrice(shippingCost);
     // document.getElementById(`total`).innerText = Formatter.formatPrice(subtotal + shippingCost);
     document.getElementById(`total`).innerText = Formatter.formatPrice(subtotal);
+}
+
+function saveToDB(productID, count, remove){
+    user = JSON.parse(localStorage.getItem('armyshop_currently_signed_in_user'));
+    if(!user) return;
+
+    if(remove){
+        fetch(`/api/baskets/delete/${user.id}/${productID}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error(error));
+        return;
+    }
+
+    fetch(`/api/baskets/add/${user.id}/${productID}/${count}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .catch(error => console.error(error));
 }

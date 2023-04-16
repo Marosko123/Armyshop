@@ -73,9 +73,23 @@ const handleUserAuthentication = async (user) => {
         "armyshop_currently_signed_in_user",
         JSON.stringify(user)
     );
+
+
+    fetch(`/api/baskets/${user.id}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(data => loadToStorage(data))
+    .catch(error => console.error(error));
+
     document.querySelector("#login-popup").remove();
     const profileButton = document.querySelector(".profile__button");
     profileButton.style.backgroundColor = "gold";
+
+    location.reload();
 };
 
 const setError = (element, message) => {
@@ -168,3 +182,19 @@ const isLoginInputValid = () => {
 
     return numberOfErrors === 0;
 };
+
+function loadToStorage(data){
+    basket = data['products'];
+    products = {};
+    
+    Object.values(basket).forEach(product => {
+        cartProduct = (Object.values(GlobalVariables.products).filter(globalProduct => globalProduct.id === product.product_id)[0]);
+        delete cartProduct['description'];
+        delete cartProduct['id'];
+        delete cartProduct['license_needed'];
+        delete cartProduct['subcategory_id'];
+        cartProduct['count'] = product.quantity;
+        products[product.product_id] = cartProduct;
+    });
+    localStorage.setItem('cart', JSON.stringify(products));
+}

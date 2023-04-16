@@ -42,6 +42,7 @@ class LoginRegisterController extends Controller
                 'message' => 'Invalid credentials',
             ], 401);
         }
+        
     }
 
     public function register(Request $request)

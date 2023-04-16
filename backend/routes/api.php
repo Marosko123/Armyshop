@@ -85,8 +85,6 @@ Route::post('baskets/add/{user_id}/{product_id}/{quantity}', [BasketsController:
 Route::delete('baskets/delete/{user_id}/{product_id}', [BasketsController::class, 'deleteItem']);
 // delete all items of given id from basket
 Route::delete('baskets/delete_all_items/{user_id}/{product_id}', [BasketsController::class, 'deleteAllItems']);
-// update product in basket
-Route::put('baskets/update/{user_id}/{product_id}/{quantity}', [BasketsController::class, 'update']);
 
 
 // PRODUCTS
