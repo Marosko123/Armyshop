@@ -79,6 +79,7 @@ saveChangesButton.addEventListener('click', async function () {
             document.getElementById('country').value;
   
   data = {
+    "id":oldData.id,
     "email": document.getElementById('email').value,
     "first_name": document.getElementById('name').value.split(" ")[0],
     "last_name": document.getElementById('name').value.split(" ")[1],
@@ -87,9 +88,20 @@ saveChangesButton.addEventListener('click', async function () {
     "license_picture": null,
   };
 
-  console.log(data);
   localStorage.setItem("armyshop_currently_signed_in_user",JSON.stringify(data));
 
+  newUserData = {
+    'id': oldData.id,
+    'email': data.email,
+    'first_name': data.first_name,
+    'last_name': data.last_name,
+    'age': null,
+    "address": data.address,
+    'is_license_valid': 0,
+    'license_picture': null
+  }
+  console.log(newUserData);
+  ServerRequester.postToUrl(`/users/${newUserData.id}/update`, newUserData);
 
   alert("Changes saved.");
 });
