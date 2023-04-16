@@ -87,14 +87,16 @@ saveChangesButton.addEventListener("click", async function () {
   
   data = {
     "id":oldData.id,
-    "email": document.getElementById('email').value,
     "first_name": document.getElementById('name').value.split(" ")[0],
     "last_name": document.getElementById('name').value.split(" ")[1],
+     "email" : document.getElementById('email').value,
     "address": address
   };
 
   localStorage.setItem("armyshop_currently_signed_in_user",JSON.stringify(data));
 
+  if(oldData.email == document.getElementById('email').value) 
+    delete data["email"];
 
   fetch(`/api/users/update/${data.id}`, {
       method: 'PUT',
@@ -106,6 +108,6 @@ saveChangesButton.addEventListener("click", async function () {
   .then(response => response.json())
   .then(data => console.log(data))
   .catch(error => console.error(error));
+   alert("Changes saved.");
 
-    alert("Changes saved.");
 });

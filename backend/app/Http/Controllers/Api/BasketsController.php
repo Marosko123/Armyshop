@@ -68,7 +68,7 @@ class BasketsController extends Controller
             ->first();
 
         if ($basket) {
-            $basket->quantity += 1;
+            $basket->quantity += $quantity;
             $basket->save();
         } else {
             $basket = new Basket;
