@@ -1,6 +1,10 @@
 
+let product = '';
+let productID = 0;
+
 window.addEventListener('load', async function () {
-    const product = await ServerRequester.getFromUrl(`/products/${window.location.href.split("/")[window.location.href.split("/").length -1]}`);
+    productID = window.location.href.split("/")[window.location.href.split("/").length - 1];
+    product = await ServerRequester.getFromUrl(`/products/${productID}`);
     console.log(product);
 });
 
@@ -9,7 +13,7 @@ function toggleIcon(likedPhoto) {
         // Image source: flaticon.com
         likedPhoto.src = "http://127.0.0.1:8000/images/productDetailImages/heart6.png";
         likedPhoto.classList.remove("liked-photo-new");
-        
+
         // delete from liked products table
         // const productId = window.location.href.split("/").pop();
         const productId = 1
@@ -132,8 +136,26 @@ document.querySelector('.addToBasket').addEventListener('click', async (e) => {
     //     return handlePopup();
     // }
 
+    data = [];
+    data = JSON.parse(localStorage.getItem("cart"));
 
+    if (!data)
+        data = {}
 
+    previousCount = parseInt(data[product.product.id] ? data[product.product.id].count : 0);
+    console.log(previousCount);
+
+    data[product.product.id] = {
+        'name': product.product['name'],
+        'image_url': product.product['image_url'],
+        'price': product.product['price'],
+        'alt_text': product.product['alt_text'],
+        'count': previousCount + parseInt(document.getElementById('amount').value)
+    }
+
+    localStorage.setItem("cart", JSON.stringify(data));
+
+    alert("Added to basket.");
 });
 
 document.getElementById('order-now').addEventListener('click', async (e) => {
@@ -144,7 +166,7 @@ document.getElementById('order-now').addEventListener('click', async (e) => {
         amount: amount
     };
     return handlePopup(true);
-    
+
 });
 
 handlePopup = (orderNow = false) => {
@@ -153,7 +175,7 @@ handlePopup = (orderNow = false) => {
     const countdownEl = document.getElementById("countdown");
     const popupInfo = document.querySelector(".popup-info");
     const popupGoto = document.querySelector(".popup-goto");
-    if(orderNow) {
+    if (orderNow) {
         popupInfo.textContent = "You have ordered the product!";
         popupGoto.textContent = "Proceed to payment";
         popupGoto.href = "/paymentDetail";
@@ -176,4 +198,3 @@ handlePopup = (orderNow = false) => {
         }
     }, 1000);
 };
-  

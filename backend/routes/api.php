@@ -34,13 +34,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // get all users
 Route::get('users', [UsersController::class, 'get']);
 // get user by id
-Route::get('users/{id}', [UsersController::class, 'getById']);
+Route::get('users/get/{id}', [UsersController::class, 'getById']);
 // add user
 Route::post('users', [UsersController::class, 'add']);
 // update user
-Route::put('users/{id}/update', [UsersController::class, 'update']);
+Route::put('users/update/{id}', [UsersController::class, 'update']);
 // delete user
-Route::delete('users/{id}/delete', [UsersController::class, 'delete']);
+Route::delete('users/delete/{id}', [UsersController::class, 'delete']);
 
 
 // LOGIN AND REGISTER
