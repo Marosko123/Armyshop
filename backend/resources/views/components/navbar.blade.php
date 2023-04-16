@@ -48,11 +48,11 @@
 							</button>
 						</div>
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							<li><a class="dropdown-item" onclick="onSubCategoryClicked('weapons', 'pistols')">Pistols</a></li>
-							<li><a class="dropdown-item" onclick="onSubCategoryClicked('weapons', 'rifles')">Rifles</a></li>
-							<li><a class="dropdown-item" onclick="onSubCategoryClicked('weapons', 'submachine_guns')">Submachine guns</a></li>
-							<li><a class="dropdown-item" onclick="onSubCategoryClicked('weapons', 'heavy')">Heavy</a></li>
-							<li><a class="dropdown-item" onclick="onSubCategoryClicked('weapons', 'knives')">Knives</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('pistols')">Pistols</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('rifles')">Rifles</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('submachine_guns')">Submachine guns</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('heavy')">Heavy</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('knives')">Knives</a></li>
 						</ul>
 					</div>
 				</div>
@@ -69,11 +69,11 @@
 							</button>
 						</div>
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							<li><a class="dropdown-item" onclick="onSubCategoryClicked('transport', 'cars')">Cars</a></li>
-							<li><a class="dropdown-item" onclick="onSubCategoryClicked('transport', 'motocycles')">Motocycles</a></li>
-							<li><a class="dropdown-item" onclick="onSubCategoryClicked('transport', 'panzers')">Panzers</a></li>
-							<li><a class="dropdown-item" onclick="onSubCategoryClicked('transport', 'planes')">Planes</a></li>
-							<li><a class="dropdown-item" onclick="onSubCategoryClicked('transport', 'boats')">Boats</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('cars')">Cars</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('motocycles')">Motocycles</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('panzers')">Panzers</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('planes')">Planes</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('boats')">Boats</a></li>
 						</ul>
 					</div>
 				</div>
@@ -90,11 +90,11 @@
 							</button>
 						</div>
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							<li><a class="dropdown-item" onclick="onSubCategoryClicked('clothing','jackets')">Jackets</a></li>
-							<li><a class="dropdown-item" onclick="onSubCategoryClicked('clothing','shirts')">Shirts</a></li>
-							<li><a class="dropdown-item" onclick="onSubCategoryClicked('clothing','pants')">Pants</a></li>
-							<li><a class="dropdown-item" onclick="onSubCategoryClicked('clothing','shoes')">Shoes</a></li>
-							<li><a class="dropdown-item" onclick="onSubCategoryClicked('clothing','socks')">Socks</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('jackets')">Jackets</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('shirts')">Shirts</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('pants')">Pants</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('shoes')">Shoes</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('socks')">Socks</a></li>
 						</ul>
 					</div>
 				</div>
@@ -111,11 +111,11 @@
 							</button>
 						</div>
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							<li><a class="dropdown-item" onclick="onSubCategoryClicked('explosives', 'c4s')">C4s</a></li>
-							<li><a class="dropdown-item" onclick="onSubCategoryClicked('explosives', 'nukes')">Nukes</a></li>
-							<li><a class="dropdown-item" onclick="onSubCategoryClicked('explosives', 'grenades')">Grenades</a></li>
-							<li><a class="dropdown-item" onclick="onSubCategoryClicked('explosives', 'tnts')">TNTs</a></li>
-							<li><a class="dropdown-item" onclick="onSubCategoryClicked('explosives', 'bombs')">Bombs</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('c4s')">C4s</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('nukes')">Nukes</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('grenades')">Grenades</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('tnts')">TNTs</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('bombs')">Bombs</a></li>
 						</ul>
 					</div>
 				</div>
@@ -132,9 +132,9 @@
 							</button>
 						</div>
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							<li><a class="dropdown-item" onclick="onSubCategoryClicked('equipment', 'backpacks')">Backpacks</a></li>
-							<li><a class="dropdown-item" onclick="onSubCategoryClicked('equipment', 'hunting')">Hunting</a></li>
-							<li><a class="dropdown-item" onclick="onSubCategoryClicked('equipment', 'camping')">Camping</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('backpacks')">Backpacks</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('hunting')">Hunting</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('camping')">Camping</a></li>
 						</ul>
 					</div>
 				</div>
@@ -151,9 +151,9 @@
 							</button>
 						</div>
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<li><a class="dropdown-item" onclick="onSubCategoryClicked('accessories', 'glasses')">Glasses</a></li>
-						<li><a class="dropdown-item" onclick="onSubCategoryClicked('accessories', 'face_paint')">Face pain</a></li>
-						<li><a class="dropdown-item" onclick="onSubCategoryClicked('accessories', 'camouflage')">Camouflage</a></li>
+						<li><a class="dropdown-item" onclick="onSubCategoryClicked('glasses')">Glasses</a></li>
+						<li><a class="dropdown-item" onclick="onSubCategoryClicked('face_paint')">Face pain</a></li>
+						<li><a class="dropdown-item" onclick="onSubCategoryClicked('camouflage')">Camouflage</a></li>
 						</ul>
 					</div>
 				</div>
