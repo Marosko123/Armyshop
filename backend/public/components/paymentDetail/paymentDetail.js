@@ -143,6 +143,18 @@ window.addEventListener('load', function () {
 });
 
 function calculateSummary() {
+    buyNowCart = JSON.parse(localStorage.getItem("buyNowCart"));
+    if(buyNowCart){
+        subtotal = 0;
+        for (let key in buyNowCart)
+            subtotal += (buyNowCart[key].price * buyNowCart[key].count);
+
+        document.getElementById(`subtotal`).innerText = Formatter.formatPrice(subtotal);
+        document.getElementById(`shipping`).innerText = Formatter.formatPrice(selectedShippingCost) + ` (${deliveryMethod})`;
+        document.getElementById(`total`).innerText = Formatter.formatPrice(subtotal + selectedShippingCost);
+        return;
+    }
+    
     data = JSON.parse(localStorage.getItem("cart"));
     subtotal = 0;
     for (let key in data)

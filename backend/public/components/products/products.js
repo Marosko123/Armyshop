@@ -255,7 +255,7 @@ function getProductsHTML(products, notLikedImg, likedImg, likedArray) {
             </div>
                 <div class="card-body d-flex align-items-center justify-content-between mx-auto">
                     <!-- image source: flaticon.com -->
-                    <img src="http://127.0.0.1:8000/images/productDetailImages/cart.png" alt="" width="15%" class="cart-img">
+                    <img id='cart-button' src="http://127.0.0.1:8000/images/productDetailImages/cart.png" alt="" width="15%" class="cart-img">
                     <button type="button" class="btn btn-success btn-buy">Buy Now</button>
                 </div>
         </div>`;
@@ -335,6 +335,45 @@ function addEventListenersToCards() {
         cardImg.addEventListener('click', () => {
             window.location.href = `/products/product/${productId}`;
         });
+        
+        const cartButton = card.querySelector('#cart-button');
+
+        cartButton.addEventListener('click', () => {
+            data = [];
+            data = JSON.parse(localStorage.getItem("cart"));
+        
+            if (!data)
+                data = {}
+        
+            previousCount = parseInt(data[productId] ? data[productId].count : 0);
+            console.log(productId);
+
+            cartProduct = (Object.values(GlobalVariables.products).filter(globalProduct => globalProduct.id == productId)[0]);
+            console.log(cartProduct)
+            delete cartProduct['description'];
+            delete cartProduct['id'];
+            delete cartProduct['license_needed'];
+            delete cartProduct['subcategory_id'];
+            cartProduct['count'] = 1 + previousCount;
+            
+            data[productId] = cartProduct;
+
+            localStorage.setItem("cart", JSON.stringify(data));
+
+            user = JSON.parse(localStorage.getItem('armyshop_currently_signed_in_user'));
+            if(user){
+                fetch(`/api/baskets/add/${user.id}/${productId}/${data[productId].count}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(response => response.json())
+                .catch(error => console.error(error));
+            }
+        });
+        
     }
 }
 

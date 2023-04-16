@@ -125,16 +125,6 @@ amountInput.addEventListener("change", () => {
 
 document.querySelector('.addToBasket').addEventListener('click', async (e) => {
     e.preventDefault()
-    const amount = document.getElementById('amount').value;
-
-    // const basket = {
-    //     amount: amount
-    // };
-
-    // const response = await postToUrl(`/baskets/add/3/3/${amount}`, basket);
-    // if (response.status === 200) {
-    //     return handlePopup();
-    // }
 
     data = [];
     data = JSON.parse(localStorage.getItem("cart"));
@@ -165,22 +155,24 @@ document.querySelector('.addToBasket').addEventListener('click', async (e) => {
             body: JSON.stringify(data)
         })
         .then(response => response.json())
-        .then(data => console.log(data))
         .catch(error => console.error(error));
     }
-
-    alert("Added to basket.");
 });
 
 document.getElementById('order-now').addEventListener('click', async (e) => {
     e.preventDefault()
-    const amount = document.getElementById('amount').value;
+    data = {};
 
-    const basket = {
-        amount: amount
-    };
-    return handlePopup(true);
+    data[product.product.id] = {
+        'name': product.product['name'],
+        'image_url': product.product['image_url'],
+        'price': product.product['price'],
+        'alt_text': product.product['alt_text'],
+        'count': parseInt(document.getElementById('amount').value)
+    }
 
+    localStorage.setItem("buyNowCart", JSON.stringify(data));
+    window.location.href = "/paymentDetail";
 });
 
 handlePopup = (orderNow = false) => {
