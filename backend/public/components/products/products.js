@@ -15,29 +15,178 @@ function addToCart() {
 
 }
 
-let maxPrice = 0;
-let minPrice = 0;
-const orderDescription = document.querySelector('.order-description');
-const sliders1 = document.querySelectorAll(".slider-input");
-let slider1 = sliders1[0];
-let slider2 = sliders1[1];
 
-// spravit tri verzie tejto funkcie, jednu pre vsetky produkty a druhu pre produkty z kategorie a tretiu pre podkategorie
-async function getAllProducts(pageNumber, category = null, subcategory = null) {
+// dictionary for the categories
+const categories = {
+    'weapons': 1,
+    'transport': 2,
+    'clothing': 3,
+    'explosives': 4,
+    'equipment': 5,
+    'accessories': 6
+}
 
-    // construct the URL based on whether a category or subcategory is specified
-    let url = `/products?page=${pageNumber}`;
-    if (category) {
-        url += `/category/${category}`;
-    } else if (subcategory) {
-        url += `/subcategory/${subcategory}`;
+
+// dictionary for the subcategories
+const subcategoriesDict = {
+    'pistols': 1,
+    'rifles': 2,
+    'smgs': 3,
+    'heavy': 4,
+    'knives': 5,
+    'cars': 6,
+    'motorcycles': 7,
+    'panzers': 8,
+    'planes': 9,
+    'boats': 10,
+    'jackets': 11,
+    'shirts': 12,
+    'pants': 13,
+    'shoes': 14,
+    'socks': 15,
+    'c4s': 16,
+    'nukes': 17,
+    'grenades': 18,
+    'tnts': 19,
+    'bombs': 20,
+    'backpacks': 21,
+    'hunting': 22,
+    'camping': 23,
+    'glasses': 24,
+    'face paint': 25,
+    'camouflage': 26
+};
+
+const categorySubcategoryMap = {
+    "weapons": [1, 2, 3, 4, 5],
+    "transport": [6, 7, 8, 9, 10],
+    "clothing": [11, 12, 13, 14, 15],
+    "explosives": [16, 17, 18, 19, 20],
+    "equipment": [21, 22, 23],
+    "accessories": [24, 25, 26]
+};
+
+const reverseSubcategoriesDict = {};
+for (let key in subcategoriesDict) {
+    reverseSubcategoriesDict[subcategoriesDict[key]] = key;
+}
+
+function getCategoryFromSubcategory(subcategory) {
+    // Find the category that contains the subcategory
+    for (const category in categorySubcategoryMap) {
+        if (categorySubcategoryMap[category].includes(subcategoriesDict[subcategory])) {
+            return category;
+        }
     }
+    // If the subcategory is not found, return null
+    return null;
+}
 
-    // get all products from backend
-    const productResponse = await ServerRequester.getFromUrl(url);
-    const pageProductList = productResponse.products;
-    const count = productResponse.count;
-    
+
+
+// function to get the subcategories for a category
+function getSubcategoriesForCategory() {
+    // Get the parent element for the subcategories
+    const subcategoriesContainer = document.querySelector('.subcategories');
+    let category = null;
+    // find out whether there is a category in the url
+    const url = window.location.href;
+    if (url.includes('subcategory')) {
+        category = getCategoryFromSubcategory(url.split('subcategory/')[1].split('?')[0]);
+    }
+    isCategory = url.includes('category')
+    if (isCategory) {
+        if (category === null) {
+            // get the category from the url
+            category = url.split('category/')[1];
+            category = category.split('?')[0];
+        }
+        // get the subcategories for the category
+        let subcategories = categorySubcategoryMap[category];
+        console.log(subcategories);
+        // get the subcategories names
+        subcategories = subcategories.map(subcategory => reverseSubcategoriesDict[subcategory]);
+
+        // Generate the HTML markup for the subcategories
+        const subcategoriesMarkup = subcategories.map(subcategory => `
+          <div class="subcategory" onclick="onSubCategoryClicked('${subcategory}')">
+            <h3 class="description">${subcategory.charAt(0).toUpperCase() + subcategory.slice(1)}</h3>
+          </div>
+        `).join('');
+
+        // Set the innerHTML of the parent container to the generated HTML
+        subcategoriesContainer.innerHTML = subcategoriesMarkup;
+
+        // delete the margin class from the parent container
+        subcategoriesContainer.classList.remove('mt-3');
+    }
+}
+
+
+
+
+
+
+
+const notLikedImg = 'http://127.0.0.1:8000/images/productDetailImages/heart6.png';
+const likedImg = 'http://127.0.0.1:8000/images/productDetailImages/heart4.png';
+
+likedArray = [];
+// get all users liked products
+
+async function getLikedProducts() {
+    // get the liked products for each user
+    const userId = 1; // local storage
+    const response = await ServerRequester.getFromUrl(`/liked_products/${userId}`);
+
+    if (response.status === 200) {
+        likedArray = response.products.map(product => product.product_id);
+    } else {
+        likedArray = [];
+    }
+}
+
+
+
+products = [];
+count = 0;
+
+
+// get all products and liked products
+const waitForProducts = new Promise(resolve => {
+
+    const checkCondition = () => {
+        if (GlobalVariables.products.length > 0) {
+            resolve();
+        } else {
+            setTimeout(checkCondition, 100);
+        }
+    };
+
+    checkCondition();
+});
+
+
+function getBySubcategory(products, name) {
+    const id = subcategoriesDict[name];
+    return products.filter(p => p.subcategory_id === id);
+}
+
+function getByCategory(products, name) {
+    console.log(products.length + ' ' + name);
+    const subcategories = categorySubcategoryMap[name];
+    return products.filter(p => subcategories.includes(p.subcategory_id));
+}
+
+
+function initializeSlider(pageProductList) {
+    // slider for price range
+    let maxPrice = 0;
+    let minPrice = 0;
+    const orderDescription = document.querySelector('.order-description');
+    const sliders1 = document.querySelectorAll(".slider-input");
+    let slider1 = sliders1[0];
+    let slider2 = sliders1[1];
     // calculate the max and min price
     maxPrice = Math.max(...pageProductList.map(product => product.price));
     minPrice = Math.min(...pageProductList.map(product => product.price));
@@ -48,26 +197,13 @@ async function getAllProducts(pageNumber, category = null, subcategory = null) {
     slider2.max = maxPrice;
     slider1.value = minPrice;
     slider2.value = maxPrice;
+}
 
-    console.log(`Number of products: ${count}`);
 
-    const notLikedImg = 'http://127.0.0.1:8000/images/productDetailImages/heart6.png';
-    const likedImg = 'http://127.0.0.1:8000/images/productDetailImages/heart4.png';
 
-    // get the liked products for each user
-    const userId = 1; // local storage
-    const response = await ServerRequester.getFromUrl(`/liked_products/${userId}`);
-
-    let likedArray = [];
-    if (response.status === 200) {
-        likedArray = response.products.map(product => product.product_id);
-    } else {
-        likedArray = [];
-    }
-
-    // create html for each product
-    let productsHTML = '';
-    for (const product of pageProductList) {
+function getProductsHTML(products, notLikedImg, likedImg, likedArray) {
+    let productsHTML = "";
+    for (const product of products) {
         const likedVersion = likedArray.includes(product.id) ? likedImg : notLikedImg;
         productsHTML += `
         <div class="card m-3">
@@ -90,71 +226,129 @@ async function getAllProducts(pageNumber, category = null, subcategory = null) {
                 </div>
         </div>`;
     }
+    return productsHTML;
+}
+
+
+async function getAllProducts(page) {
+
+    getSubcategoriesForCategory()
+
+    await waitForProducts;
+    console.log(`Number of products: ${GlobalVariables.products.length}`);
+    products = GlobalVariables.products;
+
+
+    // filter products by category or subcategory
+    let category = '';
+    let subcategory = '';
+    let url = window.location.href;
+    url = url.split('8000')[1];
+    // find out whether to load all products or products from a category
+    if (url.includes('subcategory')) {
+        subcategory = url.split('subcategory/')[1];
+        subcategory = subcategory.split('?')[0];
+        products = getBySubcategory(products, subcategory)
+    } else if (url.includes('category')) {
+        category = url.split('category/')[1];
+        category = category.split('?')[0];
+        products = getByCategory(products, category);
+    }
+
+
+    // filter by slider
+    products = filterBySlider(products);
+
+    // filter by license
+    products = filterByLicense(products);
+
+    // order by price
+    products = orderByPrice(products);
+
+    // initialize slider
+    initializeSlider(products);
+    count = products.length;
+
+    // create html for each product
+    let productsHTML = '';
+    await getLikedProducts();
+    // filter products by page
+    productsByPage = products.slice((page - 1) * 18, page * 18);
+    productsHTML = getProductsHTML(productsByPage, notLikedImg, likedImg, likedArray)
 
     const cardContainer = document.getElementById('cards');
     cardContainer.innerHTML = productsHTML;
 
     // calculate the number of pages
     const numPages = Math.ceil(parseInt(count) / 18)
+    hideExcessPageElements(numPages);
     // return the number of pages
     return numPages;
-
 }
 
-// get products from category
-async function getProductsByCategory(categoryId) {
-    const productResponse = await ServerRequester.getFromUrl(`/products/category/${categoryId}`);
-    const pageProductList = productResponse.products;
 
-    const notLikedImg = 'http://127.0.0.1:8000/images/productDetailImages/heart6.png';
-    const likedImg = 'http://127.0.0.1:8000/images/productDetailImages/heart4.png';
 
-    // get the liked products for each user
-    const userId = 1; // local storage
-    const response = await ServerRequester.getFromUrl(`/liked_products/${userId}`);
+function filterBySlider(products) {
+    // get slider values from url
+    const urlParams = new URLSearchParams(location.search);
+    const minPrice = urlParams.get('minPrice');
+    const maxPrice = urlParams.get('maxPrice');
+    if (minPrice && maxPrice) {
+        const sliders1 = document.querySelectorAll(".slider-input");
+        let slider1 = sliders1[0];
+        let slider2 = sliders1[1];
+        slider1.value = parseInt(minPrice);
+        slider2.value = parseInt(maxPrice);
 
-    let likedArray = [];
-    if (response.status === 200) {
-        likedArray = response.products.map(product => product.product_id);
+        // filter products
+        products = products.filter(p => p.price >= minPrice && p.price <= maxPrice);
+        // update slider
+        initializeSlider(products);
+
     }
-
-    // create html for each product
-    let productsHTML = '';
-    for (const product of pageProductList) {
-        const likedVersion = likedArray.includes(product.id) ? likedImg : notLikedImg;
-        productsHTML += `
-        <div class="card m-3">
-            <!-- image source: unsplash.com -->
-            <img class="card-img-top"
-            src="${product.image_url}"
-            alt="Card image cap">
-            <div class="card-body d-flex align-items-center justify-content-between mx-auto">
-                <div>
-                    <h3 class="card-title">${product.name}</h3>
-                    <p class="card-text">${product.price} €</p>
-                </div>
-                <!-- image source: flaticon.com -->
-                <img src="${likedVersion}" alt="" width="14%" class="liked-photo" onclick="toggleIcon(this)">
-            </div>
-                <div class="card-body d-flex align-items-center justify-content-between mx-auto">
-                    <!-- image source: flaticon.com -->
-                    <img src="http://127.0.0.1:8000/images/productDetailImages/cart.png" alt="" width="15%" class="cart-img">
-                    <button type="button" class="btn btn-success btn-buy">Buy Now</button>
-                </div>
-        </div>`;
-    }
+    return products;
 }
+
+// filter by license
+function filterByLicense(products) {
+    // find out from url whether license is needed
+    const urlParams = new URLSearchParams(location.search);
+    const licenseNeeded = urlParams.get('license');
+    if (licenseNeeded) {
+        const license = document.getElementById('license-checkmark');
+        // find out whether it contains the cllass 'checkmark'
+        const licenseValue = license.classList.contains('checkmark') ? 1 : 0;
+        products = products.filter(p => p.license_needed === licenseValue);
+    }
+    return products;
+}
+
+// order by price
+function orderByPrice(products) {
+    // find out from url whether license is needed
+    const urlParams = new URLSearchParams(location.search);
+    const order = urlParams.get('order');
+    if (order) {
+        if (order === 'asc') {
+            products = products.sort((a, b) => a.price - b.price);
+        } else if (order === 'desc') {
+            products = products.sort((a, b) => b.price - a.price);
+        }
+    }
+    return products;
+}
+
 
 let numberOfPages = 10;
 
 async function getInitialProducts() {
-    // console.log('getting page number');
     numberOfPages = await getAllProducts(1);
-    // console.log('pages ' + numberOfPages);
 }
 
-getInitialProducts();
 
+waitForProducts.then(() => {
+    getInitialProducts();
+});
 
 // pagination
 const page1 = document.getElementById('page1');
@@ -166,7 +360,7 @@ const pagePrevious = document.getElementById('page-prev');
 
 page1.addEventListener('click', () => {
     const page1Number = parseInt(page1.textContent);
-    getAllProducts(page1Number);
+    getAllProducts(page1Number, '3', '1');
 });
 
 page2.addEventListener('click', () => {
@@ -216,14 +410,18 @@ pagePrevious.addEventListener('click', () => {
     hideExcessPageElements();
 });
 
-function hideExcessPageElements() {
+function hideExcessPageElements(numPages) {
+    console.log(numPages);
     const pages = [page1, page2, page3];
     for (let i = 0; i < pages.length; i++) {
-        if (parseInt(pages[i].textContent) > numberOfPages) {
+        if (parseInt(pages[i].textContent) > numPages) {
             pages[i].classList.add("disabled-page");
         } else {
             pages[i].classList.remove("disabled-page");
         }
+    }
+    if (numPages <= 3) {
+        pageNext.classList.add("disabled-page");
     }
 }
 
@@ -243,30 +441,30 @@ function toggleCheckmark(checkmark) {
 
 
 
-function getVals(){
+function getVals() {
     // Get slider values
-    var parent = this.parentNode;   
+    var parent = this.parentNode;
     var slides = parent.getElementsByTagName("input");
-    var slide1 = parseFloat( slides[0].value );
-    var slide2 = parseFloat( slides[1].value );
+    var slide1 = parseFloat(slides[0].value);
+    var slide2 = parseFloat(slides[1].value);
 
     // Neither slider will clip the other, so make sure we determine which is larger
-    if( slide1 > slide2 ){ let tmp = slide2; slide2 = slide1; slide1 = tmp; }
+    if (slide1 > slide2) { let tmp = slide2; slide2 = slide1; slide1 = tmp; }
     let desc = parent.getElementsByClassName("order-description")[0];
     desc.innerHTML = slide1 + " € - " + slide2 + " €";
-  }
-  
-  window.onload = function(){
+}
+
+window.onload = function () {
     // Initialize Sliders
     var sliderSections = document.getElementsByClassName("range-slider");
-        for( var x = 0; x < sliderSections.length; x++ ){
-          var sliders = sliderSections[x].getElementsByTagName("input");
-          for( var y = 0; y < sliders.length; y++ ){
-            if( sliders[y].type ==="range" ){
-              sliders[y].oninput = getVals;
-              // Manually trigger event first time to display values
-              sliders[y].oninput();
+    for (var x = 0; x < sliderSections.length; x++) {
+        var sliders = sliderSections[x].getElementsByTagName("input");
+        for (var y = 0; y < sliders.length; y++) {
+            if (sliders[y].type === "range") {
+                sliders[y].oninput = getVals;
+                // Manually trigger event first time to display values
+                sliders[y].oninput();
             }
-          }
         }
-  }
+    }
+}

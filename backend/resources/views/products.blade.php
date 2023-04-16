@@ -27,34 +27,14 @@ integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6
 	<main>
 		<!-- products -->
 		<div id="products" class="container">
-			<div class="subcategories">
-				<div class="subcategory" onclick="onCategoryClicked('pistols')">
-					<h3 class="description">Pistols</h3>
-				</div>
-				<div class="subcategory" onclick="onCategoryClicked('rifles')">
-					<h3 class="description">Rifles</h3>
-				</div>
-				<div class="subcategory" onclick="onCategoryClicked('smgs')">
-					<h3 class="description">SMG</h3>
-				</div>
-				<div class="subcategory" onclick="onCategoryClicked('heavy')">
-					<h3 class="description">Heavy</h3>
-				</div>
-				<div class="subcategory" onclick="onCategoryClicked('knives')">
-					<h3 class="description">Knives</h3>
-				</div>
+			<div class="subcategories mt-3">
+				
 			</div>
 
 			<!-- filters -->
 			<div id="filters">
 			<div class="slider-order d-flex justify-content-between mx-auto">
-				<!-- <div class="slider-container">
-					<p class="order-description">0 € - 999999 €</p>
-					<div class="slider">
-						<input type="range" min="0" max="1000" value="0" class="slider-range" id="myRange1">
-						<input type="range" min="1000" max="50000" step="1000" value="50000" class="slider-range" id="myRange2">
-					</div>
-				</div> -->
+				
 				<section class="range-slider">
 				<p class="order-description">0 € - 99999 €</p>
 				<input value="80000" min="0" max="99999" step="10" type="range" class="slider-input">
@@ -97,9 +77,7 @@ integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6
 	<!-- contact us -->
   @include('components.contactUs')
 
-<script src="{{ asset('js/serverRequester.js') }}"></script>
 <script src="{{ asset('components/products/products.js') }}"></script>
-<script src="{{ asset('components/navbar/navbar.js') }}"></script>
 <script src="{{ asset('components/contactUs/contactUs.js') }}"></script>
 </body>
 

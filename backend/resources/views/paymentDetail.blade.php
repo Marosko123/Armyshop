@@ -165,8 +165,6 @@
 	<!-- contact us -->
   @include('components.contactUs')
 	
-	<script src="{{ asset('js/serverRequester.js') }}"></script>
-	<script src="{{ asset('components/navbar/navbar.js') }}"></script>
 	<script src="{{ asset('components/contactUs/contactUs.js') }}"></script>
 	<script src="{{ asset('components/paymentDetail/paymentDetail.js') }}"></script>
 	<script src="{{ asset('components/paymentDetail/paymentDetailValidator.js') }}"></script>

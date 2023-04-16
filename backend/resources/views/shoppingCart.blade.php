@@ -50,9 +50,7 @@
   @include('components.contactUs')
 
     <script src="{{ asset('js/subcategoriesMap.js') }}"></script>
-    <script src="{{ asset('js/serverRequester.js') }}"></script>
 	<script src="{{ asset('components/shoppingCart/shoppingCart.js') }}"></script>
-	<script src="{{ asset('components/navbar/navbar.js') }}"></script>
 	<script src="{{ asset('components/contactUs/contactUs.js') }}"></script>
 </body>
 </html>
