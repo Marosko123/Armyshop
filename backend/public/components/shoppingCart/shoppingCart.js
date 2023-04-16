@@ -63,9 +63,9 @@ products = {
     6: product6
 }
 
-localStorage.setItem('cart', JSON.stringify(products));
+//localStorage.setItem('cart', JSON.stringify(products));
 
-const shippingCost = 10;
+//const shippingCost = 10;
 
 window.addEventListener('load', function () {
     data = JSON.parse(localStorage.getItem("cart"));
@@ -180,7 +180,8 @@ function calculateSummary(data) {
     for (let key in data)
         subtotal += (data[key].price * data[key].count);
 
-    document.getElementById(`subtotal`).innerText = Formatter.formatPrice(subtotal);
-    document.getElementById(`shipping`).innerText = Formatter.formatPrice(shippingCost);
-    document.getElementById(`total`).innerText = Formatter.formatPrice(subtotal + shippingCost);
+    // document.getElementById(`subtotal`).innerText = Formatter.formatPrice(subtotal);
+    // document.getElementById(`shipping`).innerText = Formatter.formatPrice(shippingCost);
+    // document.getElementById(`total`).innerText = Formatter.formatPrice(subtotal + shippingCost);
+    document.getElementById(`total`).innerText = Formatter.formatPrice(subtotal);
 }

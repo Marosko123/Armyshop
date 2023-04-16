@@ -41,7 +41,7 @@ Route::get('products/subcategory/{subcategory}', function () {
 });
 
 // Product detail
-Route::get('product/{product}', function () {
+Route::get('products/{product}', function () {
     return view('productDetail');
 });
 

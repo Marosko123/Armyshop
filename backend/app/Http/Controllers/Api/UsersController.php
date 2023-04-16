@@ -66,6 +66,7 @@ class UsersController extends Controller
         $user->age = $request->age;
         $user->address = $request->address;
         $user->is_license_valid = $request->is_license_valid;
+        $user->telephone = $request->telephone;
         if ($request->hasFile('picture')) {
             $path = $request->file('picture')->store('public/id_pictures');
             $user->picture = $path;
@@ -89,12 +90,16 @@ class UsersController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'email' => 'nullable|email|unique:users,email',
-            'password' => 'nullable',
+            'password' => 'nullable|string|min:6',
             'first_name' => 'nullable|string|max:191',
             'last_name' => 'nullable|string|max:191',
             'age' => 'nullable|integer',
             'address' => 'nullable|string|max:191',
             'license_picture' => 'nullable|image|max:1024',
+            'telephone' => [
+                'nullable',
+                'regex:/^+\d{1,3}\d{10}$/',
+            ],
         ]);
 
         if ($validator->fails()) {
@@ -113,15 +118,19 @@ class UsersController extends Controller
             ], 404);
         }
 
-        $user->update([
-            'email' => $request->email ?? $user->email,
-            'password' => bcrypt($request->password) ?? $user->password,
-            'first_name' => $request->first_name ?? $user->first_name,
-            'last_name' => $request->last_name ?? $user->last_name,
-            'age' => $request->age ?? $user->age,
-            'address' => $request->address ?? $user->address,
-            'license_picture' => $request->license_picture ?? $user->license_picture
-        ]);
+        $user->email = $request->email ?? $user->email;
+        $user->first_name = $request->first_name ?? $user->first_name;
+        $user->last_name = $request->last_name ?? $user->last_name;
+        $user->age = $request->age ?? $user->age;
+        $user->address = $request->address ?? $user->address;
+        $user->license_picture = $request->license_picture ?? $user->license_picture;
+        $user->telephone = $request->telephone ?? $user->telephone;
+
+        if ($request->has('password')) {
+            $user->password = bcrypt($request->password);
+        }
+
+        $user->save();
 
         return response()->json([
             'status' => 200,

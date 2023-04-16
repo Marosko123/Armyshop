@@ -1,5 +1,15 @@
-let deliveryMethod = "Pick up in the store";
 let paymentMethod = "By card";
+
+//delivery options cost
+
+const shippingCosts = {
+    'inStorePickupCost': 0,
+    'postOfficeCost': 2.5,
+    'dhlCost': 3.5,
+}
+
+let deliveryMethod = "Pick up in the store";
+let selectedShippingCost = shippingCosts['inStorePickupCost'];
 
 onDeliveryOptionChanged = (event) => {
     document
@@ -7,9 +17,13 @@ onDeliveryOptionChanged = (event) => {
         .forEach((c) => (c.checked = false));
     event.checked = true;
 
-    deliveryMethod = a.parentElement
-        .getElementsByClassName("payment-label")[0]
+    deliveryMethod = event.parentElement
+        .getElementsByClassName("delivery-label")[0]
         .innerHTML.trim();
+
+    selectedShippingCost = shippingCosts[event.parentElement.getElementsByClassName("delivery-price")[0].id];
+
+    calculateSummary();
 };
 
 onPaymentOptionChanged = (event) => {
@@ -18,8 +32,8 @@ onPaymentOptionChanged = (event) => {
         .forEach((c) => (c.checked = false));
     event.checked = true;
 
-    paymentMethod = a.parentElement
-        .getElementsByClassName("delivery-label")[0]
+    paymentMethod = event.parentElement
+        .getElementsByClassName("payment-label")[0]
         .innerHTML.trim();
 };
 
@@ -98,27 +112,43 @@ handlePopup = () => {
 window.addEventListener('load', function () {
     //do not load data if user is not logged in
     data = JSON.parse(localStorage.getItem("armyshop_currently_signed_in_user"));
-    if (data === null)
-      return;
-  
-    //load user data into fields
-    if (data.email)
-        document.getElementById('email-input').value = data.email;
+    if (data != null) {
+        //load user data into fields
+        if (data.email)
+            document.getElementById('email-input').value = data.email;
 
-    if (data.phone)
-      document.getElementById('telephone-input').value = data.phone;
-  
-    if (data.first_name)
-      document.getElementById('first-name-input').value = data.first_name;
-  
-    if (data.last_name)
-      document.getElementById('last-name-input').value = data.last_name;
-  
-    if (data.address) {
-      addressFields = data.address.split(",");
-      document.getElementById('address-input').value = addressFields[0];
-      document.getElementById('zip-input').value = addressFields[1];
-      document.getElementById('city-input').value = addressFields[2];
-      document.getElementById('country-input').value = addressFields[3];
+        if (data.phone)
+            document.getElementById('telephone-input').value = data.phone;
+
+        if (data.first_name)
+            document.getElementById('first-name-input').value = data.first_name;
+
+        if (data.last_name)
+            document.getElementById('last-name-input').value = data.last_name;
+
+        if (data.address) {
+            addressFields = data.address.split(",");
+            document.getElementById('address-input').value = addressFields[0];
+            document.getElementById('zip-input').value = addressFields[1];
+            document.getElementById('city-input').value = addressFields[2];
+            document.getElementById('country-input').value = addressFields[3];
+        }
     }
-  });
+
+    document.getElementById('inStorePickupCost').innerText = Formatter.formatPrice(shippingCosts['inStorePickupCost']);
+    document.getElementById('postOfficeCost').innerText = Formatter.formatPrice(shippingCosts['postOfficeCost']);
+    document.getElementById('dhlCost').innerText = Formatter.formatPrice(shippingCosts['dhlCost']);
+
+    calculateSummary();
+});
+
+function calculateSummary() {
+    data = JSON.parse(localStorage.getItem("cart"));
+    subtotal = 0;
+    for (let key in data)
+        subtotal += (data[key].price * data[key].count);
+
+    document.getElementById(`subtotal`).innerText = Formatter.formatPrice(subtotal);
+    document.getElementById(`shipping`).innerText = Formatter.formatPrice(selectedShippingCost) + ` (${deliveryMethod})`;
+    document.getElementById(`total`).innerText = Formatter.formatPrice(subtotal + selectedShippingCost);
+}

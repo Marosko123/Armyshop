@@ -28,22 +28,8 @@ integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6
 	<main>
 		<!-- products -->
 		<div id="products" class="container">
-			<div class="subcategories">
-				<div class="subcategory" onclick="onSubCategoryClicked('pistols')">
-					<h3 class="description">Pistols</h3>
-				</div>
-				<div class="subcategory" onclick="onSubCategoryClicked('rifles')">
-					<h3 class="description">Rifles</h3>
-				</div>
-				<div class="subcategory" onclick="onSubCategoryClicked('smgs')">
-					<h3 class="description">SMG</h3>
-				</div>
-				<div class="subcategory" onclick="onSubCategoryClicked('heavy')">
-					<h3 class="description">Heavy</h3>
-				</div>
-				<div class="subcategory" onclick="onSubCategoryClicked('knives')">
-					<h3 class="description">Knives</h3>
-				</div>
+			<div class="subcategories mt-3">
+				
 			</div>
 
 			<!-- filters -->
