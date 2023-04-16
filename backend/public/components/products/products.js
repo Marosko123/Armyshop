@@ -67,12 +67,21 @@ const categorySubcategoryMap = {
   };
 
 
-
+products = [];
+count = 0;
 
 // get all products
-products = GlobalVariables.products
-console.log('produkty \n' + products);
-count = products.length;
+
+function getProducts() {
+    // promise to get all products
+    const promise = new Promise((resolve, reject) => {
+        products = GlobalVariables.products
+        console.log('produkty \n' + products);
+        count = products.length;
+        resolve(products);
+    });
+    return promise;
+}
 
 
 function getBySubcategory(id) {
