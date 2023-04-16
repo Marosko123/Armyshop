@@ -20,11 +20,6 @@ Route::get('/', function () {
     return view('landingPage');
 });
 
-//Login and register menu
-Route::get('login', function () {
-    return view('loginAndRegisterMenu');
-});
-
 // Payment detail
 Route::get('paymentDetail', function () {
     return view('paymentDetail');

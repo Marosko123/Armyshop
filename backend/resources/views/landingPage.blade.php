@@ -4,12 +4,14 @@
 <meta charset="UTF-8">
 <title>Army Shop Landing Page</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 <link rel="stylesheet" href="{{ asset('components/landingPage/landingPage.css') }}">
 <link rel="stylesheet" href="{{ asset('components/categories/categories.css') }}">
 <link rel="stylesheet" href="{{ asset('components/navbar/navbar.css') }}">
 <link rel="stylesheet" href="{{ asset('components/contactUs/contactUs.css') }}">
 <link rel="stylesheet" href="{{ asset('components/products/products.css') }}">
+<link rel="stylesheet" href="{{ asset('components/loginAndRegisterMenu/loginAndRegisterMenu.css') }}">
 </head>
 <body>
 	<!-- navbar -->

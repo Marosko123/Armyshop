@@ -160,4 +160,6 @@
 			</nav>
 			</div>
 		</div>
+
+		@include('components.loginRegisterMenu')
 	</header>
