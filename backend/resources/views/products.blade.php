@@ -51,9 +51,8 @@ integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6
 				<div class="dropdown-orderby">
 				<button class="dropbtn rounded">Order By</button>
 				<div class="dropdown-content">
-					<a href="#">Price Increasing</a>
-					<a href="#">Price Decreasing</a>
-					<a href="#">Popularity</a>
+					<a href="#" class="asc">Price Increasing</a>
+					<a href="#" class="desc">Price Decreasing</a>
 				</div>
 				</div>
 			</div>

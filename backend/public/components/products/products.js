@@ -178,6 +178,39 @@ function getByCategory(products, name) {
     return products.filter(p => subcategories.includes(p.subcategory_id));
 }
 
+// apply all filters
+function applyFilters(products) {
+    // build the query string
+    let queryString = '?';
+
+    // get the slider values
+    const sliders = document.querySelectorAll(".slider-input");
+    let slider1 = sliders[0].value;
+    let slider2 = sliders[1].value;
+    if (slider1 > slider2) {
+        [slider1, slider2] = [slider2, slider1];
+    }
+    queryString += `min_price=${slider1}&max_price=${slider2}`;
+    // license filter
+    const licenseValue = license.classList.contains('checkmark') ? 1 : 0;
+    queryString += `&license=${licenseValue}`;
+
+    // order by filter
+    const orderBy = document.querySelector('.dropbtn')
+    if (orderBy.classList.contains('asc')) {
+        queryString += `&order_by=asc`;
+    } else if (orderBy.classList.contains('desc')) {
+        queryString += `&order_by=desc`;
+    }
+    // get the current url
+    const url = window.location.href;
+    // delete all existing query parameters and add the new ones
+    if (url.includes('?')) {
+        queryString = url.split('?')[0] + queryString;
+    }
+    return window.location.href = queryString;
+}
+
 
 function initializeSlider(pageProductList) {
     // slider for price range
@@ -200,17 +233,17 @@ function initializeSlider(pageProductList) {
 }
 
 
-
 function getProductsHTML(products, notLikedImg, likedImg, likedArray) {
     let productsHTML = "";
     for (const product of products) {
         const likedVersion = likedArray.includes(product.id) ? likedImg : notLikedImg;
         productsHTML += `
-        <div class="card m-3">
+        <div class="card m-3" data-product-id="${product.id}" style="height:25rem !important;">
             <!-- image source: unsplash.com -->
             <img class="card-img-top"
             src="${product.image_url}"
-            alt="Card image cap">
+            alt="Card image cap"
+            style="height:15rem !important; object-fit:cover !important;">
             <div class="card-body d-flex align-items-center justify-content-between mx-auto">
                 <div>
                     <h3 class="card-title">${product.name}</h3>
@@ -279,6 +312,9 @@ async function getAllProducts(page) {
     const cardContainer = document.getElementById('cards');
     cardContainer.innerHTML = productsHTML;
 
+    // add event listeners to cards
+    addEventListenersToCards();
+
     // calculate the number of pages
     const numPages = Math.ceil(parseInt(count) / 18)
     hideExcessPageElements(numPages);
@@ -286,13 +322,28 @@ async function getAllProducts(page) {
     return numPages;
 }
 
+// add event listeners to cards
+function addEventListenersToCards() {
+    const productCards = document.querySelectorAll('.card');
+    for (const card of productCards) {
+        // get product id
+        const productId = card.dataset.productId;
+        // select card-img-top from this card
+        const cardImg = card.querySelector('.card-img-top');
+
+        cardImg.addEventListener('click', () => {
+            window.location.href = `/products/product/${productId}`;
+        });
+    }
+}
+
 
 
 function filterBySlider(products) {
     // get slider values from url
     const urlParams = new URLSearchParams(location.search);
-    const minPrice = urlParams.get('minPrice');
-    const maxPrice = urlParams.get('maxPrice');
+    const minPrice = urlParams.get('min_price');
+    const maxPrice = urlParams.get('max_price');
     if (minPrice && maxPrice) {
         const sliders1 = document.querySelectorAll(".slider-input");
         let slider1 = sliders1[0];
@@ -302,8 +353,6 @@ function filterBySlider(products) {
 
         // filter products
         products = products.filter(p => p.price >= minPrice && p.price <= maxPrice);
-        // update slider
-        initializeSlider(products);
 
     }
     return products;
@@ -392,6 +441,8 @@ pageNext.addEventListener('click', () => {
     hideExcessPageElements();
 });
 
+
+
 pagePrevious.addEventListener('click', () => {
     // update the page numbers
     const page1Number = parseInt(page1.textContent) - 3;
@@ -409,6 +460,18 @@ pagePrevious.addEventListener('click', () => {
 
     hideExcessPageElements();
 });
+
+
+
+// order by
+const orderBy = document.querySelector('.dropbtn');
+orderBy.querySelector('asc').addEventListener('click', () => {
+    orderBy.classList.add('asc');
+});
+orderBy.querySelector('desc').addEventListener('click', () => {
+    orderBy.classList.add('desc');
+});
+
 
 function hideExcessPageElements(numPages) {
     console.log(numPages);

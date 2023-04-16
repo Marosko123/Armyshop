@@ -100,6 +100,10 @@
   }
 
 
+  .priceFor1 {
+    font-size: 1rem;
+  }
+
   /* Pop Up */
   #popup {
     z-index: 50;
@@ -190,7 +194,7 @@
       margin-right: 3rem;
     }
     .priceFor1 {
-      font-size: 1rem;
+      font-size: 0.8rem;
     }
 
     #carrouselAndPricing {
@@ -199,6 +203,17 @@
     }
     #carouselExampleIndicators {
       width: 100%;
+    }
+
+    #carouselExampleIndicators .carousel-item {
+      width: 100%;
+      height: 5rem;
+    }
+
+    #carouselExampleIndicators .detail-image {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
     }
     #pricing-window {
       margin-top: 1.5rem;
@@ -266,7 +281,7 @@
       font-size: 1rem;
     }
     .priceFor1 {
-      font-size: 1rem;
+      font-size: 0.8rem;
     }
   }
 

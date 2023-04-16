@@ -20,8 +20,8 @@
             <section id="header">
                 <div class="d-flex align-items-center justify-content-between mb-3 w-100">
                     <div class="title-subtitle mx-auto">
-                        <h1 class="display-1" id="product-title">AK-47</h1>
-                        <h5>Weapons > Rifles</h5>    
+                        <h1 class="display-1" id="product-title"></h1>
+                        <!-- <h5 class="category-subcategory">Weapons > Rifles</h5> -->
                     </div>
                     <!-- image source: flaticon.com -->
                     <img src="{{ asset('images/productDetailImages/heart6.png') }}" alt="add to liked" class="liked" onclick="toggleIcon(this)">
@@ -30,15 +30,15 @@
 
             <section id="carrouselAndPricing" class="align-items-center">
             <section id="carrousel">
-                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div id="carouselExampleControls" class="carousel slide">
                     <div class="carousel-inner rounded">
                     <div class="carousel-item active">
                         <!-- image source: unsplash.com (Alexey Turenkov)-->
-                        <img class="d-block w-100" src="{{ asset('images/productDetailImages/ak47-1.jpg') }}" alt="First slide">
+                        <img class="d-block w-100 detail-image" src="{{ asset('images/productDetailImages/ak47-1.jpg') }}" alt="detail image" style="width:50rem !important; height:35rem !important; object-fit:cover">
                     </div>
                     <div class="carousel-item">
                         <!-- image source: unsplash.com (Alexey Turenkov)-->
-                        <img class="d-block w-100" src="{{ asset('images/productDetailImages/ak47-2.jpg') }}" alt="Second slide">
+                        <img class="d-block w-100 detail-image" src="{{ asset('images/productDetailImages/ak47-2.jpg') }}" alt="detail image" style="width:50rem !important; height:35rem !important; object-fit:cover">
                     </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
