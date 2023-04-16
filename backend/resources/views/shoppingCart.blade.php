@@ -34,14 +34,6 @@
 					<div class="containerElement">
 					<h2>Order Summary</h2>
 					<table>
-						<tr>
-						<td>Subtotal:</td>
-						<td id="subtotal"></td>
-						</tr>
-						<tr>
-						<td>Shipping:</td>
-						<td id="shipping"></td>
-						</tr>
 						<tr class="total">
 						<td class="total">Total:</td>
 						<td class="total" id="total"></td>

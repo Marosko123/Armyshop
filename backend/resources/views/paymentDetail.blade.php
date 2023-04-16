@@ -74,7 +74,7 @@
 								<!-- custom image -->
 								<img class="delivery-item-icon" src="{{ asset('images/logo/logoTransparent.png') }}" alt="">
 								<div class="delivery-label"> Pick up in the store </div>
-								<span class="delivery-price"> Free </span>
+								<span class="delivery-price" id="inStorePickupCost"></span>
 								<span class="delivery-availability"> Tomorrow 12:00 </span>
 							</div>
 							<div class="delivery-row">
@@ -83,7 +83,7 @@
 								<!-- https://www.freepik.com/free-vector/documents-letters-express-courier-delivering-postal-services-post-office-services-post-delivery-agent-post-office-card-accounts-concept-pinkish-coral-bluevector-isolated-illustration_11667313.htm#query=post%20office&position=0&from_view=search&track=ais -->
 								<img class="delivery-item-icon" src="{{ asset('images/paymentDetailImages/postOffice.jpg') }}" alt="">
 								<div class="delivery-label"> Post office </div>
-								<span class="delivery-price"> 2.50 € </span>
+								<span class="delivery-price" id="postOfficeCost"></span>
 								<span class="delivery-availability"> Tomorrow 18:00 </span>
 							</div>
 							<div class="delivery-row">
@@ -92,7 +92,7 @@
 								<!-- https://www.freepik.com/free-vector/documents-letters-express-courier-delivering-postal-services-post-office-services-post-delivery-agent-post-office-card-accounts-concept-pinkish-coral-bluevector-isolated-illustration_11667313.htm#query=post%20office&position=0&from_view=search&track=ais -->
 								<img class="delivery-item-icon" src="{{ asset('images/paymentDetailImages/courier.jpg') }}" alt="">
 								<div class="delivery-label"> DHL </div>
-								<span class="delivery-price"> 3.50 € </span>
+								<span class="delivery-price" id="dhlCost"></span>
 								<span class="delivery-availability"> Tomorrow 12:00 </span>
 							</div>
 						</div>
@@ -121,6 +121,27 @@
 					</div>
 					<div class="line"> </div>
 
+					<!-- summary -->
+					<h3> Order sumary </h3>
+					<div id="summary">
+						<table>
+							<tr class="subtotal">
+							<td class="subtotal">Subtotal:</td>
+							<td class="subtotal" id="subtotal">250€</td>
+							</tr>
+							<tr class="shipping">
+							<td class="shipping">Shipping:</td>
+							<td class="shipping" id="shipping">20€</td>
+							</tr>
+							<tr class="total">
+							<td class="total">Total:</td>
+							<td class="total" id="total">270€</td>
+							</tr>
+						</table>
+					</div>
+
+					<div class="line"> </div>
+
 					<a class="btn btn-success" id="order-button" onclick="onOrderNowClicked(this)"> Order Now </a>
 				</form>
 			</div>
@@ -137,57 +158,6 @@
 						<a class="close" href="/"> Go To Landing Page </a>
 					</div>
 				</div>
-			</div>
-
-			<!-- summary -->
-			<div id="summary">
-				<h5> Products </h5>
-				<div id="summary-product-list">
-					<div class="product">
-						<!-- custom image -->
-						<img class="summary-item-img" src="{{ asset('images/logo/logoTransparent.png') }}" alt="">
-						<span class="summary-item-label"> 1x AK47 </span>
-						<span class="summary-item-price"> 5.99 € </span>
-					</div>
-					<div class="product">
-						<!-- custom image -->
-						<img class="summary-item-img" src="{{ asset('images/logo/logoTransparent.png') }}" alt="">
-						<span class="summary-item-label"> 1x AK47 </span>
-						<span class="summary-item-price"> 5.99 € </span>
-					</div>
-					<div class="product">
-						<!-- custom image -->
-						<img class="summary-item-img" src="{{ asset('images/logo/logoTransparent.png') }}" alt="">
-						<span class="summary-item-label"> 1x AK47 </span>
-						<span class="summary-item-price"> 5.99 € </span>
-					</div>
-					<div class="product">
-						<!-- custom image -->
-						<img class="summary-item-img" src="{{ asset('images/logo/logoTransparent.png') }}" alt="">
-						<span class="summary-item-label"> 1x AK47 </span>
-						<span class="summary-item-price"> 5.99 € </span>
-					</div>
-					<div class="product">
-						<!-- custom image -->
-						<img class="summary-item-img" src="{{ asset('images/logo/logoTransparent.png') }}" alt="">
-						<span class="summary-item-label"> 1x AK47 </span>
-						<span class="summary-item-price"> 5.99 € </span>
-					</div>
-					<div class="product">
-						<!-- custom image -->
-						<img class="summary-item-img" src="{{ asset('images/logo/logoTransparent.png') }}" alt="">
-						<span class="summary-item-label"> 1x AK47 </span>
-						<span class="summary-item-price"> 5.99 € </span>
-					</div>
-					<div class="product">
-						<!-- custom image -->
-						<img class="summary-item-img" src="{{ asset('images/logo/logoTransparent.png') }}" alt="">
-						<span class="summary-item-label"> 1x AK47 </span>
-						<span class="summary-item-price"> 5.99 € </span>
-					</div>
-				</div>
-				<h5 class="summary-total-price">Total Price</h5>
-				<h4 class="text-center">5999.99 €</h4>
 			</div>
 		</div>	
 	</main>

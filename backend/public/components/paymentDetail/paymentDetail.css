@@ -2,8 +2,8 @@
 
 #payment-detail {
     display: flex;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 #payment-detail .heading {
@@ -11,7 +11,6 @@
 }
 
 #payment-detail #payment-detail-wrapper {
-    max-width: 70%;
     min-width: 300px;
     padding: 15px;
     background-color: gainsboro;
@@ -147,51 +146,27 @@
 
 /* summary */
 
-#summary {
-    z-index: 5;
-    width: 30%;
-    max-height: 350px;
-    background-color: rgb(244, 243, 243);
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+#summary{
+    margin-left: 10px;
+    margin-bottom: 10px;
 }
 
-#summary #summary-product-list {
-    margin-left: auto;
-    margin-right: auto;
-    width: 90%;
-    height: 70%;
-    overflow: auto;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+#summary table {
+    border-collapse: collapse;
+  }
+  
+#summary td {
+    padding: 10px;
+  }
+  
+  #summary .subtotal,#summary .shipping,#summary .total {
+  font-size: 20px;
 }
-
-#summary .product {
-    display: flex;
-    flex-direction:row;
-    justify-content: space-between;
-    width: 100%;
-    justify-content: center; /* horizontal centering */
-    align-items: center;
+  
+#summary .total {
+    font-weight: bold;
+    font-size: 24px;
 }
-
-#summary .summary-item-img {
-    flex-grow: 3;
-    max-width: 60px;
-    border-radius: 50px;
-    padding: 5px;
-}
-
-#summary .summary-item-label {
-    flex-grow: 5;
-}
-
-#summary .summary-item-price {
-    flex-grow: 1;
-}   
-
-#summary .summary-total-price {
-    padding-top: 5px;
-}
-
 
 /* POPUP */
 
@@ -260,10 +235,6 @@
 }
 
 @media screen and (max-width: 1000px) {
-    #summary {
-        display: none;
-    }
-    
     #payment-detail {
         margin: auto;
         width: 100%;

@@ -35,7 +35,6 @@ const onProfileClicked = () => {
 
 window.addEventListener('load',async function() {
     GlobalVariables.products = await ServerRequester.getFromUrl("/products");
-    console.log(GlobalVariables.products);
     if (localStorage.getItem("armyshop_currently_signed_in_user") != null) {
         const imgs = document.querySelectorAll('.profile__button');
 
