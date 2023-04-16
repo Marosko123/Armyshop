@@ -73,7 +73,7 @@ class ProductsController extends Controller
         }
     }
 
-    public function getFromCategory($category_id, $pageNumber)
+    public function getFromCategory($category_id)
     {
         $pageNumber = 1;
         if (isset($_GET['page'])) {
@@ -99,7 +99,7 @@ class ProductsController extends Controller
             ->get();
 
 
-        if ($products) {
+        if (count($products) > 0) {
             return response()->json([
                 'status' => 200,
                 'products' => $products,
@@ -115,12 +115,22 @@ class ProductsController extends Controller
 
     public function getFromSubcategory($subcategory_id)
     {
+        $pageNumber = 1;
+        if (isset($_GET['page']))
+        {
+            $pageNumber = $_GET['page'];
+        }
+        $amount = 18;
+        $startId = ($pageNumber - 1) * $amount;
 
         // get the count
         $count = Product::where('subcategory_id', $subcategory_id)->count();
 
         // get the products
-        $products = Product::where('subcategory_id', $subcategory_id)->get();
+        $products = Product::where('subcategory_id', $subcategory_id)
+            ->offset($startId) // This will skip the specified amount of results
+            ->limit($amount) // This will limit the results to the specified amount
+            ->get();
         if (count($products) > 0) {
             return response()->json([
                 'status' => 200,
