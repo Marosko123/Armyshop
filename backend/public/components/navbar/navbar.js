@@ -75,7 +75,7 @@ window.addEventListener("load", async function () {
 });
 
 const onCategoryClicked = (category) => {
-    window.location.href = "/products/" + category;
+    window.location.href = "/products/category/" + category;
 };
 
 const onSubCategoryClicked = (subcategory) => {
