@@ -27,6 +27,7 @@ const logoutButton = document.getElementById('log-out-btn');
 
 logoutButton.addEventListener('click', function () {
   localStorage.removeItem('armyshop_currently_signed_in_user');
+  localStorage.removeItem('cart');
   window.location.href = "/";
   console.log("User logged-out");
 });
@@ -83,25 +84,22 @@ saveChangesButton.addEventListener('click', async function () {
     "email": document.getElementById('email').value,
     "first_name": document.getElementById('name').value.split(" ")[0],
     "last_name": document.getElementById('name').value.split(" ")[1],
-    "age": null,
-    "address": address,
-    "license_picture": null,
+    "address": address
   };
 
   localStorage.setItem("armyshop_currently_signed_in_user",JSON.stringify(data));
 
-  newUserData = {
-    'id': oldData.id,
-    'email': data.email,
-    'first_name': data.first_name,
-    'last_name': data.last_name,
-    'age': null,
-    "address": data.address,
-    'is_license_valid': 0,
-    'license_picture': null
-  }
-  console.log(newUserData);
-  ServerRequester.postToUrl(`/users/${newUserData.id}/update`, newUserData);
+
+  fetch(`/api/users/update/${data.id}`, {
+      method: 'PUT',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+  })
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error(error));
 
   alert("Changes saved.");
 });
