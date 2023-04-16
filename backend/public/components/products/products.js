@@ -26,15 +26,6 @@ const categories = {
     'accessories': 6
 }
 
-// dictionary for the subcategories
-// const subcategoriesDict = {
-//     1: ['Pistols', 'Rifles', 'SMGs', 'Heavy', 'Knives'],
-//     2: ['Cars', 'Motorcycles', 'Panzers', 'Planes', 'Boats'],
-//     3: ['Jackets', 'Shirts', 'Pants', 'Shoes', 'Socks'],
-//     4: ['C4s', 'Nukes', 'Grenades', 'TNTs', 'Bombs'],
-//     5: ['Backpacks', 'Hunting', 'Camping'],
-//     6: ['Glasses', 'Face paint', 'Camouflage'],
-//   };
 
 // dictionary for the subcategories
 const subcategoriesDict = {
@@ -66,8 +57,33 @@ const subcategoriesDict = {
     'camouflage': 26
 };
 
-  
-  
+const categorySubcategoryMap = {
+    "Weapons": [1, 2, 3, 4, 5],
+    "Transport": [6, 7, 8, 9, 10],
+    "Clothing": [11, 12, 13, 14, 15],
+    "Explosives": [16, 17, 18, 19, 20],
+    "Equipment": [21, 22, 23],
+    "Accessories": [24, 25, 26]
+  };
+
+
+
+
+// get all products
+products = GlobalVariables.products
+console.log('produkty \n' + products);
+count = products.length;
+
+
+function getBySubcategory(id) {
+    products.filter(p => p.subcategory_id === id)
+}
+
+function getByCategory(category) {
+    const subcategories = categorySubcategoryMap[category];
+    return products.filter(p => subcategories.includes(p.subcategory_id));
+}
+
 
 function initializeSlider(pageProductList) {
     // slider for price range
@@ -89,49 +105,49 @@ function initializeSlider(pageProductList) {
     slider2.value = maxPrice;
 }
 
-// spravit tri verzie tejto funkcie, jednu pre vsetky produkty a druhu pre produkty z kategorie a tretiu pre podkategorie
-async function getAllProducts(pageNumber, categorySpecified = null, subcategorySpecified = null) {
 
-    let url = window.location.href;
-    url = url.split('8000')[1];
-    // find out whether to load all products or products from a category
-    if (url.includes('subcategory')) {
-        subcategory = url.split('subcategory/')[1];
-        subcategory = subcategory.split('?')[0];
-        subcategory = subcategoriesDict[subcategory];
-        // modify url to get products from a subcategory
-        url = `/products/subcategory/${subcategory}`;
-        console.log(subcategory);
-    } else if (url.includes('category')) {
-        category = url.split('category/')[1];
-        category = category.split('?')[0];
-        category = categories[category];
-        // modify url to get products from a category
-        url = `/products/category/${category}`;
-    } 
-    // construct the URL based on whether a category or subcategory is specified
-    if (subcategorySpecified) { 
-        url = `/products/subcategory/${subcategorySpecified}`;
+async function getAllProducts() {
+
+    // let url = window.location.href;
+    // url = url.split('8000')[1];
+    // // find out whether to load all products or products from a category
+    // if (url.includes('subcategory')) {
+    //     subcategory = url.split('subcategory/')[1];
+    //     subcategory = subcategory.split('?')[0];
+    //     subcategory = subcategoriesDict[subcategory];
+    //     // modify url to get products from a subcategory
+    //     url = `/products/subcategory/${subcategory}`;
+    //     console.log(subcategory);
+    // } else if (url.includes('category')) {
+    //     category = url.split('category/')[1];
+    //     category = category.split('?')[0];
+    //     category = categories[category];
+    //     // modify url to get products from a category
+    //     url = `/products/category/${category}`;
+    // }
+    // // construct the URL based on whether a category or subcategory is specified
+    // if (subcategorySpecified) { 
+    //     url = `/products/subcategory/${subcategorySpecified}`;
         
-    } else if (categorySpecified) {
-        url = `/products/category/${categorySpecified}`;
-    }
-    url += `?page=${pageNumber}`;
+    // } else if (categorySpecified) {
+    //     url = `/products/category/${categorySpecified}`;
+    // }
+    // url += `?page=${pageNumber}`;
 
-    console.log(url);
+    // console.log(url);
 
-    // get all products from backend
-    const productResponse = await getFromUrl(url);
-    if (productResponse.status !== 200) {
-        let message = `<h1>We are sorry, but there are no products available.</h1>`;
-        const cardContainer = document.getElementById('cards');
-        cardContainer.innerHTML = message;
-        return;
-    }
-    const pageProductList = productResponse.products;
-    const count = productResponse.count;
     
-    initializeSlider(pageProductList);
+    // const productResponse = await getFromUrl(url);
+    // if (productResponse.status !== 200) {
+    //     let message = `<h1>We are sorry, but there are no products available.</h1>`;
+    //     const cardContainer = document.getElementById('cards');
+    //     cardContainer.innerHTML = message;
+    //     return;
+    // }
+    // const pageProductList = productResponse.products;
+    // const count = productResponse.count;
+    
+    initializeSlider(products);
 
     console.log(`Number of products: ${count}`);
 
@@ -151,7 +167,7 @@ async function getAllProducts(pageNumber, categorySpecified = null, subcategoryS
 
     // create html for each product
     let productsHTML = '';
-    for (const product of pageProductList) {
+    for (const product of products) {
         const likedVersion = likedArray.includes(product.id) ? likedImg : notLikedImg;
         productsHTML += `
         <div class="card m-3">
@@ -189,9 +205,7 @@ async function getAllProducts(pageNumber, categorySpecified = null, subcategoryS
 let numberOfPages = 10;
 
 async function getInitialProducts() {
-    // console.log('getting page number');
     numberOfPages = await getAllProducts(1);
-    // console.log('pages ' + numberOfPages);
 }
 
 getInitialProducts();
