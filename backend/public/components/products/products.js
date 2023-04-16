@@ -58,38 +58,62 @@ const subcategoriesDict = {
 };
 
 const categorySubcategoryMap = {
-    "Weapons": [1, 2, 3, 4, 5],
-    "Transport": [6, 7, 8, 9, 10],
-    "Clothing": [11, 12, 13, 14, 15],
-    "Explosives": [16, 17, 18, 19, 20],
-    "Equipment": [21, 22, 23],
-    "Accessories": [24, 25, 26]
-  };
+    "weapons": [1, 2, 3, 4, 5],
+    "transport": [6, 7, 8, 9, 10],
+    "clothing": [11, 12, 13, 14, 15],
+    "explosives": [16, 17, 18, 19, 20],
+    "equipment": [21, 22, 23],
+    "accessories": [24, 25, 26]
+};
+
+const notLikedImg = 'http://127.0.0.1:8000/images/productDetailImages/heart6.png';
+const likedImg = 'http://127.0.0.1:8000/images/productDetailImages/heart4.png';
+
+likedArray = [];
+// get all users liked products
+
+async function getLikedProducts() {
+    // get the liked products for each user
+    const userId = 1; // local storage
+    const response = await ServerRequester.getFromUrl(`/liked_products/${userId}`);
+
+    let likedArray = [];
+    if (response.status === 200) {
+        likedArray = response.products.map(product => product.product_id);
+    } else {
+        likedArray = [];
+    }
+}
+
 
 
 products = [];
 count = 0;
 
-// get all products
 
-function getProducts() {
-    // promise to get all products
-    const promise = new Promise((resolve, reject) => {
-        products = GlobalVariables.products
-        console.log('produkty \n' + products);
-        count = products.length;
-        resolve(products);
-    });
-    return promise;
+// get all products and liked products
+const waitForProducts = new Promise(resolve => {
+
+    const checkCondition = () => {
+        if (GlobalVariables.products.length > 0) {
+            resolve();
+        } else {
+            setTimeout(checkCondition, 100);
+        }
+    };
+
+    checkCondition();
+});
+
+
+function getBySubcategory(products, name) {
+    const id = subcategoriesDict[name];
+    return products.filter(p => p.subcategory_id === id);
 }
 
-
-function getBySubcategory(id) {
-    products.filter(p => p.subcategory_id === id)
-}
-
-function getByCategory(category) {
-    const subcategories = categorySubcategoryMap[category];
+function getByCategory(products, name) {
+    console.log(products.length + ' ' + name);
+    const subcategories = categorySubcategoryMap[name];
     return products.filter(p => subcategories.includes(p.subcategory_id));
 }
 
@@ -115,67 +139,9 @@ function initializeSlider(pageProductList) {
 }
 
 
-async function getAllProducts() {
 
-    // let url = window.location.href;
-    // url = url.split('8000')[1];
-    // // find out whether to load all products or products from a category
-    // if (url.includes('subcategory')) {
-    //     subcategory = url.split('subcategory/')[1];
-    //     subcategory = subcategory.split('?')[0];
-    //     subcategory = subcategoriesDict[subcategory];
-    //     // modify url to get products from a subcategory
-    //     url = `/products/subcategory/${subcategory}`;
-    //     console.log(subcategory);
-    // } else if (url.includes('category')) {
-    //     category = url.split('category/')[1];
-    //     category = category.split('?')[0];
-    //     category = categories[category];
-    //     // modify url to get products from a category
-    //     url = `/products/category/${category}`;
-    // }
-    // // construct the URL based on whether a category or subcategory is specified
-    // if (subcategorySpecified) { 
-    //     url = `/products/subcategory/${subcategorySpecified}`;
-        
-    // } else if (categorySpecified) {
-    //     url = `/products/category/${categorySpecified}`;
-    // }
-    // url += `?page=${pageNumber}`;
-
-    // console.log(url);
-
-    
-    // const productResponse = await getFromUrl(url);
-    // if (productResponse.status !== 200) {
-    //     let message = `<h1>We are sorry, but there are no products available.</h1>`;
-    //     const cardContainer = document.getElementById('cards');
-    //     cardContainer.innerHTML = message;
-    //     return;
-    // }
-    // const pageProductList = productResponse.products;
-    // const count = productResponse.count;
-    
-    initializeSlider(products);
-
-    console.log(`Number of products: ${count}`);
-
-    const notLikedImg = 'http://127.0.0.1:8000/images/productDetailImages/heart6.png';
-    const likedImg = 'http://127.0.0.1:8000/images/productDetailImages/heart4.png';
-
-    // get the liked products for each user
-    const userId = 1; // local storage
-    const response = await ServerRequester.getFromUrl(`/liked_products/${userId}`);
-
-    let likedArray = [];
-    if (response.status === 200) {
-        likedArray = response.products.map(product => product.product_id);
-    } else {
-        likedArray = [];
-    }
-
-    // create html for each product
-    let productsHTML = '';
+function getProductsHTML(products, notLikedImg, likedImg, likedArray) {
+    let productsHTML = "";
     for (const product of products) {
         const likedVersion = likedArray.includes(product.id) ? likedImg : notLikedImg;
         productsHTML += `
@@ -199,15 +165,113 @@ async function getAllProducts() {
                 </div>
         </div>`;
     }
+    return productsHTML;
+}
+
+
+async function getAllProducts(page) {
+
+    await waitForProducts;
+    console.log(`Number of products: ${GlobalVariables.products.length}`);
+    products = GlobalVariables.products;
+
+
+    // filter products by category or subcategory
+    let category = '';
+    let subcategory = '';
+    let url = window.location.href;
+    url = url.split('8000')[1];
+    // find out whether to load all products or products from a category
+    if (url.includes('subcategory')) {
+        subcategory = url.split('subcategory/')[1];
+        subcategory = subcategory.split('?')[0];
+        products = getBySubcategory(products, subcategory)
+    } else if (url.includes('category')) {
+        category = url.split('category/')[1];
+        category = category.split('?')[0];
+        products = getByCategory(products, category);
+    }
+
+    // initialize slider
+    initializeSlider(products);
+    count = products.length;
+
+    // filter by slider
+    products = filterBySlider(products);
+
+    // filter by license
+    products = filterByLicense(products);
+
+    // order by price
+    products = orderByPrice(products);
+
+    // create html for each product
+    let productsHTML = '';
+    await getLikedProducts();
+    // filter products by page
+    productsByPage = products.slice((page - 1) * 18, page * 18);
+    productsHTML = getProductsHTML(productsByPage, notLikedImg, likedImg, likedArray)
 
     const cardContainer = document.getElementById('cards');
     cardContainer.innerHTML = productsHTML;
 
     // calculate the number of pages
     const numPages = Math.ceil(parseInt(count) / 18)
+    hideExcessPageElements(numPages);
     // return the number of pages
     return numPages;
+}
 
+
+
+function filterBySlider(products) {
+    // get slider values from url
+    const urlParams = new URLSearchParams(location.search);
+    const minPrice = urlParams.get('minPrice');
+    const maxPrice = urlParams.get('maxPrice');
+    if (minPrice && maxPrice) {
+        const sliders1 = document.querySelectorAll(".slider-input");
+        let slider1 = sliders1[0];
+        let slider2 = sliders1[1];
+        slider1.value = parseInt(minPrice);
+        slider2.value = parseInt(maxPrice);
+
+        // filter products
+        products = products.filter(p => p.price >= minPrice && p.price <= maxPrice);
+        // update slider
+        initializeSlider(products);
+
+    }
+    return products;
+}
+
+// filter by license
+function filterByLicense(products) {
+    // find out from url whether license is needed
+    const urlParams = new URLSearchParams(location.search);
+    const licenseNeeded = urlParams.get('license');
+    if (licenseNeeded) {
+        const license = document.getElementById('license-checkmark');
+        // find out whether it contains the cllass 'checkmark'
+        const licenseValue = license.classList.contains('checkmark') ? 1 : 0;
+        products = products.filter(p => p.license_needed === licenseValue);
+    }
+    return products;
+}
+
+// order by price
+function orderByPrice(products) {
+    // find out from url whether license is needed
+    const urlParams = new URLSearchParams(location.search);
+    const order = urlParams.get('order');
+    if (order) {
+        if (order === 'asc') {
+            products = products.sort((a, b) => a.price - b.price);
+        } else if (order === 'desc') {
+            products = products.sort((a, b) => b.price - a.price);
+        }
+    }
+    return products;
 }
 
 
@@ -217,8 +281,10 @@ async function getInitialProducts() {
     numberOfPages = await getAllProducts(1);
 }
 
-getInitialProducts();
 
+waitForProducts.then(() => {
+    getInitialProducts();
+});
 
 // pagination
 const page1 = document.getElementById('page1');
@@ -280,14 +346,18 @@ pagePrevious.addEventListener('click', () => {
     hideExcessPageElements();
 });
 
-function hideExcessPageElements() {
+function hideExcessPageElements(numPages) {
+    console.log(numPages);
     const pages = [page1, page2, page3];
     for (let i = 0; i < pages.length; i++) {
-        if (parseInt(pages[i].textContent) > numberOfPages) {
+        if (parseInt(pages[i].textContent) > numPages) {
             pages[i].classList.add("disabled-page");
         } else {
             pages[i].classList.remove("disabled-page");
         }
+    }
+    if (numPages <= 3) {
+        pageNext.classList.add("disabled-page");
     }
 }
 
@@ -307,30 +377,30 @@ function toggleCheckmark(checkmark) {
 
 
 
-function getVals(){
+function getVals() {
     // Get slider values
-    var parent = this.parentNode;   
+    var parent = this.parentNode;
     var slides = parent.getElementsByTagName("input");
-    var slide1 = parseFloat( slides[0].value );
-    var slide2 = parseFloat( slides[1].value );
+    var slide1 = parseFloat(slides[0].value);
+    var slide2 = parseFloat(slides[1].value);
 
     // Neither slider will clip the other, so make sure we determine which is larger
-    if( slide1 > slide2 ){ let tmp = slide2; slide2 = slide1; slide1 = tmp; }
+    if (slide1 > slide2) { let tmp = slide2; slide2 = slide1; slide1 = tmp; }
     let desc = parent.getElementsByClassName("order-description")[0];
     desc.innerHTML = slide1 + " € - " + slide2 + " €";
-  }
-  
-  window.onload = function(){
+}
+
+window.onload = function () {
     // Initialize Sliders
     var sliderSections = document.getElementsByClassName("range-slider");
-        for( var x = 0; x < sliderSections.length; x++ ){
-          var sliders = sliderSections[x].getElementsByTagName("input");
-          for( var y = 0; y < sliders.length; y++ ){
-            if( sliders[y].type ==="range" ){
-              sliders[y].oninput = getVals;
-              // Manually trigger event first time to display values
-              sliders[y].oninput();
+    for (var x = 0; x < sliderSections.length; x++) {
+        var sliders = sliderSections[x].getElementsByTagName("input");
+        for (var y = 0; y < sliders.length; y++) {
+            if (sliders[y].type === "range") {
+                sliders[y].oninput = getVals;
+                // Manually trigger event first time to display values
+                sliders[y].oninput();
             }
-          }
         }
-  }
+    }
+}
