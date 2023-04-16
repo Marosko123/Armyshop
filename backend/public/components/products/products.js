@@ -15,29 +15,68 @@ function addToCart() {
 
 }
 
-let maxPrice = 0;
-let minPrice = 0;
-const orderDescription = document.querySelector('.order-description');
-const sliders1 = document.querySelectorAll(".slider-input");
-let slider1 = sliders1[0];
-let slider2 = sliders1[1];
 
-// spravit tri verzie tejto funkcie, jednu pre vsetky produkty a druhu pre produkty z kategorie a tretiu pre podkategorie
-async function getAllProducts(pageNumber, category = null, subcategory = null) {
+// dictionary for the categories
+const categories = {
+    'weapons': 1,
+    'transport': 2,
+    'clothing': 3,
+    'explosives': 4,
+    'equipment': 5,
+    'accessories': 6
+}
 
-    // construct the URL based on whether a category or subcategory is specified
-    let url = `/products?page=${pageNumber}`;
-    if (category) {
-        url += `/category/${category}`;
-    } else if (subcategory) {
-        url += `/subcategory/${subcategory}`;
-    }
+// dictionary for the subcategories
+// const subcategoriesDict = {
+//     1: ['Pistols', 'Rifles', 'SMGs', 'Heavy', 'Knives'],
+//     2: ['Cars', 'Motorcycles', 'Panzers', 'Planes', 'Boats'],
+//     3: ['Jackets', 'Shirts', 'Pants', 'Shoes', 'Socks'],
+//     4: ['C4s', 'Nukes', 'Grenades', 'TNTs', 'Bombs'],
+//     5: ['Backpacks', 'Hunting', 'Camping'],
+//     6: ['Glasses', 'Face paint', 'Camouflage'],
+//   };
 
-    // get all products from backend
-    const productResponse = await ServerRequester.getFromUrl(url);
-    const pageProductList = productResponse.products;
-    const count = productResponse.count;
-    
+// dictionary for the subcategories
+const subcategoriesDict = {
+    'pistols': 1,
+    'rifles': 2,
+    'smgs': 3,
+    'heavy': 4,
+    'knives': 5,
+    'cars': 6,
+    'motorcycles': 7,
+    'panzers': 8,
+    'planes': 9,
+    'boats': 10,
+    'jackets': 11,
+    'shirts': 12,
+    'pants': 13,
+    'shoes': 14,
+    'socks': 15,
+    'c4s': 16,
+    'nukes': 17,
+    'grenades': 18,
+    'tnts': 19,
+    'bombs': 20,
+    'backpacks': 21,
+    'hunting': 22,
+    'camping': 23,
+    'glasses': 24,
+    'face paint': 25,
+    'camouflage': 26
+};
+
+  
+  
+
+function initializeSlider(pageProductList) {
+    // slider for price range
+    let maxPrice = 0;
+    let minPrice = 0;
+    const orderDescription = document.querySelector('.order-description');
+    const sliders1 = document.querySelectorAll(".slider-input");
+    let slider1 = sliders1[0];
+    let slider2 = sliders1[1];
     // calculate the max and min price
     maxPrice = Math.max(...pageProductList.map(product => product.price));
     minPrice = Math.min(...pageProductList.map(product => product.price));
@@ -48,6 +87,51 @@ async function getAllProducts(pageNumber, category = null, subcategory = null) {
     slider2.max = maxPrice;
     slider1.value = minPrice;
     slider2.value = maxPrice;
+}
+
+// spravit tri verzie tejto funkcie, jednu pre vsetky produkty a druhu pre produkty z kategorie a tretiu pre podkategorie
+async function getAllProducts(pageNumber, categorySpecified = null, subcategorySpecified = null) {
+
+    let url = window.location.href;
+    url = url.split('8000')[1];
+    // find out whether to load all products or products from a category
+    if (url.includes('subcategory')) {
+        subcategory = url.split('subcategory/')[1];
+        subcategory = subcategory.split('?')[0];
+        subcategory = subcategoriesDict[subcategory];
+        // modify url to get products from a subcategory
+        url = `/products/subcategory/${subcategory}`;
+        console.log(subcategory);
+    } else if (url.includes('category')) {
+        category = url.split('category/')[1];
+        category = category.split('?')[0];
+        category = categories[category];
+        // modify url to get products from a category
+        url = `/products/category/${category}`;
+    } 
+    // construct the URL based on whether a category or subcategory is specified
+    if (subcategorySpecified) { 
+        url = `/products/subcategory/${subcategorySpecified}`;
+        
+    } else if (categorySpecified) {
+        url = `/products/category/${categorySpecified}`;
+    }
+    url += `?page=${pageNumber}`;
+
+    console.log(url);
+
+    // get all products from backend
+    const productResponse = await getFromUrl(url);
+    if (productResponse.status !== 200) {
+        let message = `<h1>We are sorry, but there are no products available.</h1>`;
+        const cardContainer = document.getElementById('cards');
+        cardContainer.innerHTML = message;
+        return;
+    }
+    const pageProductList = productResponse.products;
+    const count = productResponse.count;
+    
+    initializeSlider(pageProductList);
 
     console.log(`Number of products: ${count}`);
 
@@ -101,49 +185,6 @@ async function getAllProducts(pageNumber, category = null, subcategory = null) {
 
 }
 
-// get products from category
-async function getProductsByCategory(categoryId) {
-    const productResponse = await ServerRequester.getFromUrl(`/products/category/${categoryId}`);
-    const pageProductList = productResponse.products;
-
-    const notLikedImg = 'http://127.0.0.1:8000/images/productDetailImages/heart6.png';
-    const likedImg = 'http://127.0.0.1:8000/images/productDetailImages/heart4.png';
-
-    // get the liked products for each user
-    const userId = 1; // local storage
-    const response = await ServerRequester.getFromUrl(`/liked_products/${userId}`);
-
-    let likedArray = [];
-    if (response.status === 200) {
-        likedArray = response.products.map(product => product.product_id);
-    }
-
-    // create html for each product
-    let productsHTML = '';
-    for (const product of pageProductList) {
-        const likedVersion = likedArray.includes(product.id) ? likedImg : notLikedImg;
-        productsHTML += `
-        <div class="card m-3">
-            <!-- image source: unsplash.com -->
-            <img class="card-img-top"
-            src="${product.image_url}"
-            alt="Card image cap">
-            <div class="card-body d-flex align-items-center justify-content-between mx-auto">
-                <div>
-                    <h3 class="card-title">${product.name}</h3>
-                    <p class="card-text">${product.price} €</p>
-                </div>
-                <!-- image source: flaticon.com -->
-                <img src="${likedVersion}" alt="" width="14%" class="liked-photo" onclick="toggleIcon(this)">
-            </div>
-                <div class="card-body d-flex align-items-center justify-content-between mx-auto">
-                    <!-- image source: flaticon.com -->
-                    <img src="http://127.0.0.1:8000/images/productDetailImages/cart.png" alt="" width="15%" class="cart-img">
-                    <button type="button" class="btn btn-success btn-buy">Buy Now</button>
-                </div>
-        </div>`;
-    }
-}
 
 let numberOfPages = 10;
 
@@ -166,7 +207,7 @@ const pagePrevious = document.getElementById('page-prev');
 
 page1.addEventListener('click', () => {
     const page1Number = parseInt(page1.textContent);
-    getAllProducts(page1Number);
+    getAllProducts(page1Number, '3', '1');
 });
 
 page2.addEventListener('click', () => {
