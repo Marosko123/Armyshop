@@ -48,6 +48,8 @@ function setProductInformation(product) {
     document.querySelector('.priceFor1').innerHTML = "Price for 1: " + product.price + " €";
     document.getElementById("total-price").innerHTML = product.price + " €";
 
+    // set product image
+    document.querySelector('.detail-image').src = product.image_url;
     // find out if product is liked, if so, change the heart icon
     const likedPhoto = document.querySelector(".liked");
     const userId = 1;
@@ -68,7 +70,7 @@ function handle404Error() {
 
 // Function to get product information from the server
 async function getProductInfo(productId) {
-    const productInfo = await ServerRequester.getFromUrl("/products/3");
+    const productInfo = await ServerRequester.getFromUrl(`/products/${productId}`);
     if (productInfo.status === 404) {
         handle404Error();
     } else {

@@ -201,6 +201,13 @@ section.range-slider input::-moz-range-thumb {
   border: none !important;
 }
 
+#products .card-title {
+  font-size: 1.3rem;
+  /* when out of space, wrap */
+  overflow-wrap: break-word;
+  
+}
+
 #products .card:hover {
   cursor: pointer;
   transform: translateY(-5px);
