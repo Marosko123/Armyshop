@@ -192,15 +192,16 @@ function applyFilters(products) {
     }
     queryString += `min_price=${slider1}&max_price=${slider2}`;
     // license filter
+    const license = document.querySelector('.checkmark-img');
     const licenseValue = license.classList.contains('checkmark') ? 1 : 0;
     queryString += `&license=${licenseValue}`;
 
     // order by filter
     const orderBy = document.querySelector('.dropbtn')
     if (orderBy.classList.contains('asc')) {
-        queryString += `&order_by=asc`;
+        queryString += `&order=asc`;
     } else if (orderBy.classList.contains('desc')) {
-        queryString += `&order_by=desc`;
+        queryString += `&order=desc`;
     }
     // get the current url
     const url = window.location.href;
@@ -463,13 +464,20 @@ pagePrevious.addEventListener('click', () => {
 
 
 
+
 // order by
 const orderBy = document.querySelector('.dropbtn');
-orderBy.querySelector('asc').addEventListener('click', () => {
+document.querySelector('.asc').addEventListener('click', () => {
     orderBy.classList.add('asc');
 });
-orderBy.querySelector('desc').addEventListener('click', () => {
+document.querySelector('.desc').addEventListener('click', () => {
     orderBy.classList.add('desc');
+});
+
+// apply filters
+const applyFiltersBtn = document.querySelector('.apply-filters-btn');
+applyFiltersBtn.addEventListener('click', () => {
+    applyFilters();
 });
 
 
