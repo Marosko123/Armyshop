@@ -41,4 +41,6 @@
 	<script src="{{ asset('components/landingPage/landingPage.js') }}"></script>
 	<script src="{{ asset('components/navbar/navbar.js') }}"></script>
 	<script src="{{ asset('components/contactUs/contactUs.js') }}"></script>
+	<script src="{{ asset('components/loginAndRegisterMenu/loginAndRegisterMenu.js') }}"></script>
+    <script src="{{ asset('components/loginAndRegisterMenu/loginAndRegisterMenuValidator.js') }}"></script>
 </footer>

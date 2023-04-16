@@ -29,9 +29,31 @@ const onShoppingCartClicked = () => {
     window.location.href = "/shoppingCart";
 };
 
+const createPopup = () => {
+    const popup = document.createElement("div");
+    popup.id = "login-popup";
+
+    const popupContent = document.createElement("div");
+    popupContent.classList.add("login-popup-content");
+
+    popup.appendChild(popupContent);
+
+    document.querySelector("body").appendChild(popup);
+};
+
+const displayLoginMenu = () => {
+    loginRegisterMenu = document.querySelector("#login-register-menu-wrapper");
+    loginRegisterMenu.style.display = "block";
+    document.querySelector("#login-register-menu-wrapper").remove();
+    document
+        .querySelector(".login-popup-content")
+        .appendChild(loginRegisterMenu);
+};
+
 const onProfileClicked = () => {
     if (localStorage.getItem("armyshop_currently_signed_in_user") === null) {
-        window.location.href = "/login";
+        createPopup();
+        displayLoginMenu();
     } else {
         window.location.href = "/profile";
     }
@@ -47,11 +69,8 @@ window.addEventListener("load", async function () {
     GlobalVariables.products = response.products;
 
     if (localStorage.getItem("armyshop_currently_signed_in_user") != null) {
-        const imgs = document.querySelectorAll(".profile__button");
-
-        imgs.forEach((img) => {
-            img.style.backgroundColor = "gold";
-        });
+        const profileButton = document.querySelector(".profile__button");
+        profileButton.style.backgroundColor = "gold";
     }
 });
 

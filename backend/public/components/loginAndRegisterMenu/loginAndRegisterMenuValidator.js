@@ -73,7 +73,9 @@ const handleUserAuthentication = async (user) => {
         "armyshop_currently_signed_in_user",
         JSON.stringify(user)
     );
-    window.location.href = "/";
+    document.querySelector("#login-popup").remove();
+    const profileButton = document.querySelector(".profile__button");
+    profileButton.style.backgroundColor = "gold";
 };
 
 const setError = (element, message) => {
