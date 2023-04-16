@@ -47,8 +47,8 @@ const onCategoryClicked = (category) => {
     window.location.href = "/products/" + category;
 };
 
-const onSubCategoryClicked = (category, subcategory) => {
-    window.location.href = `/products/${category}/${subcategory}`;
+const onSubCategoryClicked = (subcategory) => {
+    window.location.href = `/products/subcategory/${subcategory}`;
 };
 
 const onSearchResultSelected = (result) => {
