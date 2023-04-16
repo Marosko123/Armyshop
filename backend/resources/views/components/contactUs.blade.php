@@ -34,4 +34,6 @@
 			</div>
 		</div>
 	</div>
+	<script src="{{ asset('js/globalVariables.js') }}"></script>
+	<script src="{{ asset('js/formatter.js') }}"></script>
 </footer>

@@ -140,7 +140,7 @@ async function getAllProducts(pageNumber, categorySpecified = null, subcategoryS
 
     // get the liked products for each user
     const userId = 1; // local storage
-    const response = await getFromUrl(`/liked_products/${userId}`);
+    const response = await ServerRequester.getFromUrl(`/liked_products/${userId}`);
 
     let likedArray = [];
     if (response.status === 200) {

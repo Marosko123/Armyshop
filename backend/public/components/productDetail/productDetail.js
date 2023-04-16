@@ -1,4 +1,8 @@
 
+window.addEventListener('load', async function () {
+    const product = await ServerRequester.getFromUrl(`/products/${window.location.href.split("/")[window.location.href.split("/").length -1]}`);
+    console.log(product);
+});
 
 function toggleIcon(likedPhoto) {
     if (likedPhoto.classList.contains("liked-photo-new")) { // removes from liked products
@@ -12,7 +16,7 @@ function toggleIcon(likedPhoto) {
         // get user_id from local storage
         const userId = 1
         console.log('Removing from liked products');
-        deleteFromUrl(`/liked_products/delete/${userId}/${productId}`);
+        ServerRequester.deleteFromUrl(`/liked_products/delete/${userId}/${productId}`);
     } else { // adds to liked products
         // Image source: flaticon.com
         likedPhoto.src = "http://127.0.0.1:8000/images/productDetailImages/heart4.png";
@@ -24,7 +28,7 @@ function toggleIcon(likedPhoto) {
         // get user_id from local storage
         const userId = 1
         console.log('Adding to liked products');
-        postToUrl(`/liked_products/add/${userId}/${productId}`, {});
+        ServerRequester.postToUrl(`/liked_products/add/${userId}/${productId}`, {});
     }
 }
 
@@ -44,7 +48,7 @@ function setProductInformation(product) {
     const likedPhoto = document.querySelector(".liked");
     const userId = 1;
     const productId = 1;
-    getFromUrl(`/liked_products/${userId}/${productId}`).then((response) => {
+    ServerRequester.getFromUrl(`/liked_products/${userId}/${productId}`).then((response) => {
         if (response.status === 200) {
             // Image source: flaticon.com
             likedPhoto.src = "http://127.0.0.1:8000/images/productDetailImages/heart4.png";
@@ -60,7 +64,7 @@ function handle404Error() {
 
 // Function to get product information from the server
 async function getProductInfo(productId) {
-    const productInfo = await getFromUrl("/products/3");
+    const productInfo = await ServerRequester.getFromUrl("/products/3");
     if (productInfo.status === 404) {
         handle404Error();
     } else {
@@ -117,14 +121,17 @@ document.querySelector('.addToBasket').addEventListener('click', async (e) => {
     e.preventDefault()
     const amount = document.getElementById('amount').value;
 
-    const basket = {
-        amount: amount
-    };
+    // const basket = {
+    //     amount: amount
+    // };
 
-    const response = await postToUrl(`/baskets/add/3/3/${amount}`, basket);
-    if (response.status === 200) {
-        return handlePopup();
-    }
+    // const response = await postToUrl(`/baskets/add/3/3/${amount}`, basket);
+    // if (response.status === 200) {
+    //     return handlePopup();
+    // }
+
+
+
 });
 
 document.getElementById('order-now').addEventListener('click', async (e) => {
