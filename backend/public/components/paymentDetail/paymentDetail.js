@@ -49,46 +49,48 @@ onOrderNowClicked = async (event) => {
         telephone: document.getElementById("telephone-input"),
     };
 
-    if (areAllInputsValid(inputElements)) {
-        const ordered_products = localStorage.getItem(
-            `armyshop-shopping-cart-of-user-${1}`
-        );
-        const delivery_details = JSON.stringify({
-            firstName: inputElements.firstName.value.trim(),
-            lastName: inputElements.lastName.value.trim(),
-            email: inputElements.email.value.trim(),
-            address: inputElements.address.value.trim(),
-            zip: inputElements.zip.value.trim().replaceAll(" ", ""),
-            city: inputElements.city.value.trim(),
-            country: inputElements.country.value.trim(),
-            telephone: inputElements.telephone.value.trim().replaceAll(" ", ""),
-            deliveryMethod,
-            paymentMethod,
-        });
-        const response = await ServerRequester.postToUrl("/finished_orders/1", {
-            ordered_products,
-            delivery_details,
-        });
+    // if (areAllInputsValid(inputElements)) {
+    //     const ordered_products = localStorage.getItem(
+    //         `armyshop-shopping-cart-of-user-${1}`
+    //     );
+    //     const delivery_details = JSON.stringify({
+    //         firstName: inputElements.firstName.value.trim(),
+    //         lastName: inputElements.lastName.value.trim(),
+    //         email: inputElements.email.value.trim(),
+    //         address: inputElements.address.value.trim(),
+    //         zip: inputElements.zip.value.trim().replaceAll(" ", ""),
+    //         city: inputElements.city.value.trim(),
+    //         country: inputElements.country.value.trim(),
+    //         telephone: inputElements.telephone.value.trim().replaceAll(" ", ""),
+    //         deliveryMethod,
+    //         paymentMethod,
+    //     });
+    //     const response = await ServerRequester.postToUrl("/finished_orders/1", {
+    //         ordered_products,
+    //         delivery_details,
+    //     });
 
-        console.log(response);
+    //     console.log(response);
 
-        if (response.status === 200) {
-            a = document.querySelector("#payment-detail form").reset();
-            return handlePopup();
-        }
-        if (response.status === 401) {
-            setError(loginEmail, "Invalid credentials");
-            return setError(loginPassword1, "Invalid credentials");
-        }
-        if (response.status === 422) {
-            if (response.errors.email) {
-                setError(loginEmail, response.errors.email);
-            }
-            if (response.errors.password) {
-                setError(loginPassword1, response.errors.password);
-            }
-        }
-    }
+    //     if (response.status === 200) {
+    //         a = document.querySelector("#payment-detail form").reset();
+    //         return handlePopup();
+    //     }
+    //     if (response.status === 401) {
+    //         setError(loginEmail, "Invalid credentials");
+    //         return setError(loginPassword1, "Invalid credentials");
+    //     }
+    //     if (response.status === 422) {
+    //         if (response.errors.email) {
+    //             setError(loginEmail, response.errors.email);
+    //         }
+    //         if (response.errors.password) {
+    //             setError(loginPassword1, response.errors.password);
+    //         }
+    //     }
+    // }
+
+    handlePopup();
 };
 
 handlePopup = () => {
