@@ -9,7 +9,7 @@ function toggleIcon(likedPhoto) {
         let userId = 1;
         if(data) userId = data['id'];
         // find product id
-        const parentElement = likedPhoto.parentNode.parentNode.parentNode; // Get the parent element of the clicked img element
+        const parentElement = likedPhoto.parentNode.parentNode; // Get the parent element of the clicked img element
         const productId = parentElement.dataset.productId;
         ServerRequester.deleteFromUrl(`/liked_products/delete/${userId}/${productId}`);
         
