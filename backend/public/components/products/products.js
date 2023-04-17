@@ -242,13 +242,25 @@ function initializeSlider(pageProductList) {
     // calculate the max and min price
     maxPrice = Math.max(...pageProductList.map(product => product.price));
     minPrice = Math.min(...pageProductList.map(product => product.price));
-    orderDescription.textContent = `${minPrice} € - ${maxPrice} €`
+    
     slider1.min = minPrice;
     slider1.max = maxPrice;
     slider2.min = minPrice;
     slider2.max = maxPrice;
     slider1.value = minPrice;
     slider2.value = maxPrice;
+
+    if(minPrice > 1000000) {
+        minPrice = minPrice / 1000000;
+        minPrice = minPrice.toFixed(2);
+        minPrice = minPrice.toString() + "M";
+    }
+    if(maxPrice > 1000000) {
+        maxPrice = maxPrice / 1000000;
+        maxPrice = maxPrice.toFixed(2);
+        maxPrice = maxPrice.toString() + "M";
+    }
+    orderDescription.textContent = `${minPrice} € - ${maxPrice} €`
 }
 
 // initialize the slider values
@@ -258,10 +270,23 @@ function initializeSliderValues() {
     let slider2 = sliders[1];
     const orderDescription = document.querySelector('.order-description');
     // change the values if first one is bigger
-    if (slider1.value > slider2.value) {
+    if (parseFloat(slider1.value) > parseFloat(slider2.value)) {
         [slider1.value, slider2.value] = [slider2.value, slider1.value];
     }
-    orderDescription.textContent = `${slider1.value} € - ${slider2.value} €`
+    console.log(typeof(slider1.value));
+    slider1 = slider1.value
+    slider2 = slider2.value
+    if(slider1 > 1000000) {
+        slider1 = slider1 / 1000000;
+        slider1 = slider1.toFixed(2);
+        slider1 = slider1.toString() + "M";
+    }
+    if(slider2 > 1000000) {
+        slider2 = slider2 / 1000000;
+        slider2 = slider2.toFixed(2);
+        slider2 = slider2.toString() + "M";
+    }
+    orderDescription.textContent = `${slider1} € - ${slider2} €`
 }
 
 
@@ -302,9 +327,6 @@ async function getAllProducts(page) {
     await waitForProducts;
     console.log(`Number of products: ${GlobalVariables.products.length}`);
     products = GlobalVariables.products;
-    // initialize slider
-    // initializeSlider(products);
-
 
     // filter products by category or subcategory
     let category = '';
@@ -322,11 +344,14 @@ async function getAllProducts(page) {
         products = getByCategory(products, category);
     }
 
+    // initialize slider
+    initializeSlider(products);
+
     if (!reset) {
         // filter by slider
         products = filterBySlider(products);
-        // initializeSliderValues();
-        initializeSlider(products)
+        initializeSliderValues();
+        // initializeSlider(products)
 
         // filter by license
         products = filterByLicense(products);
@@ -633,6 +658,17 @@ function getVals() {
     // Neither slider will clip the other, so make sure we determine which is larger
     if (slide1 > slide2) { let tmp = slide2; slide2 = slide1; slide1 = tmp; }
     let desc = parent.getElementsByClassName("order-description")[0];
+    
+    if(slide1 > 1000000) {
+        slide1 = slide1 / 1000000;
+        slide1 = slide1.toFixed(2);
+        slide1 = slide1 + "M";
+    }
+    if(slide2 > 1000000) {
+        slide2 = slide2 / 1000000;
+        slide2 = slide2.toFixed(2);
+        slide2 = slide2 + "M";
+    }
     desc.innerHTML = slide1 + " € - " + slide2 + " €";
 }
 
