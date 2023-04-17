@@ -177,11 +177,21 @@ section.range-slider input::-moz-range-thumb {
   height: 20px;
   margin: 0.3rem 0.4rem;
   background-color: transparent;
-  border: 1px solid white;
-  border-radius: 5px;
+}
+
+#products #filters .toggle-license {
+  cursor: pointer;
 }
 
 #products #filters .apply-filters-btn {
+  background-color: rgb(25, 58, 29);
+  color: white;
+  padding: 1rem;
+  border: none;
+  cursor: pointer;
+}
+
+#products #filters .reset-filters-btn {
   background-color: rgb(25, 58, 29);
   color: white;
   padding: 1rem;
@@ -247,17 +257,12 @@ section.range-slider input::-moz-range-thumb {
 }
 
 #products .liked-photo:hover {
-  background-image: url('../../resources/images/productDetailImages/heart4.png');
   background-size: contain;
   background-repeat: no-repeat;
   width: 18%;
   margin-top: 0.3rem;
 }
 
-
-#products .new-image {
-  background-image: url("../../resources/images/productDetailImages/heart4.png");
-}
 
 #products .order-description {
   color: white;

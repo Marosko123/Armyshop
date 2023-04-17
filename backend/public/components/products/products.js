@@ -150,6 +150,7 @@ async function getLikedProducts() {
 
 products = [];
 count = 0;
+reset = false;
 
 
 // get all products and liked products
@@ -179,7 +180,7 @@ function getByCategory(products, name) {
 }
 
 // apply all filters
-function applyFilters(products) {
+function applyFilters() {
     // build the query string
     let queryString = '?';
 
@@ -187,8 +188,11 @@ function applyFilters(products) {
     const sliders = document.querySelectorAll(".slider-input");
     let slider1 = sliders[0].value;
     let slider2 = sliders[1].value;
-    if (slider1 > slider2) {
-        [slider1, slider2] = [slider2, slider1];
+    if (parseFloat(slider1) > parseFloat(slider2)) {
+        // swap the values
+        const temp = slider1;
+        slider1 = slider2;
+        slider2 = temp;
     }
     queryString += `min_price=${slider1}&max_price=${slider2}`;
     // license filter
@@ -212,6 +216,20 @@ function applyFilters(products) {
     return window.location.href = queryString;
 }
 
+// reset filters
+function resetFilters() {
+    reset = true;
+    // get the current url
+    let url = window.location.href;
+    // delete all existing query parameters
+    if (url.includes('?')) {
+        url = url.split('?')[0];
+    }
+    return (window.location.href = url);
+}
+
+
+
 
 function initializeSlider(pageProductList) {
     // slider for price range
@@ -231,6 +249,19 @@ function initializeSlider(pageProductList) {
     slider2.max = maxPrice;
     slider1.value = minPrice;
     slider2.value = maxPrice;
+}
+
+// initialize the slider values
+function initializeSliderValues() {
+    const sliders = document.querySelectorAll(".slider-input");
+    let slider1 = sliders[0];
+    let slider2 = sliders[1];
+    const orderDescription = document.querySelector('.order-description');
+    // change the values if first one is bigger
+    if (slider1.value > slider2.value) {
+        [slider1.value, slider2.value] = [slider2.value, slider1.value];
+    }
+    orderDescription.textContent = `${slider1.value} € - ${slider2.value} €`
 }
 
 
@@ -271,6 +302,8 @@ async function getAllProducts(page) {
     await waitForProducts;
     console.log(`Number of products: ${GlobalVariables.products.length}`);
     products = GlobalVariables.products;
+    // initialize slider
+    // initializeSlider(products);
 
 
     // filter products by category or subcategory
@@ -289,18 +322,21 @@ async function getAllProducts(page) {
         products = getByCategory(products, category);
     }
 
+    if (!reset) {
+        // filter by slider
+        products = filterBySlider(products);
+        // initializeSliderValues();
+        initializeSlider(products)
 
-    // filter by slider
-    products = filterBySlider(products);
+        // filter by license
+        products = filterByLicense(products);
 
-    // filter by license
-    products = filterByLicense(products);
+        // order by price
+        products = orderByPrice(products);
+    }
+    reset = false;
 
-    // order by price
-    products = orderByPrice(products);
-
-    // initialize slider
-    initializeSlider(products);
+    
     count = products.length;
 
     // create html for each product
@@ -403,11 +439,18 @@ function filterByLicense(products) {
     // find out from url whether license is needed
     const urlParams = new URLSearchParams(location.search);
     const licenseNeeded = urlParams.get('license');
-    if (licenseNeeded) {
+    console.log(urlParams);
+    if (licenseNeeded && licenseNeeded != '0') {
+        console.log(licenseNeeded + 'needed');
+        licenseValue = true
+        products = products.filter(p => p.license_needed === 1);
+    } else if (licenseNeeded == '0'){
+        console.log('zero');
         const license = document.getElementById('license-checkmark');
-        // find out whether it contains the cllass 'checkmark'
-        const licenseValue = license.classList.contains('checkmark') ? 1 : 0;
-        products = products.filter(p => p.license_needed === licenseValue);
+        license.classList.remove('checkmark');
+        license.style.display = 'none';
+        licenseValue = false
+        products = products.filter(p => p.license_needed === 0);
     }
     return products;
 }
@@ -514,9 +557,15 @@ document.querySelector('.desc').addEventListener('click', () => {
 });
 
 // apply filters
-const applyFiltersBtn = document.querySelector('.apply-filters-btn');
+const applyFiltersBtn = document.getElementById('apply-button');
 applyFiltersBtn.addEventListener('click', () => {
     applyFilters();
+});
+
+// reset filters
+const resetFiltersBtn = document.querySelector('.reset-filters-btn');
+resetFiltersBtn.addEventListener('click', () => {
+    resetFilters();
 });
 
 
@@ -537,12 +586,15 @@ function hideExcessPageElements(numPages) {
 
 
 // license toggle checkmark
-function toggleCheckmark(checkmark) {
+function toggleCheckmark() {
+    const checkmark = document.getElementById('license-checkmark');
     if (checkmark.classList.contains("checkmark")) {
         checkmark.classList.remove("checkmark");
+        checkmark.style.display = 'none';
         // remove the checkmark image
         checkmark.src = "";
     } else {
+        checkmark.style.display = 'block';
         checkmark.classList.add("checkmark");
         // add the checkmark image
         checkmark.src = "http://127.0.0.1:8000/images/productDetailImages/checkmark.png";
