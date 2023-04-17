@@ -188,11 +188,15 @@ function loadToStorage(data){
     products = {};
     
     Object.values(basket).forEach(product => {
-        cartProduct = (Object.values(GlobalVariables.products).filter(globalProduct => globalProduct.id === product.product_id)[0]);
-        delete cartProduct['description'];
-        delete cartProduct['id'];
-        delete cartProduct['license_needed'];
-        delete cartProduct['subcategory_id'];
+        filteredProduct = (Object.values(GlobalVariables.products).filter(globalProduct => globalProduct.id === product.product_id)[0]);
+        
+        cartProduct = {
+            'name':filteredProduct['name'],
+            'price':filteredProduct['price'],
+            'image_url':filteredProduct['image_url'],
+            'alt_text':filteredProduct['alt_text']
+        }
+        
         cartProduct['count'] = product.quantity;
         products[product.product_id] = cartProduct;
     });
