@@ -318,7 +318,8 @@ function getProductsHTML(products, notLikedImg, likedImg, likedArray) {
         <div style="height:100px;"></div>`;
     }
     for (const product of products) {
-        const likedVersion = likedArray.includes(product.id) ? likedImg : notLikedImg;
+        const isLiked = likedArray.includes(product.id)
+        const likedVersion = isLiked ? likedImg : notLikedImg;
         productsHTML += `
         <div class="card m-3" data-product-id="${product.id}" style="height:25rem !important;">
             <!-- image source: unsplash.com -->
@@ -332,7 +333,7 @@ function getProductsHTML(products, notLikedImg, likedImg, likedArray) {
                     <p class="card-text">${product.price} €</p>
                 </div>
                 <!-- image source: flaticon.com -->
-                <img src="${likedVersion}" alt="" width="14%" class="liked-photo" onclick="toggleIcon(this)">
+                <img src="${likedVersion}" alt="" width="14%" class="liked-photo ${isLiked ? 'liked-photo-new' : ''}" onclick="toggleIcon(this)">
             </div>
                 <div class="card-body d-flex align-items-center justify-content-between mx-auto">
                     <!-- image source: flaticon.com -->
