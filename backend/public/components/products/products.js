@@ -314,8 +314,8 @@ function initializeSliderValues() {
 function getProductsHTML(products, notLikedImg, likedImg, likedArray) {
     let productsHTML = "";
     if(products.length === 0) {
-        productsHTML = `<h2 style="color:white !important;">No products found for this filter</h2>
-        <div style="height:300px;"></div>`;
+        productsHTML = `<h2 style="color:white !important; margin-top:40px !important;">No products found for this filter</h2>
+        <div style="height:100px;"></div>`;
     }
     for (const product of products) {
         const likedVersion = likedArray.includes(product.id) ? likedImg : notLikedImg;

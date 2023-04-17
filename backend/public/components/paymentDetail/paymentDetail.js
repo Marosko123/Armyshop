@@ -89,14 +89,14 @@ onOrderNowClicked = async (event) => {
     //         }
     //     }
     // }
-
-    handlePopup();
+    
+    return handlePopup();
 };
 
 handlePopup = () => {
     window.location.assign("#popup1");
     const countdownEl = document.getElementById("countdown");
-    let count = 4;
+    let count = 1;
 
     const countdownInterval = setInterval(() => {
         if (count > 0) {

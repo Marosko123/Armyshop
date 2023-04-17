@@ -26,7 +26,7 @@
 				<h1 class="main-heading mt-5 display-1">Welcome to ArmyShop</h1>
 				<div class="categories mt-5">
 					<div class="row justify-content-center">
-						<div class="col-sm-4 col-8 mb-4" >
+						<div class="col-md-4 col-8 mb-4" >
 							<div class="category mx-auto" onclick="onCategoryClicked('weapons')">
 							<div class="category-icon mb-3 mt-3">
 								<!-- image source: flaticon.com -->
@@ -35,7 +35,7 @@
 							<p class="description">Weapons</p>
 							</div>
 						</div>
-						<div class="col-sm-4 col-8 mb-4">
+						<div class="col-md-4 col-8 mb-4">
 							<div class="category mx-auto" onclick="onCategoryClicked('transport')">
 							<div class="category-icon mb-3 mt-4">
 								<!-- image source: flaticon.com -->
@@ -44,7 +44,7 @@
 							<p class="description">Transport</p>
 							</div>
 						</div>
-						<div class="col-sm-4 col-8 mb-4">
+						<div class="col-md-4 col-8 mb-4">
 							<div class="category mx-auto" onclick="onCategoryClicked('clothing')">
 							<div class="category-icon mb-2 mt-4">
 								<!-- image source: flaticon.com -->
@@ -55,7 +55,7 @@
 						</div>
 					</div>
 					<div class="row justify-content-center">
-						<div class="col-sm-4 col-8 mb-4">
+						<div class="col-md-4 col-8 mb-4">
 							<div class="category mx-auto" onclick="onCategoryClicked('explosives')">
 							<div class="category-icon mt-1 mb-2">
 								<!-- image source: flaticon.com -->
@@ -64,7 +64,7 @@
 							<p class="description">Explosives</p>
 							</div>
 						</div>
-						<div class="col-sm-4 col-8 mb-4">
+						<div class="col-md-4 col-8 mb-4">
 							<div class="category mx-auto" onclick="onCategoryClicked('equipment')">
 							<div class="category-icon">
 								<!-- image source: flaticon.com -->
@@ -73,7 +73,7 @@
 							<p class="description">Equipment</p>
 							</div>
 						</div>
-						<div class="col-sm-4 col-8 mb-4">
+						<div class="col-md-4 col-8 mb-4">
 							<div class="category mx-auto" onclick="onCategoryClicked('accessories')">
 							<div class="category-icon mb-2 mt-1">
 								<!-- image source: flaticon.com -->
