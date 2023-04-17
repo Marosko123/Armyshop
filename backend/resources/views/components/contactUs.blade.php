@@ -4,7 +4,6 @@
 		<div class="contact-us-wrapper">
 			<div class="contact-us-column">
 				<h1>Contact us</h1>
-				<h1>WAZZZUUUUPP</h1>
 				<p>Phone: +421 9xx xxx xxx</p>
 				<p>Email: info@armyshop.xd</p>
 			</div>

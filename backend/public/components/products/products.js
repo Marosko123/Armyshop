@@ -150,6 +150,7 @@ async function getLikedProducts() {
 
 products = [];
 count = 0;
+reset = false;
 
 
 // get all products and liked products
@@ -179,7 +180,7 @@ function getByCategory(products, name) {
 }
 
 // apply all filters
-function applyFilters(products) {
+function applyFilters() {
     // build the query string
     let queryString = '?';
 
@@ -187,8 +188,11 @@ function applyFilters(products) {
     const sliders = document.querySelectorAll(".slider-input");
     let slider1 = sliders[0].value;
     let slider2 = sliders[1].value;
-    if (slider1 > slider2) {
-        [slider1, slider2] = [slider2, slider1];
+    if (parseFloat(slider1) > parseFloat(slider2)) {
+        // swap the values
+        const temp = slider1;
+        slider1 = slider2;
+        slider2 = temp;
     }
     queryString += `min_price=${slider1}&max_price=${slider2}`;
     // license filter
@@ -212,6 +216,20 @@ function applyFilters(products) {
     return window.location.href = queryString;
 }
 
+// reset filters
+function resetFilters() {
+    reset = true;
+    // get the current url
+    let url = window.location.href;
+    // delete all existing query parameters
+    if (url.includes('?')) {
+        url = url.split('?')[0];
+    }
+    return (window.location.href = url);
+}
+
+
+
 
 function initializeSlider(pageProductList) {
     // slider for price range
@@ -224,13 +242,51 @@ function initializeSlider(pageProductList) {
     // calculate the max and min price
     maxPrice = Math.max(...pageProductList.map(product => product.price));
     minPrice = Math.min(...pageProductList.map(product => product.price));
-    orderDescription.textContent = `${minPrice} € - ${maxPrice} €`
+    
     slider1.min = minPrice;
     slider1.max = maxPrice;
     slider2.min = minPrice;
     slider2.max = maxPrice;
     slider1.value = minPrice;
     slider2.value = maxPrice;
+
+    if(minPrice > 1000000) {
+        minPrice = minPrice / 1000000;
+        minPrice = minPrice.toFixed(2);
+        minPrice = minPrice.toString() + "M";
+    }
+    if(maxPrice > 1000000) {
+        maxPrice = maxPrice / 1000000;
+        maxPrice = maxPrice.toFixed(2);
+        maxPrice = maxPrice.toString() + "M";
+    }
+    orderDescription.textContent = `${minPrice} € - ${maxPrice} €`
+}
+
+// initialize the slider values
+function initializeSliderValues() {
+    const sliders = document.querySelectorAll(".slider-input");
+    let slider1 = sliders[0];
+    let slider2 = sliders[1];
+    const orderDescription = document.querySelector('.order-description');
+    // change the values if first one is bigger
+    if (parseFloat(slider1.value) > parseFloat(slider2.value)) {
+        [slider1.value, slider2.value] = [slider2.value, slider1.value];
+    }
+    console.log(typeof(slider1.value));
+    slider1 = slider1.value
+    slider2 = slider2.value
+    if(slider1 > 1000000) {
+        slider1 = slider1 / 1000000;
+        slider1 = slider1.toFixed(2);
+        slider1 = slider1.toString() + "M";
+    }
+    if(slider2 > 1000000) {
+        slider2 = slider2 / 1000000;
+        slider2 = slider2.toFixed(2);
+        slider2 = slider2.toString() + "M";
+    }
+    orderDescription.textContent = `${slider1} € - ${slider2} €`
 }
 
 
@@ -272,7 +328,6 @@ async function getAllProducts(page) {
     console.log(`Number of products: ${GlobalVariables.products.length}`);
     products = GlobalVariables.products;
 
-
     // filter products by category or subcategory
     let category = '';
     let subcategory = '';
@@ -289,18 +344,24 @@ async function getAllProducts(page) {
         products = getByCategory(products, category);
     }
 
-
-    // filter by slider
-    products = filterBySlider(products);
-
-    // filter by license
-    products = filterByLicense(products);
-
-    // order by price
-    products = orderByPrice(products);
-
     // initialize slider
     initializeSlider(products);
+
+    if (!reset) {
+        // filter by slider
+        products = filterBySlider(products);
+        initializeSliderValues();
+        // initializeSlider(products)
+
+        // filter by license
+        products = filterByLicense(products);
+
+        // order by price
+        products = orderByPrice(products);
+    }
+    reset = false;
+
+    
     count = products.length;
 
     // create html for each product
@@ -423,11 +484,18 @@ function filterByLicense(products) {
     // find out from url whether license is needed
     const urlParams = new URLSearchParams(location.search);
     const licenseNeeded = urlParams.get('license');
-    if (licenseNeeded) {
+    console.log(urlParams);
+    if (licenseNeeded && licenseNeeded != '0') {
+        console.log(licenseNeeded + 'needed');
+        licenseValue = true
+        products = products.filter(p => p.license_needed === 1);
+    } else if (licenseNeeded == '0'){
+        console.log('zero');
         const license = document.getElementById('license-checkmark');
-        // find out whether it contains the cllass 'checkmark'
-        const licenseValue = license.classList.contains('checkmark') ? 1 : 0;
-        products = products.filter(p => p.license_needed === licenseValue);
+        license.classList.remove('checkmark');
+        license.style.display = 'none';
+        licenseValue = false
+        products = products.filter(p => p.license_needed === 0);
     }
     return products;
 }
@@ -534,9 +602,15 @@ document.querySelector('.desc').addEventListener('click', () => {
 });
 
 // apply filters
-const applyFiltersBtn = document.querySelector('.apply-filters-btn');
+const applyFiltersBtn = document.getElementById('apply-button');
 applyFiltersBtn.addEventListener('click', () => {
     applyFilters();
+});
+
+// reset filters
+const resetFiltersBtn = document.querySelector('.reset-filters-btn');
+resetFiltersBtn.addEventListener('click', () => {
+    resetFilters();
 });
 
 
@@ -557,12 +631,15 @@ function hideExcessPageElements(numPages) {
 
 
 // license toggle checkmark
-function toggleCheckmark(checkmark) {
+function toggleCheckmark() {
+    const checkmark = document.getElementById('license-checkmark');
     if (checkmark.classList.contains("checkmark")) {
         checkmark.classList.remove("checkmark");
+        checkmark.style.display = 'none';
         // remove the checkmark image
         checkmark.src = "";
     } else {
+        checkmark.style.display = 'block';
         checkmark.classList.add("checkmark");
         // add the checkmark image
         checkmark.src = "http://127.0.0.1:8000/images/productDetailImages/checkmark.png";
@@ -581,6 +658,17 @@ function getVals() {
     // Neither slider will clip the other, so make sure we determine which is larger
     if (slide1 > slide2) { let tmp = slide2; slide2 = slide1; slide1 = tmp; }
     let desc = parent.getElementsByClassName("order-description")[0];
+    
+    if(slide1 > 1000000) {
+        slide1 = slide1 / 1000000;
+        slide1 = slide1.toFixed(2);
+        slide1 = slide1 + "M";
+    }
+    if(slide2 > 1000000) {
+        slide2 = slide2 / 1000000;
+        slide2 = slide2.toFixed(2);
+        slide2 = slide2 + "M";
+    }
     desc.innerHTML = slide1 + " € - " + slide2 + " €";
 }
 

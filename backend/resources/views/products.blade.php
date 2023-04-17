@@ -44,9 +44,9 @@ integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6
         </div>
         <div class="col-lg-3 col-6 mb-3 mb-md-0">
             <div class="license-needed d-flex mt-3">
-                <p class="order-description toggle-license" style="margin-left: 3rem; margin-top: 3px; font-size:1rem;">License:</p>
+                <p class="order-description toggle-license" style="margin-left: 3rem; margin-top: 3px; font-size:1rem;" onclick="toggleCheckmark()">License:</p>
                 <img src="{{ asset('images/productDetailImages/checkmark.png') }}" alt="" width="10%" height="30%"
-                    class="checkmark-img checkmark" id="license-checkmark" onclick="toggleCheckmark(this)">
+                    class="checkmark-img checkmark" id="license-checkmark">
             </div>
         </div>
         <div class="col-lg-3 col-6 mb-3 mb-md-0">
@@ -59,9 +59,11 @@ integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6
             </div>
         </div>
         <div class="col-lg-3 col-6 mb-3 mb-md-0">
-            <div class="apply-filters">
-                <button class="apply-filters-btn rounded mx-auto">Apply Filters</button>
+            <div class="apply-filters justify-content-between">
+                <button class="apply-filters-btn rounded" id="apply-button">Apply</button>
+                <button class="reset-filters-btn rounded" style="margin-left:3rem;">Reset</button>
             </div>
+
         </div>
     </div>
 		</div>

@@ -23,7 +23,7 @@
 			<!-- categories -->
 			<div id="categories">
 				<div class="container">
-				<h1 class="main-heading mt-5 display-1">Welcome to our ArmyShop</h1>
+				<h1 class="main-heading mt-5 display-1">Welcome to ArmyShop</h1>
 				<div class="categories mt-5">
 					<div class="row justify-content-center">
 						<div class="col-sm-4 col-8 mb-4" >
@@ -86,62 +86,7 @@
 				</div>
 
 				<section id="most-popular">
-					<h1 class="main-heading mt-5 display-1">Most Popular</h1>
-					<div class="card-container">
-					<div class="card m-3">
-						<!-- image source: unsplash.com -->
-						<img class="card-img-top" src="{{ asset('images/productDetailImages/ak47-1.jpg') }}" alt="Card image cap" onclick="toggleLikedIcon()">
-						<div class="card-body d-flex align-items-center justify-content-between mx-auto">
-							<div>
-								<h3 class="card-title">AK-47</h3>
-								<p class="card-text">5999.99 €</p>
-							</div>
-							<!-- image source: flaticon.com -->
-							<img src="{{ asset('images/productDetailImages/heart4.png') }}" alt="" width="14%" class="liked-photo">
-						</div>
-						<div class="card-body d-flex align-items-center justify-content-between mx-auto">
-							<!-- image source: flaticon.com -->
-							<img src="{{ asset('images/productDetailImages/cart.png') }}" alt="" width="15%" class="cart-img">
-							<button type="button" class="btn btn-success btn-buy">Buy Now</button>
-						</div>
-					</div>
-
-					<div class="card m-3">
-						<!-- image source: unsplash.com -->
-						<img class="card-img-top" src="{{ asset('images/productDetailImages/ak47-1.jpg') }}" alt="Card image cap">
-						<div class="card-body d-flex align-items-center justify-content-between mx-auto">
-							<div>
-								<h3 class="card-title">AK-47</h3>
-								<p class="card-text">5999.99 €</p>
-							</div>
-							<!-- image source: flaticon.com -->
-							<img src="{{ asset('images/productDetailImages/heart4.png') }}" alt="" width="14%" class="liked-photo">
-						</div>
-						<div class="card-body d-flex align-items-center justify-content-between mx-auto">
-							<!-- image source: flaticon.com -->
-							<img src="{{ asset('images/productDetailImages/cart.png') }}" alt="" width="15%" class="cart-img">
-							<button type="button" class="btn btn-success btn-buy">Buy Now</button>
-						</div>
-					</div>
-
-					<div class="card m-3">
-						<!-- image source: unsplash.com -->
-						<img class="card-img-top" src="{{ asset('images/productDetailImages/ak47-1.jpg') }}" alt="Card image cap">
-						<div class="card-body d-flex align-items-center justify-content-between mx-auto">
-							<div>
-								<h3 class="card-title">AK-47</h3>
-								<p class="card-text">5999.99 €</p>
-							</div>
-							<!-- image source: flaticon.com -->
-							<img src="{{ asset('images/productDetailImages/heart4.png') }}" alt="" width="14%" class="liked-photo">
-						</div>
-						<div class="card-body d-flex align-items-center justify-content-between mx-auto">
-							<!-- image source: flaticon.com -->
-							<img src="{{ asset('images/productDetailImages/cart.png') }}" alt="" width="15%" class="cart-img">
-							<button type="button" class="btn btn-success btn-buy">Buy Now</button>
-						</div>
-					</div>
-				</div>
+					
 				</section>
 			</div>
 			</div>

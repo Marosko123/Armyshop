@@ -177,8 +177,10 @@ section.range-slider input::-moz-range-thumb {
   height: 20px;
   margin: 0.3rem 0.4rem;
   background-color: transparent;
-  border: 1px solid white;
-  border-radius: 5px;
+}
+
+#products #filters .toggle-license {
+  cursor: pointer;
 }
 
 #products #filters .apply-filters-btn {
@@ -187,6 +189,15 @@ section.range-slider input::-moz-range-thumb {
   padding: 1rem;
   border: none;
   cursor: pointer;
+}
+
+#products #filters .reset-filters-btn {
+  background-color: rgb(25, 58, 29);
+  color: white;
+  padding: 1rem;
+  border: none;
+  cursor: pointer;
+  margin-left: 40px !important;
 }
   
 /* PRODUCTS - CARDS */
@@ -247,7 +258,6 @@ section.range-slider input::-moz-range-thumb {
 }
 
 #products .liked-photo:hover {
-  background-image: url('../../resources/images/productDetailImages/heart4.png');
   background-size: contain;
   background-repeat: no-repeat;
   width: 18%;
@@ -255,14 +265,10 @@ section.range-slider input::-moz-range-thumb {
 }
 
 
-#products .new-image {
-  background-image: url("../../resources/images/productDetailImages/heart4.png");
-}
-
 #products .order-description {
   color: white;
   margin-left: 3rem;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 
 .checkmark-img:hover {
@@ -313,7 +319,12 @@ section.range-slider input::-moz-range-thumb {
   display: none !important;
 }
 
+@media (max-width: 1200px) and (min-width: 990px) {
 
+  #products #filters .reset-filters-btn {
+    margin-left: 5px !important;
+  }
+}
 
 
 /* Screens smaller than 700px */
