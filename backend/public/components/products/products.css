@@ -197,6 +197,7 @@ section.range-slider input::-moz-range-thumb {
   padding: 1rem;
   border: none;
   cursor: pointer;
+  margin-left: 40px !important;
 }
   
 /* PRODUCTS - CARDS */
@@ -318,7 +319,12 @@ section.range-slider input::-moz-range-thumb {
   display: none !important;
 }
 
+@media (max-width: 1200px) and (min-width: 990px) {
 
+  #products #filters .reset-filters-btn {
+    margin-left: 5px !important;
+  }
+}
 
 
 /* Screens smaller than 700px */
