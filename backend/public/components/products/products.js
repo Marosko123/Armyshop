@@ -5,22 +5,26 @@ function toggleIcon(likedPhoto) {
         likedPhoto.src = "http://127.0.0.1:8000/images/productDetailImages/heart6.png";
         likedPhoto.classList.remove("liked-photo-new");
         // remove from database
-        const userId = 1; // local storage
+        const data = JSON.parse(localStorage.getItem('armyshop_currently_signed_in_user'));
+        let userId = 1;
+        if(data) userId = data['id'];
         // find product id
-        const parentElement = imgElement.parentNode; // Get the parent element of the clicked img element
-        const productId = parentElement.getAttribute('data-product-id');
-        ServerRequester.deleteFromUrl(`/liked_products/${userId}/${productId}`);
+        const parentElement = likedPhoto.parentNode.parentNode.parentNode; // Get the parent element of the clicked img element
+        const productId = parentElement.dataset.productId;
+        ServerRequester.deleteFromUrl(`/liked_products/delete/${userId}/${productId}`);
         
     } else { // adds to liked images
         // Image source: flaticon.com
         likedPhoto.src = "http://127.0.0.1:8000/images/productDetailImages/heart4.png";
         likedPhoto.classList.add("liked-photo-new");
         // add to database
-        const userId = 1; // local storage
+        const data = JSON.parse(localStorage.getItem('armyshop_currently_signed_in_user'));
+        let userId = 1;
+        if(data) userId = data['id'];
         // find product id
-        const parentElement = imgElement.parentNode; // Get the parent element of the clicked img element
-        const productId = parentElement.getAttribute('data-product-id');
-        ServerRequester.postToUrl(`/liked_products/${userId}/${productId}`);
+        const parentElement = likedPhoto.parentNode.parentNode; // Get the parent element of the clicked img element
+        const productId = parentElement.dataset.productId;
+        ServerRequester.postToUrl(`/liked_products/add/${userId}/${productId}`);
     }
 }
 
@@ -116,7 +120,7 @@ function getSubcategoriesForCategory() {
         }
         // get the subcategories for the category
         let subcategories = categorySubcategoryMap[category];
-        console.log(subcategories);
+        // console.log(subcategories);
         // get the subcategories names
         subcategories = subcategories.map(subcategory => reverseSubcategoriesDict[subcategory]);
 
@@ -148,7 +152,7 @@ likedArray = [];
 // get all users liked products
 
 async function getLikedProducts() {
-    // get the liked products for each user
+    // get the liked products for user
     const data = JSON.parse(localStorage.getItem('armyshop_currently_signed_in_user'));
 
     let userId = 1;
@@ -191,7 +195,7 @@ function getBySubcategory(products, name) {
 }
 
 function getByCategory(products, name) {
-    console.log(products.length + ' ' + name);
+    // console.log(products.length + ' ' + name);
     const subcategories = categorySubcategoryMap[name];
     return products.filter(p => subcategories.includes(p.subcategory_id));
 }
@@ -290,7 +294,7 @@ function initializeSliderValues() {
     if (parseFloat(slider1.value) > parseFloat(slider2.value)) {
         [slider1.value, slider2.value] = [slider2.value, slider1.value];
     }
-    console.log(typeof(slider1.value));
+    // console.log(typeof(slider1.value));
     slider1 = slider1.value
     slider2 = slider2.value
     if(slider1 > 1000000) {
@@ -346,7 +350,7 @@ async function getAllProducts(page) {
     getSubcategoriesForCategory()
 
     await waitForProducts;
-    console.log(`Number of products: ${GlobalVariables.products.length}`);
+    // console.log(`Number of products: ${GlobalVariables.products.length}`);
     products = GlobalVariables.products;
 
     // filter products by category or subcategory
@@ -428,7 +432,7 @@ function addEventListenersToCards() {
                 data = {}
         
             previousCount = parseInt(data[productId] ? data[productId].count : 0);
-            console.log(productId);
+            // console.log(productId);
 
             filteredProduct = (Object.values(GlobalVariables.products).filter(globalProduct => globalProduct.id == productId)[0]);
 
@@ -505,13 +509,13 @@ function filterByLicense(products) {
     // find out from url whether license is needed
     const urlParams = new URLSearchParams(location.search);
     const licenseNeeded = urlParams.get('license');
-    console.log(urlParams);
+    // console.log(urlParams);
     if (licenseNeeded && licenseNeeded != '0') {
-        console.log(licenseNeeded + 'needed');
+        // console.log(licenseNeeded + 'needed');
         licenseValue = true
         products = products.filter(p => p.license_needed === 1);
     } else if (licenseNeeded == '0'){
-        console.log('zero');
+        // console.log('zero');
         const license = document.getElementById('license-checkmark');
         license.classList.remove('checkmark');
         license.style.display = 'none';
@@ -572,7 +576,7 @@ page3.addEventListener('click', () => {
 });
 
 pageNext.addEventListener('click', () => {
-    console.log(numberOfPages);
+    // console.log(numberOfPages);
     // update the page numbers and stop at the last page
     const page1Number = parseInt(page1.textContent) + 3;
     const page2Number = parseInt(page2.textContent) + 3;
@@ -636,7 +640,7 @@ resetFiltersBtn.addEventListener('click', () => {
 
 
 function hideExcessPageElements(numPages) {
-    console.log(numPages);
+    // console.log(numPages);
     const pages = [page1, page2, page3];
     for (let i = 0; i < pages.length; i++) {
         if (parseInt(pages[i].textContent) > numPages) {
