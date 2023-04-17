@@ -6,6 +6,10 @@ isImageInserted = false;
 
 imageToSubmit = null;
 
+document.querySelector(".close-button").addEventListener("click", () => {
+    window.location.reload();
+});
+
 openRegisterMenu = (event) => {
     if (!isLoginMenuOpen) {
         return;

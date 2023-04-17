@@ -100,7 +100,7 @@ const onSearchResultSelected = (result) => {
     )?.id;
 
     if (productId != null) {
-        window.location.href = `/products/${category}/${productId}`;
+        window.location.href = `/products/product/${productId}`;
     }
 };
 

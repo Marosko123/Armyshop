@@ -157,6 +157,8 @@ document.querySelector('.addToBasket').addEventListener('click', async (e) => {
         .then(response => response.json())
         .catch(error => console.error(error));
     }
+
+    alert("Product added to cart.");
 });
 
 document.getElementById('order-now').addEventListener('click', async (e) => {
