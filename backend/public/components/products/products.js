@@ -4,10 +4,23 @@ function toggleIcon(likedPhoto) {
         // Image source: flaticon.com
         likedPhoto.src = "http://127.0.0.1:8000/images/productDetailImages/heart6.png";
         likedPhoto.classList.remove("liked-photo-new");
+        // remove from database
+        const userId = 1; // local storage
+        // find product id
+        const parentElement = imgElement.parentNode; // Get the parent element of the clicked img element
+        const productId = parentElement.getAttribute('data-product-id');
+        ServerRequester.deleteFromUrl(`/liked_products/${userId}/${productId}`);
+        
     } else { // adds to liked images
         // Image source: flaticon.com
         likedPhoto.src = "http://127.0.0.1:8000/images/productDetailImages/heart4.png";
         likedPhoto.classList.add("liked-photo-new");
+        // add to database
+        const userId = 1; // local storage
+        // find product id
+        const parentElement = imgElement.parentNode; // Get the parent element of the clicked img element
+        const productId = parentElement.getAttribute('data-product-id');
+        ServerRequester.postToUrl(`/liked_products/${userId}/${productId}`);
     }
 }
 
@@ -292,6 +305,10 @@ function initializeSliderValues() {
 
 function getProductsHTML(products, notLikedImg, likedImg, likedArray) {
     let productsHTML = "";
+    if(products.length === 0) {
+        productsHTML = `<h2 style="color:white !important;">No products found for this filter</h2>
+        <div style="height:300px;"></div>`;
+    }
     for (const product of products) {
         const likedVersion = likedArray.includes(product.id) ? likedImg : notLikedImg;
         productsHTML += `
