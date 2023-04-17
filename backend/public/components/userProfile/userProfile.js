@@ -34,6 +34,7 @@ const logoutButton = document.getElementById("log-out-btn");
 logoutButton.addEventListener('click', function () {
   localStorage.removeItem('armyshop_currently_signed_in_user');
   localStorage.removeItem('cart');
+  localStorage.removeItem("buyNowCart");
   window.location.href = "/";
   console.log("User logged-out");
 });

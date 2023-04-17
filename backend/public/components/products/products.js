@@ -256,7 +256,7 @@ function getProductsHTML(products, notLikedImg, likedImg, likedArray) {
                 <div class="card-body d-flex align-items-center justify-content-between mx-auto">
                     <!-- image source: flaticon.com -->
                     <img id='cart-button' src="http://127.0.0.1:8000/images/productDetailImages/cart.png" alt="" width="15%" class="cart-img">
-                    <button type="button" class="btn btn-success btn-buy">Buy Now</button>
+                    <button id='buy-now-button' type="button" class="btn btn-success btn-buy">Buy Now</button>
                 </div>
         </div>`;
     }
@@ -348,12 +348,14 @@ function addEventListenersToCards() {
             previousCount = parseInt(data[productId] ? data[productId].count : 0);
             console.log(productId);
 
-            cartProduct = (Object.values(GlobalVariables.products).filter(globalProduct => globalProduct.id == productId)[0]);
-            console.log(cartProduct)
-            delete cartProduct['description'];
-            delete cartProduct['id'];
-            delete cartProduct['license_needed'];
-            delete cartProduct['subcategory_id'];
+            filteredProduct = (Object.values(GlobalVariables.products).filter(globalProduct => globalProduct.id == productId)[0]);
+
+            cartProduct = {
+                'name':filteredProduct['name'],
+                'price':filteredProduct['price'],
+                'image_url':filteredProduct['image_url'],
+                'alt_text':filteredProduct['alt_text']
+            }
             cartProduct['count'] = 1 + previousCount;
             
             data[productId] = cartProduct;
@@ -372,12 +374,30 @@ function addEventListenersToCards() {
                 .then(response => response.json())
                 .catch(error => console.error(error));
             }
+            
+            alert("Product added to cart");
         });
+
+        const buyNowButton = card.querySelector('#buy-now-button');
+
+        buyNowButton.addEventListener('click', () => {
+            filteredProduct = (Object.values(GlobalVariables.products).filter(globalProduct => globalProduct.id == productId)[0]);
+            
+            data = {};
+
+            data[productId] = {
+                'name': filteredProduct['name'],
+                'image_url': filteredProduct['image_url'],
+                'price': filteredProduct['price'],
+                'alt_text': filteredProduct['alt_text'],
+                'count': 1
+            }
         
+            localStorage.setItem("buyNowCart", JSON.stringify(data));
+            window.location.href = "/paymentDetail";
+        });
     }
 }
-
-
 
 function filterBySlider(products) {
     // get slider values from url
