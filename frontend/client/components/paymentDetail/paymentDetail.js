@@ -1,4 +1,4 @@
-console.log('test');
+// console.log('test');
 
 onDeliveryOptionChanged = (event) => {
 	document.querySelectorAll('.delivery-checkbox').forEach((c) => (c.checked = false));

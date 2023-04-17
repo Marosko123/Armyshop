@@ -5,7 +5,7 @@ let productID = 0;
 window.addEventListener('load', async function () {
     productID = window.location.href.split("/")[window.location.href.split("/").length - 1];
     product = await ServerRequester.getFromUrl(`/products/${productID}`);
-    console.log(product);
+    // console.log(product);
 });
 
 function toggleIcon(likedPhoto) {
@@ -19,7 +19,7 @@ function toggleIcon(likedPhoto) {
         const productId = 1
         // get user_id from local storage
         const userId = 1
-        console.log('Removing from liked products');
+        // console.log('Removing from liked products');
         ServerRequester.deleteFromUrl(`/liked_products/delete/${userId}/${productId}`);
     } else { // adds to liked products
         // Image source: flaticon.com
@@ -31,7 +31,7 @@ function toggleIcon(likedPhoto) {
         const productId = 1
         // get user_id from local storage
         const userId = 1
-        console.log('Adding to liked products');
+        // console.log('Adding to liked products');
         ServerRequester.postToUrl(`/liked_products/add/${userId}/${productId}`, {});
     }
 }
@@ -39,7 +39,7 @@ function toggleIcon(likedPhoto) {
 // get product information
 // get product id from url
 const productId = window.location.href.split("/").pop();
-console.log(productId);
+// console.log(productId);
 
 // Function to set the product information on the page
 function setProductInformation(product) {

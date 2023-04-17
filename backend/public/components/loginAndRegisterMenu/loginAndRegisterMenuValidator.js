@@ -20,7 +20,7 @@ registerForm?.addEventListener("submit", async (e) => {
             license_picture: img,
         });
 
-        console.log(response);
+        // console.log(response);
 
         if (response.status === 200 || response.status === 409) {
             return handleUserAuthentication(response.user);
@@ -48,7 +48,7 @@ loginForm?.addEventListener("submit", async (e) => {
             password: loginPassword1.value.trim(),
         });
 
-        console.log(response);
+        // console.log(response);
 
         if (response.status === 200) {
             return handleUserAuthentication(response.user);
