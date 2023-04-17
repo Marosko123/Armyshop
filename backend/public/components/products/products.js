@@ -136,7 +136,11 @@ likedArray = [];
 
 async function getLikedProducts() {
     // get the liked products for each user
-    const userId = 1; // local storage
+    const data = JSON.parse(localStorage.getItem('armyshop_currently_signed_in_user'));
+
+    let userId = 1;
+    if(data) userId = data['id'];
+
     const response = await ServerRequester.getFromUrl(`/liked_products/${userId}`);
 
     if (response.status === 200) {
