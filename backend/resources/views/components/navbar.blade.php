@@ -152,7 +152,7 @@
 						</div>
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 						<li><a class="dropdown-item" onclick="onSubCategoryClicked('glasses')">Glasses</a></li>
-						<li><a class="dropdown-item" onclick="onSubCategoryClicked('face_paint')">Face pain</a></li>
+						<li><a class="dropdown-item" onclick="onSubCategoryClicked('face_paint')">Face paint</a></li>
 						<li><a class="dropdown-item" onclick="onSubCategoryClicked('camouflage')">Camouflage</a></li>
 						</ul>
 					</div>

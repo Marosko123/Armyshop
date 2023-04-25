@@ -109,7 +109,9 @@ function getSubcategoriesForCategory() {
     // find out whether there is a category in the url
     const url = window.location.href;
     if (url.includes('subcategory')) {
-        category = getCategoryFromSubcategory(url.split('subcategory/')[1].split('?')[0]);
+        subcategoryName = url.split('subcategory/')[1].split('?')[0];
+        subcategoryName.replace(/%20/g, " ");
+        category = getCategoryFromSubcategory(subcategoryName);
     }
     isCategory = url.includes('category')
     if (isCategory) {

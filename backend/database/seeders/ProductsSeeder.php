@@ -341,7 +341,7 @@ class ProductsSeeder extends Seeder
             "image_url" => "https://t3.ftcdn.net/jpg/01/75/48/34/240_F_175483406_qRtBngtDm0HdtjI9QQbqRRxlGOswKPZ0.jpg",
             "alt_text" => "Military JEEP in the terrain",
             "subcategory_id" => 6,
-            "license_needed" => true
+            "license_needed" => false
         ]);
 
         Product::create([
@@ -351,7 +351,7 @@ class ProductsSeeder extends Seeder
             "image_url" => "https://as2.ftcdn.net/v2/jpg/00/08/10/77/1000_F_8107792_YR6Q19CLtnWUVOhiOLf7gpch0JGaUNlt.jpg",
             "alt_text" => "Armored JEEP in the terrain",
             "subcategory_id" => 6,
-            "license_needed" => true
+            "license_needed" => false
         ]);
 
         Product::create([
@@ -374,7 +374,7 @@ class ProductsSeeder extends Seeder
             "image_url" => "https://as1.ftcdn.net/v2/jpg/00/16/21/28/1000_F_16212854_MxB70SeDt7lmt8Ssnh1TrUomiwQ8JKmV.jpg",
             "alt_text" => "Three-wheeled motorcycle on grass",
             "subcategory_id" => 7,
-            "license_needed" => true
+            "license_needed" => false
         ]);
 
         Product::create([
@@ -384,7 +384,7 @@ class ProductsSeeder extends Seeder
             "image_url" => "https://as1.ftcdn.net/v2/jpg/03/73/89/26/1000_F_373892683_g06XvV05jZGxxhK0TlS0uGGT5ArgGNVm.jpg",
             "alt_text" => "Kawasaki KLR650 Diesel on concrete",
             "subcategory_id" => 7,
-            "license_needed" => true
+            "license_needed" => false
         ]);
 
         Product::create([
@@ -394,7 +394,7 @@ class ProductsSeeder extends Seeder
             "image_url" => "https://as1.ftcdn.net/v2/jpg/05/01/84/30/1000_F_501843033_NhuskoKDSZ50FrbBYb1IjwATrH6z1Zqi.jpg",
             "alt_text" => "Triumph T100 green in the store",
             "subcategory_id" => 7,
-            "license_needed" => true
+            "license_needed" => false
         ]);
 
 
@@ -809,7 +809,7 @@ class ProductsSeeder extends Seeder
             "description" => "This hunting rifle is made of high-quality materials and features a durable and ergonomic design. It has a smooth trigger pull and a detachable magazine for easy reloading. Perfect for hunting big game.",
             "image_url" => "https://t3.ftcdn.net/jpg/03/06/23/42/240_F_306234268_QR25znBW5XEMXbRjA2Vo9JA5rCQTLOec.jpg",
             "alt_text" => "Hunting Rifle",
-            "subcategory_id" => 21,
+            "subcategory_id" => 22,
             "license_needed" => true
         ]);
 
@@ -819,7 +819,7 @@ class ProductsSeeder extends Seeder
             "description" => "These hunting binoculars are made of high-quality materials and feature a compact and lightweight design. They have a wide field of view and high magnification for clear and crisp images. Perfect for spotting game from a distance.",
             "image_url" => "https://t3.ftcdn.net/jpg/02/29/25/40/240_F_229254092_5cySLF0sMcfM4C0a4oe6cmlvWv3IBDT6.jpg",
             "alt_text" => "Hunting Binoculars",
-            "subcategory_id" => 21,
+            "subcategory_id" => 22,
             "license_needed" => false
         ]);
 
@@ -829,7 +829,7 @@ class ProductsSeeder extends Seeder
             "description" => "This hunting knife is made of high-quality steel and features a comfortable and ergonomic handle. It has a sharp and durable blade for precision cutting and is perfect for skinning and cleaning game.",
             "image_url" => "https://t4.ftcdn.net/jpg/02/67/36/99/240_F_267369942_qJ6RstEIao50FPXV4gmzP57YVzuJ3ZMk.jpg",
             "alt_text" => "Hunting Knife",
-            "subcategory_id" => 21,
+            "subcategory_id" => 22,
             "license_needed" => false
         ]);
 
@@ -839,7 +839,7 @@ class ProductsSeeder extends Seeder
             "description" => "This hunting backpack is made of high-quality and durable materials. It has multiple compartments and pockets for storing hunting gear and features a comfortable and adjustable strap system for a secure and comfortable fit. Perfect for extended hunting trips.",
             "image_url" => "https://t3.ftcdn.net/jpg/03/84/73/04/240_F_384730442_d5YTncTzyIl2fHfXadJ3lJVgzWZycGe5.jpg",
             "alt_text" => "Hunting Backpack",
-            "subcategory_id" => 21,
+            "subcategory_id" => 22,
             "license_needed" => false
         ]);
 
@@ -850,7 +850,7 @@ class ProductsSeeder extends Seeder
             "description" => "This 4-person tent is made of high-quality materials and is designed to withstand the elements. It features a spacious interior and has multiple windows for ventilation. Perfect for camping and outdoor activities.",
             "image_url" => "https://t4.ftcdn.net/jpg/02/36/31/83/240_F_236318320_nDa7zpTVK7HSbtJbw7sTYhiiHpoYSF05.jpg",
             "alt_text" => "4-Person Tent",
-            "subcategory_id" => 22,
+            "subcategory_id" => 23,
             "license_needed" => false
         ]);
 
@@ -860,7 +860,7 @@ class ProductsSeeder extends Seeder
             "description" => "This high-quality sleeping bag is designed to keep you warm and comfortable during cold nights. It is made of durable materials and features a soft and cozy interior. Perfect for camping and outdoor activities.",
             "image_url" => "https://t3.ftcdn.net/jpg/00/60/71/20/240_F_60712075_xicv2z3WxHrhat05iMfVNq3xy5vNlrBZ.jpg",
             "alt_text" => "Sleeping Bag",
-            "subcategory_id" => 22,
+            "subcategory_id" => 23,
             "license_needed" => false
         ]);
 
@@ -870,7 +870,7 @@ class ProductsSeeder extends Seeder
             "description" => "This camping chair is made of high-quality materials and is designed for maximum comfort and durability. It features a sturdy frame and a comfortable seat and backrest. Perfect for camping and outdoor activities.",
             "image_url" => "https://t4.ftcdn.net/jpg/01/63/75/19/240_F_163751935_T1KCOZhwEfnzVml77VO62K2qHGmexauG.jpg",
             "alt_text" => "Camping Chair",
-            "subcategory_id" => 22,
+            "subcategory_id" => 23,
             "license_needed" => false
         ]);
 
@@ -880,7 +880,7 @@ class ProductsSeeder extends Seeder
             "description" => "This portable camping stove is made of high-quality materials and is designed to be lightweight and easy to use. It features a durable and efficient burner and is compatible with most fuel canisters. Perfect for camping and outdoor activities.",
             "image_url" => "https://t4.ftcdn.net/jpg/03/38/53/67/240_F_338536703_IHmbJNE80z7AnJXwEX7rLwcwfPwGfVTn.jpg",
             "alt_text" => "Portable Camping Stove",
-            "subcategory_id" => 22,
+            "subcategory_id" => 23,
             "license_needed" => false
         ]);
 
