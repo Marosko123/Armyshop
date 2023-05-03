@@ -752,14 +752,131 @@ class ProductsSeeder extends Seeder
         ]);
 
         // Explosives - C4s
+        Product::create([
+            "name" => "C4 Explosive",
+            "price" => 5999.99,
+            "description" => "This bomb is an explosive that is capable of much damage, use at own risk.",
+            "image_url" => "https://t3.ftcdn.net/jpg/00/36/30/26/240_F_36302691_76tFbSeySxWq501jPdR1ZJzS4Vl5zdEw.jpg",
+            "alt_text" => "C4 Explosive",
+            "subcategory_id" => 16,
+            "license_needed" => true
+        ]);
+
+        Product::create([
+            "name" => "TNT",
+            "price" => 5999.99,
+            "description" => "This bomb is an explosive that is capable of much damage, use at own risk.",
+            "image_url" => "https://t4.ftcdn.net/jpg/00/92/35/97/240_F_92359714_quGtumtnjGuerKw18AIy1TxKDBeCtQRZ.jpg",
+            "alt_text" => "TNT",
+            "subcategory_id" => 16,
+            "license_needed" => true
+        ]);
 
         // Explosives - Nukes
+        Product::create([
+            "name" => "Nuke",
+            "price" => 999999.99,
+            "description" => "This nuke is an explosive that is capable of much damage, please don't use.",
+            "image_url" => "https://t4.ftcdn.net/jpg/05/94/19/91/240_F_594199164_H4wxl1HgGr8xgsiTcwIN7iF9KH5Fntx9.jpg",
+            "alt_text" => "Nuke",
+            "subcategory_id" => 17,
+            "license_needed" => true
+        ]);
+
+        Product::create([
+            "name" => "War missile",
+            "price" => 599999.99,
+            "description" => "This product is only for military purposes and normal people can not buy it.",
+            "image_url" => "https://t4.ftcdn.net/jpg/01/26/85/69/240_F_126856912_3UHfnfbiergdF2l8GylpDeP8MZ0cGzyA.jpg",
+            "alt_text" => "War missile",
+            "subcategory_id" => 17,
+            "license_needed" => true
+        ]);
 
         // Explosives - grenades
+        Product::create([
+            "name" => "Hand grenade",
+            "price" => 799.99,
+            "description" => "This grenade is an explosive that is capable of much damage, it is a very practical weapon, use at own risk.",
+            "image_url" => "https://t4.ftcdn.net/jpg/00/68/93/79/240_F_68937963_UlPZa0adICFYigjELmihcDpbNkqqe8hz.jpg",
+            "alt_text" => "Grenade",
+            "subcategory_id" => 18,
+            "license_needed" => true
+        ]);
+
+        Product::create([
+            "name" => "Large grenade",
+            "price" => 1599.99,
+            "description" => "This grenade is an explosive that is capable of much damage, use at own risk.",
+            "image_url" => "https://t4.ftcdn.net/jpg/00/39/91/45/240_F_39914572_CXCA6G3KcByvXCu4A4N5qPpYBTDv0DQ2.jpg",
+            "alt_text" => "Grenade large",
+            "subcategory_id" => 18,
+            "license_needed" => true
+        ]);
 
         // Explosives - TNTs
+        Product::create([
+            "name" => "TNT Small",
+            "price" => 29999.99,
+            "description" => "This TNT is an explosive that is capable of much damage, use at own risk.",
+            "image_url" => "https://t3.ftcdn.net/jpg/00/58/61/36/240_F_58613691_C8XgSJqsShJ29I6WBO1TPtLwHD1LyCv0.jpg",
+            "alt_text" => "TNT small",
+            "subcategory_id" => 19,
+            "license_needed" => true
+        ]);
+
+        Product::create([
+            "name" => "TNT Medium",
+            "price" => 49999.99,
+            "description" => "This TNT is an explosive that is capable of much damage, use at own risk.",
+            "image_url" => "https://t3.ftcdn.net/jpg/01/42/39/00/240_F_142390064_6y5xybtR6Z3p1j0bqQ37SVGCIlFpRm0N.jpg",
+            "alt_text" => "TNT Medium",
+            "subcategory_id" => 19,
+            "license_needed" => true
+        ]);
+
+        Product::create([
+            "name" => "TNT Large",
+            "price" => 89999.99,
+            "description" => "This TNT is an explosive that is capable of much damage, use at own risk.",
+            "image_url" => "https://t3.ftcdn.net/jpg/00/37/37/32/240_F_37373298_rUHpK0XYEqXEDuQMAOqXx3HP4dODuUkc.jpg",
+            "alt_text" => "TNT Large",
+            "subcategory_id" => 19,
+            "license_needed" => true
+        ]);
 
         // Explosives - bombs
+        Product::create([
+            "name" => "Small bomb",
+            "price" => 89999.99,
+            "description" => "This bomb is an explosive that is capable of much damage, use at own risk.",
+            "image_url" => "https://t3.ftcdn.net/jpg/01/34/44/62/240_F_134446208_9IYfjQvasXGQK3Tw0WR2Nt4vtHlOrTsr.jpg",
+            "alt_text" => "Small bomb",
+            "subcategory_id" => 20,
+            "license_needed" => true
+        ]);
+
+        // Explosives - bombs
+        Product::create([
+            "name" => "Medium bomb",
+            "price" => 129999.99,
+            "description" => "This bomb is an explosive that is capable of much damage, use at own risk.",
+            "image_url" => "https://t3.ftcdn.net/jpg/00/41/91/42/240_F_41914293_VtHyUkYZlkmqm0461PhfhatOVrJSy81J.jpg",
+            "alt_text" => "Medium bomb",
+            "subcategory_id" => 20,
+            "license_needed" => true
+        ]);
+
+        // Explosives - bombs
+        Product::create([
+            "name" => "Large bomb",
+            "price" => 149999.99,
+            "description" => "This bomb is an explosive that is capable of much damage, use at own risk.",
+            "image_url" => "https://t4.ftcdn.net/jpg/00/45/23/63/240_F_45236361_UmsHcgCSgjq8f7KbX0YrcMmHEDdfkon4.jpg",
+            "alt_text" => "Large bomb",
+            "subcategory_id" => 20,
+            "license_needed" => true
+        ]);
 
         // Equipment - backpacks
         Product::create([
