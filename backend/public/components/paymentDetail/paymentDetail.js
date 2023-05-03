@@ -3,9 +3,9 @@ let paymentMethod = "By card";
 //delivery options cost
 
 const shippingCosts = {
-    'inStorePickupCost': 0,
-    'postOfficeCost': 2.5,
-    'dhlCost': 3.5,
+    'inStorePickup': 0,
+    'postOffice': 2.5,
+    'dhl': 3.5,
 }
 
 let deliveryMethod = "Pick up in the store";
@@ -49,6 +49,47 @@ onOrderNowClicked = async (event) => {
         telephone: document.getElementById("telephone-input"),
     };
 
+    user = JSON.parse(localStorage.getItem("armyshop_currently_signed_in_user"));
+
+    if(user == null){
+        user = {
+            id: null
+        }
+    }
+
+    cart = JSON.parse(localStorage.getItem("cart"));
+    productIDs = Object.keys(cart);
+
+    orderedProducts = {};
+
+    for (const key in productIDs)
+        orderedProducts[productIDs[key]] = cart[productIDs[key]].count;
+
+    data = {
+        'delivery' : getKeyByValue(shippingCosts, selectedShippingCost),
+        'payment' : paymentMethod,
+        'ordered_products' : JSON.stringify(orderedProducts),
+        'first_name': inputElements.firstName,
+        'last_name': inputElements.lastName,
+        'email': inputElements.email,
+        'address': inputElements.address,
+        'zip_code': inputElements.zip,
+        'city': inputElements.city,
+        'country': inputElements.country,
+        'phone': inputElements.telephone,
+    }
+
+
+    fetch(`/api/finished_orders/${user.id}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .catch(error => console.error(error));
+
     // if (areAllInputsValid(inputElements)) {
     //     const ordered_products = localStorage.getItem(
     //         `armyshop-shopping-cart-of-user-${1}`
@@ -90,7 +131,7 @@ onOrderNowClicked = async (event) => {
     //     }
     // }
     
-    return handlePopup();
+    //return handlePopup();
 };
 
 handlePopup = () => {
@@ -137,9 +178,9 @@ window.addEventListener('load', function () {
         }
     }
 
-    document.getElementById('inStorePickupCost').innerText = Formatter.formatPrice(shippingCosts['inStorePickupCost']);
-    document.getElementById('postOfficeCost').innerText = Formatter.formatPrice(shippingCosts['postOfficeCost']);
-    document.getElementById('dhlCost').innerText = Formatter.formatPrice(shippingCosts['dhlCost']);
+    document.getElementById('inStorePickupCost').innerText = Formatter.formatPrice(shippingCosts['inStorePickup']);
+    document.getElementById('postOfficeCost').innerText = Formatter.formatPrice(shippingCosts['postOffice']);
+    document.getElementById('dhlCost').innerText = Formatter.formatPrice(shippingCosts['dhl']);
 
     calculateSummary();
 });
@@ -165,4 +206,8 @@ function calculateSummary() {
     document.getElementById(`subtotal`).innerText = Formatter.formatPrice(subtotal);
     document.getElementById(`shipping`).innerText = Formatter.formatPrice(selectedShippingCost) + ` (${deliveryMethod})`;
     document.getElementById(`total`).innerText = Formatter.formatPrice(subtotal + selectedShippingCost);
+}
+
+function getKeyByValue(object, value) {
+    return Object.keys(object).find(key => object[key] === value);
 }

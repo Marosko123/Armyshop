@@ -13,8 +13,19 @@ class FinishedOrder extends Model
 
     protected $fillable = [
         'user_id',
+        
+        'delivery',
+        'payment',
         'ordered_products',
-        'delivery_details'
+
+        'first_name',
+        'last_name',
+        'email',
+        'address',
+        'zip_code',
+        'city',
+        'country',
+        'phone'
     ];
 
     protected $hidden = [
