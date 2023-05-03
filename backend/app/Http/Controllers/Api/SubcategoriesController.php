@@ -60,7 +60,7 @@ class SubcategoriesController extends Controller
             // Explosives
             ['Backpacks', 'Hunting', 'Camping'],
             // Equipment
-            ['Glasses', 'Face paint', 'Camouflage'], // Accessories
+            ['Glasses', 'Paint', 'Camouflage'], // Accessories
         ];
         $subcategories = $subcategoriesDict[$category_id - 1];
         $created = 0;

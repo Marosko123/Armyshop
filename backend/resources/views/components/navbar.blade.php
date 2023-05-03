@@ -50,7 +50,7 @@
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 							<li><a class="dropdown-item" onclick="onSubCategoryClicked('pistols')">Pistols</a></li>
 							<li><a class="dropdown-item" onclick="onSubCategoryClicked('rifles')">Rifles</a></li>
-							<li><a class="dropdown-item" onclick="onSubCategoryClicked('submachine_guns')">Submachine guns</a></li>
+							<li><a class="dropdown-item" onclick="onSubCategoryClicked('smgs')">Submachine guns</a></li>
 							<li><a class="dropdown-item" onclick="onSubCategoryClicked('heavy')">Heavy</a></li>
 							<li><a class="dropdown-item" onclick="onSubCategoryClicked('knives')">Knives</a></li>
 						</ul>
@@ -152,7 +152,7 @@
 						</div>
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 						<li><a class="dropdown-item" onclick="onSubCategoryClicked('glasses')">Glasses</a></li>
-						<li><a class="dropdown-item" onclick="onSubCategoryClicked('face_paint')">Face paint</a></li>
+						<li><a class="dropdown-item" onclick="onSubCategoryClicked('paint')">Paint</a></li>
 						<li><a class="dropdown-item" onclick="onSubCategoryClicked('camouflage')">Camouflage</a></li>
 						</ul>
 					</div>

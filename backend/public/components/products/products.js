@@ -70,7 +70,7 @@ const subcategoriesDict = {
     'hunting': 22,
     'camping': 23,
     'glasses': 24,
-    'face paint': 25,
+    'paint': 25,
     'camouflage': 26
 };
 
@@ -140,12 +140,6 @@ function getSubcategoriesForCategory() {
         subcategoriesContainer.classList.remove('mt-3');
     }
 }
-
-
-
-
-
-
 
 const notLikedImg = 'http://127.0.0.1:8000/images/productDetailImages/heart6.png';
 const likedImg = 'http://127.0.0.1:8000/images/productDetailImages/heart4.png';
@@ -251,9 +245,6 @@ function resetFilters() {
     return (window.location.href = url);
 }
 
-
-
-
 function initializeSlider(pageProductList) {
     // slider for price range
     let maxPrice = 0;
@@ -273,18 +264,21 @@ function initializeSlider(pageProductList) {
     slider1.value = minPrice;
     slider2.value = maxPrice;
 
-    if(minPrice > 1000000) {
-        minPrice = minPrice / 1000000;
-        minPrice = minPrice.toFixed(2);
-        minPrice = minPrice.toString() + "M";
-    }
-    if(maxPrice > 1000000) {
-        maxPrice = maxPrice / 1000000;
-        maxPrice = maxPrice.toFixed(2);
-        maxPrice = maxPrice.toString() + "M";
-    }
+    minPrice = formatPriceMillions(minPrice);
+    maxPrice = formatPriceMillions(maxPrice);
+
     orderDescription.textContent = `${minPrice} € - ${maxPrice} €`
 }
+
+function formatPriceMillions(price) {
+    if (price > 1000000) {
+      price = (price / 1000000).toFixed(2) + "M";
+    } else if (price > 100000) {
+        price = price / 1000 + "K";
+    }
+    return price;
+}
+
 
 // initialize the slider values
 function initializeSliderValues() {
@@ -296,19 +290,11 @@ function initializeSliderValues() {
     if (parseFloat(slider1.value) > parseFloat(slider2.value)) {
         [slider1.value, slider2.value] = [slider2.value, slider1.value];
     }
-    // console.log(typeof(slider1.value));
     slider1 = slider1.value
     slider2 = slider2.value
-    if(slider1 > 1000000) {
-        slider1 = slider1 / 1000000;
-        slider1 = slider1.toFixed(2);
-        slider1 = slider1.toString() + "M";
-    }
-    if(slider2 > 1000000) {
-        slider2 = slider2 / 1000000;
-        slider2 = slider2.toFixed(2);
-        slider2 = slider2.toString() + "M";
-    }
+    slider1 = formatPriceMillions(slider1);
+    slider2 = formatPriceMillions(slider2);
+
     orderDescription.textContent = `${slider1} € - ${slider2} €`
 }
 
@@ -379,7 +365,6 @@ async function getAllProducts(page) {
         // filter by slider
         products = filterBySlider(products);
         initializeSliderValues();
-        // initializeSlider(products)
 
         // filter by license
         products = filterByLicense(products);
@@ -509,16 +494,12 @@ function filterBySlider(products) {
 
 // filter by license
 function filterByLicense(products) {
-    // find out from url whether license is needed
+    // include the products that have need license
     const urlParams = new URLSearchParams(location.search);
     const licenseNeeded = urlParams.get('license');
-    // console.log(urlParams);
     if (licenseNeeded && licenseNeeded != '0') {
-        // console.log(licenseNeeded + 'needed');
-        licenseValue = true
-        products = products.filter(p => p.license_needed === 1);
-    } else if (licenseNeeded == '0'){
-        // console.log('zero');
+        licenseValue = true;
+    } else if (licenseNeeded == '0'){ // don't include the products that need license
         const license = document.getElementById('license-checkmark');
         license.classList.remove('checkmark');
         license.style.display = 'none';
@@ -624,9 +605,11 @@ pagePrevious.addEventListener('click', () => {
 const orderBy = document.querySelector('.dropbtn');
 document.querySelector('.asc').addEventListener('click', () => {
     orderBy.classList.add('asc');
+    applyFilters();
 });
 document.querySelector('.desc').addEventListener('click', () => {
     orderBy.classList.add('desc');
+    applyFilters();
 });
 
 // apply filters
@@ -687,16 +670,8 @@ function getVals() {
     if (slide1 > slide2) { let tmp = slide2; slide2 = slide1; slide1 = tmp; }
     let desc = parent.getElementsByClassName("order-description")[0];
     
-    if(slide1 > 1000000) {
-        slide1 = slide1 / 1000000;
-        slide1 = slide1.toFixed(2);
-        slide1 = slide1 + "M";
-    }
-    if(slide2 > 1000000) {
-        slide2 = slide2 / 1000000;
-        slide2 = slide2.toFixed(2);
-        slide2 = slide2 + "M";
-    }
+    slide1 = formatPriceMillions(slide1);
+    slide2 = formatPriceMillions(slide2);
     desc.innerHTML = slide1 + " € - " + slide2 + " €";
 }
 

@@ -50,6 +50,14 @@ class SubcategoriesMap {
         }
     }
 
+    static getSubcategories(category) {
+        return SubcategoriesMap.list.filter(subcategory => subcategory.parent === category).map(subcategory => subcategory.name);
+    }
+
+    static getIdFromName(name) {
+        return SubcategoriesMap.dictionary[name].id;
+    }
+
     static fromString(name) {
         return SubcategoriesMap.dictionary[name];
     }

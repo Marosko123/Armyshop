@@ -28,7 +28,7 @@ class SubcategoriesSeeder extends Seeder
             // Equipment
             ['Backpacks', 'Hunting', 'Camping'],
             // Accessories
-            ['Glasses', 'Face paint', 'Camouflage'],
+            ['Glasses', 'Paint', 'Camouflage'],
         ];
 
         foreach ($subcategoriesDict as $categoryId => $subcategories) {

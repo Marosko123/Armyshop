@@ -1,11 +1,21 @@
 
 let product = '';
-let productID = 0;
+let userId = 0;
+if (localStorage.getItem("armyshop_currently_signed_in_user") !== null) {
+    userId = JSON.parse(localStorage.getItem("armyshop_currently_signed_in_user")).id ?? 1;
+}
+
+// get product id from url
+let productId = 0;
+try {
+    productId = parseInt(window.location.href.split("/").pop());
+} catch (error) {
+    window.location.href = "/404";
+}
+
 
 window.addEventListener('load', async function () {
-    productID = window.location.href.split("/")[window.location.href.split("/").length - 1];
-    product = await ServerRequester.getFromUrl(`/products/${productID}`);
-    // console.log(product);
+    product = await ServerRequester.getFromUrl(`/products/${productId}`);
 });
 
 function toggleIcon(likedPhoto) {
@@ -15,11 +25,6 @@ function toggleIcon(likedPhoto) {
         likedPhoto.classList.remove("liked-photo-new");
 
         // delete from liked products table
-        // const productId = window.location.href.split("/").pop();
-        const productId = 1
-        // get user_id from local storage
-        const userId = 1
-        // console.log('Removing from liked products');
         ServerRequester.deleteFromUrl(`/liked_products/delete/${userId}/${productId}`);
     } else { // adds to liked products
         // Image source: flaticon.com
@@ -27,19 +32,12 @@ function toggleIcon(likedPhoto) {
         likedPhoto.classList.add("liked-photo-new");
 
         // add to liked products table
-        // const productId = window.location.href.split("/").pop();
-        const productId = 1
-        // get user_id from local storage
-        const userId = 1
-        // console.log('Adding to liked products');
         ServerRequester.postToUrl(`/liked_products/add/${userId}/${productId}`, {});
     }
 }
 
-// get product information
-// get product id from url
-const productId = window.location.href.split("/").pop();
-// console.log(productId);
+
+
 
 // Function to set the product information on the page
 function setProductInformation(product) {
@@ -52,8 +50,6 @@ function setProductInformation(product) {
     document.querySelector('.detail-image').src = product.image_url;
     // find out if product is liked, if so, change the heart icon
     const likedPhoto = document.querySelector(".liked");
-    const userId = 1;
-    const productId = 1;
     ServerRequester.getFromUrl(`/liked_products/${userId}/${productId}`).then((response) => {
         if (response.status === 200) {
             // Image source: flaticon.com
@@ -71,6 +67,7 @@ function handle404Error() {
 // Function to get product information from the server
 async function getProductInfo(productId) {
     const productInfo = await ServerRequester.getFromUrl(`/products/${productId}`);
+    const isLiked = await ServerRequester.getFromUrl(`/liked_products/${userId}`);
     if (productInfo.status === 404) {
         handle404Error();
     } else {
@@ -147,7 +144,7 @@ document.querySelector('.addToBasket').addEventListener('click', async (e) => {
 
     user = JSON.parse(localStorage.getItem('armyshop_currently_signed_in_user'));
     if(user){
-        fetch(`/api/baskets/add/${user.id}/${productID}/${data[product.product.id].count}`, {
+        fetch(`/api/baskets/add/${user.id}/${productId}/${data[product.product.id].count}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

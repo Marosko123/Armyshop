@@ -577,67 +577,6 @@ class ProductsSeeder extends Seeder
             "license_needed" => false
         ]);
 
-        // Clothing - pants
-        Product::create([
-            "name" => "Men's Cargo Pants",
-            "price" => 69.99,
-            "description" => "These men's cargo pants are made of high-quality and durable material. They feature multiple pockets for storing your essentials and have an adjustable waistband for a comfortable fit. Perfect for outdoor activities and casual wear.",
-            "image_url" => "https://t3.ftcdn.net/jpg/00/45/19/26/240_F_45192673_ZFaeHx6v6Hm2grh7jnnnuuzKoiUpuAKJ.jpg",
-            "alt_text" => "Men's Cargo Pants",
-            "subcategory_id" => 12,
-            "license_needed" => false
-        ]);
-
-        Product::create([
-            "name" => "Women's Skinny Jeans",
-            "price" => 89.99,
-            "description" => "These women's skinny jeans are made of high-quality stretch denim material. They have a comfortable and flattering fit and feature a classic design with a modern twist. Perfect for everyday wear and special occasions.",
-            "image_url" => "https://t4.ftcdn.net/jpg/02/01/09/85/240_F_201098554_vYmaSzVbKiumuMzqZXaNYCzYoFNH3Vqp.jpg",
-            "alt_text" => "Women's Skinny Jeans",
-            "subcategory_id" => 12,
-            "license_needed" => false
-        ]);
-
-        Product::create([
-            "name" => "Women's High-Waisted Pants",
-            "price" => 79.99,
-            "description" => "These women's high-waisted pants are made of high-quality and stretchy material. They have a flattering and comfortable fit and feature a classic and versatile design. Perfect for dressing up or down.",
-            "image_url" => "https://t4.ftcdn.net/jpg/01/23/63/75/240_F_123637582_ue1qfiNPiH8eiOUTIexK3vNxvlvRySdi.jpg",
-            "alt_text" => "Women's High-Waisted Pants",
-            "subcategory_id" => 12,
-            "license_needed" => false
-        ]);
-
-        Product::create([
-            "name" => "Men's Dress Pants",
-            "price" => 99.99,
-            "description" => "These men's dress pants are made of high-quality and durable material. They have a classic and versatile design and feature a comfortable fit with a modern and stylish look. Perfect for formal occasions and business wear.",
-            "image_url" => "https://t3.ftcdn.net/jpg/01/31/00/60/240_F_131006084_xvDsbZtMf9jOqWNd8OEVeaMtmzB5ziFm.jpg",
-            "alt_text" => "Men's Dress Pants",
-            "subcategory_id" => 12,
-            "license_needed" => false
-        ]);
-
-        Product::create([
-            "name" => "Women's Wide-Leg Pants",
-            "price" => 69.99,
-            "description" => "These women's wide-leg pants are made of high-quality and lightweight material. They have a comfortable and flattering fit and feature a trendy and stylish design. Perfect for summer and spring wear.",
-            "image_url" => "https://t3.ftcdn.net/jpg/00/91/28/22/240_F_91282204_EQSc2FIc5AXZDDTvMkRbMR9QfI3EEwjI.jpg",
-            "alt_text" => "Women's Wide-Leg Pants",
-            "subcategory_id" => 12,
-            "license_needed" => false
-        ]);
-
-        Product::create([
-            "name" => "Men's Jogger Pants",
-            "price" => 49.99,
-            "description" => "These men's jogger pants are made of soft and comfortable material. They feature a tapered design with an elastic waistband and cuffs for a modern and stylish look. Perfect for casual wear and light exercise.",
-            "image_url" => "https://t4.ftcdn.net/jpg/02/46/38/57/240_F_246385708_xSYAxuAgThzE3iaUWbYccnNl5yBJliCY.jpg",
-            "alt_text" => "Men's Jogger Pants",
-            "subcategory_id" => 12,
-            "license_needed" => false
-        ]);
-
         // Clothing - shirts
         Product::create([
             "name" => "You can T-Shirt",
@@ -645,7 +584,7 @@ class ProductsSeeder extends Seeder
             "description" => "This men's T-shirt is made of high-quality cotton material and features a classic design with a modern twist. It has a comfortable and flattering fit and is perfect for both casual and formal occasions.",
             "image_url" => "https://t4.ftcdn.net/jpg/03/77/71/41/240_F_377714140_0ZgnZfVnkXoZBctoZh6YNCHHRIZvGbW7.jpg",
             "alt_text" => "Men's Oxford Shirt",
-            "subcategory_id" => 13,
+            "subcategory_id" => 12,
             "license_needed" => false
         ]);
 
@@ -655,7 +594,7 @@ class ProductsSeeder extends Seeder
             "description" => "This men's polo shirt is made of high-quality and breathable material. It features a classic design with a comfortable fit and is perfect for both casual and semi-formal occasions.",
             "image_url" => "https://t4.ftcdn.net/jpg/04/60/49/41/240_F_460494127_4K2wrCwwYdLIEfpBbOEUvDEMzdFuwuWQ.jpg",
             "alt_text" => "Men's Polo Shirt",
-            "subcategory_id" => 13,
+            "subcategory_id" => 12,
             "license_needed" => false
         ]);
 
@@ -665,6 +604,67 @@ class ProductsSeeder extends Seeder
             "description" => "This button-up shirt is made of high-quality and soft cotton material. It features a unique and trendy design with a flattering and comfortable fit. Perfect for both casual and semi-formal occasions.",
             "image_url" => "https://t4.ftcdn.net/jpg/03/93/58/35/240_F_393583588_EAFxrSIJ7OjnDHqQARrjsQjeGsuwN5ZR.jpg",
             "alt_text" => "Button-Up Shirt",
+            "subcategory_id" => 12,
+            "license_needed" => false
+        ]);
+
+        // Clothing - pants
+        Product::create([
+            "name" => "Men's Cargo Pants",
+            "price" => 69.99,
+            "description" => "These men's cargo pants are made of high-quality and durable material. They feature multiple pockets for storing your essentials and have an adjustable waistband for a comfortable fit. Perfect for outdoor activities and casual wear.",
+            "image_url" => "https://t3.ftcdn.net/jpg/00/45/19/26/240_F_45192673_ZFaeHx6v6Hm2grh7jnnnuuzKoiUpuAKJ.jpg",
+            "alt_text" => "Men's Cargo Pants",
+            "subcategory_id" => 13,
+            "license_needed" => false
+        ]);
+
+        Product::create([
+            "name" => "Women's Skinny Jeans",
+            "price" => 89.99,
+            "description" => "These women's skinny jeans are made of high-quality stretch denim material. They have a comfortable and flattering fit and feature a classic design with a modern twist. Perfect for everyday wear and special occasions.",
+            "image_url" => "https://t4.ftcdn.net/jpg/02/01/09/85/240_F_201098554_vYmaSzVbKiumuMzqZXaNYCzYoFNH3Vqp.jpg",
+            "alt_text" => "Women's Skinny Jeans",
+            "subcategory_id" => 13,
+            "license_needed" => false
+        ]);
+
+        Product::create([
+            "name" => "Women's High-Waisted Pants",
+            "price" => 79.99,
+            "description" => "These women's high-waisted pants are made of high-quality and stretchy material. They have a flattering and comfortable fit and feature a classic and versatile design. Perfect for dressing up or down.",
+            "image_url" => "https://t4.ftcdn.net/jpg/01/23/63/75/240_F_123637582_ue1qfiNPiH8eiOUTIexK3vNxvlvRySdi.jpg",
+            "alt_text" => "Women's High-Waisted Pants",
+            "subcategory_id" => 13,
+            "license_needed" => false
+        ]);
+
+        Product::create([
+            "name" => "Men's Dress Pants",
+            "price" => 99.99,
+            "description" => "These men's dress pants are made of high-quality and durable material. They have a classic and versatile design and feature a comfortable fit with a modern and stylish look. Perfect for formal occasions and business wear.",
+            "image_url" => "https://t3.ftcdn.net/jpg/01/31/00/60/240_F_131006084_xvDsbZtMf9jOqWNd8OEVeaMtmzB5ziFm.jpg",
+            "alt_text" => "Men's Dress Pants",
+            "subcategory_id" => 13,
+            "license_needed" => false
+        ]);
+
+        Product::create([
+            "name" => "Women's Wide-Leg Pants",
+            "price" => 69.99,
+            "description" => "These women's wide-leg pants are made of high-quality and lightweight material. They have a comfortable and flattering fit and feature a trendy and stylish design. Perfect for summer and spring wear.",
+            "image_url" => "https://t3.ftcdn.net/jpg/00/91/28/22/240_F_91282204_EQSc2FIc5AXZDDTvMkRbMR9QfI3EEwjI.jpg",
+            "alt_text" => "Women's Wide-Leg Pants",
+            "subcategory_id" => 13,
+            "license_needed" => false
+        ]);
+
+        Product::create([
+            "name" => "Men's Jogger Pants",
+            "price" => 49.99,
+            "description" => "These men's jogger pants are made of soft and comfortable material. They feature a tapered design with an elastic waistband and cuffs for a modern and stylish look. Perfect for casual wear and light exercise.",
+            "image_url" => "https://t4.ftcdn.net/jpg/02/46/38/57/240_F_246385708_xSYAxuAgThzE3iaUWbYccnNl5yBJliCY.jpg",
+            "alt_text" => "Men's Jogger Pants",
             "subcategory_id" => 13,
             "license_needed" => false
         ]);
@@ -1053,7 +1053,7 @@ class ProductsSeeder extends Seeder
             "license_needed" => false
         ]);
 
-        // Accessories - face paint
+        // Accessories - paint
         Product::create([
             "name" => "Water-Based Face Paint Palette",
             "price" => 19.99,

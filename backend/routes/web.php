@@ -58,3 +58,13 @@ Route::get('profile', function () {
 Route::get('shoppingCart', function () {
     return view('shoppingCart');
 });
+
+// admin panel
+Route::get('adminDashboard', function () {
+    return view('adminDashboard');
+});
+
+// add product
+Route::get('addProduct', function () {
+    return view('addProduct');
+});
