@@ -1,0 +1,134 @@
+/* CONTAINER */
+
+#edit-products #container
+{
+  flex: 1;
+  margin: 20px;
+  margin-left: 400px;
+  margin-right: 400px;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: gainsboro;
+  min-height: 400px;
+}
+
+#edit-products #container .listContainerElement {
+  padding: 20px;
+  max-height: 700px;
+  overflow-y: scroll;
+}
+
+#edit-products #container .itemList {
+  overflow-y: visible !important;
+}
+
+#edit-products #container .itemList ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#edit-products #container .itemList p {
+  font-size: 25px !important;
+  margin-top: 0 !important;
+}
+
+/*ITEM STYLES*/
+
+#edit-products h1 {
+  text-align: center;
+  color: white;
+  padding: 10px;
+}
+
+#edit-products #container .item {
+  width: 100%;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 20px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  background-color: rgb(232, 232, 232)
+}
+
+#edit-products #container .img {
+  width: 120px;
+  height: 120px;
+  border: 1px solid rgb(109, 109, 109);
+  border-radius: 5px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+#edit-products .item-title {
+  inline-size: 60%;
+  overflow-wrap: break-word;
+  margin-left: 20px;
+}
+
+#edit-products .edit-button {
+  margin-left: auto;
+  background-color: lightskyblue;
+  margin-right: 10px;
+  padding: 20px;
+}
+
+#edit-products .edit-button-img{
+  width: 50px;
+}
+
+#edit-products .remove-button {
+  background-color: red;
+  padding: 20px;
+}
+
+#edit-products .remove-button-img{
+  width: 50px;
+}
+
+@media screen and (max-width: 1650px) {
+  #edit-products #container
+  {
+    margin-left: 150px;
+    margin-right: 150px ;
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  #edit-products #container
+  {
+    margin-left: 40px;
+    margin-right: 40px ;
+  }
+
+  #edit-products #container .img {
+    width: 100px;
+    height: 100px;
+  }
+
+  #edit-products .item-title {
+    margin-left: 20px;
+  }
+
+  #edit-products .edit-button {
+    background-color: lightskyblue;
+    padding: 20px;
+    margin-right: 10px;
+  }
+  
+  #edit-products .edit-button-img{
+    width: 40px;
+  }
+  
+  #edit-products .remove-button {
+    background-color: red;
+    padding: 20px;
+  }
+  
+  #edit-products .remove-button-img{
+    width: 40px;
+  }
+}

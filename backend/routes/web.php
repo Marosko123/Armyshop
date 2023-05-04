@@ -1,9 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\TestViewController;
-use App\Http\Controllers\Api\LoginRegisterViewController;
-use App\Http\Controllers\Api\ProductsController;
+use App\Models\Product;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,10 +43,6 @@ Route::get('products/product/{product}', function () {
     return view('productDetail');
 });
 
-Route::get('productDetail', function () {
-    return view('productDetail');
-});
-
 // User profile
 Route::get('profile', function () {
     return view('userProfile');
@@ -67,4 +61,16 @@ Route::get('adminDashboard', function () {
 // add product
 Route::get('addProduct', function () {
     return view('addProduct');
+});
+
+// edit product
+Route::get('editProduct/{productID}', function () {
+    return view('editProduct');
+});
+
+// edit products
+Route::get('editProducts', function () {
+    $products = Product::select('id', 'image_url', 'name')->get()->toArray();
+
+    return view('editProducts', ['products' => $products]);
 });
