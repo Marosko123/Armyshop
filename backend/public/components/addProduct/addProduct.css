@@ -1,0 +1,85 @@
+.card-img-top {
+    height: 80%;
+    object-fit: cover;
+  }
+  
+.card-body {
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 80%;
+  }
+  
+  #preview {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 90%;
+  }
+  
+  .card {
+    flex-basis: 60%;
+    margin: 10px;
+    box-shadow: rgba(255, 255, 255, 0.60) 0px 5px 15px !important;
+    border: none !important;
+  }
+  
+  .card-title {
+    font-size: 1.3rem;
+    /* when out of space, wrap */
+    overflow-wrap: break-word;
+  }
+  
+  .card:hover {
+    cursor: pointer;
+    transform: translateY(-5px);
+    transition: 0.5s;
+  }
+  
+  .btn-buy {
+    margin-left: 2rem;
+  }
+  
+  .cart-img {
+    margin-right: 2rem;
+  }
+  
+  .liked-photo {
+    margin-right: 1.5rem;
+    width: 18%;
+    margin-top: 0.3rem;
+  }
+  
+  .liked-photo:hover {
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 18%;
+    margin-top: 0.3rem;
+  }
+
+  .preview-container {
+    width: 60%;
+    height: 450px;
+    margin: 0 auto;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('../../images/homepage/army-bg1.jpg');
+    /* Source: https://unsplash#products .com/s/photos/military */
+    background-size: cover;
+    background-position: center 40px;
+  }
+
+
+  @media (max-width: 768px) {
+    .preview-container {
+      width: 100%;
+      height: 450px;
+      background-position: center 0px;
+    }
+
+    .preview {
+        width: 100%;
+        height: 100%;
+    }
+  }

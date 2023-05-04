@@ -172,7 +172,7 @@ class ProductsController extends Controller
             'name' => 'required|string|max:20',
             'price' => 'required|numeric|between:0,9999999.9',
             'description' => 'required|string|max:300',
-            'image_url' => 'string|max:200',
+            'image_url' => 'string|max:1000',
             'alt_text' => 'string|max:50',
             'subcategory_id' => 'required|integer|min:0',
             'license_needed' => 'required|boolean'

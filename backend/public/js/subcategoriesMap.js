@@ -37,7 +37,7 @@ class SubcategoriesMap {
 
     // Accessories
     static Glasses = new SubcategoriesMap("Glasses", "Accessories", 24);
-    static FacePaint = new SubcategoriesMap("Face paint", "Accessories", 25);
+    static FacePaint = new SubcategoriesMap("Paint", "Accessories", 25);
     static Camouflage = new SubcategoriesMap("Camouflage", "Accessories", 26);
 
     constructor(name, parent, id) {
