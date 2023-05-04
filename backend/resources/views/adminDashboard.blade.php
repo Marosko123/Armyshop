@@ -14,6 +14,7 @@ integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6
 <link rel="stylesheet" href="../../common/styles.css"> -->
 
 <link rel="stylesheet" href="{{ asset('components/products/products.css') }}">
+<link rel="stylesheet" href="{{ asset('components/adminPanel/adminDashboard.css') }}">
 <link rel="stylesheet" href="{{ asset('components/navbar/navbar.css') }}">
 <link rel="stylesheet" href="{{ asset('components/contactUs/contactUs.css') }}">
 <link rel="stylesheet" href="{{ asset('components/loginAndRegisterMenu/loginAndRegisterMenu.css') }}">
@@ -27,16 +28,17 @@ integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6
 
 	<main>
     <div class="container">
-		<div class="row mt-5">
-			<div class="col-3 mb-3">
+		<h1 class="text-center mt-5 heading">Admin Panel</h1>
+		<div class="row mt-5 text-center">
+			<div class="col-3 mb-3 mx-auto">
 				<a href="#" class="btn btn-success btn-lg btn-block" id="addBtn">Add a Product</a>
 			</div>
 
-			<div class="col-3 mb-3">
+			<div class="col-3 mb-3 mx-auto">
 				<a href="#" class="btn btn-warning btn-lg btn-block" id="editBtn">Edit Products</a>
 			</div>
 
-            <div class="col-3 mb-3">
+            <div class="col-3 mb-3 mx-auto">
                 <a href="#" class="btn btn-primary btn-lg btn-block" id="viewBtn">View Products</a>
             </div>
 		</div>
