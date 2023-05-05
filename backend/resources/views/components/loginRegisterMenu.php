@@ -62,8 +62,8 @@
     </div>
 
     <!-- popup -->
-    <div id="popup">
-        <div id="popup1" class="overlay">
+    <div id="login_popup">
+        <div id="login_popup1" class="overlay">
             <div class="popup">
                 <h2> Insert your military passport </h2>
                 <a class="close" href="#" onclick="militarypassInsertionCancelled(this)">&times;</a>

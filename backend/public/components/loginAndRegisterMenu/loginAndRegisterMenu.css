@@ -162,7 +162,7 @@
 
 /* POPUP */
 
-#popup .overlay {
+#login_popup .overlay {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -175,12 +175,12 @@
     z-index: 100;
 }
 
-#popup .overlay:target {
+#login_popup .overlay:target {
     visibility: visible;
     opacity: 1;
 }
 
-#popup .popup {
+#login_popup .popup {
     margin: 70px auto;
     padding: 20px;
     background: #fff;
@@ -192,12 +192,12 @@
     transition: all 0.5s ease-in-out;
 }
 
-#popup .popup h2 {
+#login_popup .popup h2 {
     margin-top: 15px;
     color: #333;
 }
 
-#popup .popup .close {
+#login_popup .popup .close {
     position: absolute;
     top: 20px;
     right: 30px;
@@ -208,31 +208,31 @@
     color: #333;
 }
 
-#popup .popup .close:hover {
+#login_popup .popup .close:hover {
     color: #06D85F;
 }
 
-#popup .popup .submit-button {
+#login_popup .popup .submit-button {
     margin-top: 50px;
 }
 
-#popup #file-input {
+#login_popup #file-input {
     scale: 1.5;
     margin-top: 50px;
 }
 
-#popup #file-input:hover {
+#login_popup #file-input:hover {
     cursor: pointer;
 }
 
-#popup .selected-image-wrapper {
+#login_popup .selected-image-wrapper {
     border: 2px solid rgb(149, 149, 149);
     padding: 5px;
     margin-top: 50px;
     height: 250px;
 }
 
-#popup #selected-image {
+#login_popup #selected-image {
     width: -webkit-fill-available;
     max-height: 240px;
     margin-top: 25%;
@@ -272,7 +272,7 @@
 }
 
 @media screen and (max-width: 700px){
-    #popup .popup{
+    #login_popup .popup{
         width: 70%;
     }
 }

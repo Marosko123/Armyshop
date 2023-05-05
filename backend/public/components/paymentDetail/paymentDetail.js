@@ -3,13 +3,13 @@ let paymentMethod = "By card";
 //delivery options cost
 
 const shippingCosts = {
-    'inStorePickup': 0,
-    'postOffice': 2.5,
-    'dhl': 3.5,
-}
+    inStorePickup: 0,
+    postOffice: 2.5,
+    dhl: 3.5,
+};
 
 let deliveryMethod = "Pick up in the store";
-let selectedShippingCost = shippingCosts['inStorePickupCost'];
+let selectedShippingCost = shippingCosts["inStorePickup"];
 
 onDeliveryOptionChanged = (event) => {
     document
@@ -21,7 +21,10 @@ onDeliveryOptionChanged = (event) => {
         .getElementsByClassName("delivery-label")[0]
         .innerHTML.trim();
 
-    selectedShippingCost = shippingCosts[event.parentElement.getElementsByClassName("delivery-price")[0].id];
+    selectedShippingCost =
+        shippingCosts[
+            event.parentElement.getElementsByClassName("delivery-price")[0].id
+        ];
 
     calculateSummary();
 };
@@ -49,12 +52,14 @@ onOrderNowClicked = async (event) => {
         telephone: document.getElementById("telephone-input"),
     };
 
-    user = JSON.parse(localStorage.getItem("armyshop_currently_signed_in_user"));
+    user = JSON.parse(
+        localStorage.getItem("armyshop_currently_signed_in_user")
+    );
 
-    if(user == null){
+    if (user == null) {
         user = {
-            id: null
-        }
+            id: null,
+        };
     }
 
     cart = JSON.parse(localStorage.getItem("cart"));
@@ -66,78 +71,62 @@ onOrderNowClicked = async (event) => {
         orderedProducts[productIDs[key]] = cart[productIDs[key]].count;
 
     data = {
-        'delivery' : getKeyByValue(shippingCosts, selectedShippingCost),
-        'payment' : paymentMethod,
-        'ordered_products' : JSON.stringify(orderedProducts),
-        'first_name': inputElements.firstName,
-        'last_name': inputElements.lastName,
-        'email': inputElements.email,
-        'address': inputElements.address,
-        'zip_code': inputElements.zip,
-        'city': inputElements.city,
-        'country': inputElements.country,
-        'phone': inputElements.telephone,
+        delivery: getKeyByValue(shippingCosts, selectedShippingCost),
+        payment: paymentMethod,
+        ordered_products: JSON.stringify(orderedProducts),
+        first_name: inputElements.firstName.value,
+        last_name: inputElements.lastName.value,
+        email: inputElements.email.value,
+        address: inputElements.address.value,
+        zip_code: inputElements.zip.value,
+        city: inputElements.city.value,
+        country: inputElements.country.value,
+        phone: inputElements.telephone.value,
+    };
+
+    if (PaymentDetailValidator.areAllInputsValid(inputElements)) {
+        const response = await ServerRequester.postToUrl(
+            `/finished_orders/${user.id}`,
+            {
+                delivery: data.delivery,
+                payment: data.payment,
+                ordered_products: data.ordered_products,
+                first_name: data.first_name,
+                last_name: data.last_name,
+                email: data.email,
+                address: data.address,
+                zip_code: data.zip_code,
+                city: data.city,
+                country: data.country,
+                phone: data.phone,
+            }
+        );
+
+        console.log(response);
+
+        if (response.status === 200) {
+            a = document.querySelector("#payment-detail form").reset();
+            return handlePopup();
+        }
+        if (response.status === 401) {
+            setError(loginEmail, "Invalid credentials");
+            return setError(loginPassword1, "Invalid credentials");
+        }
+        if (response.status === 422) {
+            if (response.errors.email) {
+                setError(loginEmail, response.errors.email);
+            }
+            if (response.errors.password) {
+                setError(loginPassword1, response.errors.password);
+            }
+        }
     }
-
-
-    fetch(`/api/finished_orders/${user.id}`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    })
-    .then(response => response.json())
-    .catch(error => console.error(error));
-
-    // if (areAllInputsValid(inputElements)) {
-    //     const ordered_products = localStorage.getItem(
-    //         `armyshop-shopping-cart-of-user-${1}`
-    //     );
-    //     const delivery_details = JSON.stringify({
-    //         firstName: inputElements.firstName.value.trim(),
-    //         lastName: inputElements.lastName.value.trim(),
-    //         email: inputElements.email.value.trim(),
-    //         address: inputElements.address.value.trim(),
-    //         zip: inputElements.zip.value.trim().replaceAll(" ", ""),
-    //         city: inputElements.city.value.trim(),
-    //         country: inputElements.country.value.trim(),
-    //         telephone: inputElements.telephone.value.trim().replaceAll(" ", ""),
-    //         deliveryMethod,
-    //         paymentMethod,
-    //     });
-    //     const response = await ServerRequester.postToUrl("/finished_orders/1", {
-    //         ordered_products,
-    //         delivery_details,
-    //     });
-
-    //     console.log(response);
-
-    //     if (response.status === 200) {
-    //         a = document.querySelector("#payment-detail form").reset();
-    //         return handlePopup();
-    //     }
-    //     if (response.status === 401) {
-    //         setError(loginEmail, "Invalid credentials");
-    //         return setError(loginPassword1, "Invalid credentials");
-    //     }
-    //     if (response.status === 422) {
-    //         if (response.errors.email) {
-    //             setError(loginEmail, response.errors.email);
-    //         }
-    //         if (response.errors.password) {
-    //             setError(loginPassword1, response.errors.password);
-    //         }
-    //     }
-    // }
-    
-    //return handlePopup();
 };
 
 handlePopup = () => {
     window.location.assign("#popup1");
     const countdownEl = document.getElementById("countdown");
-    let count = 1;
+    let count = 4;
 
     const countdownInterval = setInterval(() => {
         if (count > 0) {
@@ -152,62 +141,77 @@ handlePopup = () => {
 };
 
 //load logged in user data
-window.addEventListener('load', function () {
+window.addEventListener("load", function () {
     //do not load data if user is not logged in
-    data = JSON.parse(localStorage.getItem("armyshop_currently_signed_in_user"));
+    data = JSON.parse(
+        localStorage.getItem("armyshop_currently_signed_in_user")
+    );
     if (data != null) {
         //load user data into fields
         if (data.email)
-            document.getElementById('email-input').value = data.email;
+            document.getElementById("email-input").value = data.email;
 
         if (data.phone)
-            document.getElementById('telephone-input').value = data.phone;
+            document.getElementById("telephone-input").value = data.phone;
 
         if (data.first_name)
-            document.getElementById('first-name-input').value = data.first_name;
+            document.getElementById("first-name-input").value = data.first_name;
 
         if (data.last_name)
-            document.getElementById('last-name-input').value = data.last_name;
+            document.getElementById("last-name-input").value = data.last_name;
 
         if (data.address) {
             addressFields = data.address.split(",");
-            document.getElementById('address-input').value = addressFields[0];
-            document.getElementById('zip-input').value = addressFields[1];
-            document.getElementById('city-input').value = addressFields[2];
-            document.getElementById('country-input').value = addressFields[3];
+            document.getElementById("address-input").value = addressFields[0];
+            document.getElementById("zip-input").value = addressFields[1];
+            document.getElementById("city-input").value = addressFields[2];
+            document.getElementById("country-input").value = addressFields[3];
         }
     }
 
-    document.getElementById('inStorePickupCost').innerText = Formatter.formatPrice(shippingCosts['inStorePickup']);
-    document.getElementById('postOfficeCost').innerText = Formatter.formatPrice(shippingCosts['postOffice']);
-    document.getElementById('dhlCost').innerText = Formatter.formatPrice(shippingCosts['dhl']);
+    document.getElementById("inStorePickupCost").innerText =
+        Formatter.formatPrice(shippingCosts["inStorePickup"]);
+    document.getElementById("postOfficeCost").innerText = Formatter.formatPrice(
+        shippingCosts["postOffice"]
+    );
+    document.getElementById("dhlCost").innerText = Formatter.formatPrice(
+        shippingCosts["dhl"]
+    );
 
     calculateSummary();
 });
 
 function calculateSummary() {
     buyNowCart = JSON.parse(localStorage.getItem("buyNowCart"));
-    if(buyNowCart){
+    if (buyNowCart) {
         subtotal = 0;
         for (let key in buyNowCart)
-            subtotal += (buyNowCart[key].price * buyNowCart[key].count);
+            subtotal += buyNowCart[key].price * buyNowCart[key].count;
 
-        document.getElementById(`subtotal`).innerText = Formatter.formatPrice(subtotal);
-        document.getElementById(`shipping`).innerText = Formatter.formatPrice(selectedShippingCost) + ` (${deliveryMethod})`;
-        document.getElementById(`total`).innerText = Formatter.formatPrice(subtotal + selectedShippingCost);
+        document.getElementById(`subtotal`).innerText =
+            Formatter.formatPrice(subtotal);
+        document.getElementById(`shipping`).innerText =
+            Formatter.formatPrice(selectedShippingCost) +
+            ` (${deliveryMethod})`;
+        document.getElementById(`total`).innerText = Formatter.formatPrice(
+            subtotal + selectedShippingCost
+        );
         return;
     }
-    
+
     data = JSON.parse(localStorage.getItem("cart"));
     subtotal = 0;
-    for (let key in data)
-        subtotal += (data[key].price * data[key].count);
+    for (let key in data) subtotal += data[key].price * data[key].count;
 
-    document.getElementById(`subtotal`).innerText = Formatter.formatPrice(subtotal);
-    document.getElementById(`shipping`).innerText = Formatter.formatPrice(selectedShippingCost) + ` (${deliveryMethod})`;
-    document.getElementById(`total`).innerText = Formatter.formatPrice(subtotal + selectedShippingCost);
+    document.getElementById(`subtotal`).innerText =
+        Formatter.formatPrice(subtotal);
+    document.getElementById(`shipping`).innerText =
+        Formatter.formatPrice(selectedShippingCost) + ` (${deliveryMethod})`;
+    document.getElementById(`total`).innerText = Formatter.formatPrice(
+        subtotal + selectedShippingCost
+    );
 }
 
 function getKeyByValue(object, value) {
-    return Object.keys(object).find(key => object[key] === value);
+    return Object.keys(object).find((key) => object[key] === value);
 }

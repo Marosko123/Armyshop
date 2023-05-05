@@ -156,7 +156,7 @@
 						<div class="content">
 							<p> We hope <strong> you will love </strong> our products! </p>
 						</div>
-						<p id="countdown">Auto redirec in: 5</p>
+						<p id="countdown">Auto redirect in: 5</p>
 						<a class="close" href="/"> Go To Landing Page </a>
 					</div>
 				</div>
@@ -168,7 +168,7 @@
   @include('components.contactUs')
 	
 	<script src="{{ asset('components/contactUs/contactUs.js') }}"></script>
-	<script src="{{ asset('components/paymentDetail/paymentDetail.js') }}"></script>
 	<script src="{{ asset('components/paymentDetail/paymentDetailValidator.js') }}"></script>
+	<script src="{{ asset('components/paymentDetail/paymentDetail.js') }}"></script>
 </body>
 </html>

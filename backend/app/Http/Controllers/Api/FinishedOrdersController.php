@@ -57,11 +57,9 @@ class FinishedOrdersController extends Controller
         $finishedOrder->payment = $request->payment;
         $finishedOrder->ordered_products = $request->ordered_products;
 
-        if($user_id != null){
+        if ($user_id != null) {
             $finishedOrder->user_id = $user_id;
-        }
-
-        else{
+        } else {
             $finishedOrder->first_name = $request->first_name;
             $finishedOrder->last_name = $request->last_name;
             $finishedOrder->email = $request->email;

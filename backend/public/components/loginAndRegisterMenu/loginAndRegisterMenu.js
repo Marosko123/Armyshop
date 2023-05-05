@@ -51,7 +51,7 @@ openLoginMenu = (event) => {
 onMilitaryPassportChanged = (event) => {
     isMilitaryPassChecked = !isMilitaryPassChecked;
 
-    window.location.assign("#popup1");
+    window.location.assign("#login_popup1");
 };
 
 militarypassInsertionCancelled = (event) => {
