@@ -51,7 +51,7 @@ class PaymentDetailValidator {
         const zipValue = inputElements.zip.value.trim().replaceAll(" ", "");
         const cityValue = inputElements.city.value.trim();
         const countryValue = inputElements.country.value.trim();
-        const telephoneValue = inputElements.telephone.value
+        const phoneValue = inputElements.phone.value
             .trim()
             .replaceAll(" ", "");
         let numberOfErrors = 0;
@@ -87,20 +87,20 @@ class PaymentDetailValidator {
             this.setSuccess(inputElements.country);
         }
 
-        if (telephoneValue[0] === "0") {
-            telephoneValue = `+421${telephoneValue.substring(1)}`;
+        if (phoneValue[0] === "0") {
+            phoneValue = `+421${phoneValue.substring(1)}`;
         }
-        if (telephoneValue === "") {
-            this.setError(inputElements.telephone, "Telephone is required");
+        if (phoneValue === "") {
+            this.setError(inputElements.phone, "Phone is required");
             numberOfErrors++;
-        } else if (!this.isValidTelephone(telephoneValue)) {
+        } else if (!this.isValidPhone(phoneValue)) {
             this.setError(
-                inputElements.telephone,
-                "Provide a valid telephone number"
+                inputElements.phone,
+                "Provide a valid phone number"
             );
             numberOfErrors++;
         } else {
-            this.setSuccess(inputElements.telephone);
+            this.setSuccess(inputElements.phone);
         }
 
         return numberOfErrors;
@@ -130,8 +130,8 @@ class PaymentDetailValidator {
         return re.test(String(email).toLowerCase());
     };
 
-    static isValidTelephone = (telephone) => {
-        return /^\+421[0-9]{9}$/.test(telephone);
+    static isValidPhone = (phone) => {
+        return /^\+421[0-9]{9}$/.test(phone);
     };
 
     static isValidZip = (zip) => {

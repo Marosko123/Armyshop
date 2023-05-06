@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->id();
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('role')->default('user');
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
             $table->integer('age')->nullable();
@@ -23,7 +24,7 @@ return new class extends Migration {
             $table->string('license_picture')->nullable();
             $table->boolean('is_license_valid')->default(false);
             $table->string('is_deleted')->nullable();
-            $table->string('telephone')->nullable();
+            $table->string('phone')->nullable();
 
             $table->rememberToken();
             $table->timestamps();

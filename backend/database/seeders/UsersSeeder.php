@@ -14,52 +14,74 @@ class UsersSeeder extends Seeder
             'first_name' => 'Admin',
             'last_name' => 'Admin',
             'email' => 'admin@armyshop.xd',
+            'role' => 'admin',
             'password' => bcrypt('adminadmin'),
             'license_picture' => null,
             'is_license_valid' => true,
             'address' => 'FIIT STU',
             'age' => 68,
             'is_deleted' => false,
-            'telephone' => '+421904905972'
+            'phone' => '+421904905972'
         ]);
 
         User::create([
             'id' => 2,
+            'first_name' => 'Admin',
+            'last_name' => 'Admin',
+            'email' => 'admin1@armyshop.xd',
+            'role' => 'admin',
+            'password' => bcrypt('adminadmin'),
+            'license_picture' => null,
+            'is_license_valid' => true,
+            'address' => 'FIIT STU',
+            'age' => 68,
+            'is_deleted' => false,
+            'phone' => '+421904905972'
+        ]);
+
+        User::create([
+            'id' => 3,
             'first_name' => 'Maros',
             'last_name' => 'Bednar',
             'email' => 'bednarmaros@arymshop.xd',
+            'role' => 'user',
             'password' => bcrypt('bednarmaros'),
             'license_picture' => null,
             'is_license_valid' => true,
             'address' => 'FIIT STU',
             'age' => 21,
-            'is_deleted' => false
+            'is_deleted' => false,
+            'phone' => '+421904905972'
         ]);
 
         User::create([
-            'id' => 3,
+            'id' => 4,
             'first_name' => 'Michal',
             'last_name' => 'Darovec',
             'email' => 'darovecmichal@arymshop.xd',
+            'role' => 'user',
             'password' => bcrypt('darovecmichal'),
             'license_picture' => null,
             'is_license_valid' => true,
             'address' => 'FIIT STU',
             'age' => 21,
-            'is_deleted' => false
+            'is_deleted' => false,
+            'phone' => '+421904905972'
         ]);
 
         User::create([
-            'id' => 4,
+            'id' => 5,
             'first_name' => 'Jozko',
             'last_name' => 'Vajda',
             'email' => 'vajdajozko@gmail.com',
+            'role' => 'user',
             'password' => bcrypt('vajdajozko'),
             'license_picture' => null,
             'is_license_valid' => false,
             'address' => 'Bratislava Vajnory',
             'age' => 63,
-            'is_deleted' => false
+            'is_deleted' => false,
+            'phone' => '+421904905972'
         ]);
     }
 }

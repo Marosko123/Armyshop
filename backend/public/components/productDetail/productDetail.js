@@ -50,6 +50,22 @@ function toggleIcon(likedPhoto) {
     }
 }
 
+function setProductImage(product) {
+    const container = document.getElementById("image-container");
+    const images = product.image_url.split(" ");
+    const image1 = images[0];
+    container.innerHTML = "";
+    let imageHTML = `<div class="carousel-item active">
+                        <img class="d-block w-100 detail-image" src="${image1}" alt="detail image" style="width:50rem !important; height:35rem !important; object-fit:cover">
+                    </div>`;
+    for (let i = 1; i < images.length; i++) {
+        imageHTML += `<div class="carousel-item">
+                        <img class="d-block w-100 detail-image" src="${images[i]}" alt="detail image" style="width:50rem !important; height:35rem !important; object-fit:cover">
+                    </div>`;
+    }
+    container.innerHTML = imageHTML;
+}
+
 // Function to set the product information on the page
 function setProductInformation(product) {
     document.getElementById("product-title").innerHTML = product.name;
@@ -59,7 +75,7 @@ function setProductInformation(product) {
     document.getElementById("total-price").innerHTML = product.price + " €";
 
     // set product image
-    document.querySelector(".detail-image").src = product.image_url;
+    setProductImage(product);
     // find out if product is liked, if so, change the heart icon
     const likedPhoto = document.querySelector(".liked");
     ServerRequester.getFromUrl(`/liked_products/${userId}/${productId}`).then(
