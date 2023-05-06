@@ -97,7 +97,9 @@ function formatPriceMillions(price) {
     if (price > 1000000) {
       price = (price / 1000000).toFixed(2) + "M";
     } else if (price > 100000) {
-        price = price / 1000 + "K";
+        price = (price / 1000).toFixed(2) + "K";
+    } else {
+        price = price.toFixed(2);
     }
     price = price.toString().replace('.', ',')
     return price;
