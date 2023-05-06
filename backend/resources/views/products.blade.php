@@ -50,12 +50,18 @@ integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6
             </div>
         </div>
         <div class="col-lg-3 col-6 mb-3 mb-md-0">
-            <div class="dropdown-orderby">
-                <button class="dropbtn rounded mx-auto">Order By</button>
+            <div class="dropdown-orderby mt-2 w-50">
+            <select class="form-control dropdown rounded" id="order-by-select" name="order-by-select" value="Order By" required>
+                <option value="" class="no-order" selected>Order By</option>
+                <option value="Increasing" class="asc">Price Increasing</option>
+                <option value="Decreasing" class="desc">Price Decreasing</option>
+			</select>
+
+                <!-- <button class="dropbtn rounded mx-auto">Order By</button>
                 <div class="dropdown-content">
                     <a href="#" class="asc">Price Increasing</a>
                     <a href="#" class="desc">Price Decreasing</a>
-                </div>
+                </div> -->
             </div>
         </div>
         <div class="col-lg-3 col-6 mb-3 mb-md-0">
