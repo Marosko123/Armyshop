@@ -29,7 +29,7 @@ class LoginRegisterController extends Controller
         if (Auth::attempt($credentials)) {
             // Authentication successful
             $user = Auth::user();
-            $token = $user->createToken('access_token')->accessToken;
+            $token = $user->createToken('access_token')->plainTextToken;
             return response()->json([
                 'status' => 200,
                 'token' => $token,
@@ -88,7 +88,7 @@ class LoginRegisterController extends Controller
                 $errMessage = 'Our apologies.. Image was not uploaded successfully. Try reuploading it in your profile or contact our support.';
 
                 // Authenticate the user and generate an access token
-                $token = $user->createToken('access_token')->accessToken;
+                $token = $user->createToken('access_token')->plainTextToken;
                 $user->license_picture = $errMessage;
 
                 return response()->json([
@@ -101,7 +101,7 @@ class LoginRegisterController extends Controller
         }
 
         // Authenticate the user and generate an access token
-        $token = $user->createToken('access_token')->accessToken;
+        $token = $user->createToken('access_token')->plainTextToken;
 
         // Return response
         return response()->json([

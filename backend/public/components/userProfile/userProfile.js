@@ -41,7 +41,7 @@ wishListBtn.addEventListener("click", async function () {
                     <img class="productImg" src="${product.image_url}">
                 </td>
                 <td>${product.name}</td>
-                <td class="wishListPrice">${product.price}</td>
+                <td class="wishListPrice">${formatPriceMillions(product.price)}</td>
                 </tr>
             `;
         });
@@ -53,6 +53,16 @@ wishListBtn.addEventListener("click", async function () {
         wishListContainer.style.display = "none";
     }
 });
+
+function formatPriceMillions(price) {
+    if (price > 1000000) {
+      price = (price / 1000000).toFixed(2) + "M";
+    } else if (price > 100000) {
+        price = price / 1000 + "K";
+    }
+    price = price.toString().replace('.', ',')
+    return price;
+}
 
 //log-out handling
 const logoutButton = document.getElementById("log-out-btn");

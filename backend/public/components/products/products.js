@@ -274,8 +274,9 @@ function formatPriceMillions(price) {
     if (price > 1000000) {
       price = (price / 1000000).toFixed(2) + "M";
     } else if (price > 100000) {
-        price = price / 1000 + "K";
+        price = (price / 1000).toFixed(2) + "K";
     }
+    price = price.toString().replace('.', ',')
     return price;
 }
 
@@ -312,13 +313,13 @@ function getProductsHTML(products, notLikedImg, likedImg, likedArray) {
         <div class="card m-3" data-product-id="${product.id}" style="height:25rem !important;">
             <!-- image source: unsplash.com -->
             <img class="card-img-top"
-            src="${product.image_url}"
+            src="${product.image_url.split(' ')[0]}"
             alt="Card image cap"
             style="height:15rem !important; object-fit:cover !important;">
             <div class="card-body d-flex align-items-center justify-content-between mx-auto">
                 <div>
                     <h3 class="card-title">${product.name}</h3>
-                    <p class="card-text">${product.price} €</p>
+                    <p class="card-text">${formatPriceMillions(product.price)} €</p>
                 </div>
                 <!-- image source: flaticon.com -->
                 <img src="${likedVersion}" alt="" width="14%" class="liked-photo ${isLiked ? 'liked-photo-new' : ''}" onclick="toggleIcon(this)">
