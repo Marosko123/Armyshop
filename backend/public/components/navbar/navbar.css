@@ -70,6 +70,10 @@
     padding: 5px 20px;
 }
 
+#navbar #primary-navbar .admin-dashboard__button {
+    margin-left: 25px;
+}
+
 #navbar #primary-navbar #search-results-wrapper .search-result-row mark {
     background-color: rgb(130, 226, 117);
     color: black;

@@ -68,9 +68,29 @@ window.addEventListener("load", async function () {
 
     GlobalVariables.products = response.products;
 
-    if (localStorage.getItem("armyshop_currently_signed_in_user") != null) {
+    user = JSON.parse(localStorage.getItem("armyshop_currently_signed_in_user"));
+
+    if (user != null) {
         const profileButton = document.querySelector(".profile__button");
         profileButton.style.backgroundColor = "gold";
+
+        if(user.role == 'admin'){
+              document.querySelectorAll('.search-input-wrapper').forEach(function(elem) {
+                var button = document.createElement('button');
+                button.setAttribute('class',"button admin-dashboard__button");
+                button.innerHTML = '<img class="navbar-img" src="https://www.svgrepo.com/show/102270/cogwheel-outline.svg" alt="Responsive image">';
+                
+                button.addEventListener('click', function() {
+                    window.location.href = "/adminDashboard";
+                  });
+
+                elem.insertAdjacentElement('afterend', button);
+              });
+
+              document.querySelectorAll('.search-img').forEach(function(elem) {
+                elem.parentNode.removeChild(elem);
+              });
+        }
     }
 });
 

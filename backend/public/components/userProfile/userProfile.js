@@ -121,7 +121,7 @@ saveChangesButton.addEventListener("click", async function () {
     "phone": document.getElementById('phone').value
   };
 
-  localStorage.setItem("armyshop_currently_signed_in_user",JSON.stringify(data));
+  
 
   if(oldData.email == document.getElementById('email').value) 
     delete data["email"];
@@ -137,8 +137,12 @@ saveChangesButton.addEventListener("click", async function () {
   .then(data => console.log(data))
   .catch(error => console.error(error));
   
-   alert("Changes saved.");
+  data.role = oldData.role;
+  data.is_license_valid = oldData.is_license_valid;
+  data.license_picture = oldData.license_picture;
+  localStorage.setItem("armyshop_currently_signed_in_user", JSON.stringify(data));
 
+  alert("Changes saved.");
 });
 
 async function getLikedProducts() {
