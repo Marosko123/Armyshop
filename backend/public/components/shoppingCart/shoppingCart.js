@@ -7,6 +7,7 @@ function loadCart() {
     console.log(data);
 
     listElement = document.getElementById("products");
+    listElement.innerHTML = "";
 
     if (!data) listElement.innerHTML = "<li>Shopping cart is empty...</li>";
 
@@ -171,6 +172,25 @@ function saveToDB(productID, count, remove) {
         .catch((error) => console.error(error));
 }
 
+function deleteAllProductsFromCart() {
+    let cartItems = JSON.parse(localStorage.getItem("cart"));
+
+    for (let productIndex in cartItems) {
+        saveToDB(productIndex, null, true);
+    }
+
+    localStorage.removeItem("cart");
+}
+
+function saveProductsToCart(productsJsonString) {
+    localStorage.setItem("cart", productsJsonString);
+    let cartItems = JSON.parse(productsJsonString);
+
+    for (let productIndex in cartItems) {
+        saveToDB(productIndex, cartItems[productIndex].count);
+    }
+}
+
 function exportAsJSON() {
     const csvFileData = localStorage.getItem("cart");
 
@@ -200,9 +220,8 @@ async function importJSON() {
     });
 
     const fileContents = await fileLoaded;
+    deleteAllProductsFromCart();
 
-    console.log("file contents:", fileContents);
-
-    localStorage.setItem("cart", fileContents);
+    saveProductsToCart(fileContents);
     loadCart();
 }
