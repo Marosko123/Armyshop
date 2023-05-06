@@ -63,8 +63,7 @@ class PaymentDetail {
         }
 
         let cart = JSON.parse(localStorage.getItem("buyNowCart"));
-        if (cart == null)
-            cart = JSON.parse(localStorage.getItem("cart"));
+        if (cart == null) cart = JSON.parse(localStorage.getItem("cart"));
 
         let productIDs = Object.keys(cart);
 
@@ -113,11 +112,10 @@ class PaymentDetail {
             if (response.status === 200) {
                 document.querySelector("#payment-detail form").reset();
 
-                if(localStorage.getItem('buyNowCart') == null) 
-                    localStorage.removeItem('cart');
-                else 
-                    localStorage.removeItem('buyNowCart');
-                    
+                if (localStorage.getItem("buyNowCart") == null)
+                    localStorage.removeItem("cart");
+                else localStorage.removeItem("buyNowCart");
+
                 return PaymentDetail.handlePopup();
             }
             if (response.status === 401) {
