@@ -9,7 +9,7 @@ class PaymentDetailValidator {
             return true;
         }
 
-        document.getElementsByClassName("error")[0].scrollIntoView();
+        document.querySelector(".input-control.error").scrollIntoView();
         return false;
     };
 

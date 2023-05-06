@@ -72,29 +72,29 @@
 					<div id="delivery">
 						<div class="input-group mb-1">
 							<div class="delivery-row">
-								<input class="delivery-checkbox" type="checkbox" onchange="onDeliveryOptionChanged(this)" checked>
+								<input class="delivery-checkbox" type="checkbox" onchange="PaymentDetail.onDeliveryOptionChanged(this)" checked>
 								<!-- custom image -->
 								<img class="delivery-item-icon" src="{{ asset('images/logo/logoTransparent.png') }}" alt="">
 								<div class="delivery-label"> Pick up in the store </div>
-								<span class="delivery-price" id="inStorePickupCost"></span>
+								<span class="delivery-price" id="inStorePickup"></span>
 								<span class="delivery-availability"> Tomorrow 12:00 </span>
 							</div>
 							<div class="delivery-row">
-								<input class="delivery-checkbox " type="checkbox" onchange="onDeliveryOptionChanged(this)">
+								<input class="delivery-checkbox " type="checkbox" onchange="PaymentDetail.onDeliveryOptionChanged(this)">
 								<!-- freepik license -->
 								<!-- https://www.freepik.com/free-vector/documents-letters-express-courier-delivering-postal-services-post-office-services-post-delivery-agent-post-office-card-accounts-concept-pinkish-coral-bluevector-isolated-illustration_11667313.htm#query=post%20office&position=0&from_view=search&track=ais -->
 								<img class="delivery-item-icon" src="{{ asset('images/paymentDetailImages/postOffice.jpg') }}" alt="">
 								<div class="delivery-label"> Post office </div>
-								<span class="delivery-price" id="postOfficeCost"></span>
+								<span class="delivery-price" id="postOffice"></span>
 								<span class="delivery-availability"> Tomorrow 18:00 </span>
 							</div>
 							<div class="delivery-row">
-								<input class="delivery-checkbox " type="checkbox" onchange="onDeliveryOptionChanged(this)">
+								<input class="delivery-checkbox " type="checkbox" onchange="PaymentDetail.onDeliveryOptionChanged(this)">
 								<!-- freepik license -->
 								<!-- https://www.freepik.com/free-vector/documents-letters-express-courier-delivering-postal-services-post-office-services-post-delivery-agent-post-office-card-accounts-concept-pinkish-coral-bluevector-isolated-illustration_11667313.htm#query=post%20office&position=0&from_view=search&track=ais -->
 								<img class="delivery-item-icon" src="{{ asset('images/paymentDetailImages/courier.jpg') }}" alt="">
 								<div class="delivery-label"> DHL </div>
-								<span class="delivery-price" id="dhlCost"></span>
+								<span class="delivery-price" id="dhl"></span>
 								<span class="delivery-availability"> Tomorrow 12:00 </span>
 							</div>
 						</div>
@@ -106,14 +106,14 @@
 					<div id="payment">
 						<div class="input-group mb-3">
 							<div class="payment-row">
-								<input class="payment-checkbox" type="checkbox" onchange="onPaymentOptionChanged(this)" checked>
+								<input class="payment-checkbox" type="checkbox" onchange="PaymentDetail.onPaymentOptionChanged(this)" checked>
 								<!-- freepik license -->
 								<!-- https://www.freepik.com/free-vector/black-credit-card_1014950.htm#query=credit%20card&position=0&from_view=search&track=ais -->
 								<img class="payment-item-icon" src="{{ asset('images/paymentDetailImages/creditCard.jpg') }}" alt="">
 								<div class="payment-label"> By card </div>
 							</div>
 							<div class="payment-row">
-								<input class="payment-checkbox" type="checkbox" onchange="onPaymentOptionChanged(this)">
+								<input class="payment-checkbox" type="checkbox" onchange="PaymentDetail.onPaymentOptionChanged(this)">
 								<!-- freepik license -->
 								<!-- https://www.freepik.com/free-vector/isometric-money-background_4448290.htm#query=cash&position=20&from_view=search&track=sph -->
 								<img class="payment-item-icon" src="{{ asset('images/paymentDetailImages/cash.jpg') }}" alt="">
@@ -144,7 +144,7 @@
 
 					<div class="line"> </div>
 
-					<a class="btn btn-success" id="order-button" onclick="onOrderNowClicked(this)"> Order Now </a>
+					<a class="btn btn-success" id="order-button" onclick="PaymentDetail.onOrderNowClicked(this)"> Order Now </a>
 				</form>
 			</div>
 
