@@ -27,9 +27,9 @@ wishListBtn.addEventListener("click", async function () {
         let wishlistHTML = "<table>";
         
         const likedIds = await getLikedProducts();
-        console.log(likedIds);
+        // console.log(likedIds);
         const productsToDisplay = GlobalVariables.products.filter(product => likedIds.includes(product.id));
-        console.log(productsToDisplay);
+        // console.log(productsToDisplay);
         if (productsToDisplay.length == 0) {
             wishlistHTML += "<tr><td>Your wishlist is empty.</td></tr>";
         }
@@ -38,10 +38,10 @@ wishListBtn.addEventListener("click", async function () {
             wishlistHTML += `
                 <tr class="wishListRow">
                 <td>
-                    <img class="productImg" src="${product.image_url}">
+                    <img class="productImg" src="${product.image_url.split(' ')[0]}" width="80px" height="50px">
                 </td>
                 <td>${product.name}</td>
-                <td class="wishListPrice">${formatPriceMillions(product.price)}</td>
+                <td class="wishListPrice">${formatPriceMillions(product.price)} €</td>
                 </tr>
             `;
         });
@@ -169,7 +169,7 @@ if (response.status === 200) {
 } else {
     likedArray = [];
 }
-console.log(likedArray);
+// console.log(likedArray);
 return likedArray;
 }
   

@@ -17,9 +17,9 @@ function loadCart() {
         product.innerHTML = `
         <div class="item">
           <!-- image source: unsplash.com -->
-          <img class="img" src="${data[key].image_url}" alt="${
+          <img class="img" src="${data[key].image_url.split(' ')[0]}" alt="${
             data[key].alt_text
-        }">
+        }" width="100px" height="90px">
           <div class="desc">
             <div class="title-remove">
               <h3>${data[key].name}
