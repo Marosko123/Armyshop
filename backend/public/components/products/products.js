@@ -317,7 +317,7 @@ function getProductsHTML(products, notLikedImg, likedImg, likedArray) {
             alt="Card image cap"
             style="height:15rem !important; object-fit:cover !important;">
             <div class="card-body d-flex align-items-center justify-content-between mx-auto">
-                <div>
+                <div class="mt-2">
                     <h3 class="card-title">${product.name}</h3>
                     <p class="card-text">${formatPriceMillions(product.price)} €</p>
                 </div>
