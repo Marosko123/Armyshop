@@ -62,7 +62,7 @@
                         </div>
                         <div class="mb-3 text-center">
                             <h4>Total Price</h4>
-                            <h4 class="text-center" id="total-price">5999.99 €</h4>
+                            <h4 class="text-center" id="total-price"></h4>
                         </div>
                         <div class="mb-3 text-center">
                             <div class="add-remove-buttons-wrapper">

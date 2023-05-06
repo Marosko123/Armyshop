@@ -27,9 +27,9 @@ wishListBtn.addEventListener("click", async function () {
         let wishlistHTML = "<table>";
         
         const likedIds = await getLikedProducts();
-        console.log(likedIds);
+        // console.log(likedIds);
         const productsToDisplay = GlobalVariables.products.filter(product => likedIds.includes(product.id));
-        console.log(productsToDisplay);
+        // console.log(productsToDisplay);
         if (productsToDisplay.length == 0) {
             wishlistHTML += "<tr><td>Your wishlist is empty.</td></tr>";
         }
@@ -38,10 +38,10 @@ wishListBtn.addEventListener("click", async function () {
             wishlistHTML += `
                 <tr class="wishListRow">
                 <td>
-                    <img class="productImg" src="${product.image_url}">
+                    <img class="productImg" src="${product.image_url.split(' ')[0]}" width="80px" height="50px">
                 </td>
                 <td>${product.name}</td>
-                <td class="wishListPrice">${product.price}</td>
+                <td class="wishListPrice">${formatPriceMillions(product.price)} €</td>
                 </tr>
             `;
         });
@@ -53,6 +53,16 @@ wishListBtn.addEventListener("click", async function () {
         wishListContainer.style.display = "none";
     }
 });
+
+function formatPriceMillions(price) {
+    if (price > 1000000) {
+      price = (price / 1000000).toFixed(2) + "M";
+    } else if (price > 100000) {
+        price = price / 1000 + "K";
+    }
+    price = price.toString().replace('.', ',')
+    return price;
+}
 
 //log-out handling
 const logoutButton = document.getElementById("log-out-btn");
@@ -159,7 +169,7 @@ if (response.status === 200) {
 } else {
     likedArray = [];
 }
-console.log(likedArray);
+// console.log(likedArray);
 return likedArray;
 }
   

@@ -1,5 +1,6 @@
 let product = "";
 let userId = 0;
+let priceFor1 = 0;
 if (localStorage.getItem("armyshop_currently_signed_in_user") !== null) {
     userId =
         JSON.parse(localStorage.getItem("armyshop_currently_signed_in_user"))
@@ -71,8 +72,9 @@ function setProductInformation(product) {
     document.getElementById("product-title").innerHTML = product.name;
     document.getElementById("description").innerHTML = product.description;
     document.querySelector(".priceFor1").innerHTML =
-        "Price for 1: " + product.price + " €";
-    document.getElementById("total-price").innerHTML = product.price + " €";
+        "Price for one: " + formatPriceMillions(product.price) + " €";
+    priceFor1 = product.price;
+    document.getElementById("total-price").innerHTML = formatPriceMillions(product.price) + " €";
 
     // set product image
     setProductImage(product);
@@ -124,12 +126,8 @@ plusBtn.addEventListener("click", () => {
     if (amountInput.value < 100) {
         amountInput.value++;
 
-        // update total price
-        const priceFor1 = document
-            .querySelector(".priceFor1")
-            .innerHTML.split(" ")[3];
         totalPrice.innerHTML =
-            (priceFor1 * amountInput.value).toFixed(2) + " €";
+            formatPriceMillions((priceFor1 * amountInput.value).toFixed(2)) + " €";
     }
 });
 
@@ -137,12 +135,8 @@ minusBtn.addEventListener("click", () => {
     if (amountInput.value > 1) {
         amountInput.value--;
 
-        // update total price
-        const priceFor1 = document
-            .querySelector(".priceFor1")
-            .innerHTML.split(" ")[3];
         totalPrice.innerHTML =
-            (priceFor1 * amountInput.value).toFixed(2) + " €";
+        formatPriceMillions((priceFor1 * amountInput.value).toFixed(2)) + " €";
     }
 });
 
@@ -153,12 +147,19 @@ amountInput.addEventListener("change", () => {
     } else if (amountInput.value > 100) {
         amountInput.value = 100;
     }
-    // update total price
-    const priceFor1 = document
-        .querySelector(".priceFor1")
-        .innerHTML.split(" ")[3];
-    totalPrice.innerHTML = (priceFor1 * amountInput.value).toFixed(2) + " €";
+
+    totalPrice.innerHTML = formatPriceMillions((priceFor1 * amountInput.value).toFixed(2)) + " €";
 });
+
+function formatPriceMillions(price) {
+    if (price > 1000000) {
+      price = (price / 1000000).toFixed(2) + "M";
+    } else if (price > 100000) {
+        price = price / 1000 + "K";
+    }
+    price = price.toString().replace(".", ",");
+    return price;
+}
 
 document
     .querySelector(".removeFromBasket")

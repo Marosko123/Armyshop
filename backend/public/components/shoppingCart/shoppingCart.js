@@ -17,9 +17,9 @@ function loadCart() {
         product.innerHTML = `
         <div class="item">
           <!-- image source: unsplash.com -->
-          <img class="img" src="${data[key].image_url}" alt="${
+          <img class="img" src="${data[key].image_url.split(' ')[0]}" alt="${
             data[key].alt_text
-        }">
+        }" width="100px" height="90px">
           <div class="desc">
             <div class="title-remove">
               <h3>${data[key].name}
@@ -30,9 +30,7 @@ function loadCart() {
               </button>
             </div>
             <div class="prices">
-              <p class="singularPrice">${Formatter.formatPrice(
-                  data[key].price
-              )}</p>
+              <p class="singularPrice">${formatPriceMillions(data[key].price)} €</p>
               <div class="multiple">
                 <div class="countControls">
                   <button class="countControlButtons" id="minusButton_${key}">-</button>
@@ -41,9 +39,7 @@ function loadCart() {
         }">
                   <button class="countControlButtons" id="plusButton_${key}">+</button>
                 </div>
-                <p class="multiplePrice" id="multiplePrice_${key}">${Formatter.formatPrice(
-            data[key].price * data[key].count
-        )}</p>
+                <p class="multiplePrice" id="multiplePrice_${key}">${formatPriceMillions(data[key].price * data[key].count)} €</p>
               </div>
             </div>
           </div>
@@ -97,6 +93,16 @@ const onContinueButtonClicked = () => {
     window.location.href = "paymentDetail";
 };
 
+function formatPriceMillions(price) {
+    if (price > 1000000) {
+      price = (price / 1000000).toFixed(2) + "M";
+    } else if (price > 100000) {
+        price = price / 1000 + "K";
+    }
+    price = price.toString().replace('.', ',')
+    return price;
+}
+
 function handleProductCountChange(key, increment, decrement, value) {
     data = JSON.parse(localStorage.getItem("cart"));
 
@@ -108,7 +114,7 @@ function handleProductCountChange(key, increment, decrement, value) {
     input.value = parseInt(data[key].count);
 
     document.getElementById(`multiplePrice_${key}`).innerText =
-        Formatter.formatPrice(data[key].price * data[key].count);
+        formatPriceMillions(data[key].price * data[key].count) + '€';
 
     calculateSummary(data);
 
@@ -122,7 +128,7 @@ function calculateSummary(data) {
     for (let key in data) subtotal += data[key].price * data[key].count;
 
     document.getElementById(`total`).innerText =
-        Formatter.formatPrice(subtotal);
+        formatPriceMillions(subtotal) + '€';
 }
 
 function saveToDB(productID, count, remove) {
