@@ -13,7 +13,7 @@
   .addToBasket {
     border: none;
     background:transparent;
-    width: 70%;
+    width: auto;
   }
 
    /* make header text responsive */
