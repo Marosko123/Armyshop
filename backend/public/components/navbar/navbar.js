@@ -68,28 +68,36 @@ window.addEventListener("load", async function () {
 
     GlobalVariables.products = response.products;
 
-    user = JSON.parse(localStorage.getItem("armyshop_currently_signed_in_user"));
+    user = JSON.parse(
+        localStorage.getItem("armyshop_currently_signed_in_user")
+    );
 
     if (user != null) {
         const profileButton = document.querySelector(".profile__button");
         profileButton.style.backgroundColor = "gold";
 
-        if(user.role == 'admin'){
-              document.querySelectorAll('.search-input-wrapper').forEach(function(elem) {
-                var button = document.createElement('button');
-                button.setAttribute('class',"button admin-dashboard__button");
-                button.innerHTML = '<img class="navbar-img" src="https://www.svgrepo.com/show/102270/cogwheel-outline.svg" alt="Responsive image">';
-                
-                button.addEventListener('click', function() {
-                    window.location.href = "/adminDashboard";
-                  });
+        if (user.role == "admin") {
+            document
+                .querySelectorAll(".search-input-wrapper")
+                .forEach(function (elem) {
+                    var button = document.createElement("button");
+                    button.setAttribute(
+                        "class",
+                        "button admin-dashboard__button"
+                    );
+                    button.innerHTML =
+                        '<img class="navbar-img" src="https://www.svgrepo.com/show/102270/cogwheel-outline.svg" alt="Responsive image">';
 
-                elem.insertAdjacentElement('afterend', button);
-              });
+                    button.addEventListener("click", function () {
+                        window.location.href = "/adminDashboard";
+                    });
 
-              document.querySelectorAll('.search-img').forEach(function(elem) {
+                    elem.insertAdjacentElement("afterend", button);
+                });
+
+            document.querySelectorAll(".search-img").forEach(function (elem) {
                 elem.parentNode.removeChild(elem);
-              });
+            });
         }
     }
 });
@@ -103,20 +111,16 @@ const onSubCategoryClicked = (subcategory) => {
 };
 
 const onSearchResultSelected = (result) => {
-    const category = result
-        .querySelector(".search-result-row-category")
-        .innerHTML.toLowerCase()
-        .replace(" ", "_");
-
     const productName = result
         .querySelector(".search-result-row-label")
         .innerHTML.toLowerCase()
-        .replace(" ", "_")
+        .replaceAll(" ", "_")
         .replace("<mark>", "")
         .replace("</mark>", "");
 
     const productId = GlobalVariables.products.find(
-        (product) => product.name.toLowerCase() === productName
+        (product) =>
+            product.name.replaceAll(" ", "_").toLowerCase() === productName
     )?.id;
 
     if (productId != null) {
