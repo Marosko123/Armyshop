@@ -18,7 +18,7 @@ class UsersSeeder extends Seeder
             'password' => bcrypt('adminadmin'),
             'license_picture' => null,
             'is_license_valid' => true,
-            'address' => 'FIIT STU',
+            'address' => 'FIIT STU,842 16,Bratislava,Slovakia',
             'age' => 68,
             'is_deleted' => false,
             'phone' => '+421904905972'
@@ -33,7 +33,7 @@ class UsersSeeder extends Seeder
             'password' => bcrypt('adminadmin'),
             'license_picture' => null,
             'is_license_valid' => true,
-            'address' => 'FIIT STU',
+            'address' => 'FIIT STU,842 16,Bratislava,Slovakia',
             'age' => 68,
             'is_deleted' => false,
             'phone' => '+421904905972'
@@ -48,7 +48,7 @@ class UsersSeeder extends Seeder
             'password' => bcrypt('bednarmaros'),
             'license_picture' => null,
             'is_license_valid' => true,
-            'address' => 'FIIT STU',
+            'address' => 'FIIT STU,842 16,Bratislava,Slovakia',
             'age' => 21,
             'is_deleted' => false,
             'phone' => '+421904905972'
@@ -63,7 +63,7 @@ class UsersSeeder extends Seeder
             'password' => bcrypt('darovecmichal'),
             'license_picture' => null,
             'is_license_valid' => true,
-            'address' => 'FIIT STU',
+            'address' => 'FIIT STU,842 16,Bratislava,Slovakia',
             'age' => 21,
             'is_deleted' => false,
             'phone' => '+421904905972'
@@ -78,7 +78,7 @@ class UsersSeeder extends Seeder
             'password' => bcrypt('vajdajozko'),
             'license_picture' => null,
             'is_license_valid' => false,
-            'address' => 'Bratislava Vajnory',
+            'address' => '',
             'age' => 63,
             'is_deleted' => false,
             'phone' => '+421904905972'

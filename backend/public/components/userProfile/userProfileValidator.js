@@ -1,4 +1,4 @@
-class PaymentDetailValidator {
+class UserProfileValidator {
     static areAllInputsValid = (inputElements) => {
         let numberOfErrors = 0;
 
@@ -16,7 +16,6 @@ class PaymentDetailValidator {
     static validatePersonalInformation = (inputElements) => {
         const firstNameValue = inputElements.firstName.value.trim();
         const lastNameValue = inputElements.lastName.value.trim();
-        const emailValue = inputElements.email.value.trim();
         let numberOfErrors = 0;
 
         if (firstNameValue === "") {
@@ -31,16 +30,6 @@ class PaymentDetailValidator {
             numberOfErrors++;
         } else {
             this.setSuccess(inputElements.lastName);
-        }
-
-        if (emailValue === "") {
-            this.setError(inputElements.email, "Email is required");
-            numberOfErrors++;
-        } else if (!this.isValidEmail(emailValue)) {
-            this.setError(inputElements.email, "Provide a valid email address");
-            numberOfErrors++;
-        } else {
-            this.setSuccess(inputElements.email);
         }
 
         return numberOfErrors;
@@ -117,12 +106,6 @@ class PaymentDetailValidator {
         errorDisplay.innerText = "";
         inputControl.classList.add("success");
         inputControl.classList.remove("error");
-    };
-
-    static isValidEmail = (email) => {
-        const re =
-            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(String(email).toLowerCase());
     };
 
     static isValidPhone = (phone) => {

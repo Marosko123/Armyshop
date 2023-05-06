@@ -31,26 +31,53 @@
 						<hr>
 						<div class="formContainer">
 							<form>
-								<label for="name">Name:</label>
-								<input type="text" id="name" name="name" placeholder=""><br>
-
-								<label for="email">E-mail:</label>
-								<input type="email" id="email" name="email" placeholder=""><br>
-
-								<label for="phone">Phone Number:</label>
-								<input type="tel" id="phone" name="phone" placeholder=""><br>
+								<label for="name">First Name:</label>
+								<div class="mb-1 input-control">
+									<input type="text" id="first-name-input" placeholder=""><br>
+									<div class="error"></div>
+								</div>
+								
+								<label for="name">Last Name:</label>
+								<div class="mb-1 input-control">
+									<input type="text" id="last-name-input" placeholder=""><br>
+									<div class="error"></div>
+								</div>
+								
+								<!-- <label for="email">E-mail:</label>
+								<div class="mb-1 input-control">
+									<input type="email" id="email-input" placeholder=""><br>
+									<div class="error"></div>
+								</div> -->
 
 								<label for="address">Address:</label>
-								<input type="text" id="address" name="address" placeholder=""><br>
+								<div class="mb-1 input-control">
+									<input type="text" id="address-input" placeholder=""><br>
+									<div class="error"></div>
+								</div>
 
 								<label for="zip-code">Zip Code:</label>
-								<input type="text" id="zip-code" name="zip-code" placeholder=""><br>
+								<div class="mb-1 input-control">
+									<input type="text" id="zip-input" placeholder=""><br>
+									<div class="error"></div>
+								</div>
 
 								<label for="city">City:</label>
-								<input type="text" id="city" name="city" placeholder=""><br>
-
+								<div class="mb-1 input-control">
+									<input type="text" id="city-input" placeholder=""><br>
+									<div class="error"></div>
+								</div>
+								
 								<label for="country">Country:</label>
-								<input type="text" id="country" name="country" placeholder=""><br>
+								<div class="mb-1 input-control">
+									<input type="text" id="country-input" placeholder=""><br>
+									<div class="error"></div>
+								</div>
+
+								<label for="phone">Phone Number:</label>
+								<div class="mb-1 input-control">
+									<input type="tel" id="telephone-input" placeholder=""><br>
+									<div class="error"></div>
+								</div>
 
 								<button type="button" id="save-changes-btn">SAVE CHANGES</button>
 							</form>
@@ -139,6 +166,7 @@
   @include('components.contactUs')
 
 <script src="{{ asset('components/contactUs/contactUs.js') }}"></script>
+<script src="{{ asset('components/userProfile/userProfileValidator.js') }}"></script>
 <script src="{{ asset('components/userProfile/userProfile.js') }}"></script>
 </body>
 

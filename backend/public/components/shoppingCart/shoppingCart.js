@@ -30,7 +30,9 @@ function loadCart() {
               </button>
             </div>
             <div class="prices">
-              <p class="singularPrice">${formatPriceMillions(data[key].price)} €</p>
+              <p class="singularPrice">${formatPriceMillions(
+                  data[key].price
+              )} €</p>
               <div class="multiple">
                 <div class="countControls">
                   <button class="countControlButtons" id="minusButton_${key}">-</button>
@@ -39,7 +41,9 @@ function loadCart() {
         }">
                   <button class="countControlButtons" id="plusButton_${key}">+</button>
                 </div>
-                <p class="multiplePrice" id="multiplePrice_${key}">${formatPriceMillions(data[key].price * data[key].count)} €</p>
+                <p class="multiplePrice" id="multiplePrice_${key}">${formatPriceMillions(
+            data[key].price * data[key].count
+        )} €</p>
               </div>
             </div>
           </div>
@@ -95,13 +99,13 @@ const onContinueButtonClicked = () => {
 
 function formatPriceMillions(price) {
     if (price > 1000000) {
-      price = (price / 1000000).toFixed(2) + "M";
+        price = (price / 1000000).toFixed(2) + "M";
     } else if (price > 100000) {
         price = (price / 1000).toFixed(2) + "K";
     } else {
         price = price.toFixed(2);
     }
-    price = price.toString().replace('.', ',')
+    price = price.toString().replace(".", ",");
     return price;
 }
 
@@ -116,7 +120,7 @@ function handleProductCountChange(key, increment, decrement, value) {
     input.value = parseInt(data[key].count);
 
     document.getElementById(`multiplePrice_${key}`).innerText =
-        formatPriceMillions(data[key].price * data[key].count) + '€';
+        formatPriceMillions(data[key].price * data[key].count) + "€";
 
     calculateSummary(data);
 
@@ -130,7 +134,7 @@ function calculateSummary(data) {
     for (let key in data) subtotal += data[key].price * data[key].count;
 
     document.getElementById(`total`).innerText =
-        formatPriceMillions(subtotal) + '€';
+        formatPriceMillions(subtotal) + "€";
 }
 
 function saveToDB(productID, count, remove) {
