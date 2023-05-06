@@ -4,6 +4,12 @@
       height: 100%;
     }
 
+  .add-remove-buttons-wrapper {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .removeFromBasket,
   .addToBasket {
     border: none;
     background:transparent;

@@ -1,8 +1,9 @@
-
-let product = '';
+let product = "";
 let userId = 0;
 if (localStorage.getItem("armyshop_currently_signed_in_user") !== null) {
-    userId = JSON.parse(localStorage.getItem("armyshop_currently_signed_in_user")).id ?? 1;
+    userId =
+        JSON.parse(localStorage.getItem("armyshop_currently_signed_in_user"))
+            .id ?? 1;
 }
 
 // get product id from url
@@ -13,50 +14,64 @@ try {
     window.location.href = "/404";
 }
 
-
-window.addEventListener('load', async function () {
+window.addEventListener("load", async function () {
     product = await ServerRequester.getFromUrl(`/products/${productId}`);
+
+    const cartItems = JSON.parse(localStorage.getItem("cart"));
+    if (!cartItems || !cartItems[productId]) {
+        document.querySelector(".removeFromBasket").remove();
+    }
 });
 
 function toggleIcon(likedPhoto) {
-    if (likedPhoto.classList.contains("liked-photo-new")) { // removes from liked products
+    if (likedPhoto.classList.contains("liked-photo-new")) {
+        // removes from liked products
         // Image source: flaticon.com
-        likedPhoto.src = "http://127.0.0.1:8000/images/productDetailImages/heart6.png";
+        likedPhoto.src =
+            "http://127.0.0.1:8000/images/productDetailImages/heart6.png";
         likedPhoto.classList.remove("liked-photo-new");
 
         // delete from liked products table
-        ServerRequester.deleteFromUrl(`/liked_products/delete/${userId}/${productId}`);
-    } else { // adds to liked products
+        ServerRequester.deleteFromUrl(
+            `/liked_products/delete/${userId}/${productId}`
+        );
+    } else {
+        // adds to liked products
         // Image source: flaticon.com
-        likedPhoto.src = "http://127.0.0.1:8000/images/productDetailImages/heart4.png";
+        likedPhoto.src =
+            "http://127.0.0.1:8000/images/productDetailImages/heart4.png";
         likedPhoto.classList.add("liked-photo-new");
 
         // add to liked products table
-        ServerRequester.postToUrl(`/liked_products/add/${userId}/${productId}`, {});
+        ServerRequester.postToUrl(
+            `/liked_products/add/${userId}/${productId}`,
+            {}
+        );
     }
 }
-
-
-
 
 // Function to set the product information on the page
 function setProductInformation(product) {
     document.getElementById("product-title").innerHTML = product.name;
     document.getElementById("description").innerHTML = product.description;
-    document.querySelector('.priceFor1').innerHTML = "Price for 1: " + product.price + " €";
+    document.querySelector(".priceFor1").innerHTML =
+        "Price for 1: " + product.price + " €";
     document.getElementById("total-price").innerHTML = product.price + " €";
 
     // set product image
-    document.querySelector('.detail-image').src = product.image_url;
+    document.querySelector(".detail-image").src = product.image_url;
     // find out if product is liked, if so, change the heart icon
     const likedPhoto = document.querySelector(".liked");
-    ServerRequester.getFromUrl(`/liked_products/${userId}/${productId}`).then((response) => {
-        if (response.status === 200) {
-            // Image source: flaticon.com
-            likedPhoto.src = "http://127.0.0.1:8000/images/productDetailImages/heart4.png";
-            likedPhoto.classList.add("liked-photo-new");
+    ServerRequester.getFromUrl(`/liked_products/${userId}/${productId}`).then(
+        (response) => {
+            if (response.status === 200) {
+                // Image source: flaticon.com
+                likedPhoto.src =
+                    "http://127.0.0.1:8000/images/productDetailImages/heart4.png";
+                likedPhoto.classList.add("liked-photo-new");
+            }
         }
-    });
+    );
 }
 
 // Function to handle 404 errors
@@ -66,8 +81,12 @@ function handle404Error() {
 
 // Function to get product information from the server
 async function getProductInfo(productId) {
-    const productInfo = await ServerRequester.getFromUrl(`/products/${productId}`);
-    const isLiked = await ServerRequester.getFromUrl(`/liked_products/${userId}`);
+    const productInfo = await ServerRequester.getFromUrl(
+        `/products/${productId}`
+    );
+    const isLiked = await ServerRequester.getFromUrl(
+        `/liked_products/${userId}`
+    );
     if (productInfo.status === 404) {
         handle404Error();
     } else {
@@ -78,21 +97,23 @@ async function getProductInfo(productId) {
 // Call getProductInfo() with the product ID
 getProductInfo(productId);
 
-
-const amountInput = document.getElementById('amount')
-const plusBtn = document.getElementById('plusBtn')
-const minusBtn = document.getElementById('minusBtn')
+const amountInput = document.getElementById("amount");
+const plusBtn = document.getElementById("plusBtn");
+const minusBtn = document.getElementById("minusBtn");
 
 // plus and minus buttons
-const totalPrice = document.getElementById('total-price')
+const totalPrice = document.getElementById("total-price");
 
 plusBtn.addEventListener("click", () => {
     if (amountInput.value < 100) {
         amountInput.value++;
 
         // update total price
-        const priceFor1 = document.querySelector('.priceFor1').innerHTML.split(" ")[3]
-        totalPrice.innerHTML = (priceFor1 * amountInput.value).toFixed(2) + " €"
+        const priceFor1 = document
+            .querySelector(".priceFor1")
+            .innerHTML.split(" ")[3];
+        totalPrice.innerHTML =
+            (priceFor1 * amountInput.value).toFixed(2) + " €";
     }
 });
 
@@ -101,8 +122,11 @@ minusBtn.addEventListener("click", () => {
         amountInput.value--;
 
         // update total price
-        const priceFor1 = document.querySelector('.priceFor1').innerHTML.split(" ")[3]
-        totalPrice.innerHTML = (priceFor1 * amountInput.value).toFixed(2) + " €"
+        const priceFor1 = document
+            .querySelector(".priceFor1")
+            .innerHTML.split(" ")[3];
+        totalPrice.innerHTML =
+            (priceFor1 * amountInput.value).toFixed(2) + " €";
     }
 });
 
@@ -114,68 +138,109 @@ amountInput.addEventListener("change", () => {
         amountInput.value = 100;
     }
     // update total price
-    const priceFor1 = document.querySelector('.priceFor1').innerHTML.split(" ")[3]
-    totalPrice.innerHTML = (priceFor1 * amountInput.value).toFixed(2) + " €"
+    const priceFor1 = document
+        .querySelector(".priceFor1")
+        .innerHTML.split(" ")[3];
+    totalPrice.innerHTML = (priceFor1 * amountInput.value).toFixed(2) + " €";
 });
 
+document
+    .querySelector(".removeFromBasket")
+    .addEventListener("click", async (e) => {
+        e.preventDefault();
 
+        let shoppingCart = JSON.parse(localStorage.getItem("cart"));
 
-document.querySelector('.addToBasket').addEventListener('click', async (e) => {
-    e.preventDefault()
+        if (shoppingCart && shoppingCart[productId]) {
+            await ServerRequester.deleteFromUrl(
+                `/baskets/delete_all_items/${userId}/${productId}`
+            );
+            delete shoppingCart[productId];
 
-    data = [];
-    data = JSON.parse(localStorage.getItem("cart"));
+            shoppingCart == {}
+                ? localStorage.removeItem("cart")
+                : localStorage.setItem("cart", JSON.stringify(shoppingCart));
+            window.location.reload();
+        }
+    });
 
-    if (!data)
-        data = {}
+document.querySelector(".addToBasket").addEventListener("click", async (e) => {
+    e.preventDefault();
 
-    previousCount = parseInt(data[product.product.id] ? data[product.product.id].count : 0);
+    let data = JSON.parse(localStorage.getItem("cart"));
+
+    if (!data) data = {};
+
+    previousCount = parseInt(
+        data[product.product.id] ? data[product.product.id].count : 0
+    );
     console.log(previousCount);
 
     data[product.product.id] = {
-        'name': product.product['name'],
-        'image_url': product.product['image_url'],
-        'price': product.product['price'],
-        'alt_text': product.product['alt_text'],
-        'count': previousCount + parseInt(document.getElementById('amount').value)
-    }
+        name: product.product["name"],
+        image_url: product.product["image_url"],
+        price: product.product["price"],
+        alt_text: product.product["alt_text"],
+        count:
+            previousCount + parseInt(document.getElementById("amount").value),
+    };
 
     localStorage.setItem("cart", JSON.stringify(data));
 
-    user = JSON.parse(localStorage.getItem('armyshop_currently_signed_in_user'));
-    if(user){
-        fetch(`/api/baskets/add/${user.id}/${productId}/${data[product.product.id].count}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-        .then(response => response.json())
-        .catch(error => console.error(error));
+    user = JSON.parse(
+        localStorage.getItem("armyshop_currently_signed_in_user")
+    );
+    if (user) {
+        fetch(
+            `/api/baskets/add/${user.id}/${productId}/${
+                data[product.product.id].count
+            }`,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            }
+        )
+            .then((response) => response.json())
+            .catch((error) => console.error(error));
     }
+
+    const removeFromCartButton = `
+        <button class="removeFromBasket">
+            <img width="30%" src="../../images/shoppingCartImages/3515498.png" alt="Empty Shopping Basket - Shopping Basket Icon Png@seekpng.com">
+            <p class="small">Remove From Basket</p>
+        </button>
+    `;
+    const newButton = document.createElement("div");
+    newButton.innerHTML = removeFromCartButton;
+
+    document
+        .querySelector(".add-remove-buttons-wrapper")
+        .appendChild(newButton);
 
     alert("Product added to cart.");
 });
 
-document.getElementById('order-now').addEventListener('click', async (e) => {
-    e.preventDefault()
+document.getElementById("order-now").addEventListener("click", async (e) => {
+    e.preventDefault();
     data = {};
 
     data[product.product.id] = {
-        'name': product.product['name'],
-        'image_url': product.product['image_url'],
-        'price': product.product['price'],
-        'alt_text': product.product['alt_text'],
-        'count': parseInt(document.getElementById('amount').value)
-    }
+        name: product.product["name"],
+        image_url: product.product["image_url"],
+        price: product.product["price"],
+        alt_text: product.product["alt_text"],
+        count: parseInt(document.getElementById("amount").value),
+    };
 
     localStorage.setItem("buyNowCart", JSON.stringify(data));
     window.location.href = "/paymentDetail";
 });
 
 handlePopup = (orderNow = false) => {
-    console.log('hello');
+    console.log("hello");
     window.location.assign("#popup1");
     const countdownEl = document.getElementById("countdown");
     const popupInfo = document.querySelector(".popup-info");

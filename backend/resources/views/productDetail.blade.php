@@ -70,10 +70,19 @@
                             <h4 class="text-center" id="total-price">5999.99 €</h4>
                         </div>
                         <div class="mb-3 text-center">
-                        <!-- image source: flaticon.com -->
-                        <button class="addToBasket"><img width="30%" src="{{ asset('images/productDetailImages/cart.png') }}" alt="Empty Shopping Basket - Shopping Basket Icon Png@seekpng.com">
-                            <p class="small">add to basket</p></button>
-                        
+                            <div class="add-remove-buttons-wrapper">
+                                <!-- image source: flaticon.com -->
+                                <button class="addToBasket">
+                                    <img width="30%" src="{{ asset('images/productDetailImages/cart.png') }}" alt="Empty Shopping Basket - Shopping Basket Icon Png@seekpng.com">
+                                    <p class="small">Add To Basket</p>
+                                </button>
+                                
+                                <!-- image source: flaticon.com -->
+                                <button class="removeFromBasket">
+                                    <img width="30%" src="../../images/shoppingCartImages/3515498.png" alt="Empty Shopping Basket - Shopping Basket Icon Png@seekpng.com">
+                                    <p class="small">Remove From Basket</p>
+                                </button>
+                            </div>
                         <p>or</p>
                         <button type="submit" class="btn btn-success btn-lg" id="order-now">Order Now</button>
                         </div>
