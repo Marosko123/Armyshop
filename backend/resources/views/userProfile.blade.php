@@ -68,7 +68,7 @@
 								</div>
 								
 								<label for="country">Country:</label>
-								<div class="mb-1 input-control">
+							<div class="mb-1 input-control">
 									<input type="text" id="country-input" placeholder=""><br>
 									<div class="error"></div>
 								</div>
@@ -85,12 +85,17 @@
 					</div>
 
 					<!-- military passport -->
-					<div class="containerElement">
+					<div id="military-passport-container" class="containerElement">
 						<h2>Military passport</h2>
 						<hr>
+						<button type="button" class="collapsible">Show military passport</button>
+						<div class="content profile-military-passport-wrapper">
+							<img alt="military_passport" id="profile-military-passport-image">
+						</div>
 						<div class="image-container">
 							<label for="image-selector">Select an image:</label>
-							<input type="file" id="image-selector" accept="image/*">
+							<input type="file" id="file-input" name="avatar" accept="image/png, image/jpeg"
+                    			onchange="militaryPassportChoosen(this)">
 						</div>
 					</div>
 				</div>

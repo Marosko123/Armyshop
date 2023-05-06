@@ -86,6 +86,59 @@ class UsersController extends Controller
         ], 200);
     }
 
+    public function updateMilitaryPassport(Request $request, $user_id)
+    {
+        $validator = Validator::make($request->all(), [
+            'license_picture' => 'required|string',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 422,
+                'errors' => $validator->messages()
+            ], 422);
+        }
+
+        $user = User::find($user_id);
+        if (!$user) {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Something went wrong'
+            ], 404);
+        }
+
+        try {
+            $data = $request->license_picture;
+
+            list($type, $data) = explode(';', $data);
+            list(, $data) = explode(',', $data);
+            $data = base64_decode($data);
+
+            $path = 'militaryPassports/militaryPassportOfUserWithId_' . $user->id . '.png';
+            file_put_contents($path, $data);
+
+            $file = file_get_contents($path);
+            $data = base64_encode($file);
+            $data = 'data:image/png;base64,' . $data;
+
+            $user->is_license_valid = true;
+            $user->save();
+            $user->license_picture = $data;
+        } catch (\Exception $e) {
+            $errMessage = 'Our apologies.. Image was not uploaded successfully. Try reuploading it in your profile or contact our support.';
+
+            return response()->json([
+                'status' => 500,
+                'message' => $errMessage,
+            ], 500);
+        }
+
+        return response()->json([
+            'status' => 200,
+            'message' => 'Military passport uploaded successfully'
+        ], 200);
+    }
+
     public function update(Request $request, int $id)
     {
         $validator = Validator::make($request->all(), [
@@ -128,7 +181,7 @@ class UsersController extends Controller
         if ($request->has('license_picture')) {
             $user->license_picture = $request->license_picture ?? $user->license_picture;
         }
-        
+
         if ($request->has('password')) {
             $user->password = bcrypt($request->password);
         }
