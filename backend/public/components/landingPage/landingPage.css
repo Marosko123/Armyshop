@@ -11,10 +11,6 @@ body {
   color: #dddddd;
 }
 
-/* #most-popular .card-container {
-  display: flex !important; 
-} */
-
 @media (max-width: 1000px) {
   #most-popular .card-container {
     display: block !important;

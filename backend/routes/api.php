@@ -147,25 +147,3 @@ Route::get('finished_orders/{user_id}', [FinishedOrdersController::class, 'getAl
 Route::post('finished_orders/{user_id}', [FinishedOrdersController::class, 'add']);
 // delete finished orders of user
 Route::delete('finished_orders/delete/{user_id}', [FinishedOrdersController::class, 'delete']);
-
-
-// MESSAGES
-
-// get all finished orders of all users
-Route::get('messages/{user_id}/{room_id}', [MessagesController::class, 'getMessages']);
-// get all finished orders of all users
-Route::post('messages/send_message/{user_id}/{room_id}', [MessagesController::class, 'sendMessage']);
-
-
-// CHAT ROOMS
-
-// get all chat rooms
-Route::get('chat_rooms', [ChatRoomsController::class, 'get']);
-// get all chat rooms
-Route::get('chat_rooms/{user_id}', [ChatRoomsController::class, 'getRoomsOfUser']);
-// get all users of given chat room that have permission to write
-Route::get('chat_rooms/permissions/{room_id}', [ChatRoomsController::class, 'getUsersWithPermission']);
-// create chat room for 2 and more users
-Route::post('chat_rooms/create', [ChatRoomsController::class, 'create']);
-// create chat room for 2 and more users
-Route::delete('chat_rooms/delete/{room_id}', [ChatRoomsController::class, 'delete']);
