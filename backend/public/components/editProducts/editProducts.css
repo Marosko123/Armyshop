@@ -77,6 +77,8 @@
   height:50px;
   width: 60px;
   align-items: center;
+  border-radius: 10px;
+  border:none;
 }
 
 #edit-products .edit-button-img{
@@ -90,6 +92,8 @@
   width: 60px;
   align-items: center;
   margin-right: 20px;
+  border-radius: 10px;
+  border:none;
 }
 
 #edit-products .remove-button-img{
