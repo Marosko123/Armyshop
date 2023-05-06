@@ -66,7 +66,7 @@ class UsersController extends Controller
         $user->age = $request->age;
         $user->address = $request->address;
         $user->is_license_valid = $request->is_license_valid;
-        $user->telephone = $request->telephone;
+        $user->phone = $request->phone;
         if ($request->hasFile('picture')) {
             $path = $request->file('picture')->store('public/id_pictures');
             $user->picture = $path;
@@ -96,9 +96,9 @@ class UsersController extends Controller
             'age' => 'nullable|integer',
             'address' => 'nullable|string|max:191',
             'license_picture' => 'nullable|image|max:1024',
-            'telephone' => [
+            'phone' => [
                 'nullable',
-                'regex:/^+\d{1,3}\d{10}$/',
+                'regex:/^\+[1-9]\d{1,14}$/',
             ],
         ]);
 
@@ -123,9 +123,12 @@ class UsersController extends Controller
         $user->last_name = $request->last_name ?? $user->last_name;
         $user->age = $request->age ?? $user->age;
         $user->address = $request->address ?? $user->address;
-        $user->license_picture = $request->license_picture ?? $user->license_picture;
-        $user->telephone = $request->telephone ?? $user->telephone;
+        $user->phone = $request->phone ?? $user->phone;
 
+        if ($request->has('license_picture')) {
+            $user->license_picture = $request->license_picture ?? $user->license_picture;
+        }
+        
         if ($request->has('password')) {
             $user->password = bcrypt($request->password);
         }

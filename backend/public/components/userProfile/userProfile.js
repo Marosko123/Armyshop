@@ -62,10 +62,10 @@ window.addEventListener("load", function () {
 
     if (data.address) {
         addressFields = data.address.split(",");
-        document.getElementById("address").value = addressFields[0];
-        document.getElementById("zip-code").value = addressFields[1];
-        document.getElementById("city").value = addressFields[2];
-        document.getElementById("country").value = addressFields[3];
+        document.getElementById("address").value = addressFields[0] == 'undefined' ? '' : addressFields[0];
+        document.getElementById("zip-code").value = addressFields[1] == 'undefined' ? '' : addressFields[1];
+        document.getElementById("city").value = addressFields[2] == 'undefined' ? '' : addressFields[2];
+        document.getElementById("country").value = addressFields[3] == 'undefined' ? '' : addressFields[3];
     }
 });
 
@@ -90,8 +90,9 @@ saveChangesButton.addEventListener("click", async function () {
     "id":oldData.id,
     "first_name": document.getElementById('name').value.split(" ")[0],
     "last_name": document.getElementById('name').value.split(" ")[1],
-     "email" : document.getElementById('email').value,
-    "address": address
+    "email" : document.getElementById('email').value,
+    "address": address,
+    "phone": document.getElementById('phone').value
   };
 
   localStorage.setItem("armyshop_currently_signed_in_user",JSON.stringify(data));

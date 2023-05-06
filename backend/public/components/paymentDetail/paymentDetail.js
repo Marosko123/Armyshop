@@ -49,7 +49,7 @@ class PaymentDetail {
             zip: document.getElementById("zip-input"),
             city: document.getElementById("city-input"),
             country: document.getElementById("country-input"),
-            telephone: document.getElementById("telephone-input"),
+            phone: document.getElementById("telephone-input"),
         };
 
         let user = JSON.parse(
@@ -87,7 +87,7 @@ class PaymentDetail {
             zip_code: inputElements.zip.value,
             city: inputElements.city.value,
             country: inputElements.country.value,
-            phone: inputElements.telephone.value,
+            phone: inputElements.phone.value,
         };
 
         if (PaymentDetailValidator.areAllInputsValid(inputElements)) {

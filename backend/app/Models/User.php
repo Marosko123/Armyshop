@@ -20,7 +20,8 @@ class User extends Authenticatable
         'address',
         'license_picture',
         'is_license_valid',
-        'telephone'
+        'phone',
+        'role'
     ];
 
     protected $hidden = [
