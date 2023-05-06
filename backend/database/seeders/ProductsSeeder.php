@@ -35,7 +35,7 @@ class ProductsSeeder extends Seeder
             "name" => "P2000",
             "price" => 299.99,
             "description" => "The P2000 is a short recoil-operated locked breech pistol with a modified Browning-type linkless cam action with a vertically tilting barrel also employed in the USP series of self-loading pistols, as well as most modern linkless semi autos.",
-            "image_url" => "https://img.freepik.com/free-photo/gun_74658-46.jpg?w=740&t=st=1681023873~exp=1681024473~hmac=d70f8dce10e10d98d0e15449a9e43a5f531a1f3e286d601df993fa597fa5a5d8",
+            "image_url" => "https://img.freepik.com/free-photo/gun_74658-46.jpg?w=740&t=st=1681023873~exp=1681024473~hmac=d70f8dce10e10d98d0e15449a9e43a5f531a1f3e286d601df993fa597fa5a5d8" . " https://t3.ftcdn.net/jpg/01/86/79/02/240_F_186790284_rZSBPzfDYGw32O8rMgZPnDBu6T6UMXv4.jpg",
             "alt_text" => "P2000 on white background",
             "subcategory_id" => 1,
             "license_needed" => true

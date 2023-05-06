@@ -24,10 +24,20 @@
 				<!-- cart container -->
 				<div id="cart-container">
 					<div class="listContainerElement">
-					<div class="itemList">
-						<ul id="products">
-						</ul>
+						<div class="itemList">
+							<ul id="products">
+							</ul>
+						</div>
 					</div>
+					<hr class="solid">
+					<div id="cart-export-import">
+						<div class="export-wrapper"> 
+							<input class="export-button" type="button" value="Export To .JSON" onclick="exportAsJSON()"/>
+						</div>
+						<div class="import-wrapper"> 
+							<input type="file" accept="application/JSON" id="selectedFile" style="display: none;" />
+							<input class="import-button" type="button" value="Import .JSON" onclick="importJSON()" />
+						</div>
 					</div>
 				</div>
 
@@ -55,3 +65,4 @@
 	<script src="{{ asset('components/contactUs/contactUs.js') }}"></script>
 </body>
 </html>
+

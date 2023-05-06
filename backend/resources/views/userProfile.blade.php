@@ -19,7 +19,7 @@
 	<!-- navbar -->
     @include('components.navbar')
 	
-	<main >
+	<main>
 		<!-- user-profile -->
 		<div id="user-profile">
 			<h1>User Profile</h1>
@@ -110,26 +110,7 @@
 						</div>
 						<button type="button" id="wish-list-btn">WISH LIST</button>
 						<div id="wishListContainer">
-							<table>
-								<tr class="wishListRow">
-									<td>
-										<!-- image source: unsplash.com -->
-										<img class="productImg"
-											src="{{ asset('images/productImages/weapons/jay-rembert-e0kgA5otj0Q-unsplash.jpg') }}">
-									</td>
-									<td>Small firearm modern cast steel, semi-automatic</td>
-									<td class="wishListPrice">250€</td>
-								</tr>
-								<tr class="wishListRow">
-									<td>
-										<!-- image source: unsplash.com -->
-										<img class="productImg"
-											src="{{ asset('images/productImages/weapons/bexar-arms-uLOWWVPVefQ-unsplash.jpg') }}">
-									</td>
-									<td>Assault rifle black steel</td>
-									<td class="wishListPrice">339.90€</td>
-								</tr>
-							</table>
+							
 						</div>
 					</div>
 

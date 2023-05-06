@@ -31,14 +31,9 @@
             <section id="carrouselAndPricing" class="align-items-center">
             <section id="carrousel">
                 <div id="carouselExampleControls" class="carousel slide">
-                    <div class="carousel-inner rounded">
+                    <div class="carousel-inner rounded" id="image-container">
                     <div class="carousel-item active">
-                        <!-- image source: unsplash.com (Alexey Turenkov)-->
-                        <img class="d-block w-100 detail-image" src="{{ asset('images/productDetailImages/ak47-1.jpg') }}" alt="detail image" style="width:50rem !important; height:35rem !important; object-fit:cover">
-                    </div>
-                    <div class="carousel-item">
-                        <!-- image source: unsplash.com (Alexey Turenkov)-->
-                        <img class="d-block w-100 detail-image" src="{{ asset('images/productDetailImages/ak47-2.jpg') }}" alt="detail image" style="width:50rem !important; height:35rem !important; object-fit:cover">
+                        <img class="d-block w-100 detail-image" src="https://icon-library.com/images/loading-icon/loading-icon-16.jpg" alt="loading image" style="width:50rem !important; height:35rem !important; object-fit:cover">
                     </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">

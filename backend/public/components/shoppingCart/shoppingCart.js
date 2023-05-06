@@ -1,20 +1,15 @@
-const onContinueButtonClicked = () => {
-    localStorage.removeItem("buyNowCart");
-    if (!JSON.parse(localStorage.getItem("cart"))) {
-        alert("Add some products before checking out.");
-        return;
-    }
-    window.location.href = "paymentDetail";
-};
+window.addEventListener("load", function () {
+    loadCart();
+});
 
-window.addEventListener('load', function () {
+function loadCart() {
     data = JSON.parse(localStorage.getItem("cart"));
     console.log(data);
 
     listElement = document.getElementById("products");
+    listElement.innerHTML = "";
 
-    if (!data)
-        listElement.innerHTML = "<li>Shopping cart is empty...</li>";
+    if (!data) listElement.innerHTML = "<li>Shopping cart is empty...</li>";
 
     for (let key in data) {
         product = document.createElement("li");
@@ -22,7 +17,9 @@ window.addEventListener('load', function () {
         product.innerHTML = `
         <div class="item">
           <!-- image source: unsplash.com -->
-          <img class="img" src="${data[key].image_url}" alt="${data[key].alt_text}">
+          <img class="img" src="${data[key].image_url}" alt="${
+            data[key].alt_text
+        }">
           <div class="desc">
             <div class="title-remove">
               <h3>${data[key].name}
@@ -33,81 +30,103 @@ window.addEventListener('load', function () {
               </button>
             </div>
             <div class="prices">
-              <p class="singularPrice">${Formatter.formatPrice(data[key].price)}</p>
+              <p class="singularPrice">${Formatter.formatPrice(
+                  data[key].price
+              )}</p>
               <div class="multiple">
                 <div class="countControls">
                   <button class="countControlButtons" id="minusButton_${key}">-</button>
-                  <input id="count_${key}" type="number" value="${data[key].count}">
+                  <input id="count_${key}" type="number" value="${
+            data[key].count
+        }">
                   <button class="countControlButtons" id="plusButton_${key}">+</button>
                 </div>
-                <p class="multiplePrice" id="multiplePrice_${key}">${Formatter.formatPrice(data[key].price * data[key].count)}</p>
+                <p class="multiplePrice" id="multiplePrice_${key}">${Formatter.formatPrice(
+            data[key].price * data[key].count
+        )}</p>
               </div>
             </div>
           </div>
-        </div>`
+        </div>`;
 
         listElement.appendChild(product);
 
-        document.getElementById(`count_${key}`).addEventListener('change', function () {
-            input = document.getElementById(`count_${key}`);
-            if (input.value < 1) input.value = 1;
-            else if (input.value > 100) input.value = 100;
+        document
+            .getElementById(`count_${key}`)
+            .addEventListener("change", function () {
+                input = document.getElementById(`count_${key}`);
+                if (input.value < 1) input.value = 1;
+                else if (input.value > 100) input.value = 100;
 
-            handleProductCountChange(key, false, false, input.value);
-        });
+                handleProductCountChange(key, false, false, input.value);
+            });
 
-        document.getElementById(`plusButton_${key}`).addEventListener('click', function () {
-            input = document.getElementById(`count_${key}`)
-            if (input.value < 100)
-                handleProductCountChange(key, true, false, null);
+        document
+            .getElementById(`plusButton_${key}`)
+            .addEventListener("click", function () {
+                input = document.getElementById(`count_${key}`);
+                if (input.value < 100)
+                    handleProductCountChange(key, true, false, null);
+            });
 
-        });
+        document
+            .getElementById(`minusButton_${key}`)
+            .addEventListener("click", function () {
+                input = document.getElementById(`count_${key}`);
+                if (input.value > 1)
+                    handleProductCountChange(key, false, true, null);
+            });
 
-        document.getElementById(`minusButton_${key}`).addEventListener('click', function () {
-            input = document.getElementById(`count_${key}`)
-            if (input.value > 1)
-                handleProductCountChange(key, false, true, null);
-        });
+        document
+            .getElementById(`remove-button_${key}`)
+            .addEventListener("click", function () {
+                if (!confirm("Do you really want to remove this product?"))
+                    return;
 
-        document.getElementById(`remove-button_${key}`).addEventListener('click', function () {
-            if (!confirm("Do you really want to remove this product?")) return;
+                data = JSON.parse(localStorage.getItem("cart"));
+                delete data[key];
+                localStorage.setItem("cart", JSON.stringify(data));
 
-            data = JSON.parse(localStorage.getItem("cart"));
-            delete data[key];
-            localStorage.setItem("cart", JSON.stringify(data));
+                calculateSummary(data);
 
-            calculateSummary(data);
+                console.log(localStorage.getItem("cart"));
+                if (localStorage.getItem("cart") === "{}") {
+                    localStorage.removeItem("cart");
 
-            console.log(localStorage.getItem("cart"));
-            if (localStorage.getItem("cart") === "{}") {
-                localStorage.removeItem('cart');
+                    listElement.innerHTML =
+                        "<li>Shopping cart is empty...</li>";
+                    return;
+                }
 
-                listElement.innerHTML = "<li>Shopping cart is empty...</li>";
-                return;
-            }
-
-            var product = document.getElementById(`product_${key}`);
-            product.parentNode.removeChild(product);
-            saveToDB(key, null, true);
-        });
+                var product = document.getElementById(`product_${key}`);
+                product.parentNode.removeChild(product);
+                saveToDB(key, null, true);
+            });
     }
     calculateSummary(data);
-});
+}
+
+const onContinueButtonClicked = () => {
+    localStorage.removeItem("buyNowCart");
+    if (!JSON.parse(localStorage.getItem("cart"))) {
+        alert("Add some products before checking out.");
+        return;
+    }
+    window.location.href = "paymentDetail";
+};
 
 function handleProductCountChange(key, increment, decrement, value) {
     data = JSON.parse(localStorage.getItem("cart"));
 
-    if (increment)
-        data[key].count = parseInt(data[key].count) + 1;
-    else if (decrement)
-        data[key].count = parseInt(data[key].count) - 1;
-    else if (value)
-        data[key].count = value;
+    if (increment) data[key].count = parseInt(data[key].count) + 1;
+    else if (decrement) data[key].count = parseInt(data[key].count) - 1;
+    else if (value) data[key].count = value;
 
-    input = document.getElementById(`count_${key}`)
+    input = document.getElementById(`count_${key}`);
     input.value = parseInt(data[key].count);
 
-    document.getElementById(`multiplePrice_${key}`).innerText = Formatter.formatPrice(data[key].price * data[key].count);
+    document.getElementById(`multiplePrice_${key}`).innerText =
+        Formatter.formatPrice(data[key].price * data[key].count);
 
     calculateSummary(data);
 
@@ -118,35 +137,91 @@ function handleProductCountChange(key, increment, decrement, value) {
 
 function calculateSummary(data) {
     subtotal = 0;
-    for (let key in data)
-        subtotal += (data[key].price * data[key].count);
+    for (let key in data) subtotal += data[key].price * data[key].count;
 
-    document.getElementById(`total`).innerText = Formatter.formatPrice(subtotal);
+    document.getElementById(`total`).innerText =
+        Formatter.formatPrice(subtotal);
 }
 
-function saveToDB(productID, count, remove){
-    user = JSON.parse(localStorage.getItem('armyshop_currently_signed_in_user'));
-    if(!user) return;
+function saveToDB(productID, count, remove) {
+    user = JSON.parse(
+        localStorage.getItem("armyshop_currently_signed_in_user")
+    );
+    if (!user) return;
 
-    if(remove){
+    if (remove) {
         fetch(`/api/baskets/delete/${user.id}/${productID}`, {
-            method: 'DELETE',
+            method: "DELETE",
             headers: {
-                'Content-Type': 'application/json'
-            }
+                "Content-Type": "application/json",
+            },
         })
-        .then(response => response.json())
-        .catch(error => console.error(error));
+            .then((response) => response.json())
+            .catch((error) => console.error(error));
         return;
     }
 
     fetch(`/api/baskets/add/${user.id}/${productID}/${count}`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json",
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
     })
-    .then(response => response.json())
-    .catch(error => console.error(error));
+        .then((response) => response.json())
+        .catch((error) => console.error(error));
+}
+
+function deleteAllProductsFromCart() {
+    let cartItems = JSON.parse(localStorage.getItem("cart"));
+
+    for (let productIndex in cartItems) {
+        saveToDB(productIndex, null, true);
+    }
+
+    localStorage.removeItem("cart");
+}
+
+function saveProductsToCart(productsJsonString) {
+    localStorage.setItem("cart", productsJsonString);
+    let cartItems = JSON.parse(productsJsonString);
+
+    for (let productIndex in cartItems) {
+        saveToDB(productIndex, cartItems[productIndex].count);
+    }
+}
+
+function exportAsJSON() {
+    const csvFileData = localStorage.getItem("cart");
+
+    let hiddenElement = document.createElement("a");
+    hiddenElement.href =
+        "data:text/json;charset=utf-8," + encodeURI(csvFileData);
+    hiddenElement.target = "_blank";
+
+    hiddenElement.download = "shopping_cart.json";
+    hiddenElement.click();
+}
+
+async function importJSON() {
+    const fileSelected = new Promise((resolve) => {
+        const fileInput = document.getElementById("selectedFile");
+        fileInput.addEventListener("change", () => resolve(fileInput.files[0]));
+        fileInput.click();
+    });
+
+    const file = await fileSelected;
+
+    const fileReader = new FileReader();
+    fileReader.readAsText(file);
+
+    const fileLoaded = new Promise((resolve) => {
+        fileReader.addEventListener("load", () => resolve(fileReader.result));
+    });
+
+    const fileContents = await fileLoaded;
+    deleteAllProductsFromCart();
+
+    saveProductsToCart(fileContents);
+    loadCart();
 }

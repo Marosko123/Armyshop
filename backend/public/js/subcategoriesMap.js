@@ -50,6 +50,18 @@ class SubcategoriesMap {
         }
     }
 
+    static getSubcategoriesFromId(id) {
+        return SubcategoriesMap.list.filter(subcategory => subcategory.parent === SubcategoriesMap.fromId(id).parent).map(subcategory => subcategory.name);
+    }
+
+    static getCategoryFromId(id) {
+        return SubcategoriesMap.fromId(id).parent;
+    }
+
+    static getCategories() {
+        return [...new Set(SubcategoriesMap.list.map(subcategory => subcategory.parent))];
+    }
+
     static getSubcategories(category) {
         return SubcategoriesMap.list.filter(subcategory => subcategory.parent === category).map(subcategory => subcategory.name);
     }

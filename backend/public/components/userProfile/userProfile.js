@@ -17,12 +17,38 @@ orderHistoryBtn.addEventListener("click", function () {
 const wishListBtn = document.getElementById("wish-list-btn");
 const wishListContainer = document.getElementById("wishListContainer");
 
-wishListBtn.addEventListener("click", function () {
+wishListBtn.addEventListener("click", async function () {
     if (
         wishListContainer.style.display === "none" ||
         wishListContainer.style.display == ""
     ) {
         wishListContainer.style.display = "block";
+        // Build the HTML string for the wishlist
+        let wishlistHTML = "<table>";
+        
+        const likedIds = await getLikedProducts();
+        console.log(likedIds);
+        const productsToDisplay = GlobalVariables.products.filter(product => likedIds.includes(product.id));
+        console.log(productsToDisplay);
+        if (productsToDisplay.length == 0) {
+            wishlistHTML += "<tr><td>Your wishlist is empty.</td></tr>";
+        }
+        
+        productsToDisplay.forEach(product => {
+            wishlistHTML += `
+                <tr class="wishListRow">
+                <td>
+                    <img class="productImg" src="${product.image_url}">
+                </td>
+                <td>${product.name}</td>
+                <td class="wishListPrice">${product.price}</td>
+                </tr>
+            `;
+        });
+        
+        wishlistHTML += "</table>";
+        
+        wishListContainer.innerHTML = wishlistHTML;
     } else {
         wishListContainer.style.display = "none";
     }
@@ -114,3 +140,22 @@ saveChangesButton.addEventListener("click", async function () {
    alert("Changes saved.");
 
 });
+
+async function getLikedProducts() {
+data = JSON.parse(
+        localStorage.getItem("armyshop_currently_signed_in_user")
+    );
+if (data === null || data.id < 1) {
+    alert("You must be logged in to view your wishlist.");
+    return;
+}
+const response = await ServerRequester.getFromUrl(`/liked_products/${data.id}`)
+if (response.status === 200) {
+    likedArray = response.products.map(product => product.product_id);
+} else {
+    likedArray = [];
+}
+console.log(likedArray);
+return likedArray;
+}
+  

@@ -110,7 +110,7 @@ class BasketsController extends Controller
         if (!$basket) {
             return response()->json([
                 'status' => 404,
-                'message' => 'Basket does not contain product with id ' + $product_id,
+                'message' => 'Basket does not contain product with id ' . $product_id,
             ], 404);
         }
 
@@ -148,7 +148,7 @@ class BasketsController extends Controller
         if (!$basket) {
             return response()->json([
                 'status' => 404,
-                'message' => 'Basket does not contain product with id ' + $product_id,
+                'message' => 'Basket does not contain product with id ' . $product_id,
             ], 404);
         }
 
