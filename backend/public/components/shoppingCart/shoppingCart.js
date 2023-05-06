@@ -75,32 +75,14 @@ function loadCart() {
                 input = document.getElementById(`count_${key}`);
                 if (input.value > 1)
                     handleProductCountChange(key, false, true, null);
+                else 
+                    removeProduct(key);
             });
 
         document
             .getElementById(`remove-button_${key}`)
-            .addEventListener("click", function () {
-                if (!confirm("Do you really want to remove this product?"))
-                    return;
-
-                data = JSON.parse(localStorage.getItem("cart"));
-                delete data[key];
-                localStorage.setItem("cart", JSON.stringify(data));
-
-                calculateSummary(data);
-
-                console.log(localStorage.getItem("cart"));
-                if (localStorage.getItem("cart") === "{}") {
-                    localStorage.removeItem("cart");
-
-                    listElement.innerHTML =
-                        "<li>Shopping cart is empty...</li>";
-                    return;
-                }
-
-                var product = document.getElementById(`product_${key}`);
-                product.parentNode.removeChild(product);
-                saveToDB(key, null, true);
+            .addEventListener("click", function () {   
+                removeProduct(key);
             });
     }
     calculateSummary(data);
@@ -172,6 +154,30 @@ function saveToDB(productID, count, remove) {
         .catch((error) => console.error(error));
 }
 
+function removeProduct(key){
+    if (!confirm("Do you really want to remove this product?"))
+    return;
+
+    data = JSON.parse(localStorage.getItem("cart"));
+    delete data[key];
+    localStorage.setItem("cart", JSON.stringify(data));
+
+    calculateSummary(data);
+
+    console.log(localStorage.getItem("cart"));
+    if (localStorage.getItem("cart") === "{}") {
+        localStorage.removeItem("cart");
+
+        listElement.innerHTML =
+            "<li>Shopping cart is empty...</li>";
+        return;
+    }
+
+    var product = document.getElementById(`product_${key}`);
+    product.parentNode.removeChild(product);
+    saveToDB(key, null, true);
+}
+
 function deleteAllProductsFromCart() {
     let cartItems = JSON.parse(localStorage.getItem("cart"));
 
@@ -193,6 +199,11 @@ function saveProductsToCart(productsJsonString) {
 
 function exportAsJSON() {
     const csvFileData = localStorage.getItem("cart");
+
+    if(!csvFileData) {
+        alert("Nothing to export!");
+        return;
+    }
 
     let hiddenElement = document.createElement("a");
     hiddenElement.href =
