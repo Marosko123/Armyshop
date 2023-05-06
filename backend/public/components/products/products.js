@@ -218,7 +218,7 @@ function applyFilters() {
     queryString += `&license=${licenseValue}`;
 
     // order by filter
-    const orderBy = document.querySelector('.dropbtn')
+    const orderBy = document.querySelector('#order-by-select')
     if (orderBy.classList.contains('asc')) {
         queryString += `&order=asc`;
     } else if (orderBy.classList.contains('desc')) {
@@ -317,7 +317,7 @@ function getProductsHTML(products, notLikedImg, likedImg, likedArray) {
             alt="Card image cap"
             style="height:15rem !important; object-fit:cover !important;">
             <div class="card-body d-flex align-items-center justify-content-between mx-auto">
-                <div>
+                <div class="mt-2">
                     <h3 class="card-title">${product.name}</h3>
                     <p class="card-text">${formatPriceMillions(product.price)} €</p>
                 </div>
@@ -391,6 +391,18 @@ async function getAllProducts(page) {
     // add event listeners to cards
     addEventListenersToCards();
 
+    // select the correct order by option
+    const orderBySelect = document.getElementById('order-by-select');
+    // get the order by from the url
+    if(url.includes('order=')) {
+        const orderBy = url.split('order=')[1];
+        // select the correct option
+        if(orderBy === 'asc') {
+            orderBySelect.selectedIndex = 1;
+        } else if(orderBy === 'desc') {
+            orderBySelect.selectedIndex = 2;
+        }
+    }
     // calculate the number of pages
     const numPages = Math.ceil(parseInt(count) / 18)
     hideExcessPageElements(numPages);
@@ -603,15 +615,35 @@ pagePrevious.addEventListener('click', () => {
 
 
 // order by
-const orderBy = document.querySelector('.dropbtn');
-document.querySelector('.asc').addEventListener('click', () => {
-    orderBy.classList.add('asc');
+const orderBy = document.querySelector('#order-by-select');
+
+orderBy.addEventListener('change', (e) => {
+    const selectedOption = e.target.options[e.target.selectedIndex];
+    const selectedValue = selectedOption.value;
+    orderBy.classList.remove('asc', 'desc');
+    if (selectedValue === 'Increasing') {
+        orderBy.classList.add('asc');
+    } else if (selectedValue === 'Decreasing') {
+        orderBy.classList.add('desc');
+    }
     applyFilters();
 });
-document.querySelector('.desc').addEventListener('click', () => {
-    orderBy.classList.add('desc');
-    applyFilters();
-});
+// document.querySelector('.no-order').addEventListener('click', (e) => {
+//     e.preventDefault();
+//     orderBy.classList.remove('asc');
+//     orderBy.classList.remove('desc');
+//     applyFilters();
+// });
+// document.querySelector('.asc').addEventListener('click', (e) => {
+//     e.preventDefault();
+//     orderBy.classList.add('asc');
+//     applyFilters();
+// });
+// document.querySelector('.desc').addEventListener('click', (e) => {
+//     e.preventDefault();
+//     orderBy.classList.add('desc');
+//     applyFilters();
+// });
 
 // apply filters
 const applyFiltersBtn = document.getElementById('apply-button');

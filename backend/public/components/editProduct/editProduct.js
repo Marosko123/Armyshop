@@ -67,9 +67,16 @@ loadProduct();
 document.getElementById('edit-btn').addEventListener('click', async function (e) {
     e.preventDefault();
     // validate form
-    if (!productName.value || !price.value || !description.value || !image1.value) {
+    console.log('hello');
+    if (!productName.value || !price.value || !description.value) {
         alert('Please fill all fields');
         return;
+    }
+    if (isNaN(price.value)) {
+        alert('Price must be a number');
+        return;
+    } else {
+        price.value = parseFloat(price.value);
     }
     const product = {
         name: productName.value,
@@ -82,7 +89,10 @@ document.getElementById('edit-btn').addEventListener('click', async function (e)
     console.log(product);
     await ServerRequester.putToUrl(`/products/${productId}`, product)
     .then(data => {
-        console.log('Success:', data);
+        if (data.status != 200) {
+            alert('Error updating product');
+            return;
+        }
         window.location.href = '/adminDashboard';
     })
     .catch((error) => {
@@ -99,7 +109,7 @@ const showPreview = (name, image, price) => {
             alt="Card image cap"
             style="height:15rem !important; object-fit:cover !important;">
             <div class="card-body d-flex align-items-center justify-content-between mx-auto">
-                <div>
+                <div class="mt-2">
                     <h3 class="card-title">${name}</h3>
                     <p class="card-text">${price} €</p>
                 </div>

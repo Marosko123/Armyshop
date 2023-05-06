@@ -1027,7 +1027,7 @@ class ProductsSeeder extends Seeder
             "name" => "Aviator Glasses",
             "price" => 59.99,
             "description" => "These aviator glasses are made of high-quality metal and feature polycarbonate lenses. They have a classic design and provide excellent protection against glare and UV rays. Perfect for military pilots and aviation enthusiasts.",
-            "image_url" => "https://t3.ftcdn.net/jpg/04/72/36/50/240_F_472365025_EhnlrWYeqREXUKUkgUhzdYyUP09lukLm.jpg",
+            "image_url" => "https://t3.ftcdn.net/jpg/04/72/36/50/240_F_472365025_EhnlrWYeqREXUKUkgUhzdYyUP09lukLm.jpg" . " https://avatars.githubusercontent.com/u/7091294?v=4",
             "alt_text" => "Aviator Glasses",
             "subcategory_id" => 24,
             "license_needed" => false
@@ -1037,7 +1037,7 @@ class ProductsSeeder extends Seeder
             "name" => "Combat Glasses",
             "price" => 79.99,
             "description" => "These combat glasses are made of high-strength polycarbonate and feature a wraparound design for maximum protection. They have a comfortable foam lining and an adjustable strap. Perfect for military and law enforcement personnel.",
-            "image_url" => "https://t4.ftcdn.net/jpg/05/81/24/67/240_F_581246781_7YtsAaeS77OcGZi7JLLvyRX5dJxzZfWj.jpg",
+            "image_url" => "https://t4.ftcdn.net/jpg/05/81/24/67/240_F_581246781_7YtsAaeS77OcGZi7JLLvyRX5dJxzZfWj.jpg" . " https://avatars.githubusercontent.com/u/7091294?v=4",
             "alt_text" => "Combat Glasses",
             "subcategory_id" => 24,
             "license_needed" => false
