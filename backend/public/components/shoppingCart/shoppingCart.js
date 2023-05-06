@@ -135,33 +135,21 @@ function calculateSummary(data) {
         formatPriceMillions(subtotal) + "€";
 }
 
-function saveToDB(productID, count, remove) {
+async function saveToDB(productID, count, remove) {
     user = JSON.parse(
         localStorage.getItem("armyshop_currently_signed_in_user")
     );
     if (!user) return;
 
     if (remove) {
-        fetch(`/api/baskets/delete/${user.id}/${productID}`, {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json",
-            },
-        })
-            .then((response) => response.json())
-            .catch((error) => console.error(error));
+        await ServerRequester.deleteFromUrl(`/baskets/delete/${user.id}/${productID}`);
         return;
     }
-
-    fetch(`/api/baskets/add/${user.id}/${productID}/${count}`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-    })
-        .then((response) => response.json())
-        .catch((error) => console.error(error));
+    
+    await ServerRequester.postToUrl(`/baskets/add/${user.id}/${productID}/${count}`,
+    {
+        body: data
+    });
 }
 
 function removeProduct(key){

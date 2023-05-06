@@ -1,4 +1,4 @@
-window.onload = function () {
+window.onload = async function () {
   let items = document.querySelectorAll('.item');
     for (let item of items) {
       let editButton = item.querySelectorAll('.edit-button')[0];
@@ -13,16 +13,13 @@ window.onload = function () {
         if (!confirm("Do you really want to remove this product?")) return;
         console.log(`remove product - ${item.getAttribute("product-id")}`)
         
-          fetch(`/api/products/delete/${item.getAttribute("product-id")}`, {
-              method: 'DELETE',
-              headers: {
-                  'Content-Type': 'application/json'
-              }
-          })
-          .then(response => response.json())
-          .catch(error => console.error(error));
+        deleteFromDB(item);
           
-          item.remove();
-        });
+        item.remove();
+      });
     }
+}
+
+async function deleteFromDB(item){
+  await ServerRequester.deleteFromUrl(`/products/delete/${item.getAttribute("product-id")}`);
 }

@@ -425,7 +425,7 @@ function addEventListenersToCards() {
         
         const cartButton = card.querySelector('#cart-button');
 
-        cartButton.addEventListener('click', () => {
+        cartButton.addEventListener('click', async () => {
             data = [];
             data = JSON.parse(localStorage.getItem("cart"));
         
@@ -450,17 +450,11 @@ function addEventListenersToCards() {
             localStorage.setItem("cart", JSON.stringify(data));
 
             user = JSON.parse(localStorage.getItem('armyshop_currently_signed_in_user'));
-            if(user){
-                fetch(`/api/baskets/add/${user.id}/${productId}/${data[productId].count}`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(data)
-                })
-                .then(response => response.json())
-                .catch(error => console.error(error));
-            }
+            
+            await ServerRequester.postToUrl(`/baskets/add/${user.id}/${productId}/${data[productId].count}`,
+            {
+                body: data
+            });
             
             alert("Product added to cart");
         });

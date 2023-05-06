@@ -161,6 +161,7 @@ saveChangesButton.addEventListener("click", async function () {
         .then((data) => console.log(data))
         .catch((error) => console.error(error));
 
+
     data.role = oldData.role;
     data.is_license_valid = oldData.is_license_valid;
     data.license_picture = oldData.license_picture;

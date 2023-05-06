@@ -208,20 +208,10 @@ document.querySelector(".addToBasket").addEventListener("click", async (e) => {
         localStorage.getItem("armyshop_currently_signed_in_user")
     );
     if (user) {
-        fetch(
-            `/api/baskets/add/${user.id}/${productId}/${
-                data[product.product.id].count
-            }`,
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(data),
-            }
-        )
-            .then((response) => response.json())
-            .catch((error) => console.error(error));
+        await ServerRequester.postToUrl(`/baskets/add/${user.id}/${productId}/${data[product.product.id].count}`,
+        {
+            body: data
+        });
     }
 
     const removeFromCartButton = `

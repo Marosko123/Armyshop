@@ -74,7 +74,6 @@ const handleUserAuthentication = async (user) => {
         JSON.stringify(user)
     );
 
-
     fetch(`/api/baskets/${user.id}`, {
         method: 'GET',
         headers: {
@@ -84,6 +83,7 @@ const handleUserAuthentication = async (user) => {
     .then(response => response.json())
     .then(data => loadToStorage(data))
     .catch(error => console.error(error));
+
 
     document.querySelector("#login-popup").remove();
     const profileButton = document.querySelector(".profile__button");
