@@ -149,13 +149,7 @@ const createListOfResults = (results, searchString) => {
             `<mark>${searchString}</mark>`
         );
 
-        const formattedPrice = result.price
-            .toLocaleString("en-US", {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2,
-                useGrouping: true,
-            })
-            .replaceAll(",", " ");
+        const formattedPrice = formatPriceMillions(result.price);
 
         resultElement += `
             <div class="search-result-row ${
@@ -178,6 +172,16 @@ const createListOfResults = (results, searchString) => {
 
     return resultElement;
 };
+
+function formatPriceMillions(price) {
+    if (price > 1000000) {
+      price = (price / 1000000).toFixed(2) + "M";
+    } else if (price > 100000) {
+        price = price / 1000 + "K";
+    }
+    price = price.toString().replace('.', ',')
+    return price;
+}
 
 document.querySelector(".search-input").addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
