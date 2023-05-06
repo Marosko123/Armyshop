@@ -16,6 +16,22 @@ class ServerRequester{
             console.log(error);
         }
     };
+
+    static putToUrl = async function (subroute, bodyData) {
+        try {
+            return (
+                await fetch(apiUrl + subroute, {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(bodyData),
+                })
+            ).json();
+        } catch (error) {
+            console.log(error);
+        }
+    };
     
     static getFromUrl = async function (subroute) {
         try {

@@ -113,6 +113,8 @@ Route::get('products/subcategory/{subcategory_id}', [ProductsController::class, 
 //     "license_needed": true
 // }
 Route::post('products/create', [ProductsController::class, 'add']);
+// update a product
+Route::put('products/{product_id}', [ProductsController::class, 'update']);
 // delete a product
 Route::delete('products/delete/{product_id}', [ProductsController::class, 'delete']);
 // delete all products
