@@ -62,7 +62,9 @@ function formatPriceMillions(price) {
     if (price > 1000000) {
         price = (price / 1000000).toFixed(2) + "M";
     } else if (price > 100000) {
-        price = price / 1000 + "K";
+        price = (price / 1000).toFixed(2) + "K";
+    } else {
+        price = price.toFixed(2);
     }
     price = price.toString().replace(".", ",");
     return price;
@@ -109,6 +111,8 @@ window.addEventListener("load", function () {
         document.getElementById("country-input").value =
             addressFields[3] == "undefined" ? "" : addressFields[3];
     }
+
+    setMilitaryPassport();
 });
 
 //save changes
@@ -192,3 +196,85 @@ async function getLikedProducts() {
     console.log(likedArray);
     return likedArray;
 }
+
+async function setMilitaryPassport() {
+    let user = JSON.parse(
+        localStorage.getItem("armyshop_currently_signed_in_user")
+    );
+
+    if (!user || !user.license_picture) {
+        return;
+    }
+
+    document.querySelector("#profile-military-passport-image").src =
+        user.license_picture;
+}
+
+let collapsibleElement = document.getElementsByClassName("collapsible")[0];
+collapsibleElement.addEventListener("click", function () {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+        content.style.display = "none";
+    } else {
+        content.style.display = "block";
+    }
+});
+
+async function submitMilitaryPassport() {
+    const user = JSON.parse(
+        localStorage.getItem("armyshop_currently_signed_in_user")
+    );
+
+    const response = await ServerRequester.postToUrl(
+        `/users/${user.id}/update_military_passport`,
+        {
+            license_picture: sessionStorage.getItem("military-passport"),
+        }
+    );
+
+    if (response.status === 200) {
+        alert("Military passport successfully submitted!");
+        user.license_picture = sessionStorage.getItem("military-passport");
+        localStorage.setItem(
+            "armyshop_currently_signed_in_user",
+            JSON.stringify(user)
+        );
+        setMilitaryPassport();
+    }
+}
+
+militaryPassportChoosen = async (event) => {
+    const [file] = event.files;
+    if (!file) {
+        imageToSubmit = null;
+        return;
+    }
+
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+
+    reader.addEventListener("load", () => {
+        sessionStorage.setItem("military-passport", reader.result);
+    });
+
+    await delay(200);
+
+    document.querySelector("#profile-military-passport-image").src =
+        sessionStorage.getItem("military-passport");
+
+    const submitButton = document.createElement("button");
+    submitButton.type = "button";
+    submitButton.classList.add("btn", "btn-primary");
+    submitButton.innerText = "Submit";
+    submitButton.addEventListener("click", () => {
+        submitMilitaryPassport();
+    });
+
+    document
+        .querySelector("#military-passport-container .btn.btn-primary")
+        ?.remove();
+    document
+        .querySelector("#military-passport-container")
+        .appendChild(submitButton);
+};

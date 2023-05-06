@@ -37,6 +37,8 @@ Route::get('users', [UsersController::class, 'get']);
 Route::get('users/get/{id}', [UsersController::class, 'getById']);
 // add user
 Route::post('users', [UsersController::class, 'add']);
+// update user military passport
+Route::post('users/{user_id}/update_military_passport', [UsersController::class, 'updateMilitaryPassport']);
 // update user
 Route::put('users/update/{id}', [UsersController::class, 'update']);
 // delete user

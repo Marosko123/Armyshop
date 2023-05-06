@@ -29,7 +29,21 @@ class LoginRegisterController extends Controller
         if (Auth::attempt($credentials)) {
             // Authentication successful
             $user = Auth::user();
+
+            try {
+                $path = 'militaryPassports/militaryPassportOfUserWithId_' . $user->id . '.png';
+                $file = file_get_contents($path);
+                $data = base64_encode($file);
+                $data = 'data:image/png;base64,' . $data;
+
+                $user->license_picture = $data;
+            } catch (\Exception $e) {
+                $user->license_picture = '';
+                $user->is_license_valid = false;
+            }
+
             $token = $user->createToken('access_token')->plainTextToken;
+
             return response()->json([
                 'status' => 200,
                 'token' => $token,
@@ -42,7 +56,6 @@ class LoginRegisterController extends Controller
                 'message' => 'Invalid credentials',
             ], 401);
         }
-        
     }
 
     public function register(Request $request)
