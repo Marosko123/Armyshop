@@ -40,7 +40,7 @@ class PaymentDetail {
             .innerHTML.trim();
     };
 
-    static onOrderNowClicked = async (event) => {
+    static onOrderNowClicked = async () => {
         const inputElements = {
             firstName: document.getElementById("first-name-input"),
             lastName: document.getElementById("last-name-input"),
@@ -58,11 +58,14 @@ class PaymentDetail {
 
         if (!user) {
             user = {
-                id: null,
+                id: -1,
             };
         }
 
-        const cart = JSON.parse(localStorage.getItem("cart"));
+        let cart = JSON.parse(localStorage.getItem("buyNowCart"));
+        if (cart == null)
+            cart = JSON.parse(localStorage.getItem("cart"));
+
         let productIDs = Object.keys(cart);
 
         let orderedProducts = {};
@@ -109,6 +112,12 @@ class PaymentDetail {
 
             if (response.status === 200) {
                 document.querySelector("#payment-detail form").reset();
+
+                if(localStorage.getItem('buyNowCart') == null) 
+                    localStorage.removeItem('cart');
+                else 
+                    localStorage.removeItem('buyNowCart');
+                    
                 return PaymentDetail.handlePopup();
             }
             if (response.status === 401) {
