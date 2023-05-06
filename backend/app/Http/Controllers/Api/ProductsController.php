@@ -161,15 +161,54 @@ class ProductsController extends Controller
         ], 200);
     }
 
-    public function getMostPopular($amount)
-    {
-
+    public function update(Request $request, $id) {
+        $validator = Validator::make($request->all(), [
+            'name' => 'string|max:40',
+            'price' => 'numeric|between:0,9999999.9',
+            'description' => 'string|max:300',
+            'image_url' => 'string|max:1000',
+            'alt_text' => 'string|max:50',
+            'subcategory_id' => 'integer|min:0',
+            'license_needed' => 'boolean'
+        ]);
+    
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 422,
+                'message' => $validator->messages()
+            ], 422);
+        } else {
+            $product = Product::find($id);
+    
+            if (!$product) {
+                return response()->json([
+                    'status' => 404,
+                    'message' => 'Product not found'
+                ], 404);
+            }
+    
+            $product->name = $request->name ?? $product->name;
+            $product->price = $request->price ?? $product->price;
+            $product->description = $request->description ?? $product->description;
+            $product->image_url = $request->image_url ?? $product->image_url;
+            $product->alt_text = $request->alt_text ?? $product->alt_text;
+            $product->subcategory_id = $request->subcategory_id ?? $product->subcategory_id;
+            $product->license_needed = $request->license_needed ?? $product->license_needed;
+    
+            $product->save();
+    
+            return response()->json([
+                'status' => 200,
+                'product' => $product
+            ], 200);
+        }
     }
+    
 
     public function add(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:20',
+            'name' => 'required|string|max:40',
             'price' => 'required|numeric|between:0,9999999.9',
             'description' => 'required|string|max:300',
             'image_url' => 'string|max:1000',
