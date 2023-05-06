@@ -150,6 +150,17 @@
   margin-top: 5px;
 }
 
+#shopping-cart #cart-export-import {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+
+#shopping-cart #cart-export-import .export-button,
+#shopping-cart #cart-export-import .import-button {
+  font-weight: bold;
+}
+
 /* ORDER SUMMARY */
 
 #shopping-cart #order-summary {
