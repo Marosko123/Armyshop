@@ -29,6 +29,7 @@
 							</ul>
 						</div>
 					</div>
+					<hr class="solid">
 					<div id="cart-export-import">
 						<div class="export-wrapper"> 
 							<input class="export-button" type="button" value="Export To .JSON" onclick="exportAsJSON()"/>
