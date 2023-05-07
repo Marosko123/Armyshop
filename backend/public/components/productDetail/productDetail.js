@@ -74,7 +74,8 @@ function setProductInformation(product) {
     document.querySelector(".priceFor1").innerHTML =
         "Price for one: " + formatPriceMillions(product.price) + " €";
     priceFor1 = product.price;
-    document.getElementById("total-price").innerHTML = formatPriceMillions(product.price) + " €";
+    document.getElementById("total-price").innerHTML =
+        formatPriceMillions(product.price) + " €";
 
     // set product image
     setProductImage(product);
@@ -127,7 +128,8 @@ plusBtn.addEventListener("click", () => {
         amountInput.value++;
 
         totalPrice.innerHTML =
-            formatPriceMillions((priceFor1 * amountInput.value).toFixed(2)) + " €";
+            formatPriceMillions((priceFor1 * amountInput.value).toFixed(2)) +
+            " €";
     }
 });
 
@@ -136,7 +138,8 @@ minusBtn.addEventListener("click", () => {
         amountInput.value--;
 
         totalPrice.innerHTML =
-        formatPriceMillions((priceFor1 * amountInput.value).toFixed(2)) + " €";
+            formatPriceMillions((priceFor1 * amountInput.value).toFixed(2)) +
+            " €";
     }
 });
 
@@ -148,16 +151,17 @@ amountInput.addEventListener("change", () => {
         amountInput.value = 100;
     }
 
-    totalPrice.innerHTML = formatPriceMillions((priceFor1 * amountInput.value).toFixed(2)) + " €";
+    totalPrice.innerHTML =
+        formatPriceMillions((priceFor1 * amountInput.value).toFixed(2)) + " €";
 });
 
 function formatPriceMillions(price) {
     if (price > 1000000) {
-      price = (price / 1000000).toFixed(2) + "M";
+        price = (price / 1000000).toFixed(2) + "M";
     } else if (price > 100000) {
         price = (price / 1000).toFixed(2) + "K";
     }
-    price = price.toString().replace('.', ',');
+    price = price.toString().replace(".", ",");
     return price;
 }
 
@@ -209,25 +213,32 @@ document.querySelector(".addToBasket").addEventListener("click", async (e) => {
         localStorage.getItem("armyshop_currently_signed_in_user")
     );
     if (user) {
-        await ServerRequester.postToUrl(`/baskets/add/${user.id}/${productId}/${data[product.product.id].count}`,
-        {
-            body: data
-        });
+        await ServerRequester.postToUrl(
+            `/baskets/add/${user.id}/${productId}/${
+                data[product.product.id].count
+            }`,
+            {
+                body: data,
+            }
+        );
     }
 
-    const removeFromCartButton = `
+    if (
+        !document.querySelector(".add-remove-buttons-wrapper .removeFromBasket")
+    ) {
+        const removeFromCartButton = `
         <button class="removeFromBasket">
-            <img width="30%" src="../../images/shoppingCartImages/3515498.png" alt="Empty Shopping Basket - Shopping Basket Icon Png@seekpng.com">
-            <p class="small">Remove From Basket</p>
+        <img width="30%" src="../../images/shoppingCartImages/3515498.png" alt="Empty Shopping Basket - Shopping Basket Icon Png@seekpng.com">
+        <p class="small">Remove From Basket</p>
         </button>
     `;
-    const newButton = document.createElement("div");
-    newButton.innerHTML = removeFromCartButton;
+        const newButton = document.createElement("div");
+        newButton.innerHTML = removeFromCartButton;
 
-    document
-        .querySelector(".add-remove-buttons-wrapper")
-        .appendChild(newButton);
-
+        document
+            .querySelector(".add-remove-buttons-wrapper")
+            .appendChild(newButton);
+    }
     alert("Product added to cart.");
 });
 
