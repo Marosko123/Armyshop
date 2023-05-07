@@ -2,12 +2,45 @@
 const orderHistoryBtn = document.getElementById("order-history-btn");
 const historyContainer = document.getElementById("orderHistoryContainer");
 
-orderHistoryBtn.addEventListener("click", function () {
+orderHistoryBtn.addEventListener("click", async function () {
     if (
         historyContainer.style.display === "none" ||
         historyContainer.style.display == ""
     ) {
         historyContainer.style.display = "block";
+        let orders = await ServerRequester.getFromUrl(`/finished_orders/${JSON.parse(localStorage.getItem('armyshop_currently_signed_in_user')).id}`);
+        
+        console.log(orders.finishedOrders);
+        if (orders.finishedOrders.length == 0) {
+            let html = `<table>
+                            <tr>
+                                <td>You have no orders yet.</td>
+                            </tr>
+                        </table>`;
+            historyContainer.innerHTML = html;
+        }
+        else {
+            let html = `<table>
+                            <tr>
+                            <th>ID:</th>
+                            <th>Items:</th>
+                            <th>Price:</th>
+                            </tr>`;
+
+            for (const [id, order] of Object.entries(orders.finishedOrders)) {
+                html += `
+                    <tr>
+                        <td>#${id}</td>
+                        <td>${Object.keys(order.ordered_products).length}</td>
+                        <td>${Formatter.formatPriceMillions(order.price)} €</td>
+                    </tr>
+                `;
+            }
+
+            html += "</table>";
+            historyContainer.innerHTML = html;
+        }
+
     } else {
         historyContainer.style.display = "none";
     }

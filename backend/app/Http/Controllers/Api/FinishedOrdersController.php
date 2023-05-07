@@ -44,20 +44,35 @@ class FinishedOrdersController extends Controller
 
     public function add(Request $request, $user_id)
     {
-        // does user exist
-        // if ($user_id != null && !User::find($user_id)) {
-        //     return response()->json([
-        //         'status' => 404,
-        //         'message' => 'User not found'
-        //     ], 404);
-        // }
-
+        $shippingCosts = [
+            'inStorePickup' => 0,
+            'postOffice' => 2.5,
+            'dhl' => 3.5
+        ];
+        
         $finishedOrder = new FinishedOrder;
         $finishedOrder->delivery = $request->delivery;
         $finishedOrder->payment = $request->payment;
         $finishedOrder->ordered_products = $request->ordered_products;
+        
+        #calculate order total price
+        $products = json_decode($request->ordered_products);
+        $totalPrice = 0;
+        foreach ($products as $product_id => $quantity) {
+            $product = Product::find($product_id);
+            $totalPrice += $product->price * $quantity;
+        }
+        $totalPrice += $shippingCosts[$request->delivery];
+        $finishedOrder->price = $totalPrice;
 
         if ($user_id != -1) {
+            //does user exist
+            if ($user_id != null && !User::find($user_id)) {
+                return response()->json([
+                    'status' => 404,
+                    'message' => 'User not found'
+                ], 404);
+            }
             $finishedOrder->user_id = $user_id;
         } else {
             $finishedOrder->first_name = $request->first_name;

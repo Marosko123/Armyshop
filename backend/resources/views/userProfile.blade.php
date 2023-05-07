@@ -107,38 +107,6 @@
 						<hr>
 						<button type="button" id="order-history-btn">ORDER HISTORY</button>
 						<div id="orderHistoryContainer">
-							<table>
-								<tr>
-									<th>ID:</th>
-									<th>Items:</th>
-									<th>Price:</th>
-								</tr>
-								<tr>
-									<td>#10023</td>
-									<td>20</td>
-									<td>250€</td>
-								</tr>
-								<tr>
-									<td>#10342</td>
-									<td>2</td>
-									<td>26.78€</td>
-								</tr>
-								<tr>
-									<td>#18734</td>
-									<td>2000</td>
-									<td>1245€</td>
-								</tr>
-								<tr>
-									<td>#19734</td>
-									<td>2000</td>
-									<td>1245€</td>
-								</tr>
-								<tr>
-									<td>#19433</td>
-									<td>1</td>
-									<td>1245000€</td>
-								</tr>
-							</table>
 						</div>
 						<button type="button" id="wish-list-btn">WISH LIST</button>
 						<div id="wishListContainer">

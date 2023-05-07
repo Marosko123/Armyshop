@@ -17,6 +17,7 @@ class FinishedOrder extends Model
         'delivery',
         'payment',
         'ordered_products',
+        'price',
 
         'first_name',
         'last_name',

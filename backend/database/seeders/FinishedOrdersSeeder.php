@@ -20,7 +20,8 @@ class FinishedOrdersSeeder extends Seeder
             "ordered_products" => '{"31":5,"34":1,"38":3}',
         
             'delivery' => 'inStorePickup',
-            'payment' =>'By card'
+            'payment' =>'By card',
+            'price' => '50'
         ]);
 
         FinishedOrder::create([
@@ -28,6 +29,7 @@ class FinishedOrdersSeeder extends Seeder
         
             'delivery' => 'inStorePickup',
             'payment' =>'By card',
+            'price' => '50',
     
             'first_name' =>'ahoj',
             'last_name' =>'joha',

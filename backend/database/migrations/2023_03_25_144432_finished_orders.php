@@ -18,6 +18,7 @@ return new class extends Migration {
             $table->string('ordered_products', 2048);
             $table->string('delivery', 255);
             $table->string('payment', 255);
+            $table->string('price', 255);
 
             $table->string('first_name', 255)->nullable();
             $table->string('last_name', 255)->nullable();
