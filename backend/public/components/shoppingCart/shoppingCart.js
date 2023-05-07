@@ -88,7 +88,9 @@ function loadCart() {
     calculateSummary(data);
 }
 
+
 const onContinueButtonClicked = () => {
+    
     localStorage.removeItem("buyNowCart");
     if (!JSON.parse(localStorage.getItem("cart"))) {
         alert("Add some products before checking out.");

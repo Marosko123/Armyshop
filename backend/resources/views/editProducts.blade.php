@@ -34,8 +34,6 @@
 				$firstPart = $parts[0];
 			@endphp
 			<img class="img" src="{{ $firstPart }}" alt="{{$products[$i]['name']}}">
-
-              
               <p class="item-title">{{$products[$i]['name']}}</p>
 
               <button class="edit-button">

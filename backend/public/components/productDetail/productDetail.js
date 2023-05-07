@@ -202,6 +202,7 @@ document.querySelector(".addToBasket").addEventListener("click", async (e) => {
         image_url: product.product["image_url"],
         price: product.product["price"],
         alt_text: product.product["alt_text"],
+        license: product.product["license_needed"],
         count:
             previousCount + parseInt(document.getElementById("amount").value),
     };

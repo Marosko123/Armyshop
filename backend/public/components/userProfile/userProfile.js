@@ -238,6 +238,8 @@ async function setMilitaryPassport() {
 
     document.querySelector("#profile-military-passport-image").src =
         user.license_picture;
+
+    user.is_license_valid = true;
 }
 
 let collapsibleElement = document.getElementsByClassName("collapsible")[0];

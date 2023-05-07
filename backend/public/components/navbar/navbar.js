@@ -160,7 +160,7 @@ const createListOfResults = (results, searchString) => {
                 i % 2 ? "pair-row" : ""
             }" onclick="onSearchResultSelected(this)">
                 <img class="search-result-row-img" src="${
-                    result.image_url
+                    result.image_url.split(' ')[0]
                 }" alt="${result.alt_text}">
                 <span class="search-result-row-label">${highlightedName}</span>
                 <span class="search-result-row-category">${SubcategoriesMap.getFullPathFromId(

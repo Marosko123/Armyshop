@@ -397,6 +397,7 @@ async function getAllProducts(page) {
     }
     reset = false;
 
+
     count = products.length;
 
     // create html for each product
@@ -471,6 +472,7 @@ function addEventListenersToCards() {
                 price: filteredProduct["price"],
                 image_url: filteredProduct["image_url"],
                 alt_text: filteredProduct["alt_text"],
+                license:filteredProduct['license_needed']
             };
             cartProduct["count"] = 1 + previousCount;
 
