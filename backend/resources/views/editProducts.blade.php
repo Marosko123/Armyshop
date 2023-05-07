@@ -28,7 +28,13 @@
 
             @for($i = 0; $i < count($products); $i++)
             <div class="item" product-id="{{$products[$i]['id']}}">
-              <img class="img" src="{{$products[$i]['image_url']}}" alt="Women's Leather Jacket">
+			@php
+				$string = $products[$i]['image_url'];
+				$parts = explode(' ', $string);
+				$firstPart = $parts[0];
+			@endphp
+			<img class="img" src="{{ $firstPart }}" alt="{{$products[$i]['name']}}">
+
               
               <p class="item-title">{{$products[$i]['name']}}</p>
 
