@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="{{ asset('components/addProduct/addProduct.css') }}">
 <link rel="stylesheet" href="{{ asset('components/loginAndRegisterMenu/loginAndRegisterMenu.css') }}">
 </head>
-<body>
+<body hidden>
 	<!-- navbar -->
     @include('components.navbar')
 

@@ -306,6 +306,12 @@ function getProductsHTML(products, notLikedImg, likedImg, likedArray) {
         productsHTML = `<h2 style="color:white !important; margin-top:40px !important;">No products found for this filter</h2>
         <div style="height:100px;"></div>`;
     }
+
+    data = JSON.parse(
+        localStorage.getItem("armyshop_currently_signed_in_user")
+    );
+    if (data == null) likedArray = [];
+
     for (const product of products) {
         const isLiked = likedArray.includes(product.id)
         const likedVersion = isLiked ? likedImg : notLikedImg;

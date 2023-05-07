@@ -118,8 +118,7 @@ window.addEventListener("load", function () {
         localStorage.getItem("armyshop_currently_signed_in_user")
     );
     if (data === null) {
-        createPopup();
-        displayLoginMenu();
+        window.location.href = "/";
     } else document.querySelector("body").removeAttribute("hidden");
 
     //load user data into fields

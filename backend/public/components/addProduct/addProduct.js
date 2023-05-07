@@ -129,3 +129,13 @@ previewBtn.addEventListener('click', (e) => {
     const image1 = document.getElementById('product_image1').value ?? "";
     showPreview(name, image1, price)
 });
+
+window.addEventListener("load", function () {
+    //redirect if user is not logged in
+    data = JSON.parse(
+        localStorage.getItem("armyshop_currently_signed_in_user")
+    );
+    if (data === null || data.role !== "admin") {
+        window.location.href = "/";
+    } else document.querySelector("body").removeAttribute("hidden");
+});

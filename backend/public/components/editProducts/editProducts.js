@@ -1,4 +1,12 @@
 window.onload = async function () {
+  //redirect if user is not logged in
+  data = JSON.parse(
+      localStorage.getItem("armyshop_currently_signed_in_user")
+  );
+  if (data === null || data.role !== "admin") {
+      window.location.href = "/";
+  } else document.querySelector("body").removeAttribute("hidden");
+
   let items = document.querySelectorAll('.item');
     for (let item of items) {
       let editButton = item.querySelectorAll('.edit-button')[0];

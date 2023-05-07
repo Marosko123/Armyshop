@@ -75,12 +75,10 @@ document.getElementById('edit-btn').addEventListener('click', async function (e)
     if (isNaN(price.value)) {
         alert('Price must be a number');
         return;
-    } else {
-        price.value = parseFloat(price.value);
     }
     const product = {
         name: productName.value,
-        price: price.value,
+        price: parseFloat(price.value),
         description: description.value,
         image_url: image1.value + ' ' + image2.value,
         license_needed: licenseNeeded.checked,
@@ -141,4 +139,15 @@ previewBtn.addEventListener('click', (e) => {
     const price = document.getElementById('product_price').value;
     const image1 = document.getElementById('product_image1').value ?? "";
     showPreview(name, image1, price)
+});
+
+
+window.addEventListener("load", function () {
+    //redirect if user is not logged in
+    data = JSON.parse(
+        localStorage.getItem("armyshop_currently_signed_in_user")
+    );
+    if (data === null || data.role !== "admin") {
+        window.location.href = "/";
+    } else document.querySelector("body").removeAttribute("hidden");
 });
