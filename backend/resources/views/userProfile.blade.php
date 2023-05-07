@@ -83,21 +83,6 @@
 							</form>
 						</div>
 					</div>
-
-					<!-- military passport -->
-					<div id="military-passport-container" class="containerElement">
-						<h2>Military passport</h2>
-						<hr>
-						<button type="button" class="collapsible">Show military passport</button>
-						<div class="content profile-military-passport-wrapper">
-							<img alt="military_passport" id="profile-military-passport-image">
-						</div>
-						<div class="image-container">
-							<label for="image-selector">Select an image:</label>
-							<input type="file" id="file-input" name="avatar" accept="image/png, image/jpeg"
-                    			onchange="militaryPassportChoosen(this)">
-						</div>
-					</div>
 				</div>
 
 				<!-- statistics -->
@@ -114,8 +99,23 @@
 						</div>
 					</div>
 
+					<!-- military passport -->
+					<div id="military-passport-container" class="containerElement">
+						<h2>Military passport</h2>
+						<hr>
+						<button type="button" class="collapsible">Show military passport</button>
+						<div class="content profile-military-passport-wrapper">
+							<img alt="military_passport" id="profile-military-passport-image">
+						</div>
+						<div class="image-container">
+							<label for="image-selector">Select an image:</label>
+							<input type="file" id="file-input" name="avatar" accept="image/png, image/jpeg"
+													onchange="militaryPassportChoosen(this)">
+						</div>
+					</div>
+
 					<!-- change password -->
-					<div class="containerElement">
+					<!-- <div class="containerElement">
 						<h2>Change password</h2>
 						<hr>
 						<label for="passOld">Old password:</label>
@@ -128,7 +128,7 @@
 						<input type="password" id="passNewConfirm" name="passNewConfirm"><br>
 
 						<button type="button" id="change-password-btn">CHANGE PASSWORD</button>
-					</div>
+					</div> -->
 					<button type="button" id="log-out-btn">Log Out</button>
 				</div>
 			</div>

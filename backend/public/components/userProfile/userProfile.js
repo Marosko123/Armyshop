@@ -32,7 +32,7 @@ orderHistoryBtn.addEventListener("click", async function () {
                     <tr>
                         <td>#${id}</td>
                         <td>${Object.keys(order.ordered_products).length}</td>
-                        <td>${Formatter.formatPriceMillions(order.price)} €</td>
+                        <td>${formatPriceMillions(order.price)} €</td>
                     </tr>
                 `;
             }
