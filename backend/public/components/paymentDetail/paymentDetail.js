@@ -41,6 +41,29 @@ class PaymentDetail {
     };
 
     static onOrderNowClicked = async () => {
+        let needsLicense = false;
+        let cartItems = JSON.parse(localStorage.getItem("cart"));
+        let productsCart = Object.keys(cartItems);
+
+        for (const key in productsCart) {
+            if (cartItems[productsCart[key]].license) {
+                needsLicense = true;
+                break;
+            }
+        }
+
+        let user = JSON.parse(localStorage.getItem("armyshop_currently_signed_in_user"));
+        if(!user && needsLicense){
+            alert("You need a license for the items in your cart.");
+            window.location.href = '/shoppingCart';
+            return
+        }
+        if(!user.is_license_valid && needsLicense){
+            alert("You need a license for the items in your cart.");
+            window.location.href = '/shoppingCart';
+            return
+        }
+
         const inputElements = {
             firstName: document.getElementById("first-name-input"),
             lastName: document.getElementById("last-name-input"),
@@ -52,7 +75,7 @@ class PaymentDetail {
             phone: document.getElementById("telephone-input"),
         };
 
-        let user = JSON.parse(
+        user = JSON.parse(
             localStorage.getItem("armyshop_currently_signed_in_user")
         );
 
